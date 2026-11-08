@@ -1370,8 +1370,6 @@ class SumuwwApp:
         peers = node.get('peers', 0)
         if isinstance(peers, (list, tuple, dict)):
             peers = len(peers)
-        if 'outbound_peers' in node and 'inbound_peers' in node:
-            peers = f"{peers} (↑{node['outbound_peers']} ↓{node['inbound_peers']})"
         self.node_text.set(tr('Block height {0}   ·   Connected nodes {1}   ·   Address {2}', node.get('height', '—'), peers, endpoint))
         if self.network_name != 'dora':
             self.sync_text.set(tr('Test network · Offline mining is available.'))

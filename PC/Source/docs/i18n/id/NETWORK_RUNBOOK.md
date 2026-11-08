@@ -1,9 +1,9 @@
 # SUMUWW · Operasi node
 
-Node biasanya membuka 10 koneksi keluar. Sebagian besar meneruskan blok dan transaksi. Node dapat menggunakan koneksi cadangan yang telah diverifikasi untuk meneruskan blok dan membuka koneksi ke-11 sebentar untuk mencari node lain. Batas totalnya 125 koneksi. Maksimal ada 117 koneksi masuk, atau 115 jika ada 10 koneksi keluar.
+Node biasanya membuka 10 koneksi keluar. Sebagian besar meneruskan blok dan transaksi. Node dapat menggunakan koneksi cadangan yang telah diverifikasi untuk meneruskan blok dan membuka koneksi ke-11 sebentar untuk mencari node lain. Batas totalnya 125 koneksi. Maksimal ada 117 koneksi masuk, atau 115 jika ada 10 koneksi keluar. Aplikasi desktop kini hanya menampilkan jumlah total simpul yang terhubung. Setiap penambang menyusun bloknya sendiri. Node PC meneruskan blok yang sudah selesai dan menolak permintaan pekerjaan penambangan serta solusi dari ponsel.
 
 
-SUMUWW PC 0.57.51 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
+SUMUWW PC 0.57.53 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
 
 ## Jaringan dan alamat
 

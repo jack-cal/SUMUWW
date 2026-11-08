@@ -85,7 +85,7 @@
   "\nClose this window and check the launch settings.": "\n이 창을 닫고 실행 설정을 확인하세요.",
   "Could not start the node.\n": "노드를 시작하지 못했습니다.\n",
   "Could not read the status. ": "상태를 읽지 못했습니다. ",
-  "Block height {0}   ·   Connected nodes {1}   ·   Address {2}": "블록 높이 {0}   ·   연결 노드 {1}   ·   연결 주소 {2}",
+  "Block height {0}   ·   Connected nodes {1}   ·   Address {2}": "블록 높이 {0}   ·   연결 노드 {1}개   ·   연결 주소 {2}",
   "Test network · Offline mining is available.": "시험 네트워크 · 연결 없이 채굴할 수 있습니다.",
   "Synchronized with connected nodes · Mining ready": "연결된 노드와 동기화 완료 · 채굴 가능",
   "Synchronizing with connected nodes · Mining waiting": "연결된 노드와 동기화 중 · 채굴 대기",

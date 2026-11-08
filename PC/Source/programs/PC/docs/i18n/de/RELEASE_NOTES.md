@@ -1,9 +1,9 @@
 # SUMUWW · Versionshinweise
 
-Der Knoten baut normalerweise 10 ausgehende Verbindungen auf. Die meisten leiten Blöcke und Transaktionen weiter. Eine geprüfte Ersatzverbindung kann Blöcke weiterleiten. Zur Suche nach weiteren Knoten kann kurzzeitig eine elfte Verbindung hinzukommen. Insgesamt sind 125 Verbindungen möglich. Bei 10 ausgehenden Verbindungen sind bis zu 115 eingehende möglich, sonst höchstens 117.
+Der Knoten baut normalerweise 10 ausgehende Verbindungen auf. Die meisten leiten Blöcke und Transaktionen weiter. Eine geprüfte Ersatzverbindung kann Blöcke weiterleiten. Zur Suche nach weiteren Knoten kann kurzzeitig eine elfte Verbindung hinzukommen. Insgesamt sind 125 Verbindungen möglich. Bei 10 ausgehenden Verbindungen sind bis zu 115 eingehende möglich, sonst höchstens 117. Die Desktop-App zeigt jetzt nur die Gesamtzahl der verbundenen Knoten an. Jedes Mining-Gerät erstellt seine eigenen Blöcke. Der PC-Knoten leitet fertige Blöcke weiter und lehnt Anfragen des Smartphones nach Mining-Aufträgen sowie eingereichte Lösungen ab.
 
 
-SUMUWW PC 0.57.51 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
+SUMUWW PC 0.57.53 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
 
 ## Signaturformat
 

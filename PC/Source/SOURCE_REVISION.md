@@ -1,10 +1,10 @@
-# SUMUWW Windows 0.57.51
+# SUMUWW Windows 0.57.53
 
-The node normally opens 10 outbound connections, mostly to relay blocks and transactions. It can use a verified backup for blocks and briefly open an 11th connection to discover peers. The overall limit is 125. Up to 117 inbound connections are possible, or 115 with 10 outbound connections. A temporary outbound probe can check another peer when a slot is free. Manually configured direct peers count toward the total. Use --max-peers and --outgoing-target with the node executable. The desktop connection count shows outgoing (↑) and incoming (↓) peers.
+The node normally opens 10 outbound connections, mostly to relay blocks and transactions. It can use a verified backup for blocks and briefly open an 11th connection to discover peers. The overall limit is 125. Up to 117 inbound connections are possible, or 115 with 10 outbound connections. A temporary outbound probe can check another peer when a slot is free. Manually configured direct peers count toward the total. Use --max-peers and --outgoing-target with the node executable. The desktop node now shows the total number of connected peers.
 
 # SUMUWW Windows 0.57.49
 
-The full node provides compact mining jobs for Android 0.6.97 over its existing peer connection. The miner retries temporary SQLite write contention and records an error code and code location locally if a batch stops unexpectedly.
+Each miner builds its own blocks. The PC node relays completed blocks and rejects mobile mining jobs and solutions. The miner retries temporary SQLite write contention and records an error code and code location locally if a batch stops unexpectedly.
 
 # Release source — Windows 0.57.48
 

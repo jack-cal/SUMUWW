@@ -1,9 +1,9 @@
 # SUMUWW · Informacje o wersji
 
-Węzeł zwykle otwiera 10 połączeń wychodzących. Większość przekazuje bloki i transakcje. Sprawdzone połączenie zapasowe może przekazywać bloki. Węzeł może też na krótko otworzyć jedenaste połączenie, aby znaleźć inne węzły. Łączny limit wynosi 125. Połączeń przychodzących może być do 117, a przy 10 wychodzących do 115.
+Węzeł zwykle otwiera 10 połączeń wychodzących. Większość przekazuje bloki i transakcje. Sprawdzone połączenie zapasowe może przekazywać bloki. Węzeł może też na krótko otworzyć jedenaste połączenie, aby znaleźć inne węzły. Łączny limit wynosi 125. Połączeń przychodzących może być do 117, a przy 10 wychodzących do 115. Aplikacja komputerowa pokazuje teraz tylko łączną liczbę połączonych węzłów. Każde urządzenie wydobywcze tworzy własne bloki. Węzeł na komputerze rozsyła gotowe bloki i odrzuca prośby telefonu o zadania wydobywcze oraz przesyłane rozwiązania.
 
 
-SUMUWW PC 0.57.51 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+SUMUWW PC 0.57.53 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 ## Format podpisu
 

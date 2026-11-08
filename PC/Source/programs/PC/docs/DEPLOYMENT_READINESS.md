@@ -4,7 +4,7 @@ This is a program operating guide, not a change to SUMUWW consensus or a promise
 
 ## Existing protections checked
 
-- Eight direct peer sessions in total, with bounded incoming admission and outbound reservation. Excess connection attempts are rejected instead of accumulating unlimited sessions.
+- The node normally opens 10 outbound connections, mostly to relay blocks and transactions. It can use a verified backup for blocks and briefly open an 11th connection to discover peers. The overall limit is 125. Up to 117 inbound connections are possible, or 115 with 10 outbound connections.
 - Per-peer allowances for request work, transaction hints, validation bytes and outgoing bytes. These are protocol allowances, not a fixed operating-system CPU percentage or a universal memory-use guarantee.
 - Frame, handshake, response and write deadlines; incomplete or non-reading peers cannot wait forever. Invalid-data cooldowns use actual remote IPs. Healthy existing sessions sharing an IP are retained; new sessions sharing a blocked NAT IP can still be affected.
 - At most 1,000 pending transactions and 4,000,000 serialized bytes. Full-pool rejection does not confirm or debit a rejected transfer. The limit is local node policy, not total network transaction capacity.

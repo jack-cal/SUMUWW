@@ -1,9 +1,9 @@
 # SUMUWW · Notas de versión
 
-El nodo suele abrir 10 conexiones salientes. La mayoría retransmite bloques y transacciones. Puede usar una conexión de respaldo verificada para los bloques y abrir brevemente una conexión más para descubrir otros nodos. El límite total es de 125. Admite hasta 117 conexiones entrantes, o 115 si hay 10 salientes.
+El nodo suele abrir 10 conexiones salientes. La mayoría retransmite bloques y transacciones. Puede usar una conexión de respaldo verificada para los bloques y abrir brevemente una conexión más para descubrir otros nodos. El límite total es de 125. Admite hasta 117 conexiones entrantes, o 115 si hay 10 salientes. La aplicación de escritorio ahora muestra solo el número total de nodos conectados. Cada dispositivo minero construye sus propios bloques. El nodo de PC retransmite los bloques completos y rechaza las solicitudes de trabajo minero y las soluciones enviadas por el móvil.
 
 
-SUMUWW PC 0.57.51 · El nodo valida, guarda, retransmite y permite consultar la cadena.
+SUMUWW PC 0.57.53 · El nodo valida, guarda, retransmite y permite consultar la cadena.
 
 ## Formato de firma
 

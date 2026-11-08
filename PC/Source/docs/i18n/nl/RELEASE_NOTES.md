@@ -1,9 +1,9 @@
 # SUMUWW · Versieopmerkingen
 
-Het knooppunt opent gewoonlijk 10 uitgaande verbindingen. De meeste geven blokken en transacties door. Een geverifieerde reserveverbinding kan blokken doorgeven. Om andere knooppunten te vinden kan er kort een elfde verbinding bijkomen. De totale limiet is 125. Er zijn maximaal 117 inkomende verbindingen mogelijk, of 115 bij 10 uitgaande verbindingen.
+Het knooppunt opent gewoonlijk 10 uitgaande verbindingen. De meeste geven blokken en transacties door. Een geverifieerde reserveverbinding kan blokken doorgeven. Om andere knooppunten te vinden kan er kort een elfde verbinding bijkomen. De totale limiet is 125. Er zijn maximaal 117 inkomende verbindingen mogelijk, of 115 bij 10 uitgaande verbindingen. De desktopapp toont nu alleen het totale aantal verbonden knooppunten. Elke miner bouwt zijn eigen blokken. De pc-node stuurt voltooide blokken door en weigert aanvragen voor miningwerk en oplossingen van telefoons.
 
 
-SUMUWW PC 0.57.51 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
+SUMUWW PC 0.57.53 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
 
 ## Ondertekenformaat
 

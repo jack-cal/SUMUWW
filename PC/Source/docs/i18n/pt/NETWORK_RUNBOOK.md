@@ -1,9 +1,9 @@
 # SUMUWW · Operação do nó
 
-O nó normalmente abre 10 conexões de saída. A maioria retransmite blocos e transações. Uma conexão de reserva já verificada pode retransmitir blocos, e uma 11ª conexão pode ser aberta por pouco tempo para descobrir outros nós. O limite total é de 125. O nó aceita até 117 conexões de entrada, ou 115 quando há 10 de saída.
+O nó normalmente abre 10 conexões de saída. A maioria retransmite blocos e transações. Uma conexão de reserva já verificada pode retransmitir blocos, e uma 11ª conexão pode ser aberta por pouco tempo para descobrir outros nós. O limite total é de 125. O nó aceita até 117 conexões de entrada, ou 115 quando há 10 de saída. O aplicativo para computador agora exibe apenas o número total de nós conectados. Cada dispositivo de mineração cria seus próprios blocos. O nó no PC retransmite os blocos completos e rejeita os pedidos de tarefas de mineração e as soluções enviadas pelo celular.
 
 
-SUMUWW PC 0.57.51 · O nó valida, guarda, retransmite e permite consultar a cadeia.
+SUMUWW PC 0.57.53 · O nó valida, guarda, retransmite e permite consultar a cadeia.
 
 ## Rede e endereços
 
