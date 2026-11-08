@@ -137,7 +137,7 @@ class StatusSummaryTests(unittest.TestCase):
             with self.assertRaisesRegex(StorageError, 'header/index mismatch'):
                 chain.summary()
 
-    def test_constructor_still_replays_and_rejects_corrupt_persisted_block_bodies(self):
+    def test_verified_restart_skips_replay_and_rejects_corrupt_persisted_block_bodies(self):
         original_replay = Chain._replay
         replays = []
 
@@ -146,7 +146,11 @@ class StatusSummaryTests(unittest.TestCase):
             return original_replay(chain, path, reward_fees)
 
         with patch.object(Chain, '_replay', replay):
+            with Chain(self.database, network=REGTEST, full_verification=True) as audited:
+                self.assertFalse(audited.resumed_from_checkpoint)
+                self.assertEqual([self.BLOCKS + 1], replays)
             with Chain(self.database, network=REGTEST) as chain:
+                self.assertTrue(chain.resumed_from_checkpoint)
                 self.assertEqual([self.BLOCKS + 1], replays)
                 for _ in range(5):
                     self.assertEqual(self.BLOCKS, chain.summary()['height'])

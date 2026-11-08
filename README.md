@@ -32,7 +32,7 @@ Mining history and block APIs separate new issuance, transaction fees and total 
 
 The node exposes address validation, transaction decoding, signed-transaction checking and submission, UTXOs, confirmations, replacement status, reorganization state and ordered OP_RETURN data. The source examples cover disposable regtest submission and reorganization. Multisig and output-lock templates remain limited to explicitly activated isolated tests; public activation is not scheduled.
 
-English is the default; all 34 existing UI languages and saved preferences are retained. Current program documentation is included in the matching packages. Read the [node specification](PC/Source/NODE_FEATURES.md), [current release status](Documentation/CURRENT_STATUS.md) and [verification record](Documentation/RELEASE_VERIFICATION_20261026.md).
+English is the default; all 34 existing UI languages and saved preferences are retained. Current program documentation is included in the matching packages. Read the [node specification](PC/Source/NODE_FEATURES.md), [current release status](Documentation/CURRENT_STATUS.md) and [verification record](Documentation/RELEASE_VERIFICATION_20261109.md).
 
 Extract the complete Windows archive. Install each Android APK over the matching package signed with the same certificate; retain encrypted backups and application data. P2P Full requires synchronized unpruned Bitcoin Core with txindex; Light uses Bitcoin SPV and has different availability and trust limits. Both require the current SUMUWW node and the height-9100 HTLC rule.
 
