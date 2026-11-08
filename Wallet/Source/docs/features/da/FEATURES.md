@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.9
+# SUMUWW Wallet Android 1.1.10
 
-Noden åbner normalt 10 udgående forbindelser. De fleste videresender blokke og transaktioner. En afprøvet reserveforbindelse kan videresende blokke, og noden kan kortvarigt åbne en 11. forbindelse for at finde andre noder. Grænsen er 125 i alt. Der er plads til op til 117 indgående forbindelser, eller 115 ved 10 udgående.
+Noden åbner normalt 10 udgående forbindelser. De fleste videresender blokke og transaktioner. En afprøvet reserveforbindelse kan videresende blokke, og noden kan kortvarigt åbne en 11. forbindelse for at finde andre noder. Grænsen er 125 i alt. Der er plads til op til 117 indgående forbindelser, eller 115 ved 10 udgående. En fejl ved opstart af Android-tegnebogen er rettet. Tegnebogen registrerer ændringer i telefonens netværksforbindelse.
 
 
 1 SMW = 100.000.000 yugeon. Automatiske gebyrer tilbyder tre niveauer ud fra lokale observationer uden at garantere bekræftelsestiden. Du kan indtaste en sats i yugeon/vB. Kontrollér det endelige gebyr og totalen i SMW før afsendelse. En afvist transaktion reducerer ikke saldoen.

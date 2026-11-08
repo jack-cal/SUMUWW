@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.9
+# SUMUWW Wallet Android 1.1.10
 
-Uzel běžně otevírá 10 odchozích spojení. Většina přenáší bloky i transakce. Ověřené záložní spojení může přenášet bloky a k hledání dalších uzlů lze krátce otevřít jedenácté spojení. Celkový limit je 125 spojení. Příchozích může být až 117, při 10 odchozích nejvýše 115.
+Uzel běžně otevírá 10 odchozích spojení. Většina přenáší bloky i transakce. Ověřené záložní spojení může přenášet bloky a k hledání dalších uzlů lze krátce otevřít jedenácté spojení. Celkový limit je 125 spojení. Příchozích může být až 117, při 10 odchozích nejvýše 115. Byla opravena chyba při spouštění peněženky na Androidu. Peněženka rozpozná změny síťového připojení telefonu.
 
 
 1 SMW = 100 000 000 yugeon. Automatické poplatky nabízejí tři úrovně podle místních pozorování, bez záruky času potvrzení. Sazbu v yugeon/vB lze zadat ručně. Před odesláním ověřte konečný poplatek a součet v SMW. Odmítnutá transakce nesníží zůstatek.

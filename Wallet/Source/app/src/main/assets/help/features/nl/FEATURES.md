@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.9
+# SUMUWW Wallet Android 1.1.10
 
-Het knooppunt opent gewoonlijk 10 uitgaande verbindingen. De meeste geven blokken en transacties door. Een geverifieerde reserveverbinding kan blokken doorgeven. Om andere knooppunten te vinden kan er kort een elfde verbinding bijkomen. De totale limiet is 125. Er zijn maximaal 117 inkomende verbindingen mogelijk, of 115 bij 10 uitgaande verbindingen.
+Het knooppunt opent gewoonlijk 10 uitgaande verbindingen. De meeste geven blokken en transacties door. Een geverifieerde reserveverbinding kan blokken doorgeven. Om andere knooppunten te vinden kan er kort een elfde verbinding bijkomen. De totale limiet is 125. Er zijn maximaal 117 inkomende verbindingen mogelijk, of 115 bij 10 uitgaande verbindingen. Een fout bij het openen van de Android-portemonnee is verholpen. De portemonnee herkent veranderingen in de netwerkverbinding van de telefoon.
 
 
 1 SMW = 100.000.000 yugeon. Automatische kosten bieden drie niveaus op basis van lokale waarnemingen, zonder de bevestigingstijd te garanderen. U kunt een tarief in yugeon/vB invoeren. Controleer vóór verzending de definitieve kosten en het totaal in SMW. Een geweigerde transactie verlaagt het saldo niet.

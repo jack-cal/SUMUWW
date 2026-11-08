@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.9
+# SUMUWW Wallet Android 1.1.10
 
-Węzeł zwykle otwiera 10 połączeń wychodzących. Większość przekazuje bloki i transakcje. Sprawdzone połączenie zapasowe może przekazywać bloki. Węzeł może też na krótko otworzyć jedenaste połączenie, aby znaleźć inne węzły. Łączny limit wynosi 125. Połączeń przychodzących może być do 117, a przy 10 wychodzących do 115.
+Węzeł zwykle otwiera 10 połączeń wychodzących. Większość przekazuje bloki i transakcje. Sprawdzone połączenie zapasowe może przekazywać bloki. Węzeł może też na krótko otworzyć jedenaste połączenie, aby znaleźć inne węzły. Łączny limit wynosi 125. Połączeń przychodzących może być do 117, a przy 10 wychodzących do 115. Naprawiono błąd uruchamiania portfela na Androidzie. Portfel wykrywa zmiany połączenia sieciowego telefonu.
 
 
 1 SMW = 100 000 000 yugeon. Opłaty automatyczne oferują trzy poziomy na podstawie lokalnych obserwacji, bez gwarancji czasu potwierdzenia. Możesz wpisać stawkę w yugeon/vB. Przed wysłaniem sprawdź końcową opłatę i sumę w SMW. Odrzucona transakcja nie zmniejsza salda.

@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.9
+# SUMUWW Wallet Android 1.1.10
 
-Karaniwang nagbubukas ang node ng 10 papalabas na koneksyon. Karamihan ay nagpapasa ng mga bloke at transaksyon. Maaari itong gumamit ng nasubukang reserbang koneksyon para sa mga bloke at pansamantalang magbukas ng ika-11 koneksyon para maghanap ng ibang node. Hanggang 125 ang kabuuan. Tumatanggap ito ng hanggang 117 papasok na koneksyon, o 115 kapag may 10 papalabas.
+Karaniwang nagbubukas ang node ng 10 papalabas na koneksyon. Karamihan ay nagpapasa ng mga bloke at transaksyon. Maaari itong gumamit ng nasubukang reserbang koneksyon para sa mga bloke at pansamantalang magbukas ng ika-11 koneksyon para maghanap ng ibang node. Hanggang 125 ang kabuuan. Tumatanggap ito ng hanggang 117 papasok na koneksyon, o 115 kapag may 10 papalabas. Naayos ang error sa pagbukas ng wallet sa Android. Natutukoy na ng wallet kapag nagbabago ang koneksyon ng telepono sa network.
 
 
 1 SMW = 100,000,000 yugeon. May tatlong antas ang awtomatikong bayad batay sa lokal na obserbasyon, ngunit walang garantisadong oras ng kumpirmasyon. Maaari kang magtakda ng rate sa yugeon/vB. Suriin ang huling bayad at kabuuang SMW bago magpadala. Hindi nababawasan ang balanse sa tinanggihang transaksiyon.

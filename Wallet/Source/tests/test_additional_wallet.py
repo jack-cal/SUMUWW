@@ -4,6 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import time
 import unittest
+from unittest.mock import Mock, patch
 
 from test_wallet_flow import WalletFlow, runtime, keystore, Chain, decode_address
 
@@ -13,6 +14,20 @@ class AdditionalWalletChecks(WalletFlow):
     test_real_signed_transfer_and_single_use_quote = None
     test_lock_invalidates_prepared_payment = None
     test_transfer_reaches_an_independent_peer = None
+
+    def test_mobile_start_forwards_network_changes_to_the_validating_node(self):
+        runtime.stop()
+        interfaces = Mock()
+        interfaces.network_identity.return_value = 'test-network'
+        with patch.dict('sys.modules', {'mobile_interfaces': interfaces}), patch.object(
+                keystore, '_publish_no_replace'):
+            try:
+                status = runtime.start(self.path / 'mobile', mobile=True, network='regtest', bootstrap=False)
+                self.assertIn('wallet_exists', status)
+                self.assertIs(runtime._service._node._network_provider, interfaces.network_identity)
+                interfaces.install.assert_called_once_with()
+            finally:
+                runtime.stop()
 
     def test_legacy_wallet_import_preserves_address_key_and_coins(self):
         legacy_path = self.path / 'original-legacy-wallet.json'

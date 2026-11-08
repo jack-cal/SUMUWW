@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.9
+# SUMUWW Wallet Android 1.1.10
 
-Node biasanya membuka 10 koneksi keluar. Sebagian besar meneruskan blok dan transaksi. Node dapat menggunakan koneksi cadangan yang telah diverifikasi untuk meneruskan blok dan membuka koneksi ke-11 sebentar untuk mencari node lain. Batas totalnya 125 koneksi. Maksimal ada 117 koneksi masuk, atau 115 jika ada 10 koneksi keluar.
+Node biasanya membuka 10 koneksi keluar. Sebagian besar meneruskan blok dan transaksi. Node dapat menggunakan koneksi cadangan yang telah diverifikasi untuk meneruskan blok dan membuka koneksi ke-11 sebentar untuk mencari node lain. Batas totalnya 125 koneksi. Maksimal ada 117 koneksi masuk, atau 115 jika ada 10 koneksi keluar. Kesalahan saat membuka dompet Android telah diperbaiki. Dompet dapat mendeteksi perubahan koneksi jaringan ponsel.
 
 
 1 SMW = 100.000.000 yugeon. Biaya otomatis menawarkan tiga tingkat berdasarkan pengamatan lokal, tanpa menjamin waktu konfirmasi. Anda dapat memasukkan tarif yugeon/vB secara manual. Periksa biaya akhir dan total dalam SMW sebelum mengirim. Transaksi yang ditolak tidak mengurangi saldo.

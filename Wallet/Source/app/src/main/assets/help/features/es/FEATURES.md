@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.9
+# SUMUWW Wallet Android 1.1.10
 
-El nodo suele abrir 10 conexiones salientes. La mayoría retransmite bloques y transacciones. Puede usar una conexión de respaldo verificada para los bloques y abrir brevemente una conexión más para descubrir otros nodos. El límite total es de 125. Admite hasta 117 conexiones entrantes, o 115 si hay 10 salientes.
+El nodo suele abrir 10 conexiones salientes. La mayoría retransmite bloques y transacciones. Puede usar una conexión de respaldo verificada para los bloques y abrir brevemente una conexión más para descubrir otros nodos. El límite total es de 125. Admite hasta 117 conexiones entrantes, o 115 si hay 10 salientes. Se corrigió un error que impedía abrir la cartera en Android. Ahora detecta los cambios de conexión de red del teléfono.
 
 
 1 SMW = 100.000.000 yugeon. Las tarifas automáticas ofrecen tres niveles según las observaciones locales, sin garantizar el tiempo de confirmación. Puedes introducir una tarifa en yugeon/vB. Revisa la comisión final y el total en SMW antes de enviar. Una transacción rechazada no descuenta saldo.

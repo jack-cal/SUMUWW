@@ -334,12 +334,13 @@ class AppService:
     def __init__(self, directory, network='dora', listen=None, allow_lan=None,
                  allow_internet=None, peers=None, bootstrap=False, advertise=None,
                  bootstrap_manifest=None, bootstrap_scope='public', auto_address=None,
-                 privacy_router_factory=ManagedRouter):
+                 privacy_router_factory=ManagedRouter, network_provider=None):
         self.directory = Path(directory).expanduser().resolve()
         self.database = self.directory / 'node.sqlite'
         self.network = get_network(network)
         self._privacy_options = privacy.load(self.directory)
         self._privacy_router_factory = privacy_router_factory
+        self._network_provider = network_provider
         if bootstrap_scope not in ('public', 'loopback') or (self.network.name == 'dora' and bootstrap_scope != 'public'):
             raise ValueError('The main network requires public bootstrap scope')
         self._bootstrap_manifest = bootstrap_manifest
@@ -1109,6 +1110,7 @@ class AppService:
                 self._bootstrap_error = 'Invalid initial discovery configuration'
         return PeerNode(self.database, host=host, port=port, peers=peers,
                         public_peer_policy=True,
+                        network_provider=self._network_provider,
                         privacy=self._privacy_options,
                         privacy_router_factory=self._privacy_router_factory,
                         network=self.network, allow_lan=settings['allow_lan'],

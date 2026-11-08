@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.9
+# SUMUWW Wallet Android 1.1.10
 
-Nút thường mở 10 kết nối đi. Phần lớn chuyển tiếp cả khối và giao dịch. Nút có thể dùng một kết nối dự phòng đã xác minh để chuyển tiếp khối và mở kết nối thứ 11 trong thời gian ngắn để tìm nút khác. Tổng giới hạn là 125 kết nối. Nút nhận tối đa 117 kết nối đến, hoặc 115 khi có 10 kết nối đi.
+Nút thường mở 10 kết nối đi. Phần lớn chuyển tiếp cả khối và giao dịch. Nút có thể dùng một kết nối dự phòng đã xác minh để chuyển tiếp khối và mở kết nối thứ 11 trong thời gian ngắn để tìm nút khác. Tổng giới hạn là 125 kết nối. Nút nhận tối đa 117 kết nối đến, hoặc 115 khi có 10 kết nối đi. Đã sửa lỗi khi mở ví trên Android. Ví có thể phát hiện thay đổi trong kết nối mạng của điện thoại.
 
 
 1 SMW = 100.000.000 yugeon. Phí tự động có ba mức dựa trên dữ liệu quan sát cục bộ, không bảo đảm thời gian xác nhận. Bạn có thể nhập mức phí yugeon/vB. Hãy kiểm tra phí cuối cùng và tổng số SMW trước khi gửi. Giao dịch bị từ chối không làm giảm số dư.

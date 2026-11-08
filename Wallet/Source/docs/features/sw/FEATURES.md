@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.9
+# SUMUWW Wallet Android 1.1.10
 
-Kwa kawaida nodi hufungua miunganisho 10 ya kutoka. Mingi hupitisha bloku na miamala. Nodi inaweza kutumia muunganisho wa akiba uliothibitishwa kupitisha bloku na kufungua wa 11 kwa muda mfupi ili kutafuta nodi nyingine. Kikomo cha jumla ni miunganisho 125. Inaweza kupokea hadi miunganisho 117 ya kuingia, au 115 ikiwa kuna 10 ya kutoka.
+Kwa kawaida nodi hufungua miunganisho 10 ya kutoka. Mingi hupitisha bloku na miamala. Nodi inaweza kutumia muunganisho wa akiba uliothibitishwa kupitisha bloku na kufungua wa 11 kwa muda mfupi ili kutafuta nodi nyingine. Kikomo cha jumla ni miunganisho 125. Inaweza kupokea hadi miunganisho 117 ya kuingia, au 115 ikiwa kuna 10 ya kutoka. Hitilafu iliyozuia pochi kufunguka kwenye Android imerekebishwa. Pochi hutambua mabadiliko ya muunganisho wa simu kwenye mtandao.
 
 
 1 SMW = 100,000,000 yugeon. Ada ya kiotomatiki ina viwango vitatu vinavyotegemea taarifa za ndani, bila kuhakikisha muda wa uthibitisho. Unaweza kuingiza kiwango cha yugeon/vB mwenyewe. Kagua ada ya mwisho na jumla kwa SMW kabla ya kutuma. Muamala uliokataliwa haupunguzi salio.

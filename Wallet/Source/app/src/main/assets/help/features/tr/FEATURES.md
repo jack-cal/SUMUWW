@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.9
+# SUMUWW Wallet Android 1.1.10
 
-Düğüm genellikle 10 giden bağlantı açar. Bunların çoğu hem blokları hem de işlemleri iletir. Doğrulanmış bir yedek bağlantı blokları iletebilir. Düğüm başka düğümler bulmak için kısa süreliğine 11. bağlantıyı açabilir. Toplam sınır 125 bağlantıdır. En fazla 117 gelen bağlantı kabul edilir. 10 giden bağlantı varken bu sayı 115’tir.
+Düğüm genellikle 10 giden bağlantı açar. Bunların çoğu hem blokları hem de işlemleri iletir. Doğrulanmış bir yedek bağlantı blokları iletebilir. Düğüm başka düğümler bulmak için kısa süreliğine 11. bağlantıyı açabilir. Toplam sınır 125 bağlantıdır. En fazla 117 gelen bağlantı kabul edilir. 10 giden bağlantı varken bu sayı 115’tir. Android cüzdanının açılmasını engelleyen hata giderildi. Cüzdan telefonun ağ bağlantısındaki değişiklikleri algılar.
 
 
 1 SMW = 100.000.000 yugeon. Otomatik ücret, yerel gözlemlere göre üç seçenek sunar; onay süresini garanti etmez. yugeon/vB oranını elle girebilirsiniz. Göndermeden önce son ücreti ve toplamı SMW cinsinden kontrol edin. Reddedilen işlem bakiyeyi azaltmaz.

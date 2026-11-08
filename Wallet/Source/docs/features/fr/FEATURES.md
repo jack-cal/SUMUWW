@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.9
+# SUMUWW Wallet Android 1.1.10
 
-Le nœud ouvre normalement 10 connexions sortantes. La plupart relaient les blocs et les transactions. Une connexion de secours vérifiée peut relayer les blocs et une 11e connexion peut servir brièvement à découvrir d’autres pairs. La limite totale est de 125. Le nœud accepte jusqu’à 117 connexions entrantes, ou 115 avec 10 connexions sortantes.
+Le nœud ouvre normalement 10 connexions sortantes. La plupart relaient les blocs et les transactions. Une connexion de secours vérifiée peut relayer les blocs et une 11e connexion peut servir brièvement à découvrir d’autres pairs. La limite totale est de 125. Le nœud accepte jusqu’à 117 connexions entrantes, ou 115 avec 10 connexions sortantes. Une erreur qui empêchait le portefeuille Android de démarrer a été corrigée. Il détecte les changements de connexion réseau du téléphone.
 
 
 1 SMW = 100 000 000 yugeon. Les frais automatiques proposent trois niveaux selon les observations locales, sans garantir le délai de confirmation. Vous pouvez saisir un taux en yugeon/vB. Vérifiez les frais définitifs et le total en SMW avant l’envoi. Une transaction refusée ne débite pas votre solde.
