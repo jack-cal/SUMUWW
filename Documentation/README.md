@@ -1,6 +1,6 @@
 # SUMUWW documentation
 
-Current document release: 26 October 2026. [English whitepaper 2.3](https://github.com/jack-cal/SUMUWW/releases/tag/whitepaper-v2.3-en) and [documentation 20261026-r1](https://github.com/jack-cal/SUMUWW/releases/tag/docs-20261026-r1) are separate downloads.
+[Current node documentation in 34 languages](../PC/Source/docs). The 26 October documentation archive remains available. [English whitepaper 2.3](https://github.com/jack-cal/SUMUWW/releases/tag/whitepaper-v2.3-en) and [documentation 20261026-r1](https://github.com/jack-cal/SUMUWW/releases/tag/docs-20261026-r1) are separate downloads.
 
 - [Current versions, publication states and bundled-document erratum](CURRENT_STATUS.md)
 - [Whitepaper 2.3](Whitepaper/WHITEPAPER.md) · [Changes](Whitepaper/CHANGELOG.md)

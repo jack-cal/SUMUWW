@@ -8,17 +8,19 @@ SUMUWW is an independent SHA-256d proof-of-work coin with asynchronous connectio
 
 | Component | Version | Download | Source |
 |---|---|---|---|
-| Windows full node, wallet and miner | 0.57.49 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.49) | [Source](PC/Source) |
+| Windows full node, wallet and miner | 0.57.51 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.51) | [Source](PC/Source) |
 | Android light miner and wallet | 0.6.98 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/android-v0.6.98) | [Source](Android/Source) |
-| Windows ordinary wallet | 1.0.8 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-pc-v1.0.8) | [Source](Wallet/Desktop) |
-| Android ordinary wallet | 1.1.7 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.7) | [Source](Wallet/Source) |
+| Windows ordinary wallet | 1.0.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-pc-v1.0.10) | [Source](Wallet/Desktop) |
+| Android ordinary wallet | 1.1.9 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.9) | [Source](Wallet/Source) |
 | Local block explorer | 0.4.11 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/explorer-v0.4.11) | [Source](Explorer/Source) |
 | P2P Full — SMW/BTC trading | 0.3.6 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-full-v0.3.6) | [Source](P2P/Source) |
 | P2P Light — SMW/BTC trading | 0.3.6 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-light-v0.3.6) | [Source](P2P/Source) |
 
-[Current node documentation in 34 languages](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.49/SUMUWW-PC-Android-Documentation-20261108.zip) · [English whitepaper 2.3](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.49/SUMUWW-Whitepaper-2.3-docs-r1.zip) · [Component installation guide](Documentation/COMPONENT_SUITE.md)
+[Current node documentation in 34 languages](PC/Source/docs) · [English whitepaper 2.3](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.49/SUMUWW-Whitepaper-2.3-docs-r1.zip) · [Component installation guide](Documentation/COMPONENT_SUITE.md)
 
-Windows 0.57.49 serves compact mining jobs and wallet queries to Android 0.6.98. The phone computes its own proof of work and keeps the blocks it mined. It can retrieve balances and current fees from a connected full node without downloading the full chain.
+The Windows full node and both ordinary wallets aim for 10 outbound peers. Most connections relay blocks and transactions. A verified backup can relay blocks, and a spare slot can briefly check an 11th peer. Up to 117 inbound connections are possible, or 115 with 10 outbound. The default limit is 125 in total.
+
+Windows 0.57.51 serves compact mining jobs and wallet queries to Android 0.6.98. The phone computes its own proof of work and keeps the blocks it mined. It can retrieve balances and current fees from a connected full node without downloading the full chain.
 
 ## Changes in these versions
 
@@ -32,7 +34,7 @@ English is the default; all 34 existing UI languages and saved preferences are r
 
 Extract the complete Windows archive. Install each Android APK over the matching package signed with the same certificate; retain encrypted backups and application data. Android miner 0.6.98 (build 159) was installed over an earlier version and tested on a physical phone. P2P Full requires synchronized unpruned Bitcoin Core with txindex; Light uses Bitcoin SPV and has different availability and trust limits. Both require the current SUMUWW node and the height-9100 HTLC rule.
 
-Each component has a new release, matching source and SHA-256 checksums. Earlier release posts and attachments are preserved. Whitepaper 2.3 documents the source-block 9,600 rules. Earlier editions remain available as history.
+The Windows node and the two ordinary wallets have new releases with matching source and SHA-256 checksums. Earlier release posts and attachments are preserved. Whitepaper 2.3 documents the source-block 9,600 rules. Earlier editions remain available as history.
 
 ## Earlier node update: Windows 0.57.40 / Android 0.6.89
 

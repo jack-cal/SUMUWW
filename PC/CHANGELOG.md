@@ -1,4 +1,10 @@
-# SUMUWW PC 0.57.49
+# SUMUWW PC 0.57.51
+
+The Windows full node and both ordinary wallets aim for 10 outbound peers. Most connections relay blocks and transactions. A verified backup can relay blocks, and a spare slot can briefly check an 11th peer. Up to 117 inbound connections are possible, or 115 with 10 outbound. The default limit is 125 in total.
+
+[Downloads and checksums](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.51)
+
+## SUMUWW PC 0.57.49
 
 The full node provides compact mining jobs and wallet queries for the Android light miner. Mining retries temporary database write contention and records an error code if a batch stops unexpectedly.
 

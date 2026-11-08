@@ -2,12 +2,14 @@
 
 | Program | Version |
 |---|---|
-| Windows full node | 0.57.49 |
+| Windows full node | 0.57.51 |
 | Android light miner and wallet | 0.6.98 |
-| Windows ordinary wallet | 1.0.8 |
-| Android ordinary wallet | 1.1.7 |
+| Windows ordinary wallet | 1.0.10 |
+| Android ordinary wallet | 1.1.9 |
 | Explorer | 0.4.11 |
 | P2P Full / Light | 0.3.6 |
+
+The Windows full node and both ordinary wallets aim for 10 outbound peers. Most connections relay blocks and transactions. A verified backup can relay blocks, and a spare slot can briefly check an 11th peer. Up to 117 inbound connections are possible, or 115 with 10 outbound. The default limit is 125 in total.
 
 P2P 0.3.6 adds funded order checks, per-order Trade buttons and automatic encrypted trading connections. Its [verification record](../P2P/Source/VERIFICATION.txt) supplements the earlier suite report below.
 
