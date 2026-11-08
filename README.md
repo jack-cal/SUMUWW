@@ -9,7 +9,7 @@ SUMUWW is an independent SHA-256d proof-of-work coin with asynchronous connectio
 | Component | Version | Download | Source |
 |---|---|---|---|
 | Windows full node, wallet and miner | 0.57.51 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.51) | [Source](PC/Source) |
-| Android light miner and wallet | 0.6.98 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/android-v0.6.98) | [Source](Android/Source) |
+| Android light miner and wallet | 0.6.98 | Withdrawn | [Source](Android/Source) |
 | Windows ordinary wallet | 1.0.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-pc-v1.0.10) | [Source](Wallet/Desktop) |
 | Android ordinary wallet | 1.1.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.10) | [Source](Wallet/Source) |
 | Local block explorer | 0.4.11 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/explorer-v0.4.11) | [Source](Explorer/Source) |
@@ -20,7 +20,7 @@ SUMUWW is an independent SHA-256d proof-of-work coin with asynchronous connectio
 
 The Windows full node and both ordinary wallets aim for 10 outbound peers. Most connections relay blocks and transactions. A verified backup can relay blocks, and a spare slot can briefly check an 11th peer. Up to 117 inbound connections are possible, or 115 with 10 outbound. The default limit is 125 in total.
 
-Windows 0.57.51 serves compact mining jobs and wallet queries to Android 0.6.98. The phone computes its own proof of work and keeps the blocks it mined. It can retrieve balances and current fees from a connected full node without downloading the full chain.
+Android miner 0.6.98 has been withdrawn.
 
 ## Changes in these versions
 

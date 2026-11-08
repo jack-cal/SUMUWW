@@ -2,7 +2,7 @@
 
 The phone computes proof of work locally and stores its own mining records. Build 159 displays the connected node’s fee estimate in all 34 languages and corrects the Korean fee preview.
 
-[Downloads and checksums](https://github.com/jack-cal/SUMUWW/releases/tag/android-v0.6.98)
+This release has been withdrawn.
 
 ---
 
