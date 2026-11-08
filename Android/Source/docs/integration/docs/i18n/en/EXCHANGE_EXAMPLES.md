@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Verification
+# SUMUWW Android 0.6.99 · Verification
 
-SUMUWW Android 0.6.95 · The node validates, stores, relays and exposes chain data.
+SUMUWW Android 0.6.99 · The node validates, stores, relays and exposes chain data.
 
 The API specification describes the embedded node core. The Android app has no RPC configuration screen.
 

@@ -37,7 +37,7 @@
       {
         "id": "network",
         "title": "Node connection",
-        "body": "The app runs a local SMW node. Connected peers counts other nodes, so zero does not mean your own node disappeared. With internet enabled, automatic SMW discovery tries to find compatible peers. If none are reachable, add a peer IP or domain:port manually. Mining waits until a peer is synchronized."
+        "body": "The app runs a local SMW node. Connected peers counts other nodes, so zero does not mean your own node disappeared. With internet enabled, automatic SMW discovery tries to find compatible peers. If none are reachable, add a peer IP or domain:port manually. Mining waits until a peer is synchronized.\n\nOn restart, the node resumes from its last locally verified block and checks new blocks. If the saved verification record is missing or inconsistent, it checks the stored history again."
       },
       {
         "id": "settings",
@@ -99,7 +99,7 @@
       {
         "id": "network",
         "title": "노드 연결",
-        "body": "앱은 자체 SMW 노드를 실행합니다. 연결 피어는 다른 노드의 수이므로 0이라고 내 노드가 사라진 것은 아닙니다. 인터넷 연결 시 호환 피어를 자동 탐색합니다. 접속 가능한 피어를 찾지 못하면 상대의 IP 또는 도메인:포트를 직접 등록하세요. 피어와 동기화되기 전에는 채굴이 대기합니다."
+        "body": "앱은 자체 SMW 노드를 실행합니다. 연결 피어는 다른 노드의 수이므로 0이라고 내 노드가 사라진 것은 아닙니다. 인터넷 연결 시 호환 피어를 자동 탐색합니다. 접속 가능한 피어를 찾지 못하면 상대의 IP 또는 도메인:포트를 직접 등록하세요. 피어와 동기화되기 전에는 채굴이 대기합니다.\n\n노드를 다시 실행하면 마지막으로 검증한 블록부터 이어서 새 블록을 확인합니다. 저장된 검증 기록이 없거나 맞지 않으면 기존 내역을 다시 검증합니다."
       },
       {
         "id": "settings",
@@ -161,7 +161,7 @@
       {
         "id": "network",
         "title": "Connexion du nœud",
-        "body": "L’application exécute son propre nœud SMW. Zéro pair ne signifie pas que votre nœud a disparu. Avec Internet, la découverte automatique cherche des pairs compatibles. Si aucun n’est accessible, ajoutez une IP ou un domaine:port manuellement. Le minage attend un pair synchronisé."
+        "body": "L’application exécute son propre nœud SMW. Zéro pair ne signifie pas que votre nœud a disparu. Avec Internet, la découverte automatique cherche des pairs compatibles. Si aucun n’est accessible, ajoutez une IP ou un domaine:port manuellement. Le minage attend un pair synchronisé.\n\nAu redémarrage, le nœud repart du dernier bloc vérifié localement et vérifie les nouveaux blocs. Si la trace de vérification enregistrée est absente ou incohérente, il vérifie à nouveau l’historique stocké."
       },
       {
         "id": "settings",
@@ -223,7 +223,7 @@
       {
         "id": "network",
         "title": "Conexión del nodo",
-        "body": "La app ejecuta su propio nodo SMW. Cero pares no significa que su nodo haya desaparecido. Con Internet, el descubrimiento automático busca pares compatibles. Si ninguno es accesible, añada manualmente una IP o dominio:puerto. La minería espera a que un par esté sincronizado."
+        "body": "La app ejecuta su propio nodo SMW. Cero pares no significa que su nodo haya desaparecido. Con Internet, el descubrimiento automático busca pares compatibles. Si ninguno es accesible, añada manualmente una IP o dominio:puerto. La minería espera a que un par esté sincronizado.\n\nAl reiniciarse, el nodo retoma la verificación desde el último bloque que comprobó localmente y verifica los bloques nuevos. Si el registro de verificación guardado falta o es incoherente, vuelve a comprobar el historial almacenado."
       },
       {
         "id": "settings",
@@ -285,7 +285,7 @@
       {
         "id": "network",
         "title": "اتصال العقدة",
-        "body": "يشغّل التطبيق عقدة SMW محلية. صفر من الأقران لا يعني اختفاء عقدتك. عند توفر الإنترنت، يحاول الاكتشاف التلقائي العثور على عقد متوافقة. إذا لم تكن أي عقدة متاحة، أضف عنوان IP أو نطاقًا:منفذًا يدويًا. ينتظر التعدين مزامنة عقدة أخرى."
+        "body": "يشغّل التطبيق عقدة SMW محلية. صفر من الأقران لا يعني اختفاء عقدتك. عند توفر الإنترنت، يحاول الاكتشاف التلقائي العثور على عقد متوافقة. إذا لم تكن أي عقدة متاحة، أضف عنوان IP أو نطاقًا:منفذًا يدويًا. ينتظر التعدين مزامنة عقدة أخرى.\n\nعند إعادة التشغيل، تتابع العقدة من آخر كتلة تحققت منها محليًا وتفحص الكتل الجديدة. وإذا كان سجل التحقق المحفوظ مفقودًا أو غير متسق، تعيد فحص السجل المخزن."
       },
       {
         "id": "settings",
@@ -347,7 +347,7 @@
       {
         "id": "network",
         "title": "节点连接",
-        "body": "应用运行本地 SMW 节点。已连接节点为零并不代表自己的节点消失。联网后会自动寻找兼容节点；若找不到可连接的节点，请手动添加对方的 IP 或域名:端口。挖矿会等待与节点同步。"
+        "body": "应用运行本地 SMW 节点。已连接节点为零并不代表自己的节点消失。联网后会自动寻找兼容节点；若找不到可连接的节点，请手动添加对方的 IP 或域名:端口。挖矿会等待与节点同步。\n\n重启后，节点从本地上次验证的区块继续，检查新区块。如果保存的验证记录缺失或不一致，节点会重新验证已保存的历史记录。"
       },
       {
         "id": "settings",
@@ -409,7 +409,7 @@
       {
         "id": "network",
         "title": "Conexão do nó",
-        "body": "A aplicação executa o seu próprio nó SMW. Zero pares não significa que o nó desapareceu. Com Internet, a descoberta automática procura pares compatíveis. Se nenhum estiver acessível, adicione manualmente um IP ou domínio:porta. A mineração espera a sincronização de um par."
+        "body": "A aplicação executa o seu próprio nó SMW. Zero pares não significa que o nó desapareceu. Com Internet, a descoberta automática procura pares compatíveis. Se nenhum estiver acessível, adicione manualmente um IP ou domínio:porta. A mineração espera a sincronização de um par.\n\nAo reiniciar, o nó retoma a partir do último bloco que verificou localmente e verifica os novos blocos. Se o registro de verificação salvo estiver ausente ou inconsistente, o nó verifica novamente o histórico armazenado."
       },
       {
         "id": "settings",
@@ -471,7 +471,7 @@
       {
         "id": "network",
         "title": "Подключение узла",
-        "body": "Приложение запускает собственный узел SMW. Ноль подключённых узлов не означает, что ваш узел исчез. При наличии интернета автоматический поиск ищет совместимые узлы. Если доступных нет, добавьте IP или домен:порт вручную. Майнинг ждёт синхронизации с узлом."
+        "body": "Приложение запускает собственный узел SMW. Ноль подключённых узлов не означает, что ваш узел исчез. При наличии интернета автоматический поиск ищет совместимые узлы. Если доступных нет, добавьте IP или домен:порт вручную. Майнинг ждёт синхронизации с узлом.\n\nПосле перезапуска узел продолжает с последнего блока, который он проверил локально, и проверяет новые блоки. Если сохранённая запись о проверке отсутствует или в ней есть расхождения, узел заново проверяет сохранённую историю."
       },
       {
         "id": "settings",
@@ -533,7 +533,7 @@
       {
         "id": "network",
         "title": "Knotenverbindung",
-        "body": "Die App betreibt einen eigenen SMW-Knoten. Null Peers bedeutet nicht, dass er verschwunden ist. Bei Internetzugang sucht die automatische Erkennung nach kompatiblen Peers. Ist keiner erreichbar, fügen Sie IP oder Domain:Port manuell hinzu. Mining wartet auf einen synchronisierten Peer."
+        "body": "Die App betreibt einen eigenen SMW-Knoten. Null Peers bedeutet nicht, dass er verschwunden ist. Bei Internetzugang sucht die automatische Erkennung nach kompatiblen Peers. Ist keiner erreichbar, fügen Sie IP oder Domain:Port manuell hinzu. Mining wartet auf einen synchronisierten Peer.\n\nNach dem Neustart setzt der Knoten beim letzten lokal geprüften Block an und prüft neue Blöcke. Fehlt der gespeicherte Prüfnachweis oder ist er widersprüchlich, prüft der Knoten den gespeicherten Verlauf erneut."
       },
       {
         "id": "settings",
@@ -595,7 +595,7 @@
       {
         "id": "network",
         "title": "Muunganisho wa nodi",
-        "body": "Programu huendesha nodi yake ya SMW. Nodi nyingine sifuri haimaanishi nodi yako imepotea. Ikiwa intaneti ipo, utafutaji wa moja kwa moja hutafuta nodi zinazolingana. Ikiwa hakuna inayofikika, ongeza IP au domain:port mwenyewe. Uchimbaji husubiri nodi nyingine isawazishwe."
+        "body": "Programu huendesha nodi yake ya SMW. Nodi nyingine sifuri haimaanishi nodi yako imepotea. Ikiwa intaneti ipo, utafutaji wa moja kwa moja hutafuta nodi zinazolingana. Ikiwa hakuna inayofikika, ongeza IP au domain:port mwenyewe. Uchimbaji husubiri nodi nyingine isawazishwe.\n\nNodi inapoanzishwa tena, huendelea kutoka kwenye bloku ya mwisho iliyothibitisha kwenye kifaa na hukagua bloku mpya. Ikiwa rekodi ya uthibitishaji haipo au hailingani, nodi hukagua tena historia iliyohifadhiwa."
       },
       {
         "id": "settings",
@@ -657,7 +657,7 @@
       {
         "id": "network",
         "title": "नोड कनेक्शन",
-        "body": "ऐप अपना SMW नोड चलाता है। शून्य जुड़े पीयर का अर्थ यह नहीं कि आपका नोड गायब है। इंटरनेट पर स्वचालित खोज संगत पीयर ढूँढती है। यदि कोई उपलब्ध न हो, तो उसका IP या डोमेन:पोर्ट खुद जोड़ें। पीयर से सिंक होने तक खनन प्रतीक्षा करता है।"
+        "body": "ऐप अपना SMW नोड चलाता है। शून्य जुड़े पीयर का अर्थ यह नहीं कि आपका नोड गायब है। इंटरनेट पर स्वचालित खोज संगत पीयर ढूँढती है। यदि कोई उपलब्ध न हो, तो उसका IP या डोमेन:पोर्ट खुद जोड़ें। पीयर से सिंक होने तक खनन प्रतीक्षा करता है।\n\nदोबारा शुरू होने पर नोड उस आखिरी ब्लॉक से आगे बढ़ता है जिसे उसने खुद जाँचा था और नए ब्लॉकों की जाँच करता है। अगर सहेजा गया सत्यापन रिकॉर्ड नहीं मिलता या मेल नहीं खाता, तो नोड पुराने रिकॉर्ड की फिर से जाँच करता है।"
       },
       {
         "id": "settings",
@@ -719,7 +719,7 @@
       {
         "id": "network",
         "title": "ノード接続",
-        "body": "アプリはローカル SMW ノードを実行します。接続されたピアは他のノードをカウントするため、ゼロは自分のノードが消滅したことを意味するわけではありません。インターネットが有効になっている場合、自動 SMW 検出は互換性のあるピアを見つけようとします。どれにも到達できない場合は、ピア IP またはドメイン:ポートを手動で追加します。マイニングは、ピアが同期されるまで待機します。"
+        "body": "アプリはローカル SMW ノードを実行します。接続されたピアは他のノードをカウントするため、ゼロは自分のノードが消滅したことを意味するわけではありません。インターネットが有効になっている場合、自動 SMW 検出は互換性のあるピアを見つけようとします。どれにも到達できない場合は、ピア IP またはドメイン:ポートを手動で追加します。マイニングは、ピアが同期されるまで待機します。\n\n再起動時は、このノードが最後に検証したブロックから再開し、新しいブロックを確認します。保存した検証記録が見つからない場合や内容が一致しない場合は、保存済みの履歴を再検証します。"
       },
       {
         "id": "settings",
@@ -781,7 +781,7 @@
       {
         "id": "network",
         "title": "Koneksi simpul",
-        "body": "Aplikasi ini menjalankan node SMW lokal. Rekan yang terhubung menghitung node lain, jadi nol tidak berarti node Anda sendiri hilang. Dengan internet diaktifkan, penemuan SMW otomatis mencoba menemukan rekan yang kompatibel. Jika tidak ada yang dapat dijangkau, tambahkan IP rekan atau domain:port secara manual. Penambangan menunggu hingga peer disinkronkan."
+        "body": "Aplikasi ini menjalankan node SMW lokal. Rekan yang terhubung menghitung node lain, jadi nol tidak berarti node Anda sendiri hilang. Dengan internet diaktifkan, penemuan SMW otomatis mencoba menemukan rekan yang kompatibel. Jika tidak ada yang dapat dijangkau, tambahkan IP rekan atau domain:port secara manual. Penambangan menunggu hingga peer disinkronkan.\n\nSaat dimulai ulang, node melanjutkan dari blok terakhir yang sudah diverifikasi secara lokal dan memeriksa blok baru. Jika catatan verifikasi yang tersimpan hilang atau tidak cocok, node memeriksa kembali riwayat yang tersimpan."
       },
       {
         "id": "settings",
@@ -843,7 +843,7 @@
       {
         "id": "network",
         "title": "Kết nối nút",
-        "body": "Ứng dụng chạy nút SMW cục bộ. Số nút kết nối chỉ tính các nút khác, vì vậy số 0 không có nghĩa là nút của riêng bạn biến mất. Khi internet được bật, tính năng phát hiện SMW tự động sẽ cố gắng tìm các nút tương thích. Nếu không thể truy cập được, hãy thêm IP ngang hàng hoặc miền: cổng theo cách thủ công. Việc khai thác chờ cho đến khi một thiết bị ngang hàng được đồng bộ hóa."
+        "body": "Ứng dụng chạy nút SMW cục bộ. Số nút kết nối chỉ tính các nút khác, vì vậy số 0 không có nghĩa là nút của riêng bạn biến mất. Khi internet được bật, tính năng phát hiện SMW tự động sẽ cố gắng tìm các nút tương thích. Nếu không thể truy cập được, hãy thêm IP ngang hàng hoặc miền: cổng theo cách thủ công. Việc khai thác chờ cho đến khi một thiết bị ngang hàng được đồng bộ hóa.\n\nKhi khởi động lại, nút tiếp tục từ khối cuối cùng đã tự xác minh và kiểm tra các khối mới. Nếu bản ghi xác minh đã lưu bị thiếu hoặc không khớp, nút sẽ kiểm tra lại lịch sử đã lưu."
       },
       {
         "id": "settings",
@@ -905,7 +905,7 @@
       {
         "id": "network",
         "title": "Düğüm bağlantısı",
-        "body": "Uygulama yerel bir SMW düğümünü çalıştırır. Bağlı eşler diğer düğümleri sayar; dolayısıyla sıfır, kendi düğümünüzün kaybolduğu anlamına gelmez. İnternet etkinleştirildiğinde, otomatik SMW keşfi uyumlu eşleri bulmaya çalışır. Hiçbirine ulaşılamıyorsa manuel olarak bir eş IP veya etki alanı:bağlantı noktası ekleyin. Madencilik, bir eşin senkronize edilmesini bekler."
+        "body": "Uygulama yerel bir SMW düğümünü çalıştırır. Bağlı eşler diğer düğümleri sayar; dolayısıyla sıfır, kendi düğümünüzün kaybolduğu anlamına gelmez. İnternet etkinleştirildiğinde, otomatik SMW keşfi uyumlu eşleri bulmaya çalışır. Hiçbirine ulaşılamıyorsa manuel olarak bir eş IP veya etki alanı:bağlantı noktası ekleyin. Madencilik, bir eşin senkronize edilmesini bekler.\n\nDüğüm yeniden başlatıldığında yerel olarak doğruladığı son bloktan devam eder ve yeni blokları doğrular. Kayıtlı doğrulama bilgisi eksikse veya tutarsızsa saklanan geçmişi yeniden denetler."
       },
       {
         "id": "settings",
@@ -967,7 +967,7 @@
       {
         "id": "network",
         "title": "การเชื่อมต่อโหนด",
-        "body": "แอปรันโหนด SMW ในเครื่อง เพียร์ที่เชื่อมต่อจะนับโหนดอื่นๆ ดังนั้นศูนย์ไม่ได้หมายความว่าโหนดของคุณหายไป เมื่อเปิดใช้งานอินเทอร์เน็ต การค้นพบ SMW อัตโนมัติจะพยายามค้นหาเพื่อนที่เข้ากันได้ หากไม่สามารถเข้าถึงได้ ให้เพิ่ม IP เพียร์หรือโดเมน: พอร์ตด้วยตนเอง การขุดจะรอจนกว่าเพียร์จะซิงโครไนซ์"
+        "body": "แอปรันโหนด SMW ในเครื่อง เพียร์ที่เชื่อมต่อจะนับโหนดอื่นๆ ดังนั้นศูนย์ไม่ได้หมายความว่าโหนดของคุณหายไป เมื่อเปิดใช้งานอินเทอร์เน็ต การค้นพบ SMW อัตโนมัติจะพยายามค้นหาเพื่อนที่เข้ากันได้ หากไม่สามารถเข้าถึงได้ ให้เพิ่ม IP เพียร์หรือโดเมน: พอร์ตด้วยตนเอง การขุดจะรอจนกว่าเพียร์จะซิงโครไนซ์\n\nเมื่อเริ่มทำงานอีกครั้ง โหนดจะทำงานต่อจากบล็อกล่าสุดที่ตรวจสอบไว้ในเครื่องและตรวจสอบบล็อกใหม่ หากไม่พบบันทึกการตรวจสอบที่เก็บไว้หรือข้อมูลไม่ตรงกัน โหนดจะตรวจสอบประวัติที่เก็บไว้อีกครั้ง"
       },
       {
         "id": "settings",
@@ -1029,7 +1029,7 @@
       {
         "id": "network",
         "title": "Connessione nodo",
-        "body": "L'app esegue un nodo SMW locale. I peer connessi contano gli altri nodi, quindi zero non significa che il tuo nodo è scomparso. Con Internet abilitato, il rilevamento automatico di SMW tenta di trovare peer compatibili. Se nessuno è raggiungibile, aggiungi manualmente un IP peer o un dominio:porta. Il mining attende finché un peer non viene sincronizzato."
+        "body": "L'app esegue un nodo SMW locale. I peer connessi contano gli altri nodi, quindi zero non significa che il tuo nodo è scomparso. Con Internet abilitato, il rilevamento automatico di SMW tenta di trovare peer compatibili. Se nessuno è raggiungibile, aggiungi manualmente un IP peer o un dominio:porta. Il mining attende finché un peer non viene sincronizzato.\n\nAl riavvio il nodo riparte dall’ultimo blocco verificato localmente e controlla i nuovi blocchi. Se la verifica salvata manca o i dati non corrispondono, ricontrolla la cronologia archiviata."
       },
       {
         "id": "settings",
@@ -1091,7 +1091,7 @@
       {
         "id": "network",
         "title": "নোড সংযোগ",
-        "body": "অ্যাপ নিজস্ব স্থানীয় SMW নোড চালায়। সংযুক্ত পিয়ারের সংখ্যা অন্য নোড গোনে; শূন্য মানে নিজের নোড হারিয়ে গেছে নয়। ইন্টারনেট চালু থাকলে স্বয়ংক্রিয় আবিষ্কার সামঞ্জস্যপূর্ণ পিয়ার খোঁজে। কাউকে পাওয়া না গেলে পিয়ারের IP বা domain:port নিজে যোগ করা যায়। পিয়ার সিঙ্ক না হওয়া পর্যন্ত মাইনিং অপেক্ষা করে।"
+        "body": "অ্যাপ নিজস্ব স্থানীয় SMW নোড চালায়। সংযুক্ত পিয়ারের সংখ্যা অন্য নোড গোনে; শূন্য মানে নিজের নোড হারিয়ে গেছে নয়। ইন্টারনেট চালু থাকলে স্বয়ংক্রিয় আবিষ্কার সামঞ্জস্যপূর্ণ পিয়ার খোঁজে। কাউকে পাওয়া না গেলে পিয়ারের IP বা domain:port নিজে যোগ করা যায়। পিয়ার সিঙ্ক না হওয়া পর্যন্ত মাইনিং অপেক্ষা করে।\n\nনোড আবার চালু হলে স্থানীয়ভাবে যাচাই করা শেষ ব্লক থেকে শুরু করে নতুন ব্লকগুলো যাচাই করে। সংরক্ষিত যাচাইয়ের রেকর্ড না থাকলে বা না মিললে আগের ইতিহাস আবার যাচাই করে।"
       },
       {
         "id": "settings",
@@ -1153,7 +1153,7 @@
       {
         "id": "network",
         "title": "نوڈ کنکشن",
-        "body": "ایپ مقامی SMW نوڈ چلاتی ہے۔ منسلک پیئر دوسرے نوڈس کو شمار کرتے ہیں، لہذا صفر کا مطلب یہ نہیں ہے کہ آپ کا اپنا نوڈ غائب ہوگیا۔ انٹرنیٹ فعال ہونے کے ساتھ، خودکار SMW دریافت ہم آہنگ ساتھیوں کو تلاش کرنے کی کوشش کرتی ہے۔ اگر کوئی بھی قابل رسائی نہیں ہے تو، ایک پیئر IP یا domain:port دستی طور پر شامل کریں۔ کان کنی اس وقت تک انتظار کرتی ہے جب تک کہ پیئر مطابقت پذیر نہ ہو۔"
+        "body": "ایپ مقامی SMW نوڈ چلاتی ہے۔ منسلک پیئر دوسرے نوڈس کو شمار کرتے ہیں، لہذا صفر کا مطلب یہ نہیں ہے کہ آپ کا اپنا نوڈ غائب ہوگیا۔ انٹرنیٹ فعال ہونے کے ساتھ، خودکار SMW دریافت ہم آہنگ ساتھیوں کو تلاش کرنے کی کوشش کرتی ہے۔ اگر کوئی بھی قابل رسائی نہیں ہے تو، ایک پیئر IP یا domain:port دستی طور پر شامل کریں۔ کان کنی اس وقت تک انتظار کرتی ہے جب تک کہ پیئر مطابقت پذیر نہ ہو۔\n\nدوبارہ شروع ہونے پر نوڈ اس آخری بلاک سے آگے بڑھتا ہے جس کی اس نے خود تصدیق کی تھی، اور نئے بلاکوں کی جانچ کرتا ہے۔ اگر تصدیق کا محفوظ ریکارڈ موجود نہ ہو یا اس کی تفصیلات میل نہ کھائیں تو نوڈ محفوظ شدہ تاریخ دوبارہ جانچتا ہے۔"
       },
       {
         "id": "settings",
@@ -1215,7 +1215,7 @@
       {
         "id": "network",
         "title": "Połączenie węzła",
-        "body": "Aplikacja uruchamia lokalny węzeł SMW. Połączeni równorzędni zliczają inne węzły, więc zero nie oznacza, że ​​Twój własny węzeł zniknął. Przy włączonym Internecie automatyczne wykrywanie SMW próbuje znaleźć kompatybilne elementy równorzędne. Jeśli żaden nie jest osiągalny, ręcznie dodaj równorzędny adres IP lub domenę:port. Wydobywanie czeka, aż peer zostanie zsynchronizowany."
+        "body": "Aplikacja uruchamia lokalny węzeł SMW. Połączeni równorzędni zliczają inne węzły, więc zero nie oznacza, że ​​Twój własny węzeł zniknął. Przy włączonym Internecie automatyczne wykrywanie SMW próbuje znaleźć kompatybilne elementy równorzędne. Jeśli żaden nie jest osiągalny, ręcznie dodaj równorzędny adres IP lub domenę:port. Wydobywanie czeka, aż peer zostanie zsynchronizowany.\n\nPo ponownym uruchomieniu węzeł wznawia pracę od ostatniego bloku, który sam zweryfikował, i sprawdza nowe bloki. Jeśli zapis weryfikacji zaginął lub jest niespójny, węzeł ponownie sprawdza zapisaną historię."
       },
       {
         "id": "settings",
@@ -1277,7 +1277,7 @@
       {
         "id": "network",
         "title": "Knooppuntverbinding",
-        "body": "De app voert een lokaal SMW knooppunt uit. Verbonden peers tellen andere knooppunten mee, dus nul betekent niet dat uw eigen knooppunt is verdwenen. Als internet is ingeschakeld, probeert de automatische SMW-detectie compatibele peers te vinden. Als er geen bereikbaar zijn, voeg dan handmatig een peer-IP of domein:poort toe. Mining wacht totdat een peer is gesynchroniseerd."
+        "body": "De app voert een lokaal SMW knooppunt uit. Verbonden peers tellen andere knooppunten mee, dus nul betekent niet dat uw eigen knooppunt is verdwenen. Als internet is ingeschakeld, probeert de automatische SMW-detectie compatibele peers te vinden. Als er geen bereikbaar zijn, voeg dan handmatig een peer-IP of domein:poort toe. Mining wacht totdat een peer is gesynchroniseerd.\n\nNa een herstart gaat het knooppunt verder vanaf het laatste lokaal geverifieerde blok en controleert het nieuwe blokken. Als het opgeslagen verificatierecord ontbreekt of niet klopt, controleert het de opgeslagen geschiedenis opnieuw."
       },
       {
         "id": "settings",
@@ -1339,7 +1339,7 @@
       {
         "id": "network",
         "title": "Koneksyon ng node",
-        "body": "Ang app ay nagpapatakbo ng lokal na SMW node. Ang mga konektadong peer ay nagbibilang ng iba pang mga node, kaya ang zero ay hindi nangangahulugang nawala ang iyong sariling node. Kapag naka-enable ang internet, sinusubukan ng awtomatikong SMW na pagtuklas na maghanap ng mga katugmang kapantay. Kung walang maabot, magdagdag ng peer IP o domain:port nang manu-mano. Naghihintay ang pagmimina hanggang sa ma-synchronize ang isang peer."
+        "body": "Ang app ay nagpapatakbo ng lokal na SMW node. Ang mga konektadong peer ay nagbibilang ng iba pang mga node, kaya ang zero ay hindi nangangahulugang nawala ang iyong sariling node. Kapag naka-enable ang internet, sinusubukan ng awtomatikong SMW na pagtuklas na maghanap ng mga katugmang kapantay. Kung walang maabot, magdagdag ng peer IP o domain:port nang manu-mano. Naghihintay ang pagmimina hanggang sa ma-synchronize ang isang peer.\n\nKapag muling binuksan, magpapatuloy ang node mula sa huling block na sinuri nito sa device at susuriin ang mga bagong block. Kung wala o hindi tugma ang nakaimbak na tala ng pagsusuri, susuriin nitong muli ang nakaimbak na kasaysayan."
       },
       {
         "id": "settings",
@@ -1401,7 +1401,7 @@
       {
         "id": "network",
         "title": "முனை இணைப்பு",
-        "body": "பயன்பாடு உள்ளூர் SMW முனையை இயக்குகிறது. இணைக்கப்பட்ட சகாக்கள் மற்ற முனைகளைக் கணக்கிடுவார்கள், எனவே பூஜ்ஜியம் என்பது உங்கள் சொந்த முனை மறைந்துவிட்டதாக அர்த்தமல்ல. இணையம் இயக்கப்பட்டிருந்தால், தானியங்கி SMW கண்டுபிடிப்பானது இணக்கமான சகாக்களைக் கண்டறிய முயற்சிக்கிறது. யாரையும் அணுக முடியாவிட்டால், ஒரு பியர் ஐபி அல்லது டொமைன்:போர்ட்டை கைமுறையாகச் சேர்க்கவும். ஒரு பியர் ஒத்திசைக்கப்படும் வரை சுரங்கம் காத்திருக்கிறது."
+        "body": "பயன்பாடு உள்ளூர் SMW முனையை இயக்குகிறது. இணைக்கப்பட்ட சகாக்கள் மற்ற முனைகளைக் கணக்கிடுவார்கள், எனவே பூஜ்ஜியம் என்பது உங்கள் சொந்த முனை மறைந்துவிட்டதாக அர்த்தமல்ல. இணையம் இயக்கப்பட்டிருந்தால், தானியங்கி SMW கண்டுபிடிப்பானது இணக்கமான சகாக்களைக் கண்டறிய முயற்சிக்கிறது. யாரையும் அணுக முடியாவிட்டால், ஒரு பியர் ஐபி அல்லது டொமைன்:போர்ட்டை கைமுறையாகச் சேர்க்கவும். ஒரு பியர் ஒத்திசைக்கப்படும் வரை சுரங்கம் காத்திருக்கிறது.\n\nமீண்டும் தொடங்கும்போது, முனையம் தானே சரிபார்த்த கடைசித் தொகுதியிலிருந்து தொடர்ந்து புதிய தொகுதிகளைச் சரிபார்க்கிறது. சேமித்த சரிபார்ப்புப் பதிவு இல்லையெனில் அல்லது அதன் விவரங்கள் பொருந்தாவிட்டால், சேமித்த வரலாற்றை மீண்டும் சரிபார்க்கிறது."
       },
       {
         "id": "settings",
@@ -1463,7 +1463,7 @@
       {
         "id": "network",
         "title": "節點連線",
-        "body": "應用執行本地 SMW 節點。已連線節點為零並不代表自己的節點消失。聯網後會自動尋找相容節點；若找不到可連線的節點，請手動新增對方的 IP 或域名:埠。挖礦會等待與節點同步。"
+        "body": "應用執行本地 SMW 節點。已連線節點為零並不代表自己的節點消失。聯網後會自動尋找相容節點；若找不到可連線的節點，請手動新增對方的 IP 或域名:埠。挖礦會等待與節點同步。\n\n重新啟動後，節點會從上次在本機驗證的區塊繼續，檢查新區塊。如果儲存的驗證紀錄遺失或資料不符，節點會重新驗證已儲存的歷史紀錄。"
       },
       {
         "id": "settings",
@@ -1525,7 +1525,7 @@
       {
         "id": "network",
         "title": "節點連線",
-        "body": "應用執行本地 SMW 節點。已連線節點為零並不代表自己的節點消失。聯網後會自動尋找相容節點；若找不到可連線的節點，請手動新增對方的 IP 或域名:埠。挖礦會等待與節點同步。"
+        "body": "應用執行本地 SMW 節點。已連線節點為零並不代表自己的節點消失。聯網後會自動尋找相容節點；若找不到可連線的節點，請手動新增對方的 IP 或域名:埠。挖礦會等待與節點同步。\n\n重新啟動後，節點會從本機上次驗證的區塊繼續，檢查新區塊。如果儲存的驗證記錄遺失或資料不符，節點會重新驗證已儲存的歷史記錄。"
       },
       {
         "id": "settings",
@@ -1587,7 +1587,7 @@
       {
         "id": "network",
         "title": "Připojení uzlu",
-        "body": "Aplikace provozuje místní uzel SMW. Počet připojených uzlů počítá ostatní uzly, takže nula neznamená, že váš vlastní uzel zmizel. Při povoleném internetu se automatické vyhledávání SMW pokouší najít kompatibilní uzly. Pokud žádný není dostupný, přidejte ručně IP nebo doménu:port uzlu. Těžba čeká, dokud se uzel nesynchronizuje."
+        "body": "Aplikace provozuje místní uzel SMW. Počet připojených uzlů počítá ostatní uzly, takže nula neznamená, že váš vlastní uzel zmizel. Při povoleném internetu se automatické vyhledávání SMW pokouší najít kompatibilní uzly. Pokud žádný není dostupný, přidejte ručně IP nebo doménu:port uzlu. Těžba čeká, dokud se uzel nesynchronizuje.\n\nPo restartu uzel naváže na poslední blok, který sám ověřil, a ověřuje nové bloky. Pokud uložený záznam o ověření chybí nebo nesouhlasí, znovu ověří uloženou historii."
       },
       {
         "id": "settings",
@@ -1649,7 +1649,7 @@
       {
         "id": "network",
         "title": "Nodeforbindelse",
-        "body": "Appen kører en lokal SMW-node. Tilsluttede noder tæller andre noder, så nul betyder ikke, at din egen node er forsvundet. Med internet aktiveret forsøger SMWs automatiske søgning at finde kompatible noder. Hvis ingen er tilgængelige, skal du tilføje en nodes IP eller domæne:port manuelt. Mining venter, indtil en node er synkroniseret."
+        "body": "Appen kører en lokal SMW-node. Tilsluttede noder tæller andre noder, så nul betyder ikke, at din egen node er forsvundet. Med internet aktiveret forsøger SMWs automatiske søgning at finde kompatible noder. Hvis ingen er tilgængelige, skal du tilføje en nodes IP eller domæne:port manuelt. Mining venter, indtil en node er synkroniseret.\n\nEfter en genstart fortsætter noden fra den sidste blok, den selv har verificeret, og kontrollerer nye blokke. Hvis den gemte verifikation mangler eller ikke stemmer, kontrollerer den den gemte historik igen."
       },
       {
         "id": "settings",
@@ -1711,7 +1711,7 @@
       {
         "id": "network",
         "title": "Solmuyhteys",
-        "body": "Sovellus käyttää paikallista SMW-solmua. Yhdistetyt vertaiset laskee muut solmut, joten nolla ei tarkoita oman solmusi kadonneen. Kun internet on käytössä, SUMUWWin automaattinen haku yrittää löytää yhteensopivia vertaisia. Jos yksikään ei ole tavoitettavissa, lisää vertaisen IP tai verkkotunnus:portti käsin. Louhinta odottaa vertaisen synkronointia."
+        "body": "Sovellus käyttää paikallista SMW-solmua. Yhdistetyt vertaiset laskee muut solmut, joten nolla ei tarkoita oman solmusi kadonneen. Kun internet on käytössä, SUMUWWin automaattinen haku yrittää löytää yhteensopivia vertaisia. Jos yksikään ei ole tavoitettavissa, lisää vertaisen IP tai verkkotunnus:portti käsin. Louhinta odottaa vertaisen synkronointia.\n\nKäynnistyessään uudelleen solmu jatkaa viimeisestä paikallisesti tarkistamastaan lohkosta ja tarkistaa uudet lohkot. Jos tallennettu tarkistustieto puuttuu tai on ristiriitainen, solmu tarkistaa tallennetun historian uudelleen."
       },
       {
         "id": "settings",
@@ -1773,7 +1773,7 @@
       {
         "id": "network",
         "title": "Σύνδεση κόμβου",
-        "body": "Η εφαρμογή εκτελεί τοπικό κόμβο SMW. Οι συνδεδεμένοι ομότιμοι μετρούν άλλους κόμβους, άρα το μηδέν δεν σημαίνει ότι εξαφανίστηκε ο δικός σας κόμβος. Με ενεργό διαδίκτυο, η αυτόματη ανακάλυψη SMW προσπαθεί να βρει συμβατούς ομότιμους. Αν κανένας δεν είναι προσβάσιμος, προσθέστε IP ή τομέα:θύρα ομότιμου χειροκίνητα. Η εξόρυξη περιμένει μέχρι να συγχρονιστεί ομότιμος."
+        "body": "Η εφαρμογή εκτελεί τοπικό κόμβο SMW. Οι συνδεδεμένοι ομότιμοι μετρούν άλλους κόμβους, άρα το μηδέν δεν σημαίνει ότι εξαφανίστηκε ο δικός σας κόμβος. Με ενεργό διαδίκτυο, η αυτόματη ανακάλυψη SMW προσπαθεί να βρει συμβατούς ομότιμους. Αν κανένας δεν είναι προσβάσιμος, προσθέστε IP ή τομέα:θύρα ομότιμου χειροκίνητα. Η εξόρυξη περιμένει μέχρι να συγχρονιστεί ομότιμος.\n\nΜετά την επανεκκίνηση, ο κόμβος συνεχίζει από το τελευταίο μπλοκ που επαλήθευσε τοπικά και ελέγχει τα νέα μπλοκ. Αν λείπει η αποθηκευμένη εγγραφή επαλήθευσης ή τα στοιχεία της δεν συμφωνούν, επανελέγχει το αποθηκευμένο ιστορικό."
       },
       {
         "id": "settings",
@@ -1835,7 +1835,7 @@
       {
         "id": "network",
         "title": "Nodetilkobling",
-        "body": "Appen kjører en lokal SMW-node. Tilkoblede noder teller andre noder, så null betyr ikke at din egen node har forsvunnet. Med internett aktivert prøver automatisk SMW-oppdagelse å finne kompatible noder. Hvis ingen kan nås, legg til en nodes IP eller domene:port manuelt. Utvinning venter til en node er synkronisert."
+        "body": "Appen kjører en lokal SMW-node. Tilkoblede noder teller andre noder, så null betyr ikke at din egen node har forsvunnet. Med internett aktivert prøver automatisk SMW-oppdagelse å finne kompatible noder. Hvis ingen kan nås, legg til en nodes IP eller domene:port manuelt. Utvinning venter til en node er synkronisert.\n\nEtter omstart fortsetter noden fra den siste blokken den selv har verifisert, og sjekker nye blokker. Hvis den lagrede verifikasjonen mangler eller ikke stemmer, sjekker noden den lagrede historikken på nytt."
       },
       {
         "id": "settings",
@@ -1897,7 +1897,7 @@
       {
         "id": "network",
         "title": "Nodanslutning",
-        "body": "Appen kör en lokal SMW-nod. Anslutna noder räknar andra noder, så noll betyder inte att din egen nod har försvunnit. När internet är aktiverat försöker automatisk SMW-upptäckt hitta kompatibla noder. Om ingen kan nås lägger du till en nod som IP eller domän:port manuellt. Brytningen väntar tills en nod är synkroniserad."
+        "body": "Appen kör en lokal SMW-nod. Anslutna noder räknar andra noder, så noll betyder inte att din egen nod har försvunnit. När internet är aktiverat försöker automatisk SMW-upptäckt hitta kompatibla noder. Om ingen kan nås lägger du till en nod som IP eller domän:port manuellt. Brytningen väntar tills en nod är synkroniserad.\n\nEfter en omstart fortsätter noden från det senaste block som den själv har verifierat och kontrollerar nya block. Om den sparade verifieringsposten saknas eller inte stämmer kontrollerar noden den sparade historiken igen."
       },
       {
         "id": "settings",
@@ -1959,7 +1959,7 @@
       {
         "id": "network",
         "title": "Повезивање чвора",
-        "body": "Апликација покреће локални SMW чвор. Повезани чворови броје друге чворове, па нула не значи да је ваш чвор нестао. Када је интернет укључен, аутоматско SMW откривање покушава да пронађе компатибилне чворове. Ако ниједан није доступан, ручно додајте IP или домен:порт чвора. Рударење чека док чвор не буде синхронизован."
+        "body": "Апликација покреће локални SMW чвор. Повезани чворови броје друге чворове, па нула не значи да је ваш чвор нестао. Када је интернет укључен, аутоматско SMW откривање покушава да пронађе компатибилне чворове. Ако ниједан није доступан, ручно додајте IP или домен:порт чвора. Рударење чека док чвор не буде синхронизован.\n\nПосле поновног покретања чвор наставља од последњег блока који је сам проверио и проверава нове блокове. Ако сачувани запис о провери недостаје или се подаци не поклапају, чвор поново проверава сачувану историју."
       },
       {
         "id": "settings",
@@ -2021,7 +2021,7 @@
       {
         "id": "network",
         "title": "Зангилааны холболт",
-        "body": "Апп дотоод SMW зангилаа ажиллуулна. Холбогдсон зангилаанууд нь бусад зангилааг тоолдог тул тэг болсон нь таны зангилаа алга болсон гэсэн үг биш. Интернэт идэвхтэй үед автомат SMW илрүүлэлт нийцтэй зангилаанууд хайна. Аль нь ч холбогдох боломжгүй бол зангилааны IP эсвэл домэйн:порт гараар нэмнэ үү. Зангилаа синхрончлогдох хүртэл олборлолт хүлээнэ."
+        "body": "Апп дотоод SMW зангилаа ажиллуулна. Холбогдсон зангилаанууд нь бусад зангилааг тоолдог тул тэг болсон нь таны зангилаа алга болсон гэсэн үг биш. Интернэт идэвхтэй үед автомат SMW илрүүлэлт нийцтэй зангилаанууд хайна. Аль нь ч холбогдох боломжгүй бол зангилааны IP эсвэл домэйн:порт гараар нэмнэ үү. Зангилаа синхрончлогдох хүртэл олборлолт хүлээнэ.\n\nЗангилаа дахин асахдаа өөрийн шалгасан сүүлийн блокоос үргэлжлүүлж, шинэ блокуудыг шалгана. Хадгалсан шалгалтын бүртгэл байхгүй эсвэл зөрүүтэй бол хадгалсан түүхийг дахин шалгана."
       },
       {
         "id": "settings",
@@ -2083,7 +2083,7 @@
       {
         "id": "network",
         "title": "ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠶᠢᠨ ᠬᠣᠯᠪᠣᠯᠲᠠ",
-        "body": "ᠠᠫᠫ ᠳᠣᠲᠣᠭᠠᠳᠤ SMW ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠠᠵᠢᠯᠯᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠬᠣᠯᠪᠣᠭᠰᠠᠨ ᠲᠦᠩᠰᠢ ᠨᠢ ᠥᠭᠡᠷ᠎ᠡ ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠶᠢ ᠲᠣᠭᠠᠯᠠᠨ᠎ᠠ᠂ ᠲᠡᠶᠢᠮᠦ ᠡᠴᠡ ᠲᠡᠭ ᠨᠢ ᠥᠪᠡᠷ ᠦᠨ ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠠᠯᠭ᠎ᠠ ᠪᠣᠯᠣᠭᠰᠠᠨ ᠢ ᠢᠯᠡᠳᠬᠡᠬᠦ ᠦᠭᠡᠢ᠃ ᠢᠨᠲ᠋ᠧᠷᠨᠡᠲ ᠨᠡᠭᠡᠭᠡᠯᠲᠡᠲᠡᠢ ᠳᠦ SMW ᠶᠢᠨ ᠠᠦ᠋ᠲ᠋ᠣ᠋ ᠬᠠᠶᠢᠯᠲᠠ ᠨᠡᠶᠢᠴᠡᠲᠡᠢ ᠲᠦᠩᠰᠢ ᠣᠯᠬᠤ ᠶᠢ ᠣᠷᠣᠯᠳᠣᠨ᠎ᠠ᠃ ᠬᠦᠷᠴᠦ ᠪᠣᠯᠬᠤ ᠲᠦᠩᠰᠢ ᠦᠭᠡᠢ ᠪᠣᠯ IP ᠪᠤᠶᠤ domain:port ᠢ ᠭᠠᠷ ᠢᠶᠠᠷ ᠨᠡᠮᠡᠨ᠎ᠡ᠃ ᠣᠯᠪᠣᠷᠯᠠᠯᠲᠠ ᠲᠦᠩᠰᠢ ᠢᠵᠢᠯᠡᠰᠢᠬᠦ ᠬᠦᠷᠲᠡᠯ᠎ᠡ ᠬᠦᠯᠢᠶᠡᠨ᠎ᠡ᠃"
+        "body": "ᠠᠫᠫ ᠳᠣᠲᠣᠭᠠᠳᠤ SMW ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠠᠵᠢᠯᠯᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠬᠣᠯᠪᠣᠭᠰᠠᠨ ᠲᠦᠩᠰᠢ ᠨᠢ ᠥᠭᠡᠷ᠎ᠡ ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠶᠢ ᠲᠣᠭᠠᠯᠠᠨ᠎ᠠ᠂ ᠲᠡᠶᠢᠮᠦ ᠡᠴᠡ ᠲᠡᠭ ᠨᠢ ᠥᠪᠡᠷ ᠦᠨ ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠠᠯᠭ᠎ᠠ ᠪᠣᠯᠣᠭᠰᠠᠨ ᠢ ᠢᠯᠡᠳᠬᠡᠬᠦ ᠦᠭᠡᠢ᠃ ᠢᠨᠲ᠋ᠧᠷᠨᠡᠲ ᠨᠡᠭᠡᠭᠡᠯᠲᠡᠲᠡᠢ ᠳᠦ SMW ᠶᠢᠨ ᠠᠦ᠋ᠲ᠋ᠣ᠋ ᠬᠠᠶᠢᠯᠲᠠ ᠨᠡᠶᠢᠴᠡᠲᠡᠢ ᠲᠦᠩᠰᠢ ᠣᠯᠬᠤ ᠶᠢ ᠣᠷᠣᠯᠳᠣᠨ᠎ᠠ᠃ ᠬᠦᠷᠴᠦ ᠪᠣᠯᠬᠤ ᠲᠦᠩᠰᠢ ᠦᠭᠡᠢ ᠪᠣᠯ IP ᠪᠤᠶᠤ domain:port ᠢ ᠭᠠᠷ ᠢᠶᠠᠷ ᠨᠡᠮᠡᠨ᠎ᠡ᠃ ᠣᠯᠪᠣᠷᠯᠠᠯᠲᠠ ᠲᠦᠩᠰᠢ ᠢᠵᠢᠯᠡᠰᠢᠬᠦ ᠬᠦᠷᠲᠡᠯ᠎ᠡ ᠬᠦᠯᠢᠶᠡᠨ᠎ᠡ᠃\n\nᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠳᠠᠬᠢᠨ ᠠᠰᠠᠬᠤ ᠳᠠᠭᠠᠨ ᠥᠪᠡᠷ ᠦᠨ ᠰᠢᠯᠭᠠᠭᠰᠠᠨ ᠬᠠᠮᠤᠭ ᠤᠨ ᠰᠡᠭᠦᠯ ᠦᠨ ᠪᠯᠣᠺ ᠠᠴᠠ ᠦᠷᠭᠦᠯᠵᠢᠯᠡᠭᠦᠯᠵᠦ᠂ ᠰᠢᠨ᠎ᠡ ᠪᠯᠣᠺ ᠤᠳ ᠢ ᠰᠢᠯᠭᠠᠨ᠎ᠠ᠃ ᠬᠠᠳᠠᠭᠠᠯᠠᠭᠰᠠᠨ ᠰᠢᠯᠭᠠᠯᠲᠠ ᠶᠢᠨ ᠪᠦᠷᠢᠳᠬᠡᠯ ᠦᠭᠡᠢ ᠪᠤᠶᠤ ᠵᠥᠷᠢᠶ᠎ᠡ ᠲᠡᠢ ᠪᠣᠯ ᠬᠠᠳᠠᠭᠠᠯᠠᠭᠰᠠᠨ ᠲᠡᠦᠬᠡ ᠶᠢ ᠳᠠᠬᠢᠨ ᠰᠢᠯᠭᠠᠨ᠎ᠠ᠃"
       },
       {
         "id": "settings",

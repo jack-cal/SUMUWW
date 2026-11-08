@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Dokumentace
+# SUMUWW Android 0.6.99 · Dokumentace
 
-SUMUWW Android 0.6.95 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
+SUMUWW Android 0.6.99 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
 
 ## Síť a adresy
 

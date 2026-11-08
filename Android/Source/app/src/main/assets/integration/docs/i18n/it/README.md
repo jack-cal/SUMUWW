@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Documentazione
+# SUMUWW Android 0.6.99 · Documentazione
 
-SUMUWW Android 0.6.95 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
+SUMUWW Android 0.6.99 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
 
 ## Rete e indirizzi
 

@@ -1,6 +1,8 @@
-# SUMUWW Android 0.6.95 · Release notes
+# SUMUWW Android 0.6.99 · Release notes
 
-SUMUWW Android 0.6.95 · The node validates, stores, relays and exposes chain data.
+On restart, the node resumes from its last locally verified block and checks new blocks. If the saved verification record is missing or inconsistent, it checks the stored history again.
+
+SUMUWW Android 0.6.99 · The node validates, stores, relays and exposes chain data.
 
 The API specification describes the embedded node core. The Android app has no RPC configuration screen.
 

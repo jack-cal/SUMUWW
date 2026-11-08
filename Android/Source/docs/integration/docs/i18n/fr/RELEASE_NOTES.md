@@ -1,6 +1,8 @@
-# SUMUWW Android 0.6.95 · Notes de version
+# SUMUWW Android 0.6.99 · Notes de version
 
-SUMUWW Android 0.6.95 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
+Au redémarrage, le nœud repart du dernier bloc vérifié localement et vérifie les nouveaux blocs. Si la trace de vérification enregistrée est absente ou incohérente, il vérifie à nouveau l’historique stocké.
+
+SUMUWW Android 0.6.99 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
 
 La spécification API décrit le cœur du nœud intégré. L’application Android n’a pas d’écran de configuration RPC.
 

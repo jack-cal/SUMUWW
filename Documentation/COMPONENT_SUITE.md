@@ -5,7 +5,7 @@ Update every validating full node and ordinary wallet before **block 9,600**. Th
 | Component | Version | Download | Source |
 |---|---|---|---|
 | Windows full node, wallet and miner | 0.57.54 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.54) | [Source](../PC/Source) |
-| Android full node, wallet and miner | 0.6.96 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/android-v0.6.96) | [Source](../Android/Source) |
+| Android full node, wallet and miner | 0.6.99 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/android-v0.6.99) | [Source](../Android/Source) |
 | Windows ordinary wallet | 1.0.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-pc-v1.0.10) | [Source](../Wallet/Desktop) |
 | Android ordinary wallet | 1.1.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.10) | [Source](../Wallet/Source) |
 | Local block explorer | 0.4.11 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/explorer-v0.4.11) | [Source](../Explorer/Source) |
@@ -23,6 +23,8 @@ Android ordinary wallet 1.1.10 uses org.sumuww.wallet.current and retains its si
 P2P Full requires synchronized unpruned Bitcoin Core with txindex. Light verifies Bitcoin headers and transaction inclusion using TLS servers and is not full Bitcoin validation. Both require a synchronized SUMUWW node and the height-9100 HTLC rule. Read the [setup and recovery guide](../P2P/Source/BITCOIN_SETUP.md).
 
 ## Current behavior and verification
+
+Android 0.6.99 starts its own validating node and CPU miner. After the first local verification it resumes at the last verified block. It rechecks the stored history if the record is missing or inconsistent. The first check can take several minutes.
 
 On restart, the Windows node resumes from the last locally verified block and validates new blocks. The first upgrade from an older database performs a full local check. The node also checks the stored history if its verification record is missing or inconsistent. The Windows node mines locally, validates completed blocks received from peers and relays them. It rejects mobile mining work requests and solution submissions.
 

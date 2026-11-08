@@ -1,6 +1,8 @@
-# SUMUWW Android 0.6.95 · Sürüm notları
+# SUMUWW Android 0.6.99 · Sürüm notları
 
-SUMUWW Android 0.6.95 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
+Düğüm yeniden başlatıldığında yerel olarak doğruladığı son bloktan devam eder ve yeni blokları doğrular. Kayıtlı doğrulama bilgisi eksikse veya tutarsızsa saklanan geçmişi yeniden denetler.
+
+SUMUWW Android 0.6.99 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
 
 API belirtimi gömülü düğüm çekirdeğini açıklar. Android uygulamasında RPC yapılandırma ekranı yoktur.
 

@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Nodgränssnitt
+# SUMUWW Android 0.6.99 · Nodgränssnitt
 
-SUMUWW Android 0.6.95 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
+SUMUWW Android 0.6.99 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
 
 API-specifikationen beskriver den inbyggda nodkärnan. Android-appen saknar skärm för RPC-inställningar.
 

@@ -1,5 +1,7 @@
-# SUMUWW Android 0.6.95 · Versionsinformation
+# SUMUWW Android 0.6.99 · Versionsinformation
 
-SUMUWW Android 0.6.95 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
+Efter en omstart fortsätter noden från det senaste block som den själv har verifierat och kontrollerar nya block. Om den sparade verifieringsposten saknas eller inte stämmer kontrollerar noden den sparade historiken igen.
+
+SUMUWW Android 0.6.99 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
 
 [Dokumentation](../../integration/docs/i18n/sv/RELEASE_NOTES.html)

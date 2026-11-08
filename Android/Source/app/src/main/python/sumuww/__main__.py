@@ -282,7 +282,7 @@ def main(argv=None):
         else:
             if args.database is None:
                 parser.error('--database is required for chain commands')
-            with Chain(args.database, network=network) as chain:
+            with Chain(args.database, network=network, full_verification=args.command == 'verify') as chain:
                 if args.command in ('info', 'verify'):
                     result = chain.info()
                     if args.command == 'verify':

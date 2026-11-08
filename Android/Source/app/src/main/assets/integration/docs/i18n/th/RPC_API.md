@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · RPC และ HTTP API
+# SUMUWW Android 0.6.99 · RPC และ HTTP API
 
-SUMUWW Android 0.6.95 · โหนดตรวจสอบ เก็บ ส่งต่อ และให้ค้นข้อมูลเชน
+SUMUWW Android 0.6.99 · โหนดตรวจสอบ เก็บ ส่งต่อ และให้ค้นข้อมูลเชน
 
 ข้อกำหนด API อธิบายแกนโหนดที่ฝังอยู่ในแอป แอป Android ไม่มีหน้าจอตั้งค่า RPC
 

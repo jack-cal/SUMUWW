@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · 節點介面
+# SUMUWW Android 0.6.99 · 節點介面
 
-SUMUWW Android 0.6.95 · 節點負責驗證、儲存、傳播及查詢鏈上資料。
+SUMUWW Android 0.6.99 · 節點負責驗證、儲存、傳播及查詢鏈上資料。
 
 API 規格描述內置節點核心。Android 應用程式沒有 RPC 設定畫面。
 

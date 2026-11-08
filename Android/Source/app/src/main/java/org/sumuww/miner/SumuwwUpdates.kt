@@ -27,14 +27,14 @@ internal object SumuwwUpdateSource {
   return text
  }
  fun version(value:String):List<Int>{
-  val m=Regex("(\\d{1,5})\\.(\\d{1,5})\\.(\\d{1,5})(?:-[A-Za-z0-9._-]+)?").matchEntire(value)?:error("Invalid update version")
-  return (1..3).map{m.groupValues[it].toInt()}
+  val m=Regex("(\\d{1,5})\\.(\\d{1,5})\\.(\\d{1,5})(?:\\.(\\d{1,5}))?(?:-[A-Za-z0-9._-]+)?").matchEntire(value)?:error("Invalid update version")
+  return (1..4).map{m.groupValues[it].ifEmpty { "0" }.toInt()}
  }
  fun parse(raw:ByteArray,installed:String):Release {
   require(raw.size<=MAX_BYTES)
   val manifest=JSONObject(raw.toString(Charsets.UTF_8));require(manifest.get("schema_version") is Int&&manifest.getInt("schema_version")==1)
   val row=manifest.getJSONObject("android");val latest=row.getString("version");val a=version(latest);val b=version(installed)
-  val difference=(0..2).firstOrNull{a[it]!=b[it]}
+  val difference=a.indices.firstOrNull{a[it]!=b[it]}
   return Release(latest,releaseUrl(row.getString("release_url")),difference!=null&&a[difference]>b[difference])
  }
 }

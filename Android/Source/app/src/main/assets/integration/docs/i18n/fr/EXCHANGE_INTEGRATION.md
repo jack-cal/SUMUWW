@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Interface du nœud
+# SUMUWW Android 0.6.99 · Interface du nœud
 
-SUMUWW Android 0.6.95 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
+SUMUWW Android 0.6.99 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
 
 La spécification API décrit le cœur du nœud intégré. L’application Android n’a pas d’écran de configuration RPC.
 

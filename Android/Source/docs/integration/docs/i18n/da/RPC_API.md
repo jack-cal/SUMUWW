@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · RPC- og HTTP-API
+# SUMUWW Android 0.6.99 · RPC- og HTTP-API
 
-SUMUWW Android 0.6.95 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
+SUMUWW Android 0.6.99 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
 
 API-specifikationen beskriver den indbyggede nodekerne. Android-appen har ingen skærm til RPC-konfiguration.
 

@@ -1,6 +1,8 @@
-SUMUWW 0.6.96 — update before block 9,600. See UPGRADE_9600.md and the local 34-language upgrade9600 guide.
+Connection-proof selection rules apply from block 9,600. See UPGRADE_9600.md and the offline upgrade guide.
 
-# SUMUWW Android 0.6.96 (155)
+# SUMUWW Android 0.6.99 (162)
+
+On first upgrade the node verifies the existing local block database and records the verified tip. Later starts reuse the last committed verification record and validate new blocks. A missing or inconsistent record triggers local verification again.
 
 SUMUWW Android provides an independently validating full node, a personal wallet, CPU mining, peer synchronization and connection proofs. Automatic fees use current pending volume, block capacity and transaction priority. Past block fees are not used. A quiet queue keeps the minimum rate. The preview refreshes; the final confirmation fixes the fee. Observations cover the connected local node, not every node. Multisig and output-lock validation is available for isolated activation tests; public activation is not scheduled. Open More > Help > Documentation for offline Android documentation in all 34 supported languages. English is the default; saved language preferences remain in effect.
 

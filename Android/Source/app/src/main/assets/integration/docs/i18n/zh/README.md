@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · 文档
+# SUMUWW Android 0.6.99 · 文档
 
-SUMUWW Android 0.6.95 · 节点负责验证、保存、传播和查询链上数据。
+SUMUWW Android 0.6.99 · 节点负责验证、保存、传播和查询链上数据。
 
 ## 网络与地址
 

@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Dokumentasi
+# SUMUWW Android 0.6.99 · Dokumentasi
 
-SUMUWW Android 0.6.95 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
+SUMUWW Android 0.6.99 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
 
 ## Jaringan dan alamat
 

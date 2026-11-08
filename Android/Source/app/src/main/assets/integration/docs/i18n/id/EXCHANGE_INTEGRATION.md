@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Antarmuka node
+# SUMUWW Android 0.6.99 · Antarmuka node
 
-SUMUWW Android 0.6.95 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
+SUMUWW Android 0.6.99 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
 
 Spesifikasi API menjelaskan inti node tertanam. Aplikasi Android tidak memiliki layar pengaturan RPC.
 

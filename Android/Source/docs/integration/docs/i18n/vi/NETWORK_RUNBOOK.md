@@ -1,6 +1,8 @@
-# SUMUWW Android 0.6.95 · Vận hành nút
+# SUMUWW Android 0.6.99 · Vận hành nút
 
-SUMUWW Android 0.6.95 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
+Khi khởi động lại, nút tiếp tục từ khối cuối cùng đã tự xác minh và kiểm tra các khối mới. Nếu bản ghi xác minh đã lưu bị thiếu hoặc không khớp, nút sẽ kiểm tra lại lịch sử đã lưu.
+
+SUMUWW Android 0.6.99 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
 
 ## Mạng và địa chỉ
 

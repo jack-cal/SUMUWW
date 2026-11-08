@@ -1,6 +1,8 @@
-# SUMUWW Android 0.6.95 · Informacje o wersji
+# SUMUWW Android 0.6.99 · Informacje o wersji
 
-SUMUWW Android 0.6.95 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+Po ponownym uruchomieniu węzeł wznawia pracę od ostatniego bloku, który sam zweryfikował, i sprawdza nowe bloki. Jeśli zapis weryfikacji zaginął lub jest niespójny, węzeł ponownie sprawdza zapisaną historię.
+
+SUMUWW Android 0.6.99 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 Specyfikacja API opisuje wbudowany rdzeń węzła. Aplikacja Android nie ma ekranu konfiguracji RPC.
 

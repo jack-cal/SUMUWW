@@ -1,6 +1,8 @@
-# SUMUWW Android 0.6.95 · Versionshinweise
+# SUMUWW Android 0.6.99 · Versionshinweise
 
-SUMUWW Android 0.6.95 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
+Nach dem Neustart setzt der Knoten beim letzten lokal geprüften Block an und prüft neue Blöcke. Fehlt der gespeicherte Prüfnachweis oder ist er widersprüchlich, prüft der Knoten den gespeicherten Verlauf erneut.
+
+SUMUWW Android 0.6.99 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
 
 Die API-Spezifikation beschreibt den eingebetteten Knotenkern. Die Android-App hat keinen Bildschirm zur RPC-Konfiguration.
 

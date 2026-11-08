@@ -1,3 +1,9 @@
+# SUMUWW Android 0.6.99
+
+Android 0.6.99 starts its own validating node and CPU miner. After the first local verification it resumes at the last verified block. It rechecks the stored history if the record is missing or inconsistent. The first check can take several minutes. The app can check for updates from three- or four-part version numbers. The restart guidance is available in all 34 interface languages.
+
+[Release and checksums](https://github.com/jack-cal/SUMUWW/releases/tag/android-v0.6.99)
+
 # SUMUWW Android 0.6.88
 
 Full node, wallet and optional CPU miner. This release includes the recent peer-recovery fixes and the All blocks browser.

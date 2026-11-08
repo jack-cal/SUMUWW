@@ -3,11 +3,13 @@
 | Program | Version |
 |---|---|
 | Windows full node | 0.57.54 |
-| Android full node | 0.6.96 |
+| Android full node | 0.6.99 |
 | Windows ordinary wallet | 1.0.10 |
 | Android ordinary wallet | 1.1.10 |
 | Explorer | 0.4.11 |
 | P2P Full / Light | 0.3.6 |
+
+Android 0.6.99 starts its own validating node and CPU miner. After the first local verification it resumes at the last verified block. It rechecks the stored history if the record is missing or inconsistent. The first check can take several minutes.
 
 The Windows full node and both ordinary wallets aim for 10 outbound peers. Most connections relay blocks and transactions. A verified backup can relay blocks, and a spare slot can briefly check an 11th peer. Up to 117 inbound connections are possible, or 115 with 10 outbound. The default limit is 125 in total.
 

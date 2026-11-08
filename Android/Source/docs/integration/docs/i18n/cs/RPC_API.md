@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · RPC a HTTP API
+# SUMUWW Android 0.6.99 · RPC a HTTP API
 
-SUMUWW Android 0.6.95 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
+SUMUWW Android 0.6.99 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
 
 Specifikace API popisuje vestavěné jádro uzlu. Aplikace Android nemá obrazovku nastavení RPC.
 

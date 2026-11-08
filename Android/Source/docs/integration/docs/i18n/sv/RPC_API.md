@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · RPC- och HTTP-API
+# SUMUWW Android 0.6.99 · RPC- och HTTP-API
 
-SUMUWW Android 0.6.95 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
+SUMUWW Android 0.6.99 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
 
 API-specifikationen beskriver den inbyggda nodkärnan. Android-appen saknar skärm för RPC-inställningar.
 

@@ -1,6 +1,8 @@
-# SUMUWW Android 0.6.95 · Note di versione
+# SUMUWW Android 0.6.99 · Note di versione
 
-SUMUWW Android 0.6.95 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
+Al riavvio il nodo riparte dall’ultimo blocco verificato localmente e controlla i nuovi blocchi. Se la verifica salvata manca o i dati non corrispondono, ricontrolla la cronologia archiviata.
+
+SUMUWW Android 0.6.99 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
 
 La specifica API descrive il nucleo del nodo integrato. L’app Android non dispone di una schermata di configurazione RPC.
 

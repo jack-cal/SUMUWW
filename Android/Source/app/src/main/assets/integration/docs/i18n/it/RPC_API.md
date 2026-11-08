@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · API RPC e HTTP
+# SUMUWW Android 0.6.99 · API RPC e HTTP
 
-SUMUWW Android 0.6.95 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
+SUMUWW Android 0.6.99 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
 
 La specifica API descrive il nucleo del nodo integrato. L’app Android non dispone di una schermata di configurazione RPC.
 

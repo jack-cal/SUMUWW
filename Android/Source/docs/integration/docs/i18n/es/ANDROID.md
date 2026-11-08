@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Documentación
+# SUMUWW Android 0.6.99 · Documentación
 
-SUMUWW Android 0.6.95 · El nodo valida, guarda, retransmite y permite consultar la cadena.
+SUMUWW Android 0.6.99 · El nodo valida, guarda, retransmite y permite consultar la cadena.
 
 ## Red y direcciones
 

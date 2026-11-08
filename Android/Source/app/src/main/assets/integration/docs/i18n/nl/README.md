@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Documentatie
+# SUMUWW Android 0.6.99 · Documentatie
 
-SUMUWW Android 0.6.95 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
+SUMUWW Android 0.6.99 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
 
 ## Netwerk en adressen
 

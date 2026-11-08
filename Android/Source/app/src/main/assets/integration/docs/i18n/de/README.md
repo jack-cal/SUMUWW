@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Dokumentation
+# SUMUWW Android 0.6.99 · Dokumentation
 
-SUMUWW Android 0.6.95 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
+SUMUWW Android 0.6.99 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
 
 ## Netzwerk und Adressen
 

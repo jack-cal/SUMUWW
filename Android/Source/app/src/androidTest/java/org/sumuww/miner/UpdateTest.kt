@@ -13,6 +13,10 @@ class UpdateTest {
   assertTrue(SumuwwUpdateSource.parse(data("0.6.100"),"0.6.75-boundary9000-candidate").available)
   assertFalse(SumuwwUpdateSource.parse(data("0.6.75"),"0.6.75-boundary9000-candidate").available)
   assertFalse(SumuwwUpdateSource.parse(data("0.6.74"),"0.6.75").available)
+  assertTrue(SumuwwUpdateSource.parse(data("0.6.99"),"0.6.96.2").available)
+  assertTrue(SumuwwUpdateSource.parse(data("0.6.96.2"),"0.6.96.1").available)
+  assertFalse(SumuwwUpdateSource.parse(data("0.6.96"),"0.6.96.2").available)
+  assertFalse(SumuwwUpdateSource.parse(data("0.6.99"),"0.6.99").available)
   assertTrue(SumuwwUpdateSource.parse(data("0.7.0"),"0.6.75").available)
  }
  @Test fun unsafeRepositoryUrlsRejected(){

@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Beripikasyon
+# SUMUWW Android 0.6.99 · Beripikasyon
 
-SUMUWW Android 0.6.95 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
+SUMUWW Android 0.6.99 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
 
 Inilalarawan ng API specification ang nakapaloob na node core. Walang screen ng RPC configuration ang Android app.
 

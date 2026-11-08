@@ -1,6 +1,8 @@
-# SUMUWW Android 0.6.95 · Nodedrift
+# SUMUWW Android 0.6.99 · Nodedrift
 
-SUMUWW Android 0.6.95 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
+Etter omstart fortsetter noden fra den siste blokken den selv har verifisert, og sjekker nye blokker. Hvis den lagrede verifikasjonen mangler eller ikke stemmer, sjekker noden den lagrede historikken på nytt.
+
+SUMUWW Android 0.6.99 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
 
 ## Nettverk og adresser
 

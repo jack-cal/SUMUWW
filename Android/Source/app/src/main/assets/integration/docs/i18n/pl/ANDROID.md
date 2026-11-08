@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Dokumentacja
+# SUMUWW Android 0.6.99 · Dokumentacja
 
-SUMUWW Android 0.6.95 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+SUMUWW Android 0.6.99 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 ## Sieć i adresy
 

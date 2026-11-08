@@ -1,5 +1,5 @@
-# SUMUWW Android 0.6.95 · Verifiering
+# SUMUWW Android 0.6.99 · Verifiering
 
-SUMUWW Android 0.6.95 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
+SUMUWW Android 0.6.99 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
 
 [Dokumentation](../../integration/docs/i18n/sv/EXCHANGE_EXAMPLES.html)

@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · RPC 与 HTTP API
+# SUMUWW Android 0.6.99 · RPC 与 HTTP API
 
-SUMUWW Android 0.6.95 · 节点负责验证、保存、传播和查询链上数据。
+SUMUWW Android 0.6.99 · 节点负责验证、保存、传播和查询链上数据。
 
 API 规范描述内置节点核心。Android 应用没有 RPC 配置界面。
 

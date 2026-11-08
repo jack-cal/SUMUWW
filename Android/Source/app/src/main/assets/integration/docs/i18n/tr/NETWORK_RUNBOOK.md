@@ -1,6 +1,8 @@
-# SUMUWW Android 0.6.95 · Düğüm işletimi
+# SUMUWW Android 0.6.99 · Düğüm işletimi
 
-SUMUWW Android 0.6.95 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
+Düğüm yeniden başlatıldığında yerel olarak doğruladığı son bloktan devam eder ve yeni blokları doğrular. Kayıtlı doğrulama bilgisi eksikse veya tutarsızsa saklanan geçmişi yeniden denetler.
+
+SUMUWW Android 0.6.99 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
 
 ## Ağ ve adresler
 

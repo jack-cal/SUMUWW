@@ -203,8 +203,7 @@ class _MiningSession:
         if Path(database).resolve() != self.database or get_network(network) != self.network:
             raise RuntimeError('Mining session database or network mismatch')
         if self._chain is None:
-            # The ordinary constructor always verifies persisted active-chain
-            # state in full; reusing its connection never disables validation.
+            # The worker resumes the same locally validated database as the node.
             self._chain = Chain(self.database, network=self.network,boundary_activation=self.boundary_activation)
         return self._chain
 

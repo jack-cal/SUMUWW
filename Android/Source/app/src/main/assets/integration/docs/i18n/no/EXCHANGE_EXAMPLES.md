@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Verifisering
+# SUMUWW Android 0.6.99 · Verifisering
 
-SUMUWW Android 0.6.95 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
+SUMUWW Android 0.6.99 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
 
 API-spesifikasjonen beskriver den innebygde nodekjernen. Android-appen har ingen skjerm for RPC-oppsett.
 

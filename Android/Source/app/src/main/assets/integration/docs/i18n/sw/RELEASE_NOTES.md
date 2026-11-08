@@ -1,6 +1,8 @@
-# SUMUWW Android 0.6.95 · Maelezo ya toleo
+# SUMUWW Android 0.6.99 · Maelezo ya toleo
 
-SUMUWW Android 0.6.95 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
+Nodi inapoanzishwa tena, huendelea kutoka kwenye bloku ya mwisho iliyothibitisha kwenye kifaa na hukagua bloku mpya. Ikiwa rekodi ya uthibitishaji haipo au hailingani, nodi hukagua tena historia iliyohifadhiwa.
+
+SUMUWW Android 0.6.99 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
 
 Maelezo ya API yanaeleza kiini cha nodi kilichojumuishwa. Programu ya Android haina skrini ya mipangilio ya RPC.
 

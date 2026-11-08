@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Dokumentation
+# SUMUWW Android 0.6.99 · Dokumentation
 
-SUMUWW Android 0.6.95 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
+SUMUWW Android 0.6.99 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
 
 ## Nätverk och adresser
 

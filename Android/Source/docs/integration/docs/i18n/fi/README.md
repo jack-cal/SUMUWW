@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Dokumentaatio
+# SUMUWW Android 0.6.99 · Dokumentaatio
 
-SUMUWW Android 0.6.95 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
+SUMUWW Android 0.6.99 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
 
 ## Verkko ja osoitteet
 

@@ -1,3 +1,6 @@
+SUMUWW Android 0.6.99 (162)
+The full node resumes from its last locally verified block after a restart. On upgrade from a database without a verification record it first checks the existing local history. The Android service waits for this check to finish. The update checker recognizes the four-part local build numbers.
+
 SUMUWW 0.6.96 — update before block 9,600. See UPGRADE_9600.md and the local 34-language upgrade9600 guide.
 
 # SUMUWW Android 0.6.96 (155)

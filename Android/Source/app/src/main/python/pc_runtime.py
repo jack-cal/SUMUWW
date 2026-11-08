@@ -106,16 +106,13 @@ def start(directory):
                 from mobile_interfaces import install as install_interfaces
                 install_interfaces()
                 keystore._publish_no_replace=_publish_android
-            network_provider=None
-            if os.name=='posix':
-                from mobile_interfaces import network_identity
-                network_provider=network_identity
-            service=AppService(directory,network='dora',bootstrap=True,allow_lan=True,allow_internet=True,
-                               network_provider=network_provider)
+            service=AppService(directory,network='dora',bootstrap=True,allow_lan=True,allow_internet=True)
             _runtime_state='starting'
             _runtime_error=None
             try:
-                _result(service.start())
+                # The first verification of an existing full chain can take several minutes.
+                # Both Android entry points start the node on a worker thread.
+                service.start().result()
             except Exception as error:
                 _runtime_error=str(error)
                 _runtime_state='failed'

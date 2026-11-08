@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · RPC・HTTP API
+# SUMUWW Android 0.6.99 · RPC・HTTP API
 
-SUMUWW Android 0.6.95 · ノードはチェーンデータの検証・保存・伝播・照会を担います。
+SUMUWW Android 0.6.99 · ノードはチェーンデータの検証・保存・伝播・照会を担います。
 
 API 仕様は内蔵ノードの機能を説明しています。Android アプリには RPC 設定画面はありません。
 
