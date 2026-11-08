@@ -40,7 +40,7 @@ class MiningSessionTests(unittest.TestCase):
         self.allowed_stop_errors = set()
         self.verifications = []
         self.closes = []
-        original_verify, original_close = Chain.verify_persisted_state, Chain.close
+        original_verify, original_close = Chain._restore_persisted_state, Chain.close
 
         def verify(chain):
             if threading.current_thread().name.startswith('sumuww-app-hash'):
@@ -53,7 +53,7 @@ class MiningSessionTests(unittest.TestCase):
                 with self.assertRaises(sqlite3.ProgrammingError):
                     chain.connection.execute('SELECT 1')
                 self.closes.append((id(chain), threading.get_ident()))
-        self.verify_patch = patch.object(Chain, 'verify_persisted_state', verify)
+        self.verify_patch = patch.object(Chain, '_restore_persisted_state', verify)
         self.close_patch = patch.object(Chain, 'close', close)
         self.verify_patch.start()
         self.close_patch.start()
@@ -296,7 +296,7 @@ class MiningSessionTests(unittest.TestCase):
 
     def test_standalone_four_argument_worker_still_verifies_and_closes_each_call(self):
         database = self.directory / 'standalone.sqlite'
-        original_verify, original_close = Chain.verify_persisted_state, Chain.close
+        original_verify, original_close = Chain._restore_persisted_state, Chain.close
         verified, closed = [], []
 
         def verify(chain):
@@ -308,7 +308,7 @@ class MiningSessionTests(unittest.TestCase):
             return original_close(chain)
         self.assertEqual(('database', 'network', 'public_script', 'cancellation'),
                          tuple(inspect.signature(_mine_block).parameters))
-        with patch.object(Chain, 'verify_persisted_state', verify), patch.object(Chain, 'close', close):
+        with patch.object(Chain, '_restore_persisted_state', verify), patch.object(Chain, 'close', close):
             for _ in range(2):
                 self.assertIsNotNone(_mine_block(database, REGTEST, ALICE.script_pubkey,
                                                 threading.Event()))

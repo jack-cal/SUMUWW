@@ -2,8 +2,10 @@
 
 Kwa kawaida nodi hufungua miunganisho 10 ya kutoka. Mingi hupitisha bloku na miamala. Nodi inaweza kutumia muunganisho wa akiba uliothibitishwa kupitisha bloku na kufungua wa 11 kwa muda mfupi ili kutafuta nodi nyingine. Kikomo cha jumla ni miunganisho 125. Inaweza kupokea hadi miunganisho 117 ya kuingia, au 115 ikiwa kuna 10 ya kutoka. Programu ya kompyuta sasa inaonyesha jumla pekee ya nodi zilizounganishwa. Kila kifaa cha uchimbaji huunda bloku zake. Nodi ya kompyuta husambaza bloku zilizokamilika na hukataa maombi ya kazi za uchimbaji na majibu kutoka kwenye simu.
 
+Nodi inapoanzishwa tena, huendelea kutoka kwenye bloku ya mwisho iliyothibitisha kwenye kifaa na hukagua bloku mpya. Ikiwa rekodi ya uthibitishaji haipo au hailingani, nodi hukagua tena historia iliyohifadhiwa.
 
-SUMUWW PC 0.57.53 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
+
+SUMUWW PC 0.57.54 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
 
 ## Muundo wa saini
 

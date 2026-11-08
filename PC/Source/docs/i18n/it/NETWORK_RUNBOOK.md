@@ -2,8 +2,10 @@
 
 Il nodo apre normalmente 10 connessioni in uscita. La maggior parte inoltra blocchi e transazioni. Può usare una connessione di riserva verificata per i blocchi e aprirne brevemente un’undicesima per cercare altri nodi. Il limite complessivo è 125. Sono ammesse fino a 117 connessioni in ingresso, o 115 con 10 in uscita. L’app per computer ora mostra solo il numero totale di nodi connessi. Ogni dispositivo di mining costruisce i propri blocchi. Il nodo su PC inoltra i blocchi completi e rifiuta le richieste di lavoro e le soluzioni di mining inviate dal telefono.
 
+Al riavvio il nodo riparte dall’ultimo blocco verificato localmente e controlla i nuovi blocchi. Se la verifica salvata manca o i dati non corrispondono, ricontrolla la cronologia archiviata.
 
-SUMUWW PC 0.57.53 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
+
+SUMUWW PC 0.57.54 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
 
 ## Rete e indirizzi
 

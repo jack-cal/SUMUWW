@@ -12,7 +12,7 @@
 <li>Every node independently validates received transactions and blocks.</li>
 <li>Amounts use integer smallest units; fees transfer existing value.</li>
 <li>Select the branch with the greatest valid cumulative work.</li>
-<li>Preserve history and validate it on restart to restore the same UTXOs.</li>
+<li>At startup, resume from the locally verified chain tip and UTXOs. A missing or inconsistent verification record triggers a full check of stored history. The verify command also runs a full check.</li>
 </ul>
 <h2>2. Issuance rules</h2>
 <p>First 150,000 blocks: 50 SMW. Then 25 SMW, halved every 210,000 blocks using integer smallest units.</p>

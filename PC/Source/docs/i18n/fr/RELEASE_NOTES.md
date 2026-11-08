@@ -2,8 +2,10 @@
 
 Le nœud ouvre normalement 10 connexions sortantes. La plupart relaient les blocs et les transactions. Une connexion de secours vérifiée peut relayer les blocs et une 11e connexion peut servir brièvement à découvrir d’autres pairs. La limite totale est de 125. Le nœud accepte jusqu’à 117 connexions entrantes, ou 115 avec 10 connexions sortantes. L’application de bureau affiche désormais uniquement le nombre total de nœuds connectés. Chaque appareil de minage construit ses propres blocs. Le nœud sur PC relaie les blocs terminés et refuse les demandes de travail de minage et les solutions envoyées par le téléphone.
 
+Au redémarrage, le nœud repart du dernier bloc vérifié localement et vérifie les nouveaux blocs. Si la trace de vérification enregistrée est absente ou incohérente, il vérifie à nouveau l’historique stocké.
 
-SUMUWW PC 0.57.53 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
+
+SUMUWW PC 0.57.54 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
 
 ## Format de signature
 

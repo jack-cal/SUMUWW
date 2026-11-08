@@ -92,6 +92,7 @@ def body(topic,lang,page):
     result+=data['text'][0]+'\n\n'
     if topic in ('NETWORK_RUNBOOK', 'RELEASE_NOTES'):
         result += data['peer_policy'] + '\n\n'
+        result += data['restart'] + '\n\n'
     indices = {'README':[2,3,7], 'EXCHANGE_INTEGRATION':[1,2,3,4,5,6,7],
                'RPC_API':[3,4,5,6], 'NETWORK_RUNBOOK':[1,4,6,7],
                'RELEASE_NOTES':[2,3,7], 'EXCHANGE_EXAMPLES':[2,7]}[topic]
@@ -121,7 +122,7 @@ def render(text,page,lang='en',topic='EXCHANGE_INTEGRATION',locale_root=None):
     title=next((s[2:] for s in text.splitlines() if s.startswith('# ')),'SUMUWW')
     direction='rtl' if lang in ('ar','ur') else 'ltr'
     css=' class="mongolian"' if lang=='mn-Mong' else ''
-    return f'<!doctype html><html lang="{lang}" dir="{direction}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="sumuww-doc-revision" content="52"><title>{html.escape(title)}</title><style>{STYLE}</style></head><body><header>{nav}</header><main{css}>'+markdown.markdown(text,extensions=['fenced_code','tables'])+'<footer>SUMUWW · 0.57.51 · 2026-11-08</footer></main></body></html>\n'
+    return f'<!doctype html><html lang="{lang}" dir="{direction}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="sumuww-doc-revision" content="54"><title>{html.escape(title)}</title><style>{STYLE}</style></head><body><header>{nav}</header><main{css}>'+markdown.markdown(text,extensions=['fenced_code','tables'])+'<footer>SUMUWW · 0.57.54 · 2026-11-09</footer></main></body></html>\n'
 
 def main():
     paths=[]
@@ -153,19 +154,19 @@ def main():
     page=ROOT/'RPC_API.html';src=ROOT/'programs/PC/docs/RPC_API.md'
     put(page,render(relocate(src.read_text(encoding='utf-8'),src,page),page,'en','RPC_API'));paths.append(page)
     layout=json.loads((ROOT/'DOCUMENT_LAYOUT.json').read_text(encoding='utf-8'))
-    layout.update(documentation_revision=52,publication_language='en',default_document_language='en',
+    layout.update(documentation_revision=54,publication_language='en',default_document_language='en',
         documentation_languages=[code for code,_ in LANGUAGES],
         translation_policy='English default. Directly authored editions of the current integration update in all 34 UI languages. No external automatic translation. Existing UI preferences are preserved.',
         localized_update_topics=list(TOPICS),
         localized_update_scope='The 0.57.46 / Android 0.6.95 yugeon fee policy, RBF, block reward breakdown, data records and isolated multisig/lock activation tests. Historical whitepapers and other topics retain their separately recorded translation scope.',
-        documentation_edition='0.57.51',
+        documentation_edition='0.57.54',
         peer_policy_update_scope='The node operation guide and release notes describe the 125-peer connection budget and outbound relay roles in all 34 supported languages.',
         legacy_html_paths='Current integration topics contain localized content in both document layouts. Other historical coin-document paths retain their previous scope.')
     layout['exchange_integration'].update(rpc_methods=len(contract['methods']), rest_routes=11, languages=[code for code,_ in LANGUAGES],index='docs/index.html',localized_path='docs/i18n/{language}/EXCHANGE_INTEGRATION.html')
     put(ROOT/'DOCUMENT_LAYOUT.json',json.dumps(layout,ensure_ascii=False,indent=2)+'\n')
     paths += [ROOT/'DOCUMENT_LAYOUT.json',*CATALOG.glob('*.json')]
     manifest={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(set(paths))}
-    put(ROOT/'docs/EXCHANGE_DOCUMENTS.json',json.dumps({'revision':52,'default_language':'en','languages':[c for c,_ in LANGUAGES],'topics':list(TOPICS),'files':manifest},indent=2,ensure_ascii=False)+'\n')
+    put(ROOT/'docs/EXCHANGE_DOCUMENTS.json',json.dumps({'revision':54,'default_language':'en','languages':[c for c,_ in LANGUAGES],'topics':list(TOPICS),'files':manifest},indent=2,ensure_ascii=False)+'\n')
     print(json.dumps({'languages':len(DATA),'localized_pages':len(DATA)*len(TOPICS)*2,'manifest_files':len(manifest),'default':'en'}))
 
 if __name__=='__main__':main()

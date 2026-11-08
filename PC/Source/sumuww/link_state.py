@@ -164,11 +164,14 @@ class LinkState:
         verify(producer(target),{'domain':'sumuww-target-attachment-v1','source_attachment':digest(body),'source_receipt':proof['source_receipt']},proof['target_receipt'])
         return a,b,m['slot']
     def add_proof(self,proof):
-        a,b,s=self.verify_proof(proof);key=digest(proof);c=self.chain.connection
+        key=digest(proof);c=self.chain.connection
         c.execute('BEGIN IMMEDIATE')
         try:
+            checkpoint_valid=self.chain._checkpoint_matches()
+            a,b,s=self.verify_proof(proof)
             changed=c.execute('INSERT OR IGNORE INTO link_proofs VALUES (?,?,?,?,?)',(key,a,b,s,canonical(proof))).rowcount>0
             if changed:self.reselect(in_transaction=True)
+            if changed and checkpoint_valid:self.chain._save_checkpoint()
             c.execute('COMMIT')
         except BaseException:
             c.execute('ROLLBACK');raise
@@ -207,4 +210,6 @@ class LinkState:
         return True
     def verify_storage(self):
         if self.activation is None:return
-        for proof in self.all_proofs():self.verify_proof(proof)
+        for key,a,b,s,body in self.chain.connection.execute('SELECT id,source,target,slot,body FROM link_proofs'):
+            proof=json.loads(body)
+            require(self.verify_proof(proof)==(a,b,s) and digest(proof)==key,'Stored connection proof index mismatch')

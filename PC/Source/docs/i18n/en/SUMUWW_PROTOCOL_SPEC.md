@@ -20,7 +20,7 @@ From source block 9,600, connection proofs require certified active-candidate se
 - Every node independently validates received transactions and blocks.
 - Amounts use integer smallest units; fees transfer existing value.
 - Select the branch with the greatest valid cumulative work.
-- Preserve history and validate it on restart to restore the same UTXOs.
+- At startup, resume from the locally verified chain tip and UTXOs. A missing or inconsistent verification record triggers a full check of stored history. The verify command also runs a full check.
 
 ## 2. Issuance rules
 

@@ -1,5 +1,7 @@
 # SUMUWW release workflow
 
+- Begin every update by checking the whitepaper, protocol specification, and affected operating and release guides in all supported languages against current behavior. Complete this review before building, replacing the desktop application, restarting it, or uploading to GitHub.
+
 - When behavior or functionality changes, increment the affected application versions, rebuild and verify the packages, then update the canonical desktop distribution and its matching source archives, documentation and checksums. Do not call an old binary the latest build.
 - Ask the user before any GitHub publication. Publish only after explicit approval for that upload; a previous upload approval does not authorize later releases.
 - Publish release descriptions, primary documentation and technical documents in English. Retain all 34 UI languages and saved language preferences.

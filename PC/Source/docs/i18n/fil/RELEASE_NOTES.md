@@ -2,8 +2,10 @@
 
 Karaniwang nagbubukas ang node ng 10 papalabas na koneksyon. Karamihan ay nagpapasa ng mga bloke at transaksyon. Maaari itong gumamit ng nasubukang reserbang koneksyon para sa mga bloke at pansamantalang magbukas ng ika-11 koneksyon para maghanap ng ibang node. Hanggang 125 ang kabuuan. Tumatanggap ito ng hanggang 117 papasok na koneksyon, o 115 kapag may 10 papalabas. Kabuuang bilang na lang ng mga nakakonektang node ang makikita sa desktop app. Bawat minero ang bumubuo ng sarili nitong mga block. Ipinapasa ng PC node ang mga natapos na block at tinatanggihan ang mga hiling na trabaho sa pagmimina at mga solusyong galing sa telepono.
 
+Kapag muling binuksan, magpapatuloy ang node mula sa huling block na sinuri nito sa device at susuriin ang mga bagong block. Kung wala o hindi tugma ang nakaimbak na tala ng pagsusuri, susuriin nitong muli ang nakaimbak na kasaysayan.
 
-SUMUWW PC 0.57.53 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
+
+SUMUWW PC 0.57.54 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
 
 ## Pormat ng lagda
 

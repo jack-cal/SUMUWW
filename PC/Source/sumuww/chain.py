@@ -10,6 +10,7 @@ from collections.abc import Sequence
 from contextlib import contextmanager
 from pathlib import Path
 import json
+import hashlib
 import heapq
 import sqlite3
 import time
@@ -156,7 +157,7 @@ def _legacy_sigops(script: bytes) -> int:
 
 
 class Chain:
-    def __init__(self, database: str | Path, *, clock=None, fault_hook=None, network='regtest', boundary_activation=None, htlc_activation=None, mempool_policy=None, spending_activation=None):
+    def __init__(self, database: str | Path, *, clock=None, fault_hook=None, network='regtest', boundary_activation=None, htlc_activation=None, mempool_policy=None, spending_activation=None, full_verification=False):
         self.network = get_network(network)
         from .mempool_policy import MempoolPolicy
         self.mempool_policy = mempool_policy or MempoolPolicy(minimum_rate=0 if self.network.name == 'regtest' else 1000)
@@ -170,9 +171,12 @@ class Chain:
         # Cache only an indexed path at a precise SQLite snapshot. Direct SQL
         # writes on this connection and commits by other writers invalidate it.
         self._indexed_path_cache = None
+        self._validated_branch_cache = None
         self._summary_difficulty_cache = None
         self.connection = sqlite3.connect(str(self.database), isolation_level=None, timeout=10)
         try:
+            # A concurrent first upgrade may still be validating historical state.
+            self.connection.execute('PRAGMA busy_timeout=900000')
             self.connection.execute('PRAGMA journal_mode=WAL')
             self.connection.execute('PRAGMA synchronous=FULL')
             self.connection.execute('PRAGMA foreign_keys=ON')
@@ -191,24 +195,66 @@ class Chain:
             self.htlc_policy=HtlcPolicy(self,self.htlc_activation)
             from .spending_policy import SpendingPolicy
             self.spending_policy = SpendingPolicy(self, spending_activation)
-            self.verify_persisted_state()
-            self.boundary.verify_storage()
-            self.connection.execute('BEGIN IMMEDIATE')
-            try:
-                verified_branches = dict(self._branch_entries())
-                # Rebuild derived reward data only after the existing chain passed replay.
-                self.connection.executemany('INSERT OR REPLACE INTO block_reward_fees VALUES (?,?)', self._verified_reward_fees.items())
-                self._verified_reward_fees = {}
-                # The mempool is recoverable local policy state, not consensus state.
-                self._rebuild_mempool()
-                cache_token = self._path_cache_token()
-                self.connection.execute('COMMIT')
-                self._publish_branches(cache_token, verified_branches, ())
-            except BaseException:
-                self.connection.execute('ROLLBACK')
-                raise
+            # Change this format identifier whenever historical validation rules change.
+            rules = ('resume-v1', self.network, boundary_activation, self.boundary.selection_activation,
+                     self.htlc_activation, self.spending_policy.activation)
+            self._checkpoint_rules = hashlib.sha256(repr(rules).encode()).digest()
+            self._full_verification = full_verification
+            self._restore_persisted_state()
+            self.connection.execute('PRAGMA busy_timeout=10000')
         except BaseException:
             self.connection.close()
+            raise
+
+    def _install_checkpoint_guards(self):
+        c = self.connection
+        c.execute('CREATE TABLE IF NOT EXISTS validation_checkpoint (id INTEGER PRIMARY KEY CHECK(id=1), rules BLOB, tip BLOB, height INTEGER, work TEXT, body_digest BLOB, schema_cookie INTEGER)')
+        existing = dict(c.execute("SELECT name,sql FROM sqlite_master WHERE type='trigger' AND name LIKE 'resume_guard_%'"))
+        tables = ['blocks', 'utxos', 'metadata', 'block_reward_fees']
+        if self.boundary.activation is not None:
+            tables.append('link_proofs')
+        for table in tables:
+            for event in ('INSERT', 'UPDATE', 'DELETE'):
+                name = f'resume_guard_{table}_{event.lower()}'
+                definition = f'CREATE TRIGGER {name} AFTER {event} ON {table} BEGIN DELETE FROM validation_checkpoint; END'
+                if existing.get(name) != definition:
+                    c.execute('DELETE FROM validation_checkpoint')
+                    c.execute(f'DROP TRIGGER IF EXISTS {name}')
+                    c.execute(definition)
+
+    def _checkpoint_values(self):
+        tip = self.tip_hash
+        row = self._row(tip)
+        schema_cookie = self.connection.execute('PRAGMA schema_version').fetchone()[0]
+        return self._checkpoint_rules, tip, row[2], row[3], hashlib.sha256(row[4]).digest(), schema_cookie
+
+    def _checkpoint_matches(self):
+        saved = self.connection.execute('SELECT rules,tip,height,work,body_digest,schema_cookie FROM validation_checkpoint WHERE id=1').fetchone()
+        return saved is not None and saved == self._checkpoint_values()
+
+    def _save_checkpoint(self):
+        self.connection.execute('INSERT OR REPLACE INTO validation_checkpoint VALUES (1,?,?,?,?,?,?)', self._checkpoint_values())
+
+    def _restore_persisted_state(self):
+        c = self.connection
+        c.execute('BEGIN IMMEDIATE')
+        try:
+            self._install_checkpoint_guards()
+            self.resumed_from_checkpoint = not self._full_verification and self._checkpoint_matches()
+            if not self.resumed_from_checkpoint:
+                self.verify_persisted_state()
+                self.boundary.verify_storage()
+                branches = dict(self._branch_entries())
+                c.executemany('INSERT OR REPLACE INTO block_reward_fees VALUES (?,?)', self._verified_reward_fees.items())
+                self._verified_reward_fees = {}
+                self._save_checkpoint()
+            self._rebuild_mempool()
+            token = self._path_cache_token()
+            c.execute('COMMIT')
+            if not self.resumed_from_checkpoint:
+                self._publish_branches(token, branches, ())
+        except BaseException:
+            c.execute('ROLLBACK')
             raise
 
     def _preflight_database(self):
@@ -698,24 +744,24 @@ class Chain:
         # prior query populated a same-snapshot path cache.
         self._indexed_path_cache = None
         self._validated_branch_cache = None
-        self.connection.execute('BEGIN')
+        standalone = not self.connection.in_transaction
         try:
-            tip = self.tip_hash
-            path = self._path(tip)
-            reward_fees = {}
-            expected = self._replay(path, reward_fees)
-            if expected != self._load_utxos():
-                raise StorageError('Stored UTXO does not match verified active-chain replay')
-            token = self._path_cache_token()
-            self.connection.execute('COMMIT')
-            self._verified_reward_fees = reward_fees
-            self._publish_branches(token, {}, ((tip, expected, path),))
+            with self.read_snapshot():
+                tip = self.tip_hash
+                path = self._path(tip)
+                reward_fees = {}
+                expected = self._replay(path, reward_fees)
+                if expected != self._load_utxos():
+                    raise StorageError('Stored UTXO does not match verified active-chain replay')
+                token = self._path_cache_token()
         except BaseException:
             self._indexed_path_cache = None
             self._validated_branch_cache = None
-            self.connection.execute('ROLLBACK')
-            self.connection.close()
+            if standalone:
+                self.connection.close()
             raise
+        self._verified_reward_fees = reward_fees
+        self._publish_branches(token, {}, ((tip, expected, path),))
         return True
 
     def _state_for(self, block_hash):
@@ -747,6 +793,7 @@ class Chain:
         c.execute('BEGIN IMMEDIATE')
         try:
             prior_branches = dict(self._branch_entries())
+            checkpoint_valid = self._checkpoint_matches()
             raw = block.serialize()
             # Parsing enforces the same canonical wire limits used by submitted bytes.
             block = Block.deserialize(raw)
@@ -760,8 +807,10 @@ class Chain:
             extends_active = block.header.previous_hash == old_tip
             reward_fees = {}
             state = self._validated_state(block.header.previous_hash, path, reward_fees)
-            fully_replayed = not extends_active or block.header.previous_hash in prior_branches
-            parent_state = state.copy() if fully_replayed else None
+            cache_states = (not extends_active or block.header.previous_hash in prior_branches
+                            or (checkpoint_valid and len(state) <= MAX_VALIDATED_COINS
+                                and len(path) <= MAX_VALIDATED_PATH_ITEMS))
+            parent_state = state.copy() if cache_states else None
             try:
                 new_state = self._connect(block, state, path, reward_fees=reward_fees)
             except (TransientValidationError, UnsupportedFeature):
@@ -780,7 +829,7 @@ class Chain:
             new_path = path + ((saved_row, block),)
             # Mempool rebuilding adds pending spends to its supplied dictionary;
             # only the independently validated confirmed state belongs here.
-            confirmed_state = new_state.copy() if fully_replayed else None
+            confirmed_state = new_state.copy() if cache_states else None
             self._stage('after_block_saved')
             activated = self.boundary.prefer(new_path, old_path)
             if activated:
@@ -805,13 +854,15 @@ class Chain:
             # while this write transaction excludes external commits; a commit
             # racing after ours then changes data_version on the next lookup.
             cached_path = new_path if activated else old_path
+            if checkpoint_valid:
+                self._save_checkpoint()
             cache_token = self._path_cache_token()
             c.execute('COMMIT')
             self._indexed_path_cache = ((cache_token, cached_path)
                                         if self.fault_hook is None else None)
             self._publish_branches(cache_token, prior_branches,
                 ((block.header.previous_hash, parent_state, path),
-                 (digest, confirmed_state, new_path)) if fully_replayed else ())
+                 (digest, confirmed_state, new_path)) if cache_states else ())
             return activated
         except BaseException:
             self._indexed_path_cache = None

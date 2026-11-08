@@ -1,4 +1,6 @@
-# SUMUWW Node Operation PC 0.57.53
+# SUMUWW Node Operation PC 0.57.54
+
+On restart, the node resumes from its last locally verified block and checks new blocks. If the saved verification record is missing or inconsistent, it checks the stored history again.
 
 The node normally opens 10 outbound connections, mostly to relay blocks and transactions. It can use a verified backup for blocks and briefly open an 11th connection to discover peers. The overall limit is 125. Up to 117 inbound connections are possible, or 115 with 10 outbound connections. A temporary outbound probe can check another peer when a slot is free. Manually configured direct peers count toward the total. Use --max-peers and --outgoing-target with the node executable. The desktop node now shows the total number of connected peers.
 

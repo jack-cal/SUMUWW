@@ -44,8 +44,8 @@ class IncrementalChainTests(unittest.TestCase):
         previous_changes = self.chain.connection.total_changes
         self.assertTrue(self.chain.accept_block(block))
         self.chain.connection.set_trace_callback(None)
-        # Block, tip, new coinbase UTXO, and its one derived fee-index row.
-        self.assertEqual(4, self.chain.connection.total_changes - previous_changes)
+        # Block, tip, coinbase UTXO, fee row, checkpoint invalidation and renewal.
+        self.assertEqual(6, self.chain.connection.total_changes - previous_changes)
         self.assertEqual((0,), self.chain.connection.execute(
             'SELECT fees FROM block_reward_fees WHERE blockhash=?',
             (block.block_hash(),)).fetchone())

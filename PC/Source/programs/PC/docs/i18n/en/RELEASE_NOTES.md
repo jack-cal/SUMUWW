@@ -2,8 +2,10 @@
 
 The node normally opens 10 outbound connections, mostly to relay blocks and transactions. It can use a verified backup for blocks and briefly open an 11th connection to discover peers. The overall limit is 125. Up to 117 inbound connections are possible, or 115 with 10 outbound connections. The desktop node now shows the total number of connected peers. Each miner builds its own blocks. The PC node relays completed blocks and rejects mobile mining jobs and solutions.
 
+On restart, the node resumes from its last locally verified block and checks new blocks. If the saved verification record is missing or inconsistent, it checks the stored history again.
 
-SUMUWW PC 0.57.53 · The node validates, stores, relays and exposes chain data.
+
+SUMUWW PC 0.57.54 · The node validates, stores, relays and exposes chain data.
 
 ## Signing format
 
