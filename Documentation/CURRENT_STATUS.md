@@ -2,7 +2,7 @@
 
 | Program | Version |
 |---|---|
-| Windows full node | 0.57.53 |
+| Windows full node | 0.57.51 |
 | Android full node | 0.6.96 |
 | Windows ordinary wallet | 1.0.10 |
 | Android ordinary wallet | 1.1.10 |

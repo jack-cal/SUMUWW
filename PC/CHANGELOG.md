@@ -1,10 +1,4 @@
-# SUMUWW PC 0.57.53
-
-The Windows node rejects mobile mining work requests and solution submissions. It mines locally, validates completed blocks from peers and relays them. The connection display shows the total peer count.
-
-[Downloads and checksums](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.53)
-
-## SUMUWW PC 0.57.51
+# SUMUWW PC 0.57.51
 
 The Windows full node and both ordinary wallets aim for 10 outbound peers. Most connections relay blocks and transactions. A verified backup can relay blocks, and a spare slot can briefly check an 11th peer. Up to 117 inbound connections are possible, or 115 with 10 outbound. The default limit is 125 in total.
 

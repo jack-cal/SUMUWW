@@ -4,7 +4,7 @@ Update every validating full node and ordinary wallet before **block 9,600**. Th
 
 | Component | Version | Download | Source |
 |---|---|---|---|
-| Windows full node, wallet and miner | 0.57.53 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.53) | [Source](../PC/Source) |
+| Windows full node, wallet and miner | 0.57.51 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.51) | [Source](../PC/Source) |
 | Android full node, wallet and miner | 0.6.96 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/android-v0.6.96) | [Source](../Android/Source) |
 | Windows ordinary wallet | 1.0.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-pc-v1.0.10) | [Source](../Wallet/Desktop) |
 | Android ordinary wallet | 1.1.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.10) | [Source](../Wallet/Source) |
