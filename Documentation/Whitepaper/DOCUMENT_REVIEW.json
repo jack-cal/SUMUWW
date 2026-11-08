@@ -45,7 +45,7 @@
     "i18n/en/RECOVERY_VERIFICATION_20261022.md": "bf34f4bb46b40d87fcd53d0f466c0c878a7580790a5cc3111a3866cc14600c39",
     "i18n/en/SUMUWW_PROTOCOL_SPEC.html": "71d6009dc201356d5c928a541791eab10a871ac0e4e39e76aa7631ea0a56e32b",
     "i18n/en/SUMUWW_PROTOCOL_SPEC.md": "d006fea3fec36c41f056f3555214e79c3fdfefb2c55d873d33c7b1a3efcee597",
-    "i18n/en/vectors/sumuww_genesis.json": "715363de5d11ee8c76e24e69edf3ce59050e14a86d51d9b0fe5cd0597ac67a88",
+    "i18n/en/vectors/sumuww_genesis.json": "0094b476efaff0e0aa44278bca9db876b5a6ef7c2d86ad28d54e6af74fa61365",
     "i18n/en/VERIFICATION.html": "2fdc3cb34b35d4274debfe53334edc99ec42cfd8cb38842f3fdd95e2dafa6de1",
     "i18n/en/VERIFICATION.md": "b6f9c67dfe37669d0320cc5de65e81209d9b54832f316e071ffd0cf6a0c90180",
     "i18n/en/WHITEPAPER.html": "03d3269c6859a273fb0ec018741a3131d27117da0dbedabc39cfb28fbc6aafb0",
@@ -114,14 +114,15 @@
     "README.html": "bfb46efec2999ab25da15877e3ca072b42ca7c12e9d6251f52fa49a03606f37d",
     "README.md": "2eee58cf8dc0aa48d4fa5dce1aa3122ec4b33e5524fc577f097d89e386953f58",
     "RECOVERY_VERIFICATION_20261022.html": "592425b27f7efba2ec395da8cd4c3e56c7287b412d158c2f78bad1efa90f14dd",
-    "RECOVERY_VERIFICATION_20261022.md": "6e328da3802acf426733c0f9646e04b7f4deae820873099c5e8f88e9c29dbb59",
+    "RECOVERY_VERIFICATION_20261022.md": "bf34f4bb46b40d87fcd53d0f466c0c878a7580790a5cc3111a3866cc14600c39",
     "SUMUWW_PROTOCOL_SPEC.html": "71d6009dc201356d5c928a541791eab10a871ac0e4e39e76aa7631ea0a56e32b",
     "SUMUWW_PROTOCOL_SPEC.md": "d006fea3fec36c41f056f3555214e79c3fdfefb2c55d873d33c7b1a3efcee597",
-    "vectors/sumuww_genesis.json": "715363de5d11ee8c76e24e69edf3ce59050e14a86d51d9b0fe5cd0597ac67a88",
+    "vectors/sumuww_genesis.json": "0094b476efaff0e0aa44278bca9db876b5a6ef7c2d86ad28d54e6af74fa61365",
     "VERIFICATION.html": "bfb46efec2999ab25da15877e3ca072b42ca7c12e9d6251f52fa49a03606f37d",
     "VERIFICATION.md": "2eee58cf8dc0aa48d4fa5dce1aa3122ec4b33e5524fc577f097d89e386953f58",
     "WHITEPAPER.html": "03d3269c6859a273fb0ec018741a3131d27117da0dbedabc39cfb28fbc6aafb0",
     "WHITEPAPER.md": "2ed563ddfb4fdfae30b6e55cb8ad55380401525281a0890f7cc2ad2a946fb4d1"
   },
-  "release_url": "https://github.com/jack-cal/SUMUWW/releases/tag/whitepaper-v2.3-en"
+  "release_url": "https://github.com/jack-cal/SUMUWW/releases/tag/whitepaper-v2.3-en",
+  "package_revision": 2
 }
