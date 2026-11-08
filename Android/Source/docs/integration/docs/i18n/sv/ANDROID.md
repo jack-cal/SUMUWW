@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Dokumentation
+# SUMUWW Android 0.6.95 · Dokumentation
 
-Telefonen ansluter till en fullnod för SUMUWW med version 0.57.49 eller senare. Den kontrollerar belöningen och beräknar arbetsbeviset utan att ladda ned hela transaktionshistoriken.
-
-Den rekommenderade avgiften visas när den anslutna noden skickar uppgifterna. Plånboken visar den väntande saldoändringen när hela beloppet har kontrollerats.
-
-## Utvinningshistorik
-
-Här visas bara block som den här telefonen har utvunnit. Tryck på en post för att se belöningen och antalet bekräftelser.
+SUMUWW Android 0.6.95 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
 
 ## Nätverk och adresser
 

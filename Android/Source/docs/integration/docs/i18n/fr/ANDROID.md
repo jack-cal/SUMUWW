@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Documentation
+# SUMUWW Android 0.6.95 · Documentation
 
-Le téléphone se connecte à un nœud complet SUMUWW en version 0.57.49 ou ultérieure. Il vérifie la récompense et calcule la preuve de travail sans télécharger tout l’historique des transactions.
-
-Les frais recommandés s’affichent dès que le nœud connecté fournit les données. Le portefeuille affiche la variation de solde en attente après vérification du montant total.
-
-## Historique du minage
-
-Seuls les blocs minés par ce téléphone apparaissent ici. Touchez une entrée pour voir la récompense et les confirmations.
+SUMUWW Android 0.6.95 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
 
 ## Réseau et adresses
 

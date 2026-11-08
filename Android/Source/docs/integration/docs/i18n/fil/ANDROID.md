@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Dokumentasyon
+# SUMUWW Android 0.6.95 · Dokumentasyon
 
-Kumokonekta ang telepono sa isang SUMUWW full node na may bersyong 0.57.49 o mas bago. Sinusuri nito ang gantimpala at kinakalkula ang proof of work nang hindi dina-download ang buong kasaysayan ng mga transaksyon.
-
-Lalabas ang inirerekomendang bayad kapag naibigay na ng nakakonektang node ang datos. Ipapakita ng wallet ang nakabinbing pagbabago sa balanse kapag nasuri na ang buong halaga.
-
-## Kasaysayan ng pagmimina
-
-Ang mga block na mismong minina ng teleponong ito lang ang makikita rito. I-tap ang tala para makita ang gantimpala at bilang ng kumpirmasyon.
+SUMUWW Android 0.6.95 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
 
 ## Network at mga address
 

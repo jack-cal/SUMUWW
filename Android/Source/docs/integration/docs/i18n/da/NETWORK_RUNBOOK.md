@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Nodedrift
+# SUMUWW Android 0.6.95 · Nodedrift
 
-Telefonen opretter forbindelse til en fuld SUMUWW-node med version 0.57.49 eller nyere. Den kontrollerer belønningen og beregner proof of work uden at hente hele transaktionshistorikken.
+SUMUWW Android 0.6.95 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
 
 ## Netværk og adresser
 

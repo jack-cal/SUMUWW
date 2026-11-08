@@ -12,10 +12,8 @@
   "target_timespan": 1209600,
   "target_spacing": 600,
   "no_retarget": false,
-  "address_hrp": "sumuww",
+  "address_hrp": "dora",
   "message_magic_hex": "d052470c",
   "genesis_utxo_included": false,
-  "scope": "SUMUWW independent main network",
-  "legacy_address_hrp": "dora",
-  "public_network": "sumuww"
+  "scope": "independent SUMUWW local/LAN development network"
 }

@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Documentation
+# SUMUWW Android 0.6.95 · Documentation
 
-The phone connects to a SUMUWW full node running version 0.57.49 or later. It checks the reward and calculates the proof of work on the phone. It does not download the chain’s transaction history.
-
-Fee recommendations appear when the connected node supplies them. The wallet shows a pending balance change when it can verify the full amount.
-
-## Mining history
-
-Only blocks mined by this phone appear here. Open a record to see its reward and confirmations.
+SUMUWW Android 0.6.95 · The node validates, stores, relays and exposes chain data.
 
 ## Network and addresses
 

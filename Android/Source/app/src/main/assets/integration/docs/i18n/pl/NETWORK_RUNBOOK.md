@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Obsługa węzła
+# SUMUWW Android 0.6.95 · Obsługa węzła
 
-Telefon łączy się z pełnym węzłem SUMUWW w wersji 0.57.49 lub nowszej. Sprawdza nagrodę i oblicza dowód pracy bez pobierania całej historii transakcji.
+SUMUWW Android 0.6.95 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 ## Sieć i adresy
 

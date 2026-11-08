@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Giao diện nút
+# SUMUWW Android 0.6.95 · Giao diện nút
 
-Điện thoại kết nối với nút đầy đủ SUMUWW phiên bản 0.57.49 trở lên, kiểm tra phần thưởng và tính bằng chứng công việc ngay trên máy mà không tải toàn bộ lịch sử giao dịch.
+SUMUWW Android 0.6.95 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
 
 Đặc tả API mô tả lõi nút tích hợp. Ứng dụng Android không có màn hình cấu hình RPC.
 

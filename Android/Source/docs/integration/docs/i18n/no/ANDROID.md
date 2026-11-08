@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Dokumentasjon
+# SUMUWW Android 0.6.95 · Dokumentasjon
 
-Telefonen kobler seg til en fullnode for SUMUWW som kjører versjon 0.57.49 eller nyere. Den sjekker belønningen og beregner arbeidsbeviset uten å laste ned hele transaksjonshistorikken.
-
-Det anbefalte gebyret vises når den tilkoblede noden sender dataene. Lommeboken viser saldoendringen som venter på bekreftelse, når hele beløpet er kontrollert.
-
-## Utvinningshistorikk
-
-Her vises bare blokker som denne telefonen har utvunnet. Trykk på en oppføring for å se belønningen og antallet bekreftelser.
+SUMUWW Android 0.6.95 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
 
 ## Nettverk og adresser
 

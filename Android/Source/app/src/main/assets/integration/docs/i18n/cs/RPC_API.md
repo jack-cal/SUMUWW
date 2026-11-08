@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · RPC a HTTP API
+# SUMUWW Android 0.6.95 · RPC a HTTP API
 
-Telefon se připojuje k plnému uzlu SUMUWW verze 0.57.49 nebo novější. Ověří odměnu a vypočítá důkaz práce bez stahování celé historie transakcí.
+SUMUWW Android 0.6.95 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
 
 Specifikace API popisuje vestavěné jádro uzlu. Aplikace Android nemá obrazovku nastavení RPC.
 

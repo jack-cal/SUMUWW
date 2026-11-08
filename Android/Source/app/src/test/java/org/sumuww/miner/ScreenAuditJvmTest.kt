@@ -22,29 +22,6 @@ import org.robolectric.annotation.GraphicsMode
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 class ScreenAuditJvmTest {
     private fun views(v:View):List<View> = listOf(v) + if(v is ViewGroup) (0 until v.childCount).flatMap { views(v.getChildAt(it)) } else emptyList()
-    @Test fun connectedFeePreviewShowsQueueRateAndTargetInEveryLanguage() {
-        val controller = Robolectric.buildActivity(Activity::class.java).create()
-        val activity = controller.get()
-        val screens = SumuwwScreens(activity, { UiLanguage.text(activity, it) }, { _, _, _ -> })
-        activity.setContentView(screens.appRoot)
-        val fees = JSONObject().put("pending_vsize", 31415)
-            .put("rates", JSONObject().put("normal", 27))
-            .put("target_blocks", JSONObject().put("normal", 8))
-        try {
-            for ((code, name) in UiLanguage.languages) {
-                UiLanguage.set(activity, code)
-                screens.render(SumuwwScreens.Model(5, JSONObject().put("fees", fees), null, 0,
-                    "mining", 0, "00:00", "1", "", "", null, false, false,
-                    SumuwwThemeCalendar.resolve("default"), "light", name))
-                val labels = views(screens.content).filterIsInstance<TextView>().map { it.text.toString() }
-                assertTrue("Missing live fee values for $code", labels.any { text ->
-                    listOf("31415", "27", "8", "yugeon/vB").all { it in text }
-                })
-            }
-        } finally {
-            controller.destroy()
-        }
-    }
     @Test fun allRoutesRenderAndClickableControlsDispatchIn34Languages() {
         val controller=Robolectric.buildActivity(Activity::class.java).create()
         val activity=controller.get()

@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Dokumentacja
+# SUMUWW Android 0.6.95 · Dokumentacja
 
-Telefon łączy się z pełnym węzłem SUMUWW w wersji 0.57.49 lub nowszej. Sprawdza nagrodę i oblicza dowód pracy bez pobierania całej historii transakcji.
-
-Zalecana opłata pojawia się po otrzymaniu danych z połączonego węzła. Portfel pokazuje oczekującą zmianę salda po sprawdzeniu pełnej kwoty.
-
-## Historia wydobycia
-
-Tutaj widać tylko bloki wydobyte przez ten telefon. Dotknij wpisu, aby zobaczyć nagrodę i liczbę potwierdzeń.
+SUMUWW Android 0.6.95 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 ## Sieć i adresy
 

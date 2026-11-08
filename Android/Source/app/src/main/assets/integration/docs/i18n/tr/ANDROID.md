@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Belgeler
+# SUMUWW Android 0.6.95 · Belgeler
 
-Telefon, 0.57.49 veya sonraki bir sürümü çalıştıran bir SUMUWW tam düğümüne bağlanır. Ödülü kontrol eder ve tüm işlem geçmişini indirmeden iş ispatını hesaplar.
-
-Önerilen ücret, bağlı düğüm verileri gönderdiğinde gösterilir. Cüzdan, bekleyen işlemlerin bakiyeye etkisini toplam tutarı doğruladıktan sonra gösterir.
-
-## Madencilik geçmişi
-
-Burada yalnızca bu telefonun çıkardığı bloklar gösterilir. Ödülü ve onay sayısını görmek için bir kayda dokunun.
+SUMUWW Android 0.6.95 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
 
 ## Ağ ve adresler
 

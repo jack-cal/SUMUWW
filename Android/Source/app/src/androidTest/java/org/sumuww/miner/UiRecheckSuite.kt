@@ -29,15 +29,15 @@ from pathlib import Path
 import pc_runtime as bridge
 bridge.stop()
 owned_app=tempfile.TemporaryDirectory(prefix='owned-ui-recheck-')
-original_factory=bridge.LightService
+original_factory=bridge.AppService
 def owned_factory(directory,**options):
     options.update(listen='127.0.0.1:0',peers=[],bootstrap=False,allow_internet=False,allow_lan=False)
     return original_factory(Path(owned_app.name)/'node',**options)
-bridge.LightService=owned_factory
+bridge.AppService=owned_factory
 """.trimIndent(),globals)
   }
   @AfterClass @JvmStatic fun closeOwnedApp(){
-   Python.getInstance().getModule("builtins").callAttr("exec","bridge.stop(); bridge.LightService=original_factory; owned_app.cleanup()",globals)
+   Python.getInstance().getModule("builtins").callAttr("exec","bridge.stop(); bridge.AppService=original_factory; owned_app.cleanup()",globals)
   }
  }
 }

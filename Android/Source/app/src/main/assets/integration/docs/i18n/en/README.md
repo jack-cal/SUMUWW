@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Documentation
+# SUMUWW Android 0.6.95 · Documentation
 
-The phone connects to a SUMUWW full node running version 0.57.49 or later. It checks the reward and calculates the proof of work on the phone. It does not download the chain’s transaction history.
+SUMUWW Android 0.6.95 · The node validates, stores, relays and exposes chain data.
 
 ## Network and addresses
 

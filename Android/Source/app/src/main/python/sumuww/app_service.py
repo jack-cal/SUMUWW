@@ -642,24 +642,21 @@ class AppService:
                     break
                 _finish(future, error=failure or AppServiceError('Service is stopped'))
 
-    async def _start_components(self):
-        self._node = self._make_node(self._settings)
-        await self._node.start()
-        self._mining_session = _MiningSession(self.database, self.network,
-            boundary_activation=self._node.chain.boundary.activation)
-        self._mining_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix='sumuww-app-hash')
-        if self._rpc_settings['enabled']:
-            try:
-                self._rpc = await self._make_rpc(self._rpc_settings['port'])
-            except Exception:
-                # An occupied API port must not prevent normal wallet use.
-                self._rpc_error = 'RPC listener could not start'
-        self._mining_guard_task = asyncio.create_task(self._monitor_mining(), name='sumuww-mining-guard')
-        self._persist_network(self._settings, self._public_contact)
-
     async def _run(self):
         try:
-            await self._start_components()
+            self._node = self._make_node(self._settings)
+            await self._node.start()
+            self._mining_session = _MiningSession(self.database, self.network,
+                boundary_activation=self._node.chain.boundary.activation)
+            self._mining_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix='sumuww-app-hash')
+            if self._rpc_settings['enabled']:
+                try:
+                    self._rpc = await self._make_rpc(self._rpc_settings['port'])
+                except Exception:
+                    # An occupied API port must not prevent normal wallet use.
+                    self._rpc_error = 'RPC listener could not start'
+            self._mining_guard_task = asyncio.create_task(self._monitor_mining(), name='sumuww-mining-guard')
+            self._persist_network(self._settings, self._public_contact)
             with self._control:
                 if self._state == 'starting':
                     self._state = 'running'

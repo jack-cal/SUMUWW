@@ -28,7 +28,7 @@ internal class SumuwwScreens(
         val targetDraft: String, val sendAddress: String, val sendAmount: String,
         val error: String?, val tour: Boolean, val dark: Boolean,
         val palette: SumuwwTheme.Palette, val themeMode: String, val languageName: String,
-        val manualFee: Boolean = false, val feeDraft: String = "1", val historySearch: String = "", val statusUnavailable: Boolean = false, val feeMode: Int = 1
+        val manualFee: Boolean = false, val feeDraft: String = "1", val historySearch: String = "", val statusUnavailable: Boolean = false, val blocks: JSONObject? = null, val blockSearch: String = "", val feeMode: Int = 1
     )
 
     val appRoot = FrameLayout(activity)
@@ -89,10 +89,10 @@ internal class SumuwwScreens(
         shell.background = SumuwwScreenBackground(next.palette, next.dark)
         topHeader.removeAllViews()
         val title = when (next.page) {
-            0 -> tr("SUMUWW"); 1 -> tr("채굴"); 2 -> tr("지갑"); 3 -> tr("내 채굴 내역"); 4 -> tr("더보기")
+            0 -> tr("SUMUWW"); 1 -> tr("채굴"); 2 -> tr("지갑"); 3 -> tr("거래내역"); 4 -> tr("더보기")
             5 -> tr("보내기"); 6 -> tr("받기"); 7 -> tr("도움말"); 8 -> tr("테마")
             9 -> tr("설정"); 10 -> tr("계정"); 11 -> tr("보안 설정"); 12 -> tr("채굴 설정")
-            13 -> tr("알림 설정"); 14 -> tr("앱 정보"); 15 -> tr("채굴 보상"); else -> tr("SUMUWW")
+            13 -> tr("알림 설정"); 14 -> tr("앱 정보"); 15 -> tr("전체 블록"); else -> tr("SUMUWW")
         }
         val back = if (next.page in listOf(0, 1, 2, 4)) null else ({ action("back") })
         topHeader.addView(ui.SumuwwTopBar(title, back,
@@ -107,7 +107,7 @@ internal class SumuwwScreens(
         when (next.page) {
             0 -> home(page); 1 -> mining(page); 2 -> wallet(page); 3 -> history(page); 4 -> more(page)
             5 -> send(page); 6 -> receive(page); 7 -> help(page); 8 -> themes(page); 9 -> settings(page)
-            10 -> account(page); 11 -> security(page); 12 -> miningSettings(page); 13 -> notifications(page); 14 -> information(page); 15 -> history(page)
+            10 -> account(page); 11 -> security(page); 12 -> miningSettings(page); 13 -> notifications(page); 14 -> information(page); 15 -> allBlocks(page)
         }
         if(ui.verticalMongolian){
             // A vertical heading sits beside its content, as in Mongolian reading
@@ -182,10 +182,10 @@ internal class SumuwwScreens(
         } else {
             for (i in 0 until minOf(3, transactions.length())) transaction(p, transactions.optJSONObject(i) ?: continue)
         }
-        val history = ui.SumuwwSettingRow(R.drawable.nav_history, tr("내 채굴 내역")) { action("history") }.apply { tag = "sumuww-history-entry" }
+        val history = ui.SumuwwSettingRow(R.drawable.nav_history, tr("전체 거래내역")) { action("history") }.apply { tag = "sumuww-history-entry" }
         p.addView(history)
         p.addView(ui.section(tr("네트워크 상태")))
-        metric(p, tr("블록 높이"), node()?.optInt("height", -1)?.takeIf { it >= 0 }?.toString() ?: "—")
+        metric(p, tr("블록 높이"), node()?.optInt("height")?.toString() ?: "—")
         metric(p, tr("연결 피어"), node()?.optInt("peers")?.toString() ?: "—")
         metric(p, tr("동기화"), syncState())
     }
@@ -316,10 +316,8 @@ internal class SumuwwScreens(
         val preview = miningText(ui.label("",13f,ui.muted)) {
             val fees=state.status?.optJSONObject("fees")
             val mode=listOf("slow","normal","fast")[preset.selectedItemPosition.coerceIn(0,2)]
-            if(manual.isChecked || fees == null || !fees.has("pending_vsize") ||
-                fees.optJSONObject("rates")?.has(mode) != true || fees.optJSONObject("target_blocks")?.has(mode) != true)
-                tr("자동 계산 · 최종 수수료는 전송 전에 확인합니다")
-            else tr("내 노드 대기량: {0} vB · {1} yugeon/vB · 목표: {2}블록").replace("{0}",fees.optLong("pending_vsize").toString())
+            if(manual.isChecked||fees==null) tr("자동 계산 · 최종 수수료는 전송 전에 확인합니다")
+            else tr("현지 대기 수수료").replace("{0}",fees.optLong("pending_vsize").toString())
                 .replace("{1}",fees.optJSONObject("rates")?.optString(mode,"—")?:"—")
                 .replace("{2}",fees.optJSONObject("target_blocks")?.optInt(mode).toString())
         }
@@ -344,13 +342,19 @@ internal class SumuwwScreens(
         val search=ui.SumuwwField(tr("거래 ID 검색"), "TXID", state.historySearch, false, "historySearch")
         p.addView(search.first,ui.params(bottom=8))
         p.addView(ui.SumuwwPrimaryButton(tr("검색")){action("historySearch",search.second.text.toString())},ui.params(bottom=16))
+        val filters = ui.row().apply { setPadding(ui.dp(4), ui.dp(4), ui.dp(4), ui.dp(4)); background = ui.rounded(ui.soft, 22) }
+        listOf("all" to "전체", "receive" to "받기", "send" to "보내기", "mining" to "채굴").forEach { (key, title) ->
+            val chosen = key == state.historyFilter
+            filters.addView(ui.label(tr(title), 12f, if (chosen) ui.onButton else ui.muted, chosen).apply { gravity = Gravity.CENTER; minimumHeight = ui.dp(44); background = if (chosen) ui.finish(SumuwwFinishDrawable.Kind.BUTTON,22) else null; setOnClickListener { action("historyFilter", key) } }, LinearLayout.LayoutParams(0, -2, 1f))
+        }
+        p.addView(filters, ui.params(bottom = 16))
         val items = state.history?.optJSONArray("transactions")
         if (items == null) { p.addView(ui.label(tr("불러오는 중"), 14f, ui.muted)); return }
         var shown = 0
         for (i in 0 until items.length()) {
             val tx = items.optJSONObject(i) ?: continue
             val kind = kind(tx)
-            if (kind != "mining") continue
+            if (state.historyFilter != "all" && state.historyFilter != kind) continue
             shown++; transaction(p, tx)
         }
         if (shown == 0) p.addView(ui.label(tr("해당 내역이 없습니다"), 14f, ui.muted), ui.params(top = 24, bottom = 24))
@@ -361,8 +365,63 @@ internal class SumuwwScreens(
         p.addView(ui.SumuwwSettingRow(R.drawable.ic_info, tr("새로고침")) { action("historyRefresh") })
     }
 
+    private fun allBlocks(p: LinearLayout) {
+        p.addView(ui.label(tr("제네시스부터 현재까지 검증된 모든 노드의 블록을 확인합니다."),13f,ui.muted),ui.params(bottom=12))
+        val search=ui.SumuwwField(tr("블록 높이"),"0",state.blockSearch,true,"blockSearch")
+        p.addView(search.first,ui.params(bottom=8))
+        p.addView(ui.SumuwwPrimaryButton(tr("검색")){action("blockSearch",search.second.text.toString())}.apply{tag="blocks-search"},ui.params(bottom=12))
+        p.addView(ui.SumuwwSettingRow(R.drawable.ic_info,tr("새로고침")){action("blocksRefresh")}.apply{tag="blocks-refresh"})
+        val result=state.blocks
+        val blocks=result?.optJSONArray("blocks")
+        if(blocks==null){p.addView(ui.label(tr("불러오는 중"),14f,ui.muted));return}
+        val offset=result.optInt("offset");val total=result.optInt("total")
+        if(result.optInt("height")<9600)p.addView(ui.label(tr("9,600번 블록 전에 업데이트하세요."),13f,ui.muted),ui.params(bottom=8))
+        val jobs=result.optJSONArray("pending_proof_jobs")
+        p.addView(ui.SumuwwSettingRow(R.drawable.ic_info,tr("Connection proofs")+": "+result.optInt("stored_proofs")){
+            val lines=StringBuilder()
+            val counts=result.optJSONObject("lottery_jobs")
+            if(counts!=null)lines.append(tr("Selected pending")).append(": ").append(counts.optInt("selected_pending")).append("\n\n")
+            for(i in 0 until (jobs?.length()?:0)){
+                val job=jobs!!.getJSONObject(i)
+                val phase=when(job.optString("phase")){
+                    "participants","activity"->"활동 중인 노드 확인 중"
+                    "beacon"->"추첨 대기"
+                    "candidate_quorum"->"후보 승인 대기"
+                    "witnesses"->"증인 서명 대기"
+                    "target_receipt"->"블록 생성자 응답 대기"
+                    else->"Pending"
+                }
+                lines.append(tr("블록 높이")).append(": ").append(job.optInt("height")).append(" · ").append(tr(phase)).append("\n")
+                lines.append(tr("증인 응답")).append(": ").append(job.optInt("received")).append("/3\n")
+                val retry=job.optLong("next_retry")
+                if(retry>0)lines.append(tr("다음 재시도")).append(": ").append(java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss",java.util.Locale.getDefault()).format(java.util.Date(retry*1000))).append("\n")
+                lines.append("\n")
+            }
+            SumuwwVerticalCaptions.builder(activity).setTitle(tr("Connection proofs")).setMessage(lines.toString()).setPositiveButton(tr("닫기"),null).show()
+        })
+        val controls=ui.column()
+        if(offset>0)controls.addView(ui.SumuwwPrimaryButton(tr("이전")){action("blocksPrevious")}.apply{tag="blocks-previous"},ui.params(bottom=8))
+        if(offset+50<total)controls.addView(ui.SumuwwPrimaryButton(tr("다음")){action("blocksNext")}.apply{tag="blocks-next"},ui.params(bottom=8))
+        p.addView(controls,ui.params(top=12,bottom=12))
+        if(blocks.length()>0)p.addView(ui.label("${tr("블록 높이")}: ${blocks.getJSONObject(blocks.length()-1).optInt("height")}–${blocks.getJSONObject(0).optInt("height")} / ${result.optInt("height")}",13f,ui.muted),ui.params(bottom=12))
+        val list=ui.column().apply{tag="sumuww-all-blocks-list"}
+        p.addView(list)
+        for(i in 0 until blocks.length()){
+            val block=blocks.getJSONObject(i)
+            val card=ui.column().apply{tag="network-block-${block.optString("hash")}";setPadding(ui.dp(12),ui.dp(12),ui.dp(12),ui.dp(12));background=ui.surfaceFinish(12)}
+            val origin=tr(when(block.optString("origin")){"local"->"이 노드";"other"->"다른 노드";else->"생성자 정보 없음"})
+            card.addView(ui.label("${tr("블록 높이")} ${block.optInt("height")} · $origin",14f,ui.ink,true))
+            val date=java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss",java.util.Locale.getDefault()).format(java.util.Date(block.optLong("timestamp")*1000L))
+            card.addView(ui.label("${tr("블록 시간 (현지)")}: $date",12f,ui.muted),ui.params(top=6))
+            val producer=block.optString("producer_id").takeIf{it.isNotBlank()&&it!="null"}
+            if(producer!=null)card.addView(ui.label("${tr("생성 노드")}: $producer",11f,ui.muted),ui.params(top=6))
+            card.addView(ui.label("${tr("블록 해시")}: ${block.optString("hash")}",11f,ui.muted).apply{setTextIsSelectable(true)},ui.params(top=6))
+            list.addView(card,ui.params(bottom=8))
+        }
+    }
+
     private fun more(p: LinearLayout) {
-        setting(p, R.drawable.nav_mining, "내 채굴 내역", "history").tag="device-mining-history"
+        setting(p, R.drawable.ic_info, "전체 블록", "page", "15").tag="sumuww-all-blocks"
         setting(p, R.drawable.nav_wallet, "지갑 관리", "page", "10")
         setting(p, R.drawable.ic_security, "보안 설정", "page", "11")
         setting(p, R.drawable.nav_mining, "채굴 설정", "page", "12")
@@ -518,7 +577,7 @@ internal class SumuwwScreens(
     private fun transaction(p: LinearLayout, tx: JSONObject) {
         val kind = kind(tx); val raw = tx.optLong("net_amount")
         val name = tr(when (kind) { "send" -> "보내기"; "receive" -> "받기"; else -> "채굴 보상" })
-        val detail = when (tx.optString("status")) { "unverified", "orphaned" -> tr("거래 재확인 필요"); "replaced" -> tr(if (tx.optString("replacement_reason") == "ancestor_replaced") "Removed after parent replacement" else "Replaced · not applied"); "pending" -> tr("대기 중"); else -> "${tx.optInt("confirmations")} ${tr("확인") }" }
+        val detail = when (tx.optString("status")) { "replaced" -> tr(if (tx.optString("replacement_reason") == "ancestor_replaced") "Removed after parent replacement" else "Replaced · not applied"); "pending" -> tr("대기 중"); else -> "${tx.optInt("confirmations")} ${tr("확인") }" }
         p.addView(ui.SumuwwTransactionRow(name, "${if (raw > 0) "+" else ""}${formatUnits(raw)} SMW", detail, kind) { action("transaction", tx.toString()) })
         tx.optJSONObject("mining_reward")?.let { reward ->
             for ((caption, field) in listOf("New issuance (block)" to "subsidy_reward_smw", "Transaction fees (block)" to "fee_reward_smw", "Total block reward" to "claimed_reward_smw")) {
@@ -543,7 +602,7 @@ internal class SumuwwScreens(
         val mining = state.status?.optJSONObject("mining")
         return when {
             state.statusUnavailable -> tr("상태 확인 불가")
-            !running() -> if (node()?.optBoolean("mining_ready") == true) tr("채굴 대기") else tr("대기")
+            !running() -> tr("채굴 대기")
             mining?.optString("state") == "waiting" -> tr("동기화 대기")
             mining?.optString("mode") == "offline" -> tr("오프라인 채굴")
             else -> tr("채굴 중")

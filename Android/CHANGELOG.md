@@ -1,11 +1,3 @@
-# SUMUWW Android 0.6.98
-
-The phone computes proof of work locally and stores its own mining records. Build 159 displays the connected node’s fee estimate in all 34 languages and corrects the Korean fee preview.
-
-This release has been withdrawn.
-
----
-
 # SUMUWW Android 0.6.88
 
 Full node, wallet and optional CPU miner. This release includes the recent peer-recovery fixes and the All blocks browser.

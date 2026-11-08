@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Documentación
+# SUMUWW Android 0.6.95 · Documentación
 
-El teléfono se conecta a un nodo completo de SUMUWW con la versión 0.57.49 o posterior. Comprueba la recompensa y calcula la prueba de trabajo sin descargar todo el historial de transacciones.
-
-La comisión recomendada aparece cuando el nodo conectado facilita los datos. La cartera muestra el cambio pendiente de saldo una vez que puede verificar el importe completo.
-
-## Historial de minería
-
-Aquí solo aparecen los bloques minados por este teléfono. Toca uno para ver la recompensa y las confirmaciones.
+SUMUWW Android 0.6.95 · El nodo valida, guarda, retransmite y permite consultar la cadena.
 
 ## Red y direcciones
 

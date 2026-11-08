@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Sürüm notları
+# SUMUWW Android 0.6.95 · Sürüm notları
 
-Telefon, 0.57.49 veya sonraki bir sürümü çalıştıran bir SUMUWW tam düğümüne bağlanır. Ödülü kontrol eder ve tüm işlem geçmişini indirmeden iş ispatını hesaplar.
+SUMUWW Android 0.6.95 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
 
 API belirtimi gömülü düğüm çekirdeğini açıklar. Android uygulamasında RPC yapılandırma ekranı yoktur.
 

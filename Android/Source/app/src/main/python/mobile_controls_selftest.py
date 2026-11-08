@@ -28,10 +28,9 @@ def run():
             self.wallet['unlocked']=True;return ready(self.wallet)
         def prepare_payment(self,*args):self.prepares+=1;return ready({'quote_id':'owned'})
         def submit_payment(self,*args):self.submits+=1;return ready({'txid':'owned'})
-        def _submit(self, command, offset, limit, query):
-            assert command == 'mined_search'
-            matches=[dict(txid=f'{i:064x}',coinbase=True) for i in range(150) if query in f'{i:064x}']
-            return ready(dict(transactions=matches[offset:offset+limit],total=len(matches)))
+        def transaction_history(self,offset,limit):
+            rows=[{'txid':f'{i:064x}','coinbase':i%3==0,'net_amount':-1 if i%3==1 else 1,'height':i+1,'status':'confirmed'} for i in range(450)]
+            return ready({'tip':'owned-tip','address':'owned-wallet','height':500,'transactions':rows[offset:offset+limit],'total':len(rows)})
     class Checks(unittest.TestCase):
         def setUp(self):
             host._security['timeout']=300;host._service=Fake();host._batch['running']=False;host._session_opened()
@@ -61,14 +60,22 @@ def run():
                 self.assertTrue(host._security['locked']);self.assertEqual(0,host._service.locks)
                 host.unlock_spending('owned-test-password');self.assertFalse(host._security['locked']);self.assertEqual(0,host._service.locks)
         def test_filtered_history_all_pages(self):
-            value=json.loads(host.filtered_history('100','50','mining',''))
+            value=json.loads(host.filtered_history('100','50','receive',''))
             self.assertEqual(150,value['total']);self.assertEqual(50,len(value['transactions']))
-            self.assertTrue(all(tx['coinbase'] for tx in value['transactions']))
+            self.assertTrue(all(tx['net_amount']>0 and not tx['coinbase'] for tx in value['transactions']))
         def test_search_and_invalid_requests(self):
-            value=json.loads(host.filtered_history('0','50','all',f'{149:064x}'))
+            value=json.loads(host.filtered_history('0','50','all',f'{449:064x}'))
             self.assertEqual(1,value['total'])
             for args in [('-1','50','all',''),('0','201','all',''),('0','50','unknown','')]:
                 with self.assertRaises(ValueError):host.filtered_history(*args)
+        def test_unstable_snapshot_rejected(self):
+            call=0
+            original=host._service.transaction_history
+            def changed(offset,limit):
+                nonlocal call
+                call+=1;value=original(offset,limit).result();value['tip']=str(call);return ready(value)
+            host._service.transaction_history=changed
+            with self.assertRaises(RuntimeError):host.filtered_history()
         def test_settings_bounds(self):
             host.security_settings('60');self.assertEqual(60,host._security['timeout'])
             with self.assertRaises(ValueError):host.security_settings('0')

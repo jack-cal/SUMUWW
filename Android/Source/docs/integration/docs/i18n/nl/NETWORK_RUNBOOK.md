@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Nodebeheer
+# SUMUWW Android 0.6.95 · Nodebeheer
 
-De telefoon maakt verbinding met een volledige SUMUWW-node met versie 0.57.49 of hoger. Hij controleert de beloning en berekent het werkbewijs zonder de hele transactiegeschiedenis te downloaden.
+SUMUWW Android 0.6.95 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
 
 ## Netwerk en adressen
 

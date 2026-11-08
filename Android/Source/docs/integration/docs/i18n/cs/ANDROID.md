@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Dokumentace
+# SUMUWW Android 0.6.95 · Dokumentace
 
-Telefon se připojuje k plnému uzlu SUMUWW verze 0.57.49 nebo novější. Ověří odměnu a vypočítá důkaz práce bez stahování celé historie transakcí.
-
-Doporučený poplatek se zobrazí po přijetí údajů z připojeného uzlu. Peněženka ukáže změnu zůstatku z nepotvrzených transakcí, jakmile ověří celou částku.
-
-## Historie těžby
-
-Zde se zobrazují jen bloky vytěžené tímto telefonem. Klepnutím na záznam zobrazíte odměnu a počet potvrzení.
+SUMUWW Android 0.6.95 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
 
 ## Síť a adresy
 

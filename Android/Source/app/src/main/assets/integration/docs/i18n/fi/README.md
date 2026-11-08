@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Dokumentaatio
+# SUMUWW Android 0.6.95 · Dokumentaatio
 
-Puhelin muodostaa yhteyden SUMUWW-täyssolmuun, jonka versio on 0.57.49 tai uudempi. Se tarkistaa palkkion ja laskee työtodisteen lataamatta ketjun koko tapahtumahistoriaa.
+SUMUWW Android 0.6.95 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
 
 ## Verkko ja osoitteet
 

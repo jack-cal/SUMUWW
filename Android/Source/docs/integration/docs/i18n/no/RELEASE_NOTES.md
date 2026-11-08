@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Versjonsmerknader
+# SUMUWW Android 0.6.95 · Versjonsmerknader
 
-Telefonen kobler seg til en fullnode for SUMUWW som kjører versjon 0.57.49 eller nyere. Den sjekker belønningen og beregner arbeidsbeviset uten å laste ned hele transaksjonshistorikken.
+SUMUWW Android 0.6.95 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
 
 API-spesifikasjonen beskriver den innebygde nodekjernen. Android-appen har ingen skjerm for RPC-oppsett.
 

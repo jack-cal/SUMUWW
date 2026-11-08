@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Documentação
+# SUMUWW Android 0.6.95 · Documentação
 
-O telefone se conecta a um nó completo SUMUWW com a versão 0.57.49 ou posterior. Ele verifica a recompensa e calcula a prova de trabalho sem baixar todo o histórico de transações.
-
-A taxa recomendada aparece assim que o nó conectado fornece os dados. A carteira mostra a variação de saldo pendente depois de verificar o valor total.
-
-## Histórico de mineração
-
-Aqui aparecem apenas os blocos minerados por este telefone. Toque em um registro para ver a recompensa e as confirmações.
+SUMUWW Android 0.6.95 · O nó valida, guarda, retransmite e permite consultar a cadeia.
 
 ## Rede e endereços
 

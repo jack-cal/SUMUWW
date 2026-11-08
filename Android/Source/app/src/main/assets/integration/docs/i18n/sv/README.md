@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Dokumentation
+# SUMUWW Android 0.6.95 · Dokumentation
 
-Telefonen ansluter till en fullnod för SUMUWW med version 0.57.49 eller senare. Den kontrollerar belöningen och beräknar arbetsbeviset utan att ladda ned hela transaktionshistoriken.
+SUMUWW Android 0.6.95 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
 
 ## Nätverk och adresser
 

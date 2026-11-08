@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Verifikation
+# SUMUWW Android 0.6.95 · Verifikation
 
-Telefonen opretter forbindelse til en fuld SUMUWW-node med version 0.57.49 eller nyere. Den kontrollerer belønningen og beregner proof of work uden at hente hele transaktionshistorikken.
+SUMUWW Android 0.6.95 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
 
 API-specifikationen beskriver den indbyggede nodekerne. Android-appen har ingen skærm til RPC-konfiguration.
 

@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Prüfung
+# SUMUWW Android 0.6.95 · Prüfung
 
-Das Gerät verbindet sich mit einem SUMUWW-Vollknoten ab Version 0.57.49. Es prüft die Belohnung und berechnet den Arbeitsnachweis, ohne den gesamten Transaktionsverlauf der Blockchain herunterzuladen.
+SUMUWW Android 0.6.95 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
 
 Die API-Spezifikation beschreibt den eingebetteten Knotenkern. Die Android-App hat keinen Bildschirm zur RPC-Konfiguration.
 

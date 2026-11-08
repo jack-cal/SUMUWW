@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · API RPC y HTTP
+# SUMUWW Android 0.6.95 · API RPC y HTTP
 
-El teléfono se conecta a un nodo completo de SUMUWW con la versión 0.57.49 o posterior. Comprueba la recompensa y calcula la prueba de trabajo sin descargar todo el historial de transacciones.
+SUMUWW Android 0.6.95 · El nodo valida, guarda, retransmite y permite consultar la cadena.
 
 La especificación API describe el núcleo del nodo integrado. La aplicación Android no tiene pantalla de configuración RPC.
 

@@ -3,7 +3,7 @@
 | Program | Version |
 |---|---|
 | Windows full node | 0.57.51 |
-| Android light miner and wallet | 0.6.98 |
+| Android full node | 0.6.96 |
 | Windows ordinary wallet | 1.0.10 |
 | Android ordinary wallet | 1.1.10 |
 | Explorer | 0.4.11 |
@@ -20,7 +20,5 @@ Update validating full nodes and ordinary wallets before block **9,600**. The so
 English is the first-launch language for every program. Saved language preferences and all 34 selectable languages are preserved. The detailed technical whitepaper 2.3 is in English; all 34 languages include directly authored summaries and correction notices, not full technical translations.
 
 Mining history distinguishes new issuance, transaction fees, total rewards and the amount received by the wallet. Automatic fee suggestions use the connected node's current pending queue, not past-block fee samples. One yugeon is 0.00000001 SMW; vB is a data-size unit.
-
-Android 0.6.98 was installed on a phone previously running 0.6.90 and started on a physical phone. Wallet, payment and mining tests use isolated profiles and chains. It does not establish public-network completion of previously pending proof jobs or uninterrupted availability.
 
 Earlier release posts, assets and dated verification reports retain their original scope. The current application and document releases are separate from that history.

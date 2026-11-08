@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Dokumentaatio
+# SUMUWW Android 0.6.95 · Dokumentaatio
 
-Puhelin muodostaa yhteyden SUMUWW-täyssolmuun, jonka versio on 0.57.49 tai uudempi. Se tarkistaa palkkion ja laskee työtodisteen lataamatta ketjun koko tapahtumahistoriaa.
-
-Maksusuositus näkyy, kun yhdistetty solmu toimittaa tiedot. Lompakko näyttää vahvistusta odottavan saldomuutoksen, kun se on tarkistanut koko summan.
-
-## Louhintahistoria
-
-Tässä näkyvät vain tällä puhelimella louhitut lohkot. Näytä palkkio ja vahvistusten määrä napauttamalla merkintää.
+SUMUWW Android 0.6.95 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
 
 ## Verkko ja osoitteet
 

@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.98 · Operasi node
+# SUMUWW Android 0.6.95 · Operasi node
 
-Ponsel terhubung ke node penuh SUMUWW versi 0.57.49 atau yang lebih baru. Ponsel memeriksa imbalan dan menghitung bukti kerja tanpa mengunduh seluruh riwayat transaksi.
+SUMUWW Android 0.6.95 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
 
 ## Jaringan dan alamat
 

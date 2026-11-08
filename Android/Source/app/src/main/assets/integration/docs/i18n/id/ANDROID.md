@@ -1,12 +1,6 @@
-# SUMUWW Android 0.6.98 · Dokumentasi
+# SUMUWW Android 0.6.95 · Dokumentasi
 
-Ponsel terhubung ke node penuh SUMUWW versi 0.57.49 atau yang lebih baru. Ponsel memeriksa imbalan dan menghitung bukti kerja tanpa mengunduh seluruh riwayat transaksi.
-
-Rekomendasi biaya muncul setelah node yang terhubung mengirimkan datanya. Dompet menampilkan perubahan saldo yang masih tertunda setelah jumlahnya dapat diperiksa secara utuh.
-
-## Riwayat penambangan
-
-Hanya blok yang ditambang oleh ponsel ini yang ditampilkan. Ketuk satu catatan untuk melihat imbalan dan jumlah konfirmasi.
+SUMUWW Android 0.6.95 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
 
 ## Jaringan dan alamat
 
