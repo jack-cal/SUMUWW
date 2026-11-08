@@ -7,7 +7,7 @@ Update every validating full node and ordinary wallet before **block 9,600**. Th
 | Windows full node, wallet and miner | 0.57.51 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.51) | [Source](../PC/Source) |
 | Android light miner and wallet | 0.6.98 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/android-v0.6.98) | [Source](../Android/Source) |
 | Windows ordinary wallet | 1.0.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-pc-v1.0.10) | [Source](../Wallet/Desktop) |
-| Android ordinary wallet | 1.1.9 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.9) | [Source](../Wallet/Source) |
+| Android ordinary wallet | 1.1.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.10) | [Source](../Wallet/Source) |
 | Local block explorer | 0.4.11 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/explorer-v0.4.11) | [Source](../Explorer/Source) |
 | P2P Full — SMW/BTC trading | 0.3.6 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-full-v0.3.6) | [Source](../P2P/Source) |
 | P2P Light — SMW/BTC trading | 0.3.6 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-light-v0.3.6) | [Source](../P2P/Source) |
@@ -18,7 +18,7 @@ Extract each complete Windows ZIP. Keep encrypted wallet backups and existing da
 
 The Windows full node and both ordinary wallets aim for 10 outbound peers. Most connections relay blocks and transactions. A verified backup can relay blocks, and a spare slot can briefly check an 11th peer. Up to 117 inbound connections are possible, or 115 with 10 outbound. The default limit is 125 in total.
 
-Android 0.6.98 uses org.sumuww.miner. It verifies the reward destination and hashes on the phone. A connected Windows full node (0.57.49 or later) provides wallet balances, chain status and compact mining jobs. The phone stores its own mining receipts. Android ordinary wallet 1.1.9 uses org.sumuww.wallet.current and retains its signing certificate. It can update earlier matching Wallet Current installations. It does not replace the old differently signed org.sumuww.wallet app. Keep the old app and its data until an encrypted backup has been restored successfully. The light miner upgrade was also installed and started on a physical phone.
+Android 0.6.98 uses org.sumuww.miner. It verifies the reward destination and hashes on the phone. A connected Windows full node (0.57.49 or later) provides wallet balances, chain status and compact mining jobs. The phone stores its own mining receipts. Android ordinary wallet 1.1.10 uses org.sumuww.wallet.current and retains its signing certificate. It can update earlier matching Wallet Current installations. It does not replace the old differently signed org.sumuww.wallet app. Keep the old app and its data until an encrypted backup has been restored successfully. The light miner upgrade was also installed and started on a physical phone.
 
 P2P Full requires synchronized unpruned Bitcoin Core with txindex. Light verifies Bitcoin headers and transaction inclusion using TLS servers and is not full Bitcoin validation. Both require a synchronized SUMUWW node and the height-9100 HTLC rule. Read the [setup and recovery guide](../P2P/Source/BITCOIN_SETUP.md).
 

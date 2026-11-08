@@ -5,7 +5,7 @@
 | Windows full node | 0.57.51 |
 | Android light miner and wallet | 0.6.98 |
 | Windows ordinary wallet | 1.0.10 |
-| Android ordinary wallet | 1.1.9 |
+| Android ordinary wallet | 1.1.10 |
 | Explorer | 0.4.11 |
 | P2P Full / Light | 0.3.6 |
 

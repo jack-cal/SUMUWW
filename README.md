@@ -11,7 +11,7 @@ SUMUWW is an independent SHA-256d proof-of-work coin with asynchronous connectio
 | Windows full node, wallet and miner | 0.57.51 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.51) | [Source](PC/Source) |
 | Android light miner and wallet | 0.6.98 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/android-v0.6.98) | [Source](Android/Source) |
 | Windows ordinary wallet | 1.0.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-pc-v1.0.10) | [Source](Wallet/Desktop) |
-| Android ordinary wallet | 1.1.9 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.9) | [Source](Wallet/Source) |
+| Android ordinary wallet | 1.1.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.10) | [Source](Wallet/Source) |
 | Local block explorer | 0.4.11 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/explorer-v0.4.11) | [Source](Explorer/Source) |
 | P2P Full — SMW/BTC trading | 0.3.6 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-full-v0.3.6) | [Source](P2P/Source) |
 | P2P Light — SMW/BTC trading | 0.3.6 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-light-v0.3.6) | [Source](P2P/Source) |
