@@ -31,5 +31,5 @@
     "Bağımlılıkları yükleyip kaynakta python examples/node_contract.py çalıştırın. Açık test anahtarları ve geçici regtest gönderim, ret, onay, yeniden düzenleme ve veri kalıcılığını sınar. Gerçek para, kullanıcı profili veya donanım imzalayıcı kullanılmaz."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "Varsayılan sınır 125 bağlantıdır. Düğüm, bloklar ve işlemler için 8, yalnızca bloklar için 2 giden bağlantı arar. En fazla 115 gelen bağlantı kabul eder."
+  "peer_policy": "Varsayılan sınır 125 bağlantıdır. Düğüm 10 giden bağlantı kurmayı hedefler ve her biri üzerinden hem blokları hem de işlemleri iletir. En fazla 115 gelen bağlantı kabul eder."
 }

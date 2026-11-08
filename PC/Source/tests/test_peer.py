@@ -129,21 +129,12 @@ class PeerSocketTests(unittest.IsolatedAsyncioTestCase):
         info = hub.info()
         self.assertEqual((10, 0, 115, 125), (info['outbound_peers'], info['inbound_peers'],
                          info['incoming_capacity'], info['incoming_admission']['transient_connection_limit']))
-        self.assertEqual(2, sum(row['relay_mode'] == 'block' for row in info['peer_connections']))
-        blocks = {s.outgoing for s in hub._healthy_sessions() if s.block_relay_only}
-        blocks_peer = next(n for n in others if n.address in blocks)
-        full_peer = next(n for n in others[:10] if n.address not in blocks)
+        self.assertEqual(['full'] * 10, [row['relay_mode'] for row in info['peer_connections']])
         tx = self.spend()
-        blocks_peer.chain.submit_transaction(tx)
-        announcement = Inventory(INV_TRANSACTION, tx.txid())
-        await eventually(lambda: any(announcement in s.recent_inventory for s in hub._sessions.values()))
-        self.assertFalse(hub.chain.has_mempool_transaction(tx.txid()))
-        full_peer.chain.submit_transaction(tx)
-        await eventually(lambda: hub.chain.has_mempool_transaction(tx.txid()))
-        other_block_peer = next(n for n in others if n.address in blocks and n is not blocks_peer)
-        self.assertFalse(other_block_peer.chain.has_mempool_transaction(tx.txid()))
-        blocks_peer.chain.mine(ALICE.script_pubkey, 1)
-        await eventually(lambda: all(n.chain.tip_hash == blocks_peer.chain.tip_hash for n in [hub, *others[:10]]))
+        others[9].chain.submit_transaction(tx)
+        await eventually(lambda: all(n.chain.has_mempool_transaction(tx.txid()) for n in [hub, *others[:10]]))
+        others[9].chain.mine(ALICE.script_pubkey, 1)
+        await eventually(lambda: all(n.chain.tip_hash == others[9].chain.tip_hash for n in [hub, *others[:10]]))
         before = {s.nonce for s in hub._healthy_sessions()}
         hub._addresses.add_hint(others[-1].address)
         hub._next_exploration = 0

@@ -1,9 +1,9 @@
 # SUMUWW · Poznámky k vydání
 
-Výchozí limit je 125 spojení. Uzel vyhledává 8 odchozích spojení pro bloky a transakce a další 2 pouze pro bloky. Přijímá až 115 příchozích spojení.
+Výchozí limit je 125 spojení. Uzel se snaží navázat 10 odchozích spojení a přes každé z nich předává bloky i transakce. Přijímá až 115 příchozích spojení.
 
 
-SUMUWW PC 0.57.50 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
+SUMUWW PC 0.57.51 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
 
 ## Formát podpisu
 

@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.8
+# SUMUWW Wallet Android 1.1.9
 
-The default limit is 125 connections. The node seeks 8 outbound peers for blocks and transactions and 2 for blocks only, leaving room for up to 115 inbound peers.
+The default limit is 125 connections. The node seeks 10 outgoing peers, all of which relay both blocks and transactions. This leaves room for up to 115 incoming connections.
 
 
 1 SMW = 100,000,000 yugeon. Automatic fees offer slow, normal and fast presets based on local observations; they do not guarantee confirmation times. You can enter a rate in yugeon/vB manually. Review the final fee and total in SMW before sending. A rejected transaction does not debit your balance.

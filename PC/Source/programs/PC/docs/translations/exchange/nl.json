@@ -31,5 +31,5 @@
     "Installeer de afhankelijkheden en voer python examples/node_contract.py uit vanuit de broncode. Openbare testsleutels en tijdelijk regtest testen indiening, afwijzing, bevestigingen, reorganisatie en gegevensbehoud. Er worden geen echte tegoeden, gebruikersprofielen of hardwareondertekenaars gebruikt."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "De standaardlimiet is 125 verbindingen. Het knooppunt zoekt 8 uitgaande verbindingen voor blokken en transacties en 2 alleen voor blokken. Er is ruimte voor maximaal 115 inkomende verbindingen."
+  "peer_policy": "De standaardlimiet is 125 verbindingen. Het knooppunt streeft naar 10 uitgaande verbindingen en geeft over elk daarvan blokken en transacties door. Er is ruimte voor maximaal 115 inkomende verbindingen."
 }

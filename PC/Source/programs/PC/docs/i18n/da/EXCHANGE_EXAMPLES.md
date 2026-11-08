@@ -1,6 +1,6 @@
 # SUMUWW · Verifikation
 
-SUMUWW PC 0.57.50 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
+SUMUWW PC 0.57.51 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
 
 ## Signaturformat
 

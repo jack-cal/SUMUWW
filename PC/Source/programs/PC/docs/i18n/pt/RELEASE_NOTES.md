@@ -1,9 +1,9 @@
 # SUMUWW · Notas da versão
 
-O limite padrão é de 125 conexões. O nó procura 8 conexões de saída para blocos e transações e outras 2 apenas para blocos. Aceita até 115 conexões de entrada.
+O limite padrão é de 125 conexões. O nó procura estabelecer 10 conexões de saída e transmite blocos e transações por todas elas. Aceita até 115 conexões de entrada.
 
 
-SUMUWW PC 0.57.50 · O nó valida, guarda, retransmite e permite consultar a cadeia.
+SUMUWW PC 0.57.51 · O nó valida, guarda, retransmite e permite consultar a cadeia.
 
 ## Formato de assinatura
 

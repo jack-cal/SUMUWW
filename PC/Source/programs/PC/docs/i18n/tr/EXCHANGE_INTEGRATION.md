@@ -1,6 +1,6 @@
 # SUMUWW · Düğüm arayüzü
 
-SUMUWW PC 0.57.50 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
+SUMUWW PC 0.57.51 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
 
 ## Ağ ve adresler
 

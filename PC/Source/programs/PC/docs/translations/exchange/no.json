@@ -31,5 +31,5 @@
     "Installer avhengighetene og kjør python examples/node_contract.py fra kildekoden. Offentlige testnøkler og midlertidig regtest tester innsending, avvisning, bekreftelser, omorganisering og datalagring. Ekte midler, brukerprofiler eller maskinvare for signering brukes ikke."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "Standardgrensen er 125 forbindelser. Noden søker 8 utgående forbindelser for blokker og transaksjoner og 2 bare for blokker. Den tar imot opptil 115 innkommende forbindelser."
+  "peer_policy": "Standardgrensen er 125 forbindelser. Noden prøver å opprette 10 utgående forbindelser og videresender både blokker og transaksjoner over hver av dem. Den tar imot opptil 115 innkommende forbindelser."
 }

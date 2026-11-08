@@ -1,6 +1,6 @@
 # SUMUWW · API RPC e HTTP
 
-SUMUWW PC 0.57.50 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
+SUMUWW PC 0.57.51 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
 
 ## API RPC e HTTP
 

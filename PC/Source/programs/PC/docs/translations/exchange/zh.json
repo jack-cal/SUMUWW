@@ -31,5 +31,5 @@
     "安装依赖后，从源码运行 python examples/node_contract.py。公开测试密钥和临时 regtest 用于验证提交、拒绝、确认、链重组及数据持久性，不使用真实资金、用户配置或硬件签名器。"
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "默认连接上限为 125。节点主动连接 8 个中继区块和交易的节点以及 2 个仅中继区块的节点，最多接受 115 个入站连接。"
+  "peer_policy": "默认连接上限为 125。节点主动连接的目标是 10 个节点，每条连接都中继区块和交易。最多接受 115 个入站连接。"
 }

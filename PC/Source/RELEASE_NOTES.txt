@@ -1,6 +1,6 @@
-# SUMUWW Windows 0.57.50
+# SUMUWW Windows 0.57.51
 
-The default limit is 125 connections. The node seeks 8 outbound peers for blocks and transactions and 2 for blocks only, leaving room for up to 115 inbound peers. A temporary outbound probe can check another peer when a slot is free. Manually configured direct peers count toward the total. Use --max-peers and --outgoing-target with the node executable. The desktop connection count shows outgoing (↑) and incoming (↓) peers.
+The default limit is 125 connections. The node seeks 10 outgoing peers, all of which relay both blocks and transactions. This leaves room for up to 115 incoming connections. A temporary outbound probe can check another peer when a slot is free. Manually configured direct peers count toward the total. Use --max-peers and --outgoing-target with the node executable. The desktop connection count shows outgoing (↑) and incoming (↓) peers.
 
 # SUMUWW Windows 0.57.49
 

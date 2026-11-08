@@ -1,6 +1,6 @@
 # SUMUWW · Node-interface
 
-SUMUWW PC 0.57.50 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
+SUMUWW PC 0.57.51 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
 
 ## Netwerk en adressen
 

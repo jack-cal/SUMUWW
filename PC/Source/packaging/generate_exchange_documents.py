@@ -121,7 +121,7 @@ def render(text,page,lang='en',topic='EXCHANGE_INTEGRATION',locale_root=None):
     title=next((s[2:] for s in text.splitlines() if s.startswith('# ')),'SUMUWW')
     direction='rtl' if lang in ('ar','ur') else 'ltr'
     css=' class="mongolian"' if lang=='mn-Mong' else ''
-    return f'<!doctype html><html lang="{lang}" dir="{direction}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="sumuww-doc-revision" content="52"><title>{html.escape(title)}</title><style>{STYLE}</style></head><body><header>{nav}</header><main{css}>'+markdown.markdown(text,extensions=['fenced_code','tables'])+'<footer>SUMUWW · 0.57.50 · 2026-11-08</footer></main></body></html>\n'
+    return f'<!doctype html><html lang="{lang}" dir="{direction}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="sumuww-doc-revision" content="52"><title>{html.escape(title)}</title><style>{STYLE}</style></head><body><header>{nav}</header><main{css}>'+markdown.markdown(text,extensions=['fenced_code','tables'])+'<footer>SUMUWW · 0.57.51 · 2026-11-08</footer></main></body></html>\n'
 
 def main():
     paths=[]
@@ -158,7 +158,7 @@ def main():
         translation_policy='English default. Directly authored editions of the current integration update in all 34 UI languages. No external automatic translation. Existing UI preferences are preserved.',
         localized_update_topics=list(TOPICS),
         localized_update_scope='The 0.57.46 / Android 0.6.95 yugeon fee policy, RBF, block reward breakdown, data records and isolated multisig/lock activation tests. Historical whitepapers and other topics retain their separately recorded translation scope.',
-        documentation_edition='0.57.50',
+        documentation_edition='0.57.51',
         peer_policy_update_scope='The node operation guide and release notes describe the 125-peer connection budget and outbound relay roles in all 34 supported languages.',
         legacy_html_paths='Current integration topics contain localized content in both document layouts. Other historical coin-document paths retain their previous scope.')
     layout['exchange_integration'].update(rpc_methods=len(contract['methods']), rest_routes=11, languages=[code for code,_ in LANGUAGES],index='docs/index.html',localized_path='docs/i18n/{language}/EXCHANGE_INTEGRATION.html')

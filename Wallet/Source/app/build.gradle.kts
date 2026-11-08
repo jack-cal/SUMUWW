@@ -19,8 +19,8 @@ android {
         applicationId = "org.sumuww.wallet.current"
         minSdk = 26
         targetSdk = 35
-        versionCode = 19
-        versionName = "1.1.8"
+        versionCode = 20
+        versionName = "1.1.9"
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

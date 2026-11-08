@@ -86,7 +86,6 @@ MAX_QUOTA_DELAY = 10
 PEER_EXPLORATION_INTERVAL = 300
 PUBLIC_CONNECTION_LIMIT = 125
 PUBLIC_OUTGOING_TARGET = 10
-BLOCK_RELAY_SLOTS = 2
 INCOMING_PROBE_INTERVAL = .25
 INCOMING_SOURCE_PROBE_INTERVAL = 5
 INCOMING_ROTATION_INTERVAL = 60
@@ -1209,20 +1208,14 @@ class PeerNode:
         session = _Session(reader, writer, outgoing)
         if self.public_peer_policy and outgoing is not None:
             session.exploration_probe = outgoing == self._exploration_target
-            regular = [s for s in self._sessions.values()
-                       if self._counts_toward_discovery(s) and not s.writer.is_closing()]
+            regular_count = sum(self._counts_toward_discovery(s) and not s.writer.is_closing()
+                                for s in self._sessions.values())
             manual = outgoing in self._configured
-            if not manual and not session.exploration_probe and len(regular) >= self._outgoing_target:
+            if not manual and not session.exploration_probe and regular_count >= self._outgoing_target:
                 self._stats['peer_limit_rejections'] += 1
                 writer.close()
                 return None
-            # A small operator budget and the first paths to a sparse network
-            # always retain transaction relay. Direct peers also relay transactions.
-            block_slots = min(BLOCK_RELAY_SLOTS, max(0, self._outgoing_target - 8))
-            full_count = sum(not s.block_relay_only for s in regular)
-            session.block_relay_only = session.exploration_probe or (
-                not manual and full_count >= self._outgoing_target - block_slots
-                and len(regular) - full_count < block_slots)
+            session.block_relay_only = session.exploration_probe
         session.remote_ip = remote_ip
         self._sessions[id(writer)] = session
         if probing_incoming:

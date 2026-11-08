@@ -1,6 +1,6 @@
 # SUMUWW · Dokumentace
 
-SUMUWW PC 0.57.50 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
+SUMUWW PC 0.57.51 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
 
 ## Formát podpisu
 

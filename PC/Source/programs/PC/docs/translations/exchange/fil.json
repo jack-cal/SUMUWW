@@ -31,5 +31,5 @@
     "I-install ang dependencies at patakbuhin ang python examples/node_contract.py mula sa source. Pampublikong test key at pansamantalang regtest ang sumusubok sa pagpapasa, pagtanggi, kumpirmasyon, reorganisasyon at pag-iimbak. Walang totoong pondo, profile ng user o hardware signer na ginagamit."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "Ang karaniwang limitasyon ay 125 koneksyon. Naghahanap ang node ng 8 papalabas na koneksyon para sa mga bloke at transaksyon at 2 pa para sa mga bloke lamang. Tumatanggap ito ng hanggang 115 papasok na koneksyon."
+  "peer_policy": "Ang karaniwang limitasyon ay 125 koneksyon. Sinisikap ng node na magbukas ng 10 papalabas na koneksyon. Bawat isa ay nagpapasa ng mga bloke at transaksyon. Tumatanggap ito ng hanggang 115 papasok na koneksyon."
 }

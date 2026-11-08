@@ -1,9 +1,9 @@
 # SUMUWW · Julkaisutiedot
 
-Oletusraja on 125 yhteyttä. Solmu hakee 8 lähtevää yhteyttä lohkoille ja tapahtumille sekä 2 pelkille lohkoille. Saapuvia yhteyksiä voi olla enintään 115.
+Oletusraja on 125 yhteyttä. Solmu pyrkii muodostamaan 10 lähtevää yhteyttä ja välittää sekä lohkoja että tapahtumia jokaisen kautta. Saapuvia yhteyksiä voi olla enintään 115.
 
 
-SUMUWW PC 0.57.50 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
+SUMUWW PC 0.57.51 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
 
 ## Allekirjoitusmuoto
 

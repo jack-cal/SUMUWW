@@ -1,9 +1,9 @@
 # SUMUWW · Notes de version
 
-La limite par défaut est de 125 connexions. Le nœud cherche à se connecter à 8 pairs pour les blocs et les transactions et à 2 autres pour les blocs seuls. Il accepte jusqu’à 115 connexions entrantes.
+La limite par défaut est de 125 connexions. Le nœud cherche à établir 10 connexions sortantes. Chacune relaie les blocs et les transactions. Le nœud accepte jusqu’à 115 connexions entrantes.
 
 
-SUMUWW PC 0.57.50 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
+SUMUWW PC 0.57.51 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
 
 ## Format de signature
 

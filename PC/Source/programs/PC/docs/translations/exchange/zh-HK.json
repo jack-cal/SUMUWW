@@ -31,5 +31,5 @@
     "安裝相依套件後，從原始碼執行 python examples/node_contract.py。公開測試密鑰及臨時 regtest 驗證提交、拒絕、確認、鏈重組及資料保存，不使用真實資金、用戶設定檔或硬件簽署器。"
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "預設連線上限為 125。節點會主動連接 8 個轉發區塊和交易的節點，以及 2 個只轉發區塊的節點，最多可接受 115 個連入連線。"
+  "peer_policy": "預設連線上限為 125。節點以 10 個對外連線為目標，每個連線都會轉發區塊和交易。最多可接受 115 個連入連線。"
 }

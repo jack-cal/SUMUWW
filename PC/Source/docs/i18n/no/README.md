@@ -1,6 +1,6 @@
 # SUMUWW · Dokumentasjon
 
-SUMUWW PC 0.57.50 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
+SUMUWW PC 0.57.51 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
 
 ## Signaturformat
 

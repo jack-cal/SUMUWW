@@ -1,6 +1,6 @@
 # SUMUWW · Dokumentacja
 
-SUMUWW PC 0.57.50 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+SUMUWW PC 0.57.51 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 ## Format podpisu
 

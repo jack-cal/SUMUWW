@@ -1,9 +1,9 @@
 # SUMUWW · Notas de versión
 
-El límite predeterminado es de 125 conexiones. El nodo busca 8 conexiones salientes para bloques y transacciones y otras 2 solo para bloques. Admite hasta 115 conexiones entrantes.
+El límite predeterminado es de 125 conexiones. El nodo busca 10 conexiones salientes y transmite bloques y transacciones por todas ellas. Admite hasta 115 conexiones entrantes.
 
 
-SUMUWW PC 0.57.50 · El nodo valida, guarda, retransmite y permite consultar la cadena.
+SUMUWW PC 0.57.51 · El nodo valida, guarda, retransmite y permite consultar la cadena.
 
 ## Formato de firma
 

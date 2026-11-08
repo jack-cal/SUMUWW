@@ -1,6 +1,6 @@
 # SUMUWW · Solmun rajapinta
 
-SUMUWW PC 0.57.50 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
+SUMUWW PC 0.57.51 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
 
 ## Verkko ja osoitteet
 

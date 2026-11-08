@@ -1,6 +1,6 @@
 # SUMUWW · RPC・HTTP API
 
-SUMUWW PC 0.57.50 · ノードはチェーンデータの検証・保存・伝播・照会を担います。
+SUMUWW PC 0.57.51 · ノードはチェーンデータの検証・保存・伝播・照会を担います。
 
 ## RPC・HTTP API
 

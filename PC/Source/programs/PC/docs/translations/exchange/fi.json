@@ -31,5 +31,5 @@
     "Asenna riippuvuudet ja suorita lähdekoodista python examples/node_contract.py. Julkiset testiavaimet ja tilapäinen regtest testaavat lähetyksen, hylkäyksen, vahvistukset, uudelleenjärjestelyn ja tietojen säilymisen. Oikeita varoja, käyttäjäprofiileja tai laitteistoallekirjoittajia ei käytetä."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "Oletusraja on 125 yhteyttä. Solmu hakee 8 lähtevää yhteyttä lohkoille ja tapahtumille sekä 2 pelkille lohkoille. Saapuvia yhteyksiä voi olla enintään 115."
+  "peer_policy": "Oletusraja on 125 yhteyttä. Solmu pyrkii muodostamaan 10 lähtevää yhteyttä ja välittää sekä lohkoja että tapahtumia jokaisen kautta. Saapuvia yhteyksiä voi olla enintään 115."
 }

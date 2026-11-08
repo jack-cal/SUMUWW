@@ -1,9 +1,9 @@
 # SUMUWW · Versieopmerkingen
 
-De standaardlimiet is 125 verbindingen. Het knooppunt zoekt 8 uitgaande verbindingen voor blokken en transacties en 2 alleen voor blokken. Er is ruimte voor maximaal 115 inkomende verbindingen.
+De standaardlimiet is 125 verbindingen. Het knooppunt streeft naar 10 uitgaande verbindingen en geeft over elk daarvan blokken en transacties door. Er is ruimte voor maximaal 115 inkomende verbindingen.
 
 
-SUMUWW PC 0.57.50 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
+SUMUWW PC 0.57.51 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
 
 ## Ondertekenformaat
 

@@ -31,5 +31,5 @@
     "Cài các phụ thuộc rồi chạy python examples/node_contract.py từ mã nguồn. Khóa thử nghiệm công khai và regtest tạm thời kiểm tra gửi, từ chối, xác nhận, tái tổ chức và lưu giữ dữ liệu. Không dùng tiền thật, hồ sơ người dùng hoặc thiết bị ký phần cứng."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "Giới hạn mặc định là 125 kết nối. Nút tìm 8 kết nối đi để chuyển tiếp khối và giao dịch, cùng 2 kết nối đi chỉ dành cho khối. Nút nhận tối đa 115 kết nối đến."
+  "peer_policy": "Giới hạn mặc định là 125 kết nối. Nút tìm cách thiết lập 10 kết nối đi và chuyển tiếp cả khối lẫn giao dịch qua từng kết nối. Nút nhận tối đa 115 kết nối đến."
 }

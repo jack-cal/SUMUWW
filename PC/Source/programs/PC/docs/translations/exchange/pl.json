@@ -31,5 +31,5 @@
     "Po instalacji zależności uruchom python examples/node_contract.py ze źródeł. Jawne klucze testowe i tymczasowy regtest sprawdzają wysyłanie, odrzucanie, potwierdzenia, reorganizację i trwałość danych. Nie używamy rzeczywistych środków, profili użytkowników ani urządzeń podpisujących."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "Domyślny limit to 125 połączeń. Węzeł szuka 8 połączeń wychodzących do przesyłania bloków i transakcji oraz 2 wyłącznie do bloków. Przyjmuje do 115 połączeń przychodzących."
+  "peer_policy": "Domyślny limit to 125 połączeń. Węzeł dąży do utrzymania 10 połączeń wychodzących i przez każde z nich przekazuje bloki oraz transakcje. Przyjmuje do 115 połączeń przychodzących."
 }

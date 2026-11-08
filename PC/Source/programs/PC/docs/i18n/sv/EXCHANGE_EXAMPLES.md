@@ -1,6 +1,6 @@
 # SUMUWW · Verifiering
 
-SUMUWW PC 0.57.50 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
+SUMUWW PC 0.57.51 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
 
 ## Signeringsformat
 

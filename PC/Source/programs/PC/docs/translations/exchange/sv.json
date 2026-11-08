@@ -31,5 +31,5 @@
     "Installera beroendena och kör python examples/node_contract.py från källkoden. Offentliga testnycklar och tillfälligt regtest prövar insändning, avvisning, bekräftelser, omorganisation och lagring. Inga riktiga medel, användarprofiler eller hårdvarusignerare används."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "Standardgränsen är 125 anslutningar. Noden söker 8 utgående anslutningar för block och transaktioner samt 2 enbart för block. Den kan ta emot upp till 115 inkommande anslutningar."
+  "peer_policy": "Standardgränsen är 125 anslutningar. Noden försöker upprätta 10 utgående anslutningar och vidarebefordrar både block och transaktioner via var och en. Den kan ta emot upp till 115 inkommande anslutningar."
 }

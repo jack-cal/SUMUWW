@@ -1,6 +1,6 @@
 # SUMUWW · Interfaccia del nodo
 
-SUMUWW PC 0.57.50 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
+SUMUWW PC 0.57.51 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
 
 ## Rete e indirizzi
 

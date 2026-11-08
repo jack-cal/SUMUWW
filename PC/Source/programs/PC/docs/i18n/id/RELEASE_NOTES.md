@@ -1,9 +1,9 @@
 # SUMUWW · Catatan versi
 
-Batas bawaan adalah 125 koneksi. Node mencari 8 koneksi keluar untuk blok dan transaksi serta 2 koneksi khusus blok. Node dapat menerima hingga 115 koneksi masuk.
+Batas bawaan adalah 125 koneksi. Node berupaya membuka 10 koneksi keluar dan meneruskan blok serta transaksi melalui setiap koneksi tersebut. Node dapat menerima hingga 115 koneksi masuk.
 
 
-SUMUWW PC 0.57.50 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
+SUMUWW PC 0.57.51 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
 
 ## Format tanda tangan
 

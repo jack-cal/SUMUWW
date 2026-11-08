@@ -31,5 +31,5 @@
     "Run python examples/node_contract.py from source with dependencies installed. Public fixture keys and disposable regtest test submission, rejection, confirmations, reorganization and data persistence. No real funds, user profile or hardware signer is used."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "The default limit is 125 connections. The node seeks 8 outbound peers for blocks and transactions and 2 for blocks only, leaving room for up to 115 inbound peers."
+  "peer_policy": "The default limit is 125 connections. The node seeks 10 outgoing peers, all of which relay both blocks and transactions. This leaves room for up to 115 incoming connections."
 }

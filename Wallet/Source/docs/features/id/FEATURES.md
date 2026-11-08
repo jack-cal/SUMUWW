@@ -1,6 +1,6 @@
-# SUMUWW Wallet Android 1.1.8
+# SUMUWW Wallet Android 1.1.9
 
-Batas bawaan adalah 125 koneksi. Node mencari 8 koneksi keluar untuk blok dan transaksi serta 2 koneksi khusus blok. Node dapat menerima hingga 115 koneksi masuk.
+Batas bawaan adalah 125 koneksi. Node berupaya membuka 10 koneksi keluar dan meneruskan blok serta transaksi melalui setiap koneksi tersebut. Node dapat menerima hingga 115 koneksi masuk.
 
 
 1 SMW = 100.000.000 yugeon. Biaya otomatis menawarkan tiga tingkat berdasarkan pengamatan lokal, tanpa menjamin waktu konfirmasi. Anda dapat memasukkan tarif yugeon/vB secara manual. Periksa biaya akhir dan total dalam SMW sebelum mengirim. Transaksi yang ditolak tidak mengurangi saldo.

@@ -1,6 +1,6 @@
 # SUMUWW · Kiểm chứng
 
-SUMUWW PC 0.57.50 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
+SUMUWW PC 0.57.51 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
 
 ## Định dạng chữ ký
 

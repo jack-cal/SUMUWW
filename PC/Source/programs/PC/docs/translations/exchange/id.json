@@ -31,5 +31,5 @@
     "Pasang dependensi lalu jalankan python examples/node_contract.py dari sumber. Kunci uji publik dan regtest sementara menguji pengiriman, penolakan, konfirmasi, reorganisasi, dan persistensi. Tidak ada dana nyata, profil pengguna, atau penanda tangan perangkat keras yang digunakan."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "Batas bawaan adalah 125 koneksi. Node mencari 8 koneksi keluar untuk blok dan transaksi serta 2 koneksi khusus blok. Node dapat menerima hingga 115 koneksi masuk."
+  "peer_policy": "Batas bawaan adalah 125 koneksi. Node berupaya membuka 10 koneksi keluar dan meneruskan blok serta transaksi melalui setiap koneksi tersebut. Node dapat menerima hingga 115 koneksi masuk."
 }

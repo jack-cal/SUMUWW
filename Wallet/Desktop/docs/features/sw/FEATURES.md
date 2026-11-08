@@ -1,6 +1,6 @@
-# SUMUWW Wallet PC 1.0.9
+# SUMUWW Wallet PC 1.0.10
 
-Kikomo cha kawaida ni miunganisho 125. Nodi hutafuta miunganisho 8 ya kutoka kwa ajili ya bloku na miamala na mingine 2 kwa bloku pekee. Inaweza kupokea hadi miunganisho 115 inayoingia.
+Kikomo cha kawaida ni miunganisho 125. Nodi hujaribu kuanzisha miunganisho 10 ya kutoka na hupitisha bloku na miamala kupitia kila mmoja. Inaweza kupokea hadi miunganisho 115 inayoingia.
 
 
 1 SMW = 100,000,000 yugeon. Ada ya kiotomatiki ina viwango vitatu vinavyotegemea taarifa za ndani, bila kuhakikisha muda wa uthibitisho. Unaweza kuingiza kiwango cha yugeon/vB mwenyewe. Kagua ada ya mwisho na jumla kwa SMW kabla ya kutuma. Muamala uliokataliwa haupunguzi salio.

@@ -1,9 +1,9 @@
 # SUMUWW · Maelezo ya toleo
 
-Kikomo cha kawaida ni miunganisho 125. Nodi hutafuta miunganisho 8 ya kutoka kwa ajili ya bloku na miamala na mingine 2 kwa bloku pekee. Inaweza kupokea hadi miunganisho 115 inayoingia.
+Kikomo cha kawaida ni miunganisho 125. Nodi hujaribu kuanzisha miunganisho 10 ya kutoka na hupitisha bloku na miamala kupitia kila mmoja. Inaweza kupokea hadi miunganisho 115 inayoingia.
 
 
-SUMUWW PC 0.57.50 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
+SUMUWW PC 0.57.51 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
 
 ## Muundo wa saini
 

@@ -1,9 +1,9 @@
 # SUMUWW · Mga tala ng bersyon
 
-Ang karaniwang limitasyon ay 125 koneksyon. Naghahanap ang node ng 8 papalabas na koneksyon para sa mga bloke at transaksyon at 2 pa para sa mga bloke lamang. Tumatanggap ito ng hanggang 115 papasok na koneksyon.
+Ang karaniwang limitasyon ay 125 koneksyon. Sinisikap ng node na magbukas ng 10 papalabas na koneksyon. Bawat isa ay nagpapasa ng mga bloke at transaksyon. Tumatanggap ito ng hanggang 115 papasok na koneksyon.
 
 
-SUMUWW PC 0.57.50 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
+SUMUWW PC 0.57.51 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
 
 ## Pormat ng lagda
 

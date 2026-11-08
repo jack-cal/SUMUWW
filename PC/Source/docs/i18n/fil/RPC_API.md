@@ -1,6 +1,6 @@
 # SUMUWW · RPC at HTTP API
 
-SUMUWW PC 0.57.50 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
+SUMUWW PC 0.57.51 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
 
 ## RPC at HTTP API
 
