@@ -140,7 +140,7 @@ with Chain(service.database,network='regtest') as chain:
         click("↑  보내기")
         ui {
             val fields = views(activity.window.decorView).filterIsInstance<EditText>()
-            fields[0].setText(destination); fields[1].setText("2.5"); fields[2].setText("0.00001")
+            fields[0].setText(destination); fields[1].setText("2.5"); fields[2].setText("1")
         }
         click("송금 내용 확인")
         waitFor("Confirmation not shown") { dialog()?.getButton(AlertDialog.BUTTON_POSITIVE)?.text.toString() == "전송" }
