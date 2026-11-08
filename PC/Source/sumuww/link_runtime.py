@@ -127,6 +127,8 @@ class LinkRuntime:
         session.boundary_hello_sent=True
         p={'domain':'sumuww-link-hello-v1','network':self.network,'nodeId':self.keys.node_id,
            'ownNonce':str(self.node.nonce),'peerNonce':str(session.nonce),'blockPolicy':POLICY,'contact':self.contact}
+        if getattr(session, 'block_relay_only', False):
+            p['relay'] = 'blocks'
         await self.node._send(session,'bhello',canonical(self.keys.signed(p)))
     async def broadcast(self,frame,exclude=None):
         data=canonical(frame)
@@ -176,6 +178,10 @@ class LinkRuntime:
             if p.get('blockPolicy')!=POLICY:raise BoundaryPolicyMismatch('Previous signing policy; native transport only')
             require(p['domain']=='sumuww-link-hello-v1' and p['network']==self.network and p['ownNonce']==str(session.nonce) and p['peerNonce']==str(self.node.nonce),'Link handshake binding')
             require(p['contact']['payload']['nodeId']==p['nodeId'],'Contact handshake identity')
+            if session.outgoing is None and p.get('relay') == 'blocks':
+                session.block_relay_only = True
+                session.pending_transactions.clear()
+                session.tx_requests.clear()
             self.add_contact(p['contact']);session.boundary_id=p['nodeId'];session.boundary_policy=POLICY
             await self.hello(session);self.spawn(self.sync(session));self.spawn(self.publish('contact',p['contact']));return
         require(session.boundary_id and session.boundary_policy==POLICY,'Link handshake required')

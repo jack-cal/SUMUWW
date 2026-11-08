@@ -30,5 +30,6 @@
     "`getrawtransaction` はアクティブチェーンとメモリプールを検索し、孤立分岐だけの取引は検索しません。入力は過去の出力を指し、一意の送信元アドレスを表しません。`getblock` の `verbose` は真偽値です。保存済み非アクティブブロックは `active=false`、`confirmations=-1` となり、生の取引はブロックハッシュで取得できます。`findspendingtransaction` はアクティブチェーンの確定済み使用取引だけを探すため、nullだけで使用可能とは判断できません。`include_mempool=true` の `gettxout` も確認してください。確認数とactive状態は再編で変わり得ます。",
     "依存関係を導入し、ソースから python examples/node_contract.py を実行します。公開テスト鍵と一時的な regtest で送信・拒否・承認・再編成・データ保存を確認します。実資金、ユーザープロファイル、ハードウェア署名器は使用しません。"
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "接続数の上限は初期設定で125です。ブロックと取引を中継する8ノードとブロック専用の2ノードへの接続を試み、外部からは最大115接続を受け付けます。"
 }

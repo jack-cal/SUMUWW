@@ -30,5 +30,6 @@
     "`getrawtransaction` recherche la chaîne active et le mempool, pas les seules branches orphelines. Les entrées désignent des sorties précédentes, pas une adresse d’expéditeur unique. `getblock` reçoit un `verbose` booléen ; un bloc inactif conservé a `active=false` et `confirmations=-1`. Ses transactions brutes restent accessibles par hash de bloc. `findspendingtransaction` ne cherche que les dépenses confirmées actives ; null ne prouve pas la disponibilité. Vérifiez `gettxout` avec `include_mempool=true`. Confirmations et état actif peuvent changer après réorganisation.",
     "Exécutez python examples/node_contract.py depuis les sources après installation des dépendances. Des clés publiques de test et un regtest temporaire vérifient soumission, rejet, confirmations, réorganisation et conservation. Aucun fonds réel, profil personnel ou dispositif de signature matériel n’est utilisé."
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "La limite par défaut est de 125 connexions. Le nœud cherche à se connecter à 8 pairs pour les blocs et les transactions et à 2 autres pour les blocs seuls. Il accepte jusqu’à 115 connexions entrantes."
 }

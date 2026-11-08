@@ -1,6 +1,9 @@
 # SUMUWW · Operasi node
 
-SUMUWW PC 0.57.49 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
+Batas bawaan adalah 125 koneksi. Node mencari 8 koneksi keluar untuk blok dan transaksi serta 2 koneksi khusus blok. Node dapat menerima hingga 115 koneksi masuk.
+
+
+SUMUWW PC 0.57.50 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
 
 ## Jaringan dan alamat
 

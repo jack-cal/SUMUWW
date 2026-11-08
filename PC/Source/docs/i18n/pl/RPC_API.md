@@ -1,6 +1,6 @@
 # SUMUWW · API RPC i HTTP
 
-SUMUWW PC 0.57.49 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+SUMUWW PC 0.57.50 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 ## API RPC i HTTP
 

@@ -30,5 +30,6 @@
     "`getrawtransaction` فعال چین اور mempool تلاش کرتا ہے، صرف الگ شاخ میں موجود لین دین نہیں۔ ان پٹ پچھلے آؤٹ پٹ بتاتا ہے، ایک منفرد بھیجنے والا پتہ نہیں۔ `getblock` کا `verbose` Boolean ہے؛ محفوظ غیر فعال بلاک میں `active=false` اور `confirmations=-1` ہیں۔ خام لین دین بلاک hash سے اب بھی ملتا ہے۔ `findspendingtransaction` صرف فعال چین کے تصدیق شدہ خرچ تلاش کرتا ہے؛ null دستیابی کا ثبوت نہیں۔ `include_mempool=true` کے ساتھ `gettxout` دیکھیں۔ تنظیم نو میں تصدیقیں اور فعال حالت بدل سکتی ہیں۔",
     "ضروری پیکیج نصب کرکے سورس سے python examples/node_contract.py چلائیں۔ عوامی آزمائشی کلیدیں اور عارضی regtest ارسال، مسترد ہونے، تصدیق، تنظیم نو اور ڈیٹا کی حفاظت جانچتے ہیں۔ حقیقی رقم، صارف پروفائل یا ہارڈویئر دستخط کنندہ استعمال نہیں ہوتا۔"
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "پہلے سے طے شدہ حد 125 کنکشن ہے۔ نوڈ بلاکس اور لین دین کے لیے 8 اور صرف بلاکس کے لیے مزید 2 بیرونی کنکشن تلاش کرتا ہے۔ یہ زیادہ سے زیادہ 115 آنے والے کنکشن قبول کرتا ہے۔"
 }

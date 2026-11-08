@@ -30,5 +30,6 @@
     "`getrawtransaction` søger aktiv kæde og mempool, ikke transaktioner udelukkende i forældreløse grene. Inputs angiver tidligere outputs, ikke én afsenderadresse. `getblock` kræver boolesk `verbose`; gemte inaktive blokke har `active=false`, `confirmations=-1`. Råtransaktioner er stadig tilgængelige via blokhash. `findspendingtransaction` søger kun bekræftede aktive forbrug; null beviser ikke tilgængelighed. Kontrollér `gettxout` med `include_mempool=true`. Bekræftelser og aktiv status kan ændres ved reorganisering.",
     "Installer afhængighederne og kør python examples/node_contract.py fra kildekoden. Offentlige testnøgler og midlertidigt regtest afprøver indsendelse, afvisning, bekræftelser, reorganisering og databevaring. Ingen rigtige midler, brugerprofiler eller hardware til signering bruges."
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "Grænsen er som standard 125 forbindelser. Noden søger 8 udgående forbindelser til blokke og transaktioner samt 2 kun til blokke. Den kan modtage op til 115 indgående forbindelser."
 }

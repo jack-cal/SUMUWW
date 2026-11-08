@@ -30,5 +30,6 @@
     "`getrawtransaction` 查询活跃链及内存池，不查询仅存在于孤立分支的交易。输入指向之前的输出，并非唯一发送地址。`getblock` 的 `verbose` 为布尔值；已保存的非活跃块为 `active=false`、`confirmations=-1`，仍可用区块哈希取得原始交易。`findspendingtransaction` 仅查活跃链上已确认的花费，null 不证明可用。还需查询 `include_mempool=true` 的 `gettxout`。确认数及活跃状态都可能随重组改变。",
     "安装依赖后，从源码运行 python examples/node_contract.py。公开测试密钥和临时 regtest 用于验证提交、拒绝、确认、链重组及数据持久性，不使用真实资金、用户配置或硬件签名器。"
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "默认连接上限为 125。节点主动连接 8 个中继区块和交易的节点以及 2 个仅中继区块的节点，最多接受 115 个入站连接。"
 }

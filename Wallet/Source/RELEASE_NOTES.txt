@@ -1,3 +1,7 @@
+# SUMUWW Wallet 1.1.8
+
+The default limit is 125 connections. The node seeks 8 outbound peers for blocks and transactions and 2 for blocks only, leaving room for up to 115 inbound peers.
+
 Connection recovery and synchronization update — 2026-10-24
 
 Windows ordinary wallet 1.0.2 and Android Wallet Current 1.1.2 now include

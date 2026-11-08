@@ -30,5 +30,6 @@
     "`getrawtransaction` претражује активни ланац и mempool, не трансакције само у одбаченим гранама. Улази наводе претходне излазе, не јединствену адресу пошиљаоца. `getblock` прима логички `verbose`; сачувани неактивни блокови имају `active=false`, `confirmations=-1`. Сирове трансакције остају доступне преко хеша блока. `findspendingtransaction` тражи само потврђена активна трошења; null не доказује расположивост. Проверите `gettxout` са `include_mempool=true`. Потврде и активност могу се променити реорганизацијом.",
     "Инсталирајте зависности и покрените python examples/node_contract.py из изворног кода. Јавни пробни кључеви и привремени regtest проверавају слање, одбијање, потврде, реорганизацију и трајност података. Не користе се права средства, кориснички профили или хардвер за потписивање."
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "Подразумевано ограничење је 125 веза. Чвор тражи 8 одлазних веза за блокове и трансакције и још 2 само за блокове. Може да прихвати до 115 долазних веза."
 }

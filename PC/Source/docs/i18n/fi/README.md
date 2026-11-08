@@ -1,6 +1,6 @@
 # SUMUWW · Dokumentaatio
 
-SUMUWW PC 0.57.49 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
+SUMUWW PC 0.57.50 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
 
 ## Allekirjoitusmuoto
 

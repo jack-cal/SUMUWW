@@ -1,6 +1,9 @@
 # SUMUWW · Note di versione
 
-SUMUWW PC 0.57.49 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
+Il limite predefinito è di 125 connessioni. Il nodo cerca 8 connessioni in uscita per blocchi e transazioni e altre 2 per i soli blocchi. Accetta fino a 115 connessioni in ingresso.
+
+
+SUMUWW PC 0.57.50 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
 
 ## Formato di firma
 

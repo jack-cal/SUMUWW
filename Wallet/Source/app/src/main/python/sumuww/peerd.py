@@ -12,7 +12,7 @@ import tempfile
 import time
 
 from . import __version__
-from .peer import PeerNode, _endpoint
+from .peer import PUBLIC_CONNECTION_LIMIT, PUBLIC_OUTGOING_TARGET, PeerNode, _endpoint
 from .profiles import NETWORK_NAMES, get_network
 from .bootstrap import load_bootstrap
 from .self_address import DEFAULT_PORT
@@ -109,7 +109,12 @@ async def serve(options):
         peers = [peer for peer in peers if peer[0].endswith('.b32.i2p')]
     from .managed_privacy import ManagedRouter
     connection_limit = options.max_peers
-    node = PeerNode(options.database, host=host, port=port, peers=peers, poll_interval=options.poll_interval, timeout=options.timeout, max_peers=connection_limit, outgoing_target=None, allow_lan=allow_lan, allow_internet=allow_internet, network=network, advertised_endpoint=advertised, auto_address=getattr(options, 'auto_address', False), privacy=privacy_options, privacy_router_factory=ManagedRouter, **bootstrap_options)
+    node = PeerNode(options.database, host=host, port=port, peers=peers,
+                    poll_interval=options.poll_interval, timeout=options.timeout,
+                    max_peers=connection_limit, outgoing_target=getattr(options, 'outgoing_target', None),
+                    public_peer_policy=True, allow_lan=allow_lan, allow_internet=allow_internet,
+                    network=network, advertised_endpoint=advertised, auto_address=getattr(options, 'auto_address', False),
+                    privacy=privacy_options, privacy_router_factory=ManagedRouter, **bootstrap_options)
     current = None
     rpc = None
     try:
@@ -178,7 +183,10 @@ def main(argv=None):
     parser.add_argument('--stop-file', type=Path, help='Stop gracefully when this file appears; must not exist at startup')
     parser.add_argument('--poll-interval', type=float, default=0.5)
     parser.add_argument('--timeout', type=float, default=5)
-    parser.add_argument('--max-peers', type=int, default=None, help='Optional explicit peer limit; default: no count limit')
+    parser.add_argument('--max-peers', type=int, default=PUBLIC_CONNECTION_LIMIT,
+                        help='Total simultaneous peer session limit (default: %(default)s)')
+    parser.add_argument('--outgoing-target', type=int,
+                        help=f'Automatic outbound target (default: {PUBLIC_OUTGOING_TARGET}, capped by --max-peers)')
     parser.add_argument('--rpc', action='store_true', help='Enable authenticated local JSON-RPC and HTTP API on 127.0.0.1')
     parser.add_argument('--rpc-port', type=int, default=18443, help='Local API port; 0 selects an available port')
     parser.add_argument('--rpc-token-file', type=Path, help='Private Bearer token file; default is rpc-token beside the database; created only with --rpc')

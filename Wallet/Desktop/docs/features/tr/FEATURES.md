@@ -1,4 +1,7 @@
-# SUMUWW Wallet PC 1.0.7
+# SUMUWW Wallet PC 1.0.9
+
+Varsayılan sınır 125 bağlantıdır. Düğüm, bloklar ve işlemler için 8, yalnızca bloklar için 2 giden bağlantı arar. En fazla 115 gelen bağlantı kabul eder.
+
 
 1 SMW = 100.000.000 yugeon. Otomatik ücret, yerel gözlemlere göre üç seçenek sunar; onay süresini garanti etmez. yugeon/vB oranını elle girebilirsiniz. Göndermeden önce son ücreti ve toplamı SMW cinsinden kontrol edin. Reddedilen işlem bakiyeyi azaltmaz.
 

@@ -30,5 +30,6 @@
     "Το `getrawtransaction` ψάχνει ενεργή αλυσίδα και mempool, όχι συναλλαγές μόνο σε ορφανούς κλάδους. Είσοδοι δείχνουν προηγούμενες εξόδους, όχι μοναδικό αποστολέα. Το `getblock` παίρνει Boolean `verbose`· αποθηκευμένα ανενεργά μπλοκ έχουν `active=false`, `confirmations=-1`. Οι ακατέργαστες συναλλαγές παραμένουν διαθέσιμες μέσω hash μπλοκ. Το `findspendingtransaction` ψάχνει μόνο επιβεβαιωμένες ενεργές δαπάνες· null δεν αποδεικνύει διαθεσιμότητα. Ελέγξτε `gettxout` με `include_mempool=true`. Επιβεβαιώσεις και ενεργή κατάσταση αλλάζουν με αναδιοργάνωση.",
     "Εγκαταστήστε τις εξαρτήσεις και εκτελέστε python examples/node_contract.py από τον πηγαίο κώδικα. Δημόσια δοκιμαστικά κλειδιά και προσωρινό regtest ελέγχουν υποβολή, απόρριψη, επιβεβαιώσεις, αναδιοργάνωση και διατήρηση δεδομένων. Δεν χρησιμοποιούνται πραγματικά χρήματα, προφίλ χρηστών ή συσκευές υπογραφής."
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "Το προεπιλεγμένο όριο είναι 125 συνδέσεις. Ο κόμβος αναζητά 8 εξερχόμενες συνδέσεις για μπλοκ και συναλλαγές και άλλες 2 μόνο για μπλοκ. Δέχεται έως 115 εισερχόμενες συνδέσεις."
 }

@@ -1,6 +1,9 @@
 # SUMUWW · Versjonsmerknader
 
-SUMUWW PC 0.57.49 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
+Standardgrensen er 125 forbindelser. Noden søker 8 utgående forbindelser for blokker og transaksjoner og 2 bare for blokker. Den tar imot opptil 115 innkommende forbindelser.
+
+
+SUMUWW PC 0.57.50 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
 
 ## Signaturformat
 

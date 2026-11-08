@@ -30,5 +30,6 @@
     "يبحث `getrawtransaction` في السلسلة النشطة وmempool، لا في معاملات الفروع اليتيمة وحدها. تشير المدخلات إلى مخرجات سابقة، لا إلى عنوان مرسل وحيد. يأخذ `getblock` قيمة `verbose` منطقية؛ الكتل المخزنة غير النشطة لها `active=false` و`confirmations=-1`. تبقى معاملاتها الخام متاحة بتجزئة الكتلة. يبحث `findspendingtransaction` عن الإنفاق المؤكد النشط فقط؛ null لا يثبت التوفر. افحص `gettxout` مع `include_mempool=true`. قد تتغير التأكيدات والحالة النشطة بعد إعادة التنظيم.",
     "شغّل python examples/node_contract.py من المصدر بعد تثبيت الاعتماديات. تختبر مفاتيح منشورة وregtest مؤقت الإرسال والرفض والتأكيدات وإعادة التنظيم وبقاء البيانات. لا تُستخدم أموال حقيقية أو ملفات مستخدمين أو أجهزة توقيع."
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "الحد الافتراضي هو 125 اتصالًا. تسعى العقدة إلى فتح 8 اتصالات صادرة لتبادل الكتل والمعاملات واتصالين لتبادل الكتل فقط، ويمكنها قبول ما يصل إلى 115 اتصالًا واردًا."
 }

@@ -1,6 +1,9 @@
 # SUMUWW · Obsługa węzła
 
-SUMUWW PC 0.57.49 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+Domyślny limit to 125 połączeń. Węzeł szuka 8 połączeń wychodzących do przesyłania bloków i transakcji oraz 2 wyłącznie do bloków. Przyjmuje do 115 połączeń przychodzących.
+
+
+SUMUWW PC 0.57.50 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 ## Sieć i adresy
 

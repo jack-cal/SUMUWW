@@ -1,4 +1,7 @@
-# SUMUWW Wallet Android 1.1.6
+# SUMUWW Wallet Android 1.1.8
+
+La limite par défaut est de 125 connexions. Le nœud cherche à se connecter à 8 pairs pour les blocs et les transactions et à 2 autres pour les blocs seuls. Il accepte jusqu’à 115 connexions entrantes.
+
 
 1 SMW = 100 000 000 yugeon. Les frais automatiques proposent trois niveaux selon les observations locales, sans garantir le délai de confirmation. Vous pouvez saisir un taux en yugeon/vB. Vérifiez les frais définitifs et le total en SMW avant l’envoi. Une transaction refusée ne débite pas votre solde.
 

@@ -1,6 +1,6 @@
 # SUMUWW · Interfejs węzła
 
-SUMUWW PC 0.57.49 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+SUMUWW PC 0.57.50 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 ## Sieć i adresy
 

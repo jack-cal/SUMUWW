@@ -1,4 +1,7 @@
-# SUMUWW Wallet Android 1.1.6
+# SUMUWW Wallet Android 1.1.8
+
+Domyślny limit to 125 połączeń. Węzeł szuka 8 połączeń wychodzących do przesyłania bloków i transakcji oraz 2 wyłącznie do bloków. Przyjmuje do 115 połączeń przychodzących.
+
 
 1 SMW = 100 000 000 yugeon. Opłaty automatyczne oferują trzy poziomy na podstawie lokalnych obserwacji, bez gwarancji czasu potwierdzenia. Możesz wpisać stawkę w yugeon/vB. Przed wysłaniem sprawdź końcową opłatę i sumę w SMW. Odrzucona transakcja nie zmniejsza salda.
 

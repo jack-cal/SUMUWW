@@ -1,6 +1,9 @@
 # SUMUWW · Versionsinformation
 
-SUMUWW PC 0.57.49 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
+Standardgränsen är 125 anslutningar. Noden söker 8 utgående anslutningar för block och transaktioner samt 2 enbart för block. Den kan ta emot upp till 115 inkommande anslutningar.
+
+
+SUMUWW PC 0.57.50 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
 
 ## Signeringsformat
 

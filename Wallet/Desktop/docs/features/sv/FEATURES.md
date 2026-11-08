@@ -1,4 +1,7 @@
-# SUMUWW Wallet PC 1.0.7
+# SUMUWW Wallet PC 1.0.9
+
+Standardgränsen är 125 anslutningar. Noden söker 8 utgående anslutningar för block och transaktioner samt 2 enbart för block. Den kan ta emot upp till 115 inkommande anslutningar.
+
 
 1 SMW = 100 000 000 yugeon. Automatiska avgifter erbjuder tre nivåer utifrån lokala observationer, utan att garantera bekräftelsetiden. Du kan ange en sats i yugeon/vB. Kontrollera den slutliga avgiften och totalsumman i SMW innan du skickar. En avvisad transaktion minskar inte saldot.
 

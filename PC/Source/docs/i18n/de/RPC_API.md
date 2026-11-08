@@ -1,6 +1,6 @@
 # SUMUWW · RPC- und HTTP-API
 
-SUMUWW PC 0.57.49 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
+SUMUWW PC 0.57.50 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
 
 ## RPC- und HTTP-API
 

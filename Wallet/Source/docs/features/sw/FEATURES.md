@@ -1,4 +1,7 @@
-# SUMUWW Wallet Android 1.1.6
+# SUMUWW Wallet Android 1.1.8
+
+Kikomo cha kawaida ni miunganisho 125. Nodi hutafuta miunganisho 8 ya kutoka kwa ajili ya bloku na miamala na mingine 2 kwa bloku pekee. Inaweza kupokea hadi miunganisho 115 inayoingia.
+
 
 1 SMW = 100,000,000 yugeon. Ada ya kiotomatiki ina viwango vitatu vinavyotegemea taarifa za ndani, bila kuhakikisha muda wa uthibitisho. Unaweza kuingiza kiwango cha yugeon/vB mwenyewe. Kagua ada ya mwisho na jumla kwa SMW kabla ya kutuma. Muamala uliokataliwa haupunguzi salio.
 

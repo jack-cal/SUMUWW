@@ -1,6 +1,6 @@
 # SUMUWW · Interfaz del nodo
 
-SUMUWW PC 0.57.49 · El nodo valida, guarda, retransmite y permite consultar la cadena.
+SUMUWW PC 0.57.50 · El nodo valida, guarda, retransmite y permite consultar la cadena.
 
 ## Red y direcciones
 

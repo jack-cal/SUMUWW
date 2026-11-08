@@ -1,6 +1,9 @@
 # SUMUWW · Sürüm notları
 
-SUMUWW PC 0.57.49 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
+Varsayılan sınır 125 bağlantıdır. Düğüm, bloklar ve işlemler için 8, yalnızca bloklar için 2 giden bağlantı arar. En fazla 115 gelen bağlantı kabul eder.
+
+
+SUMUWW PC 0.57.50 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
 
 ## İmza biçimi
 

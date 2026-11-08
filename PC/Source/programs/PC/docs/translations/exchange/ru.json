@@ -30,5 +30,6 @@
     "`getrawtransaction` ищет в активной цепи и mempool, но не транзакции только в отброшенных ветках. Входы указывают предыдущие выходы, не единственный адрес отправителя. `getblock` принимает логический `verbose`; сохранённые неактивные блоки имеют `active=false`, `confirmations=-1`. Их сырые транзакции доступны по хешу блока. `findspendingtransaction` ищет только подтверждённые активные траты; null не доказывает доступность. Проверьте `gettxout` с `include_mempool=true`. Подтверждения и активность меняются при реорганизации.",
     "Установив зависимости, запустите python examples/node_contract.py из исходников. Открытые тестовые ключи и временная regtest проверяют отправку, отказ, подтверждения, реорганизацию и сохранность данных. Реальные средства, профили пользователей и аппаратные устройства подписи не используются."
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "По умолчанию допускается 125 соединений. Узел ищет 8 исходящих соединений для блоков и транзакций и ещё 2 только для блоков. Для входящих соединений остаётся до 115 мест."
 }

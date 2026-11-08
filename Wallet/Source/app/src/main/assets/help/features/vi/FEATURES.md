@@ -1,4 +1,7 @@
-# SUMUWW Wallet Android 1.1.6
+# SUMUWW Wallet Android 1.1.8
+
+Giới hạn mặc định là 125 kết nối. Nút tìm 8 kết nối đi để chuyển tiếp khối và giao dịch, cùng 2 kết nối đi chỉ dành cho khối. Nút nhận tối đa 115 kết nối đến.
+
 
 1 SMW = 100.000.000 yugeon. Phí tự động có ba mức dựa trên dữ liệu quan sát cục bộ, không bảo đảm thời gian xác nhận. Bạn có thể nhập mức phí yugeon/vB. Hãy kiểm tra phí cuối cùng và tổng số SMW trước khi gửi. Giao dịch bị từ chối không làm giảm số dư.
 

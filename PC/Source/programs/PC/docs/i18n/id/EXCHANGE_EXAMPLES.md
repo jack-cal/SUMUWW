@@ -1,6 +1,6 @@
 # SUMUWW · Verifikasi
 
-SUMUWW PC 0.57.49 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
+SUMUWW PC 0.57.50 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
 
 ## Format tanda tangan
 

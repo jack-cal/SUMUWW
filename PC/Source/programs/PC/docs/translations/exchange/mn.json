@@ -30,5 +30,6 @@
     "`getrawtransaction` идэвхтэй хэлхээ, mempool хайна; зөвхөн хаягдсан салаанд байгаа гүйлгээг хайхгүй. Оролт өмнөх гаралтыг заана, ганц илгээгчийн хаяг биш. `getblock` Boolean `verbose` авна; хадгалсан идэвхгүй блок `active=false`, `confirmations=-1` байна. Түүхий гүйлгээг блокийн хэшээр авч болно. `findspendingtransaction` зөвхөн идэвхтэй хэлхээний батлагдсан зарлагыг хайна; null нь ашиглах боломжийн баталгаа биш. `include_mempool=true`-тай `gettxout` шалгана. Баталгаа, идэвхтэй төлөв хэлхээ өөрчлөгдөхөд солигдож болно.",
     "Хамаарлуудыг суулгаад эх кодоос python examples/node_contract.py ажиллуулна. Нийтэд ил туршилтын түлхүүр, түр regtest ашиглан илгээлт, татгалзалт, баталгаажуулалт, дахин зохион байгуулалт, өгөгдөл хадгалалтыг шалгана. Бодит хөрөнгө, хэрэглэгчийн профайл, гарын үсгийн төхөөрөмж ашиглахгүй."
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "Үндсэн тохиргоогоор нийт 125 хүртэл холболт зөвшөөрнө. Зангилаа блок болон гүйлгээ дамжуулах 8, зөвхөн блок дамжуулах 2 гадагш чиглэсэн холболт хайж, гаднаас 115 хүртэл холболт хүлээн авна."
 }

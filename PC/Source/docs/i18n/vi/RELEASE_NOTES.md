@@ -1,6 +1,9 @@
 # SUMUWW · Ghi chú phiên bản
 
-SUMUWW PC 0.57.49 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
+Giới hạn mặc định là 125 kết nối. Nút tìm 8 kết nối đi để chuyển tiếp khối và giao dịch, cùng 2 kết nối đi chỉ dành cho khối. Nút nhận tối đa 115 kết nối đến.
+
+
+SUMUWW PC 0.57.50 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
 
 ## Định dạng chữ ký
 

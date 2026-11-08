@@ -1,4 +1,7 @@
-# SUMUWW Wallet PC 1.0.7
+# SUMUWW Wallet PC 1.0.9
+
+De standaardlimiet is 125 verbindingen. Het knooppunt zoekt 8 uitgaande verbindingen voor blokken en transacties en 2 alleen voor blokken. Er is ruimte voor maximaal 115 inkomende verbindingen.
+
 
 1 SMW = 100.000.000 yugeon. Automatische kosten bieden drie niveaus op basis van lokale waarnemingen, zonder de bevestigingstijd te garanderen. U kunt een tarief in yugeon/vB invoeren. Controleer vóór verzending de definitieve kosten en het totaal in SMW. Een geweigerde transactie verlaagt het saldo niet.
 

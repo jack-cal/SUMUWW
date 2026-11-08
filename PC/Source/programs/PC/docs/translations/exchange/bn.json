@@ -30,5 +30,6 @@
     "`getrawtransaction` সক্রিয় চেইন ও mempool খোঁজে, শুধু বিচ্ছিন্ন শাখায় থাকা লেনদেন নয়। ইনপুট আগের আউটপুট নির্দেশ করে, একটিমাত্র প্রেরকের ঠিকানা নয়। `getblock`-এর `verbose` Boolean; সংরক্ষিত নিষ্ক্রিয় ব্লকে `active=false`, `confirmations=-1`। ব্লক hash দিয়ে কাঁচা লেনদেন পাওয়া যায়। `findspendingtransaction` শুধু সক্রিয় চেইনের নিশ্চিত খরচ খোঁজে; null ব্যবহারযোগ্যতার প্রমাণ নয়। `include_mempool=true` দিয়ে `gettxout` দেখুন। পুনর্গঠনে নিশ্চয়তা ও সক্রিয় অবস্থা বদলাতে পারে।",
     "নির্ভরতা ইনস্টল করে সোর্স থেকে python examples/node_contract.py চালান। প্রকাশ্য পরীক্ষার চাবি ও অস্থায়ী regtest দিয়ে জমা, প্রত্যাখ্যান, নিশ্চিতকরণ, পুনর্গঠন ও তথ্য সংরক্ষণ পরীক্ষা হয়। আসল অর্থ, ব্যবহারকারী প্রোফাইল বা হার্ডওয়্যার স্বাক্ষরকারী ব্যবহার হয় না।"
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "ডিফল্ট সীমা 125টি সংযোগ। নোড ব্লক ও লেনদেনের জন্য 8টি এবং শুধু ব্লকের জন্য আরও 2টি বহির্গামী সংযোগ খোঁজে। বাইরে থেকে সর্বোচ্চ 115টি সংযোগ গ্রহণ করে।"
 }

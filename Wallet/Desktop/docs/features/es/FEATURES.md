@@ -1,4 +1,7 @@
-# SUMUWW Wallet PC 1.0.7
+# SUMUWW Wallet PC 1.0.9
+
+El límite predeterminado es de 125 conexiones. El nodo busca 8 conexiones salientes para bloques y transacciones y otras 2 solo para bloques. Admite hasta 115 conexiones entrantes.
+
 
 1 SMW = 100.000.000 yugeon. Las tarifas automáticas ofrecen tres niveles según las observaciones locales, sin garantizar el tiempo de confirmación. Puedes introducir una tarifa en yugeon/vB. Revisa la comisión final y el total en SMW antes de enviar. Una transacción rechazada no descuenta saldo.
 

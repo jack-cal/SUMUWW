@@ -5,7 +5,7 @@ import tempfile
 import unittest
 
 from sumuww.block import GENESIS_TIME
-from sumuww.peer import PeerNode
+from sumuww.peer import PeerNode, _Session
 from sumuww.wallet import RegtestKey
 from sumuww.wire import INV_BLOCK, INV_TRANSACTION, MAX_INV, Inventory, ProtocolError, encode_inventory, decode_inventory
 
@@ -41,7 +41,7 @@ class DataRequestLoadTests(unittest.IsolatedAsyncioTestCase):
     async def test_inventory_kind_remains_part_of_request_identity(self):
         digest = self.blocks[0].block_hash()
         body, transaction = Inventory(INV_BLOCK, digest), Inventory(INV_TRANSACTION, digest)
-        await self.node._serve_data(None, encode_inventory((body, transaction, body, transaction)))
+        await self.node._serve_data(_Session(None, None), encode_inventory((body, transaction, body, transaction)))
         self.assertEqual(['block', 'notfound'], [command for command, _ in self.sent])
         self.assertEqual((transaction,), decode_inventory(self.sent[1][1]))
 

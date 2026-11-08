@@ -1,6 +1,9 @@
 # SUMUWW · Maelezo ya toleo
 
-SUMUWW PC 0.57.49 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
+Kikomo cha kawaida ni miunganisho 125. Nodi hutafuta miunganisho 8 ya kutoka kwa ajili ya bloku na miamala na mingine 2 kwa bloku pekee. Inaweza kupokea hadi miunganisho 115 inayoingia.
+
+
+SUMUWW PC 0.57.50 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
 
 ## Muundo wa saini
 

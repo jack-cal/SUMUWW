@@ -30,5 +30,6 @@
     "`getrawtransaction` ᠢᠳᠡᠪᠬᠢᠲᠡᠢ ᠬᠡᠯᠬᠢᠶ᠎ᠡ᠂ mempool ᠢ ᠬᠠᠢᠨ᠎ᠠ᠂ ᠬᠠᠶᠠᠭᠰᠠᠨ ᠰᠠᠯᠠᠭ᠎ᠠ ᠶᠢ ᠬᠠᠢᠬᠤ ᠦᠭᠡᠢ᠃ ᠣᠷᠣᠯᠲᠠ ᠡᠮᠦᠨᠡᠬᠢ ᠭᠠᠷᠤᠯᠲᠠ ᠶᠢ ᠵᠢᠭᠠᠨ᠎ᠠ᠂ ᠭᠠᠭᠴᠠ ᠢᠯᠡᠭᠡᠭᠴᠢ ᠶᠢᠨ ᠬᠠᠶᠢᠭ ᠪᠢᠰᠢ᠃ `getblock`᠄ Boolean `verbose`᠃ ᠢᠳᠡᠪᠬᠢ ᠦᠭᠡᠢ ᠪᠯᠣᠺ᠄ `active=false`᠂ `confirmations=-1`᠃ ᠪᠯᠣᠺ ᠤᠨ ᠬᠡᠱ ᠢᠶᠡᠷ ᠲᠡᠭᠦᠬᠡᠢ ᠭᠦᠶᠦᠯᠭᠡᠭᠡ ᠠᠪᠤᠨ᠎ᠠ᠃ `findspendingtransaction` ᠵᠥᠪᠬᠡᠨ ᠢᠳᠡᠪᠬᠢᠲᠡᠢ ᠪᠠᠲᠠᠯᠠᠭᠳᠠᠭᠰᠠᠨ ᠵᠠᠷᠯᠠᠭ᠎ᠠ ᠬᠠᠢᠨ᠎ᠠ᠃ null ᠨᠢ ᠠᠰᠢᠭᠯᠠᠬᠤ ᠪᠣᠯᠣᠮᠵᠢ ᠶᠢᠨ ᠨᠣᠲᠠᠯᠠᠭ᠎ᠠ ᠪᠢᠰᠢ᠃ `gettxout`᠂ `include_mempool=true` ᠰᠢᠯᠭᠠᠨ᠎ᠠ᠃ ᠪᠠᠲᠠᠯᠠᠭ᠎ᠠ᠂ ᠢᠳᠡᠪᠬᠢ ᠥᠭᠡᠷᠴᠢᠯᠡᠭᠳᠡᠵᠦ ᠪᠣᠯᠣᠨ᠎ᠠ᠃",
     "ᠬᠠᠮᠢᠶᠠᠷᠤᠯ ᠢ ᠰᠠᠭᠤᠯᠭᠠᠵᠤ᠂ ᠡᠬᠢ ᠺᠣᠳ ᠠᠴᠠ python examples/node_contract.py ᠠᠵᠢᠯᠯᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠨᠡᠶᠢᠲᠡ ᠳᠦ ᠢᠯᠡ ᠲᠦᠯᠬᠢᠭᠦᠷ᠂ ᠲᠦᠷ regtest ᠠᠰᠢᠭᠯᠠᠨ᠂ ᠢᠯᠡᠭᠡᠬᠦ᠂ ᠲᠠᠲᠠᠭᠠᠯᠵᠠᠬᠤ᠂ ᠪᠠᠲᠤᠯᠠᠬᠤ᠂ ᠳᠠᠬᠢᠨ ᠵᠣᠬᠢᠶᠠᠨ ᠪᠠᠶᠢᠭᠤᠯᠬᠤ᠂ ᠬᠠᠳᠠᠭᠠᠯᠠᠬᠤ ᠶᠢ ᠰᠢᠯᠭᠠᠨ᠎ᠠ᠃ ᠪᠣᠳᠠᠲᠤ ᠬᠥᠷᠥᠩᠭᠡ᠂ ᠬᠡᠷᠡᠭᠯᠡᠭᠴᠢ ᠶᠢᠨ ᠮᠡᠳᠡᠭᠡᠯᠡᠯ᠂ ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠤᠨ ᠲᠥᠬᠥᠭᠡᠷᠦᠮᠵᠢ ᠠᠰᠢᠭᠯᠠᠬᠤ ᠦᠭᠡᠢ᠃"
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "ᠠᠩᠬ᠎ᠠ ᠶᠢᠨ ᠲᠣᠬᠢᠷᠠᠭᠤᠯᠭ᠎ᠠ ᠪᠠᠷ ᠨᠡᠶᠢᠲᠡ 125 ᠬᠣᠯᠪᠣᠯᠲᠠ ᠵᠥᠪᠰᠢᠶᠡᠷᠡᠨ᠎ᠡ᠃ ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠪᠯᠣᠺ ᠪᠣᠯᠣᠨ ᠭᠦᠶᠦᠯᠭᠡᠨ ᠳᠦ 8᠂ ᠳᠠᠩ ᠪᠯᠣᠺ ᠲᠤ 2 ᠭᠠᠳᠠᠭᠰᠢ ᠬᠣᠯᠪᠣᠯᠲᠠ ᠡᠷᠢᠨ᠎ᠡ᠃ ᠭᠠᠳᠠᠨ᠎ᠠ ᠠᠴᠠ 115 ᠬᠦᠷᠲᠡᠯ᠎ᠡ ᠬᠣᠯᠪᠣᠯᠲᠠ ᠬᠦᠯᠢᠶᠡᠨ ᠠᠪᠤᠨ᠎ᠠ᠃"
 }

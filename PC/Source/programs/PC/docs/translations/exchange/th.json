@@ -30,5 +30,6 @@
     "`getrawtransaction` ค้นในสายโซ่ที่ใช้งานและ mempool ไม่ค้นธุรกรรมที่อยู่เฉพาะแขนงกำพร้า อินพุตระบุเอาต์พุตก่อนหน้า ไม่ใช่ที่อยู่ผู้ส่งเดียว `getblock` รับ `verbose` แบบ Boolean บล็อกที่เก็บแต่ไม่ใช้งานมี `active=false`, `confirmations=-1` ยังอ่านธุรกรรมดิบผ่านแฮชบล็อกได้ `findspendingtransaction` ค้นเฉพาะการใช้ที่ยืนยันในสายโซ่ปัจจุบัน null ไม่พิสูจน์ว่าใช้ได้ ตรวจ `gettxout` ด้วย `include_mempool=true` จำนวนยืนยันและสถานะใช้งานอาจเปลี่ยนเมื่อจัดสายโซ่ใหม่",
     "ติดตั้งส่วนประกอบที่จำเป็นแล้วรัน python examples/node_contract.py จากซอร์ส กุญแจทดสอบสาธารณะและ regtest ชั่วคราวตรวจการส่ง การปฏิเสธ การยืนยัน การจัดเชนใหม่ และการเก็บข้อมูล โดยไม่ใช้เงินจริง โปรไฟล์ผู้ใช้ หรืออุปกรณ์ลงนาม"
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "ค่าเริ่มต้นจำกัดไว้ที่ 125 การเชื่อมต่อ โหนดจะหาการเชื่อมต่อขาออก 8 รายสำหรับบล็อกและธุรกรรม และอีก 2 รายสำหรับบล็อกเท่านั้น โดยรับการเชื่อมต่อขาเข้าได้สูงสุด 115 ราย"
 }

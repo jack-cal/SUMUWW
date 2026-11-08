@@ -1,6 +1,9 @@
 # SUMUWW · Nodedrift
 
-SUMUWW PC 0.57.49 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
+Grænsen er som standard 125 forbindelser. Noden søger 8 udgående forbindelser til blokke og transaktioner samt 2 kun til blokke. Den kan modtage op til 115 indgående forbindelser.
+
+
+SUMUWW PC 0.57.50 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
 
 ## Netværk og adresser
 

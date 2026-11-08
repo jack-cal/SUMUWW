@@ -1,4 +1,7 @@
-# SUMUWW Wallet PC 1.0.7
+# SUMUWW Wallet PC 1.0.9
+
+Oletusraja on 125 yhteyttä. Solmu hakee 8 lähtevää yhteyttä lohkoille ja tapahtumille sekä 2 pelkille lohkoille. Saapuvia yhteyksiä voi olla enintään 115.
+
 
 1 SMW = 100 000 000 yugeon. Automaattinen maksu tarjoaa kolme tasoa paikallisten havaintojen perusteella, mutta ei takaa vahvistusaikaa. Voit syöttää maksutason yksikössä yugeon/vB. Tarkista lopullinen maksu ja kokonaissumma SMW-yksikössä ennen lähettämistä. Hylätty tapahtuma ei vähennä saldoa.
 

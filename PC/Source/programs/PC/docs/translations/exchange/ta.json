@@ -30,5 +30,6 @@
     "`getrawtransaction` செயலிலுள்ள சங்கிலி மற்றும் mempool-ஐத் தேடும்; பிரிந்த கிளையில் மட்டுமே உள்ள பரிவர்த்தனையை அல்ல. உள்ளீடுகள் முந்தைய வெளியீடுகளைக் குறிக்கும், ஒரே அனுப்புநர் முகவரியை அல்ல. `getblock`-இன் `verbose` Boolean; சேமித்த செயலற்ற தொகுதிகளில் `active=false`, `confirmations=-1`. தொகுதி hash மூலம் மூலப் பரிவர்த்தனைகள் கிடைக்கும். `findspendingtransaction` செயலில் உறுதியான செலவுகளை மட்டுமே தேடும்; null கிடைப்பதற்கான சான்றல்ல. `include_mempool=true` உடன் `gettxout` பார்க்கவும். மறுசீரமைப்பில் உறுதிகளும் செயல்நிலையும் மாறலாம்.",
     "தேவையான தொகுப்புகளை நிறுவி மூலத்திலிருந்து python examples/node_contract.py இயக்கவும். பொதுச் சோதனைச் சாவிகளும் தற்காலிக regtest-மும் சமர்ப்பித்தல், மறுப்பு, உறுதிப்படுத்தல், மறுசீரமைப்பு மற்றும் சேமிப்பைச் சோதிக்கின்றன. உண்மையான நிதி, பயனர் சுயவிவரம் அல்லது வன்பொருள் கையொப்பக் கருவி பயன்படுத்தப்படாது."
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "இயல்பாக மொத்தம் 125 இணைப்புகள் வரை அனுமதிக்கப்படும். தொகுதிகள் மற்றும் பரிவர்த்தனைகளுக்கு 8 வெளிச்செல்லும் இணைப்புகளையும், தொகுதிகளுக்கு மட்டும் மேலும் 2 இணைப்புகளையும் முனையம் தேடுகிறது. 115 உள்வரும் இணைப்புகள் வரை ஏற்கப்படும்."
 }

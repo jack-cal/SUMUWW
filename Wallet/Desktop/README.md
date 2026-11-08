@@ -1,3 +1,7 @@
+# SUMUWW Wallet 1.0.9
+
+The default limit is 125 connections. The node seeks 8 outbound peers for blocks and transactions and 2 for blocks only, leaving room for up to 115 inbound peers.
+
 Core version label now reads the bundled runtime version. Release 1.0.8: https://github.com/jack-cal/SUMUWW/releases/tag/wallet-pc-v1.0.8.
 
 SUMUWW 1.0.8 — update before block 9,600. See UPGRADE_9600.md and the local 34-language upgrade9600 guide.

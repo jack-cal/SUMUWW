@@ -1,6 +1,9 @@
 # SUMUWW · Provoz uzlu
 
-SUMUWW PC 0.57.49 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
+Výchozí limit je 125 spojení. Uzel vyhledává 8 odchozích spojení pro bloky a transakce a další 2 pouze pro bloky. Přijímá až 115 příchozích spojení.
+
+
+SUMUWW PC 0.57.50 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
 
 ## Síť a adresy
 

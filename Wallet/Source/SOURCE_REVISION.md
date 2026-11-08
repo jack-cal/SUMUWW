@@ -1,3 +1,3 @@
-# Release source — 26 October 2026
+# SUMUWW Wallet 1.1.8
 
-Includes the source-block-9600 upgrade and P2P repairs. SOURCE_COMMIT.txt in the source archive identifies the published commit; SOURCE_FILES.json records the exact included files.
+This edition includes the full-node peer connection policy. SOURCE_COMMIT.txt and SOURCE_FILES.json identify the source in this archive.

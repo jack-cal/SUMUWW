@@ -1,4 +1,7 @@
-# SUMUWW Wallet PC 1.0.7
+# SUMUWW Wallet PC 1.0.9
+
+Standardmäßig sind 125 Verbindungen möglich. Der Knoten baut 8 ausgehende Verbindungen für Blöcke und Transaktionen sowie 2 nur für Blöcke auf. Bis zu 115 eingehende Verbindungen sind möglich.
+
 
 1 SMW = 100.000.000 yugeon. Die automatische Berechnung bietet drei Stufen anhand lokaler Beobachtungen, ohne Bestätigungszeiten zu garantieren. Sie können einen Satz in yugeon/vB eingeben. Prüfen Sie vor dem Senden die endgültige Gebühr und die Summe in SMW. Abgelehnte Transaktionen belasten das Guthaben nicht.
 

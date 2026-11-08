@@ -1,10 +1,13 @@
-# SUMUWW Windows 0.57.49
+# SUMUWW Windows 0.57.50
+
+The default limit is 125 connections. The node seeks 8 outbound peers for blocks and transactions and 2 for blocks only, leaving room for up to 115 inbound peers. A temporary outbound probe can check another peer when a slot is free. Manually configured direct peers count toward the total. Use --max-peers and --outgoing-target with the node executable. The desktop connection count shows outgoing (↑) and incoming (↓) peers.
+
 
 The full node provides compact mining jobs for Android 0.6.97 over its existing peer connection. The miner retries temporary SQLite write contention and records an error code and code location locally if a batch stops unexpectedly.
 
 SUMUWW 0.57.48 — update before block 9,600. See UPGRADE_9600.md and the local 34-language upgrade9600 guide.
 
-# SUMUWW PC 0.57.48
+# SUMUWW PC 0.57.50
 
 This release adds address validation and transaction decoding to the node API. The node provides signed-transaction validation and submission, block/transaction/UTXO queries, synchronization state and reorganization information. Existing wallet, mining and connection-proof features are retained. English is the default, with documentation in all 34 supported languages.
 

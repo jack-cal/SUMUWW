@@ -116,6 +116,78 @@ class PeerSocketTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(target.info()['stats']['blocks_stored'], 9)
         self.assertEqual(target.info()['peers'], 1)
 
+    async def test_default_slots_relay_blocks_transactions_and_probe_a_spare(self):
+        hub = self.node(seeded=True, public_peer_policy=True, allow_internet=True,
+                        dht_enabled=False, discovery_scope='loopback')
+        others = [self.node(seeded=True, discover_peers=False) for _ in range(11)]
+        for n in others:
+            await n.start()
+        for n in others[:10]:
+            hub._addresses.add_hint(n.address)
+        await hub.start()
+        await eventually(lambda: len(hub._healthy_sessions()) == 10)
+        info = hub.info()
+        self.assertEqual((10, 0, 115, 125), (info['outbound_peers'], info['inbound_peers'],
+                         info['incoming_capacity'], info['incoming_admission']['transient_connection_limit']))
+        self.assertEqual(2, sum(row['relay_mode'] == 'block' for row in info['peer_connections']))
+        blocks = {s.outgoing for s in hub._healthy_sessions() if s.block_relay_only}
+        blocks_peer = next(n for n in others if n.address in blocks)
+        full_peer = next(n for n in others[:10] if n.address not in blocks)
+        tx = self.spend()
+        blocks_peer.chain.submit_transaction(tx)
+        announcement = Inventory(INV_TRANSACTION, tx.txid())
+        await eventually(lambda: any(announcement in s.recent_inventory for s in hub._sessions.values()))
+        self.assertFalse(hub.chain.has_mempool_transaction(tx.txid()))
+        full_peer.chain.submit_transaction(tx)
+        await eventually(lambda: hub.chain.has_mempool_transaction(tx.txid()))
+        other_block_peer = next(n for n in others if n.address in blocks and n is not blocks_peer)
+        self.assertFalse(other_block_peer.chain.has_mempool_transaction(tx.txid()))
+        blocks_peer.chain.mine(ALICE.script_pubkey, 1)
+        await eventually(lambda: all(n.chain.tip_hash == blocks_peer.chain.tip_hash for n in [hub, *others[:10]]))
+        before = {s.nonce for s in hub._healthy_sessions()}
+        hub._addresses.add_hint(others[-1].address)
+        hub._next_exploration = 0
+        await eventually(lambda: others[-1].info()['stats']['handshakes'] == 1)
+        await eventually(lambda: hub._exploration_target is None and len(hub._sessions) == 10)
+        self.assertEqual(before, {s.nonce for s in hub._healthy_sessions()})
+
+    async def test_public_inbound_saturation_preserves_outbound_and_hard_limit(self):
+        hub = self.node(public_peer_policy=True, allow_internet=True, dht_enabled=False,
+                        discovery_scope='loopback', max_peers=3, outgoing_target=1)
+        await hub.start()
+        for _ in range(2):
+            reader, writer = await asyncio.open_connection(*hub.address)
+            self.writers.append(writer)
+            self.assertEqual('version', (await read_frame(reader, 2)).command)
+        remote = self.node(discover_peers=False)
+        await remote.start()
+        hub._addresses.add_hint(remote.address)
+        await eventually(lambda: len(hub._healthy_sessions()) == 1)
+        reader, writer = await asyncio.open_connection(*hub.address)
+        self.writers.append(writer)
+        self.assertEqual(b'', await asyncio.wait_for(reader.read(1), 1))
+        self.assertEqual(3, len(hub._sessions))
+
+    async def test_signed_block_relay_preference_is_honored_by_new_listener(self):
+        from unittest.mock import patch
+        hub = self.node(seeded=True, boundary_activation=9600)
+        other = self.node(seeded=True, boundary_activation=9600)
+        await other.start()
+        await hub.start()
+        reserve = hub._reserve
+        def block_slot(*args):
+            session = reserve(*args)
+            if session is not None:
+                session.block_relay_only = True
+            return session
+        with patch.object(hub, '_reserve', side_effect=block_slot):
+            await hub.connect(*other.address)
+            await eventually(lambda: any(s.boundary_id and s.block_relay_only for s in other._healthy_sessions()))
+            other.chain.submit_transaction(self.spend())
+            other.chain.mine(ALICE.script_pubkey, 1)
+            await eventually(lambda: hub.chain.tip_hash == other.chain.tip_hash)
+            self.assertTrue(all(not s.last_announced_pool for s in other._healthy_sessions()))
+
     async def test_external_sqlite_transaction_relay_and_confirmation(self):
         source, target = self.node(seeded=True), self.node(seeded=True)
         await source.start()

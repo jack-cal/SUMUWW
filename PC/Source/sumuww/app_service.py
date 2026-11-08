@@ -1067,8 +1067,7 @@ class AppService:
                 # valid manual connections, chain, or wallet.
                 self._bootstrap_error = 'Invalid initial discovery configuration'
         return PeerNode(self.database, host=host, port=port, peers=peers,
-                        max_peers=None,
-                        outgoing_target=None,
+                        public_peer_policy=True,
                         privacy=self._privacy_options,
                         privacy_router_factory=self._privacy_router_factory,
                         network=self.network, allow_lan=settings['allow_lan'],

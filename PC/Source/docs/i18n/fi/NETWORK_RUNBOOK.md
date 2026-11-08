@@ -1,6 +1,9 @@
 # SUMUWW · Solmun käyttö
 
-SUMUWW PC 0.57.49 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
+Oletusraja on 125 yhteyttä. Solmu hakee 8 lähtevää yhteyttä lohkoille ja tapahtumille sekä 2 pelkille lohkoille. Saapuvia yhteyksiä voi olla enintään 115.
+
+
+SUMUWW PC 0.57.50 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
 
 ## Verkko ja osoitteet
 

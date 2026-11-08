@@ -30,5 +30,6 @@
     "`getrawtransaction`은 활성 체인과 메모리풀을 조회하며 탈락한 분기에만 있는 거래는 찾지 않습니다. 입력은 이전 출력 위치를 가리키며 단일 송신 주소를 뜻하지 않습니다. `getblock`의 `verbose`는 불리언입니다. 보관된 비활성 블록은 `active=false`, `confirmations=-1`이고 해당 블록 해시로 원시 거래를 읽을 수 있습니다. `findspendingtransaction`은 활성 체인의 확정된 사용 거래만 찾으므로 null만으로 사용 가능하다고 판단하면 안 됩니다. `include_mempool=true`인 `gettxout`도 확인하세요. 확인 횟수와 활성 여부는 체인 재편 후 달라질 수 있습니다.",
     "의존성을 설치한 소스에서 python examples/node_contract.py를 실행합니다. 공개 시험 키와 임시 regtest로 거래 제출·거부·확정·체인 재편·데이터 보존을 시험합니다. 실제 자금, 사용자 프로필, 하드웨어 서명기는 사용하지 않습니다."
   ],
-  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations."
+  "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
+  "peer_policy": "기본 연결 상한은 125개입니다. 노드는 블록과 거래를 주고받을 피어 8개와 블록 전용 피어 2개에 먼저 접속하며, 들어오는 연결은 최대 115개까지 받습니다."
 }

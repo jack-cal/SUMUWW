@@ -1,6 +1,9 @@
 # SUMUWW · Node operation
 
-SUMUWW PC 0.57.49 · The node validates, stores, relays and exposes chain data.
+The default limit is 125 connections. The node seeks 8 outbound peers for blocks and transactions and 2 for blocks only, leaving room for up to 115 inbound peers.
+
+
+SUMUWW PC 0.57.50 · The node validates, stores, relays and exposes chain data.
 
 ## Network and addresses
 

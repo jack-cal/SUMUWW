@@ -1,6 +1,9 @@
 # SUMUWW · Operación del nodo
 
-SUMUWW PC 0.57.49 · El nodo valida, guarda, retransmite y permite consultar la cadena.
+El límite predeterminado es de 125 conexiones. El nodo busca 8 conexiones salientes para bloques y transacciones y otras 2 solo para bloques. Admite hasta 115 conexiones entrantes.
+
+
+SUMUWW PC 0.57.50 · El nodo valida, guarda, retransmite y permite consultar la cadena.
 
 ## Red y direcciones
 

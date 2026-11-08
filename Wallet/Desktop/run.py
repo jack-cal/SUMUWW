@@ -21,7 +21,7 @@ from sumuww.primitives import format_amount
 from sumuww import __version__ as CORE_VERSION
 import wallet_runtime as runtime
 
-VERSION = '1.0.8'
+VERSION = '1.0.9'
 
 
 class FeeDialog(simpledialog.Dialog):

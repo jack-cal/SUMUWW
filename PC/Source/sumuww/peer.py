@@ -84,8 +84,9 @@ PEER_EGRESS_BURST = 8 * 1024 * 1024
 PEER_EGRESS_RATE = 8 * 1024 * 1024
 MAX_QUOTA_DELAY = 10
 PEER_EXPLORATION_INTERVAL = 300
-PUBLIC_CONNECTION_LIMIT = None
-PUBLIC_OUTGOING_TARGET = None
+PUBLIC_CONNECTION_LIMIT = 125
+PUBLIC_OUTGOING_TARGET = 10
+BLOCK_RELAY_SLOTS = 2
 INCOMING_PROBE_INTERVAL = .25
 INCOMING_SOURCE_PROBE_INTERVAL = 5
 INCOMING_ROTATION_INTERVAL = 60
@@ -156,6 +157,8 @@ class _Session:
     outgoing: tuple | None = None
     remote_ip: str | None = None
     ready: bool = False
+    block_relay_only: bool = False
+    exploration_probe: bool = False
     boundary_id: str | None = None
     boundary_policy: str | None = None
     boundary_hello_sent: bool = False
@@ -233,7 +236,14 @@ class PeerNode:
                  dht_enabled=None, dht_scope='public', dht_routers=None,
                  dht_resolver=None, dht_interval=300, dht_query_timeout=2,
                  dht_round_timeout=20, dht_clock=None, privacy=None, privacy_router_factory=None,
-                 outgoing_target=None, boundary_activation=None):
+                 outgoing_target=None, boundary_activation=None, public_peer_policy=None):
+        self.network = get_network(network)
+        self.public_peer_policy = self.network.name == 'dora' if public_peer_policy is None else public_peer_policy
+        if self.public_peer_policy:
+            if max_peers is None:
+                max_peers = PUBLIC_CONNECTION_LIMIT
+            if outgoing_target is None and type(max_peers) is int:
+                outgoing_target = min(PUBLIC_OUTGOING_TARGET, max_peers)
         self._privacy = Transport(privacy_settings() if privacy is None else privacy)
         private = self._privacy.mode != 'direct'
         if private:
@@ -289,7 +299,8 @@ class PeerNode:
         for label, value, maximum in [('poll_interval', poll_interval, 5), ('timeout', timeout, 30)]:
             if type(value) not in (int, float) or not 0 < value <= maximum or not math.isfinite(value):
                 raise ValueError(f'{label} must be finite, positive and <= {maximum}')
-        if not isinstance(peers, (tuple, list)) or max_peers is not None and len(peers) > max_peers:
+        if not isinstance(peers, (tuple, list)) or (not self.public_peer_policy and
+                max_peers is not None and len(peers) > max_peers):
             raise ValueError('Configured peers must fit max_peers')
         configured = []
         for endpoint in peers:
@@ -317,7 +328,6 @@ class PeerNode:
         self._next_incoming_probe = 0
         self._next_incoming_rotation = 0
         self._incoming_probe_sources = {}
-        self.network = get_network(network)
         self.genesis = self.network.genesis.block_hash()
         if dht_enabled is not None and type(dht_enabled) is not bool:
             raise ValueError('DHT flag must be a bool or default None')
@@ -363,6 +373,7 @@ class PeerNode:
         self._v2_targets = set()
         self._v3_targets = set()
         self._sessions = {}
+        self._opening_connections = 0
         self._tasks = set()
         self._server = None
         self._server6 = None
@@ -719,7 +730,7 @@ class PeerNode:
             raise RuntimeError('Node is stopped')
         target = _endpoint(host, port, allow_lan=self.allow_lan, allow_internet=self.allow_internet)
         if target not in self._configured:
-            if self.max_peers is not None and len(self._configured) >= self.max_peers:
+            if not self.public_peer_policy and self.max_peers is not None and len(self._configured) >= self.max_peers:
                 raise ValueError('Configured outgoing peer limit reached')
             self._configured[target] = asyncio.Event()
             # Only an explicitly requested connection budget reserves slots.
@@ -743,6 +754,8 @@ class PeerNode:
 
     def _incoming_capacity(self):
         if self.max_peers is None:return None
+        if self.public_peer_policy:
+            return self.max_peers - min(self._outgoing_target + len(self._configured), self.max_peers - 1)
         if not (self.allow_internet or self.allow_lan):
             return self.max_peers
         # A one-session limit cannot reserve both directions; keep its listener
@@ -785,6 +798,8 @@ class PeerNode:
                      and self._recent_verified_session(session, now))
 
     def _can_probe_incoming(self, remote_ip):
+        if self.public_peer_policy:
+            return False
         # Full listeners must still let a newcomer negotiate and learn peers.
         # Share the one extra exploration slot; never displace an anchor for
         # an unvalidated socket, and never open an unbounded handshake queue.
@@ -894,10 +909,16 @@ class PeerNode:
         if self.max_peers is None:return self.healthy_peer_target
         # Incoming anchors stay connected, but must not consume the reserved
         # opportunity to verify a durable outbound backup address.
-        incoming = sum(session.outgoing is None and session is not self._incoming_probe
+        occupied = sum((session.outgoing is None or
+                        self.public_peer_policy and session.outgoing in self._configured)
+                       and session is not self._incoming_probe
                        and not session.writer.is_closing()
                        for session in self._sessions.values())
-        return min(self.healthy_peer_target, max(0, self.max_peers - incoming))
+        return min(self.healthy_peer_target, max(0, self.max_peers - occupied))
+
+    def _counts_toward_discovery(self, session):
+        return session.outgoing is not None and (not self.public_peer_policy or
+            (session.outgoing not in self._configured and not session.exploration_probe))
 
     def _discovery_settled(self):
         # Unlimited discovery keeps looking for new live contacts; it never
@@ -907,7 +928,7 @@ class PeerNode:
         # Different IPs/ports can lead to the same live node. Count identities
         # for backup coverage, while preserving every established transport.
         identities = {session.nonce for session in healthy}
-        outgoing_identities = {session.nonce for session in healthy if session.outgoing is not None}
+        outgoing_identities = {session.nonce for session in healthy if self._counts_toward_discovery(session)}
         return (self._running and len(identities) >= self.healthy_peer_target
                 and len(outgoing_identities)
                 >= self._discovery_outgoing_target())
@@ -931,6 +952,8 @@ class PeerNode:
         state = dict(self._last_chain_info if self._closed else
                      self.chain.info() if include_state else self.chain.summary())
         state.update(self.synchronization_info())
+        connected = self._unique_peer_sessions(session for session in self._sessions.values()
+                                               if session.ready and not session.writer.is_closing())
         self._expire_invalid_peers(self._enforcement_clock())
         state.update({
             'running': self._running,
@@ -957,11 +980,12 @@ class PeerNode:
                 'port_fallback': self._port_fallback,
                 'refresh_error': self._self_refresh_error,
             },
-            'peers': len(self._unique_peer_sessions(session for session in self._sessions.values()
-                        if session.ready and not session.writer.is_closing())),
+            'peers': len(connected),
+            'outbound_peers': sum(s.outgoing is not None for s in connected),
+            'inbound_peers': sum(s.outgoing is None for s in connected),
+            'outbound_target': self._outgoing_target,
             'peer_connections': [self._connection_status(session) for session in
-                                 self._unique_peer_sessions(session for session in self._sessions.values()
-                                     if session.ready and not session.writer.is_closing())],
+                                 connected],
             'active_connections': sum(session.ready and not session.writer.is_closing()
                                       for session in self._sessions.values()),
             'sessions': len(self._sessions),
@@ -996,7 +1020,8 @@ class PeerNode:
             'incoming_admission': {
                 'probe_active': self._incoming_probe is not None,
                 'steady_connection_limit': self.max_peers,
-                'transient_connection_limit': None if self.max_peers is None else self.max_peers + 1,
+                'transient_connection_limit': (None if self.max_peers is None else
+                                               self.max_peers + int(not self.public_peer_policy)),
                 'minimum_probe_interval_seconds': INCOMING_PROBE_INTERVAL,
                 'minimum_source_probe_interval_seconds': INCOMING_SOURCE_PROBE_INTERVAL,
                 'minimum_replacement_interval_seconds': INCOMING_ROTATION_INTERVAL,
@@ -1057,6 +1082,8 @@ class PeerNode:
         return {'host': host, 'port': port, 'transport': transport,
                 'peer_id': f'{session.nonce:016x}' if session.nonce is not None else None,
                 'direction': 'outgoing' if target is not None else 'incoming',
+                'relay_mode': ('probe' if session.exploration_probe else
+                               'block' if session.block_relay_only else 'full'),
                 'synchronized': session.synchronized,
                 'sync_state': 'ready' if session.synchronized else 'syncing',
                 'protocol': session.protocol,
@@ -1144,23 +1171,42 @@ class PeerNode:
                 self._stats['duplicate_connection_rejections'] += 1
                 writer.close()
                 return None
-        incoming_full = (self.max_peers is not None and (self.allow_internet or self.allow_lan) and outgoing is None
+        incoming_full = (self.max_peers is not None and (self.public_peer_policy or self.allow_internet or self.allow_lan) and outgoing is None
                          and sum(session.outgoing is None for session in self._sessions.values())
                          >= self._incoming_capacity())
         # One locally initiated probe may temporarily use an extra slot. No
         # inbound peer or ordinary dial can claim this reservation.
-        limit = None if self.max_peers is None else self.max_peers + int(outgoing is not None and
+        limit = None if self.max_peers is None else self.max_peers + int(not self.public_peer_policy and outgoing is not None and
                                     (outgoing == self._exploration_target
                                      or self._incoming_probe is not None))
         probing_incoming = (self._running and outgoing is None
                             and limit is not None and (len(self._sessions) >= limit or incoming_full)
                             and self._can_probe_incoming(remote_ip))
-        if not self._running or ((limit is not None and len(self._sessions) >= limit or incoming_full)
+        occupied = len(self._sessions)
+        if self.public_peer_policy and outgoing is None:
+            occupied += self._opening_connections
+        if not self._running or ((limit is not None and occupied >= limit or incoming_full)
                                  and not probing_incoming):
             self._stats['peer_limit_rejections'] += 1
             writer.close()
             return None
         session = _Session(reader, writer, outgoing)
+        if self.public_peer_policy and outgoing is not None:
+            session.exploration_probe = outgoing == self._exploration_target
+            regular = [s for s in self._sessions.values()
+                       if self._counts_toward_discovery(s) and not s.writer.is_closing()]
+            manual = outgoing in self._configured
+            if not manual and not session.exploration_probe and len(regular) >= self._outgoing_target:
+                self._stats['peer_limit_rejections'] += 1
+                writer.close()
+                return None
+            # A small operator budget and the first paths to a sparse network
+            # always retain transaction relay. Direct peers also relay transactions.
+            block_slots = min(BLOCK_RELAY_SLOTS, max(0, self._outgoing_target - 8))
+            full_count = sum(not s.block_relay_only for s in regular)
+            session.block_relay_only = session.exploration_probe or (
+                not manual and full_count >= self._outgoing_target - block_slots
+                and len(regular) - full_count < block_slots)
         session.remote_ip = remote_ip
         self._sessions[id(writer)] = session
         if probing_incoming:
@@ -1266,6 +1312,19 @@ class PeerNode:
                      if (session.outgoing == target or target in session.outgoing_aliases)
                      and not session.writer.is_closing()), None)
 
+    async def _dial_session(self, target):
+        if self.public_peer_policy and len(self._sessions) + self._opening_connections >= self.max_peers:
+            return None
+        self._opening_connections += 1
+        try:
+            reader, writer = await asyncio.wait_for(self._open_target(target), timeout=self._dial_timeout)
+            session = self._reserve(reader, writer, target)
+            if session is None:
+                await self._close_writer(writer)
+            return session
+        finally:
+            self._opening_connections -= 1
+
     async def _outgoing(self, target):
         delay = min(self.poll_interval, .25)
         while self._running:
@@ -1282,14 +1341,8 @@ class PeerNode:
             if self.max_peers is None or len(self._sessions) < self.max_peers + int(self._incoming_probe is not None):
                 self._stats['reconnect_attempts'] += 1
                 try:
-                    reader, writer = await asyncio.wait_for(
-                        self._open_target(target),
-                        timeout=self._dial_timeout,
-                    )
-                    session = self._reserve(reader, writer, target)
-                    if session is None:
-                        await self._close_writer(writer)
-                    else:
+                    session = await self._dial_session(target)
+                    if session is not None:
                         await self._run_session(session)
                         if session.version_rejected and target not in self._legacy_targets:
                             self._remember_legacy(target)
@@ -1522,7 +1575,7 @@ class PeerNode:
             healthy = self._healthy_sessions()
             healthy_targets = {session.outgoing for session in healthy if session.outgoing is not None}
             pending = sum(target not in healthy_targets for target in self._discovery_workers)
-            healthy_identities = {session.nonce for session in healthy if session.outgoing is not None}
+            healthy_identities = {session.nonce for session in healthy if self._counts_toward_discovery(session)}
             goal=self._discovery_outgoing_target()
             missing = None if goal is None else goal - len(healthy_identities) - pending
             # Established learned workers already have a reserved session.
@@ -1564,6 +1617,10 @@ class PeerNode:
             candidate = self._outgoing_session(target)
             healthy = self._healthy_sessions()
             if candidate is not None and candidate in healthy:
+                if self.public_peer_policy:
+                    candidate.writer.close()
+                    self._exploration_target = None
+                    return
                 victims = self._exploration_victims()
                 if len(self._sessions) > self.max_peers and victims:
                     # A fully validated replacement already exists. Closing
@@ -1582,7 +1639,9 @@ class PeerNode:
         if now < self._next_exploration:
             return
         self._next_exploration = now + PEER_EXPLORATION_INTERVAL
-        if (len(self._sessions) != self.max_peers or not self._exploration_victims()
+        budget_ready = (self._discovery_settled() and len(self._sessions) < self.max_peers
+                        if self.public_peer_policy else len(self._sessions) == self.max_peers)
+        if (not budget_ready or not self._exploration_victims()
                 or any(not task.done() and self._outgoing_session(peer) is None
                        for peer, task in self._discovery_workers.items())):
             return
@@ -1600,10 +1659,8 @@ class PeerNode:
         transport_failed = False
         try:
             self._stats['reconnect_attempts'] += 1
-            reader, writer = await asyncio.wait_for(self._open_target(target), timeout=self._dial_timeout)
-            session = self._reserve(reader, writer, target)
+            session = await self._dial_session(target)
             if session is None:
-                await self._close_writer(writer)
                 return
             await self._run_session(session)
             if session.version_rejected and target not in self._legacy_targets:
@@ -1672,7 +1729,7 @@ class PeerNode:
                 await asyncio.sleep(5)
 
     async def _request_addresses(self, session, now=None):
-        if not self.discover_peers or session.protocol < DISCOVERY_PROTOCOL_VERSION:
+        if session.block_relay_only or not self.discover_peers or session.protocol < DISCOVERY_PROTOCOL_VERSION:
             return
         if (self._discovery_settled()
                 and self._peer_clock() < self._next_exploration - self.discovery_interval):
@@ -2256,7 +2313,7 @@ class PeerNode:
                     if len(session.unknown_blocks) > MAX_INV:
                         raise ProtocolError('Too many unresolved block inventory hints')
                     need_headers = True
-            elif (not self.chain.has_mempool_transaction(item.digest)
+            elif (not session.block_relay_only and not self.chain.has_mempool_transaction(item.digest)
                     and item.digest not in session.tx_requests):
                 self._queue_transaction(session, item.digest, now)
         if need_headers:
@@ -2318,7 +2375,7 @@ class PeerNode:
                     await self._send(session,'bblock',encode_block(block,envelope))
                 else:
                     await self._send(session, 'block', block.serialize())
-            elif item.kind == INV_TRANSACTION:
+            elif item.kind == INV_TRANSACTION and not session.block_relay_only:
                 transaction = self.chain.get_mempool_transaction(item.digest)
                 if transaction is not None:
                     await self._send(session, 'tx', transaction.serialize())
@@ -2423,7 +2480,8 @@ class PeerNode:
         elif command == 'block':
             await self._received_block(session, payload)
         elif command == 'tx':
-            await self._received_transaction(session, payload)
+            if not session.block_relay_only:
+                await self._received_transaction(session, payload)
         elif command == 'notfound':
             for item in _decode_payload(decode_inventory, payload):
                 if item.kind == INV_TRANSACTION:
@@ -2441,6 +2499,8 @@ class PeerNode:
         elif command == 'pong':
             _decode_payload(decode_ping, payload)
         elif command in ('getaddr', 'addr'):
+            if session.block_relay_only:
+                return
             if session.protocol < DISCOVERY_PROTOCOL_VERSION:
                 raise ProtocolError('Peer address exchange was not negotiated')
             if command == 'getaddr':
@@ -2506,8 +2566,8 @@ class PeerNode:
             if session.last_announced_tip != tip:
                 await self._send(session, 'inv', encode_inventory((Inventory(INV_BLOCK, tip),)))
                 session.last_announced_tip = tip
-            current_pool = frozenset(pool)
-            if current_pool != session.last_announced_pool:
+            current_pool = frozenset() if session.block_relay_only else frozenset(pool)
+            if not session.block_relay_only and current_pool != session.last_announced_pool:
                 additions = tuple(digest for digest in pool if digest not in session.last_announced_pool)
                 for offset in range(0, len(additions), MAX_INV):
                     inventory = tuple(Inventory(INV_TRANSACTION, digest) for digest in additions[offset:offset + MAX_INV])
