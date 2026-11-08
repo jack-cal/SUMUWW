@@ -1,8 +1,8 @@
-# SUMUWW current program versions — 8 November 2026
+# SUMUWW current program versions — 9 November 2026
 
 | Program | Version |
 |---|---|
-| Windows full node | 0.57.51 |
+| Windows full node | 0.57.54 |
 | Android full node | 0.6.96 |
 | Windows ordinary wallet | 1.0.10 |
 | Android ordinary wallet | 1.1.10 |

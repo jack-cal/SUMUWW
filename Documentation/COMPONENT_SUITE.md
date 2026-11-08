@@ -1,10 +1,10 @@
-# SUMUWW component suite — 8 November 2026
+# SUMUWW component suite — 9 November 2026
 
 Update every validating full node and ordinary wallet before **block 9,600**. The connection-proof candidate certificate and renewal rules activate at that height. English is the first-launch language on every operating-system language; a saved language choice remains in effect.
 
 | Component | Version | Download | Source |
 |---|---|---|---|
-| Windows full node, wallet and miner | 0.57.51 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.51) | [Source](../PC/Source) |
+| Windows full node, wallet and miner | 0.57.54 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.54) | [Source](../PC/Source) |
 | Android full node, wallet and miner | 0.6.96 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/android-v0.6.96) | [Source](../Android/Source) |
 | Windows ordinary wallet | 1.0.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-pc-v1.0.10) | [Source](../Wallet/Desktop) |
 | Android ordinary wallet | 1.1.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.10) | [Source](../Wallet/Source) |
@@ -23,6 +23,8 @@ Android ordinary wallet 1.1.10 uses org.sumuww.wallet.current and retains its si
 P2P Full requires synchronized unpruned Bitcoin Core with txindex. Light verifies Bitcoin headers and transaction inclusion using TLS servers and is not full Bitcoin validation. Both require a synchronized SUMUWW node and the height-9100 HTLC rule. Read the [setup and recovery guide](../P2P/Source/BITCOIN_SETUP.md).
 
 ## Current behavior and verification
+
+On restart, the Windows node resumes from the last locally verified block and validates new blocks. The first upgrade from an older database performs a full local check. The node also checks the stored history if its verification record is missing or inconsistent. The Windows node mines locally, validates completed blocks received from peers and relays them. It rejects mobile mining work requests and solution submissions.
 
 Fees use live local pending-queue observations. Block issuance, fees and total rewards are reported separately; wallet-specific received amounts are not confused with block totals. Transaction replacement records survive restart. The node exposes signed-transaction checks/submission, chain queries and ordered data records. The source reference does not hold private keys or provide a separate signing application.
 

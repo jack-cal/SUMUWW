@@ -1,10 +1,12 @@
-# SUMUWW Windows 0.57.51
+# SUMUWW Windows 0.57.54
 
 Update every validating full node and ordinary wallet before **block 9,600**. The connection-proof candidate certificate and renewal rules activate at that height. English is the first-launch language on every operating-system language; a saved language choice remains in effect.
 
 The Windows full node and both ordinary wallets aim for 10 outbound peers. Most connections relay blocks and transactions. A verified backup can relay blocks, and a spare slot can briefly check an 11th peer. Up to 117 inbound connections are possible, or 115 with 10 outbound. The default limit is 125 in total.
 
-Windows 0.57.51 serves mining jobs and address-scoped wallet information to the Android light miner. Mining retries temporary database write contention.
+On restart, the Windows node resumes from the last locally verified block and validates new blocks. The first upgrade from an older database performs a full local check. The node also checks the stored history if its verification record is missing or inconsistent.
+
+The Windows node mines locally, validates completed blocks received from peers and relays them. It rejects mobile mining work requests and solution submissions.
 
 The node validates and synchronizes the SUMUWW chain, provides a personal wallet and optional CPU mining, and retains peer recovery and asynchronous connection proofs.
 
@@ -16,4 +18,4 @@ English is the default and all 34 UI languages remain available. Preserve encryp
 
 Extract the complete Windows ZIP and run SUMUWW.exe. Windows executables are not publisher-code-signed.
 
-[Release and checksums](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.51) · [Source](Source) · [Current specification](Source/NODE_FEATURES.md)
+[Release and checksums](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.54) · [Source](Source) · [Current specification](Source/NODE_FEATURES.md)
