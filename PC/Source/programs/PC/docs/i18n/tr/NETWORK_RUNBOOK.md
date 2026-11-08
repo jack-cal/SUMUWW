@@ -1,6 +1,6 @@
 # SUMUWW · Düğüm işletimi
 
-Varsayılan sınır 125 bağlantıdır. Düğüm 10 giden bağlantı kurmayı hedefler ve her biri üzerinden hem blokları hem de işlemleri iletir. En fazla 115 gelen bağlantı kabul eder.
+Düğüm genellikle 10 giden bağlantı açar. Bunların çoğu hem blokları hem de işlemleri iletir. Doğrulanmış bir yedek bağlantı blokları iletebilir. Düğüm başka düğümler bulmak için kısa süreliğine 11. bağlantıyı açabilir. Toplam sınır 125 bağlantıdır. En fazla 117 gelen bağlantı kabul edilir. 10 giden bağlantı varken bu sayı 115’tir.
 
 
 SUMUWW PC 0.57.51 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.

@@ -1,6 +1,6 @@
 # SUMUWW · Versionsnoter
 
-Grænsen er som standard 125 forbindelser. Noden søger at oprette 10 udgående forbindelser og videresender både blokke og transaktioner på dem alle. Den kan modtage op til 115 indgående forbindelser.
+Noden åbner normalt 10 udgående forbindelser. De fleste videresender blokke og transaktioner. En afprøvet reserveforbindelse kan videresende blokke, og noden kan kortvarigt åbne en 11. forbindelse for at finde andre noder. Grænsen er 125 i alt. Der er plads til op til 117 indgående forbindelser, eller 115 ved 10 udgående.
 
 
 SUMUWW PC 0.57.51 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.

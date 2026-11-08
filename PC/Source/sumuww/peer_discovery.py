@@ -138,6 +138,10 @@ class PeerAddressBook:
             self.expired+=1
         if stale:self._save()
 
+    def was_verified(self, endpoint):
+        entry = self._entries.get(endpoint)
+        return bool(entry and entry.verified_at and self.clock() - entry.verified_at <= CACHE_MAX_AGE)
+
     def known(self, maximum=32):
         entries = sorted((entry for entry in self._entries.values() if entry.verified_at),
                          key=lambda entry: -entry.verified_at)

@@ -1,6 +1,6 @@
 # SUMUWW · Node operation
 
-The default limit is 125 connections. The node seeks 10 outgoing peers, all of which relay both blocks and transactions. This leaves room for up to 115 incoming connections.
+The node normally opens 10 outbound connections, mostly to relay blocks and transactions. It can use a verified backup for blocks and briefly open an 11th connection to discover peers. The overall limit is 125. Up to 117 inbound connections are possible, or 115 with 10 outbound connections.
 
 
 SUMUWW PC 0.57.51 · The node validates, stores, relays and exposes chain data.

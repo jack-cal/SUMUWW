@@ -31,5 +31,5 @@
     "Ejecute python examples/node_contract.py desde el código fuente con sus dependencias. Claves públicas de prueba y un regtest temporal verifican envío, rechazo, confirmaciones, reorganización y persistencia. No se usan fondos reales, perfiles personales ni firmadores físicos."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "El límite predeterminado es de 125 conexiones. El nodo busca 10 conexiones salientes y transmite bloques y transacciones por todas ellas. Admite hasta 115 conexiones entrantes."
+  "peer_policy": "El nodo suele abrir 10 conexiones salientes. La mayoría retransmite bloques y transacciones. Puede usar una conexión de respaldo verificada para los bloques y abrir brevemente una conexión más para descubrir otros nodos. El límite total es de 125. Admite hasta 117 conexiones entrantes, o 115 si hay 10 salientes."
 }

@@ -1,6 +1,6 @@
 # SUMUWW · Operasi node
 
-Batas bawaan adalah 125 koneksi. Node berupaya membuka 10 koneksi keluar dan meneruskan blok serta transaksi melalui setiap koneksi tersebut. Node dapat menerima hingga 115 koneksi masuk.
+Node biasanya membuka 10 koneksi keluar. Sebagian besar meneruskan blok dan transaksi. Node dapat menggunakan koneksi cadangan yang telah diverifikasi untuk meneruskan blok dan membuka koneksi ke-11 sebentar untuk mencari node lain. Batas totalnya 125 koneksi. Maksimal ada 117 koneksi masuk, atau 115 jika ada 10 koneksi keluar.
 
 
 SUMUWW PC 0.57.51 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.

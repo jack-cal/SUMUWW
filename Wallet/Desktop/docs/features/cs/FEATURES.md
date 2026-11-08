@@ -1,6 +1,6 @@
 # SUMUWW Wallet PC 1.0.10
 
-Výchozí limit je 125 spojení. Uzel se snaží navázat 10 odchozích spojení a přes každé z nich předává bloky i transakce. Přijímá až 115 příchozích spojení.
+Uzel běžně otevírá 10 odchozích spojení. Většina přenáší bloky i transakce. Ověřené záložní spojení může přenášet bloky a k hledání dalších uzlů lze krátce otevřít jedenácté spojení. Celkový limit je 125 spojení. Příchozích může být až 117, při 10 odchozích nejvýše 115.
 
 
 1 SMW = 100 000 000 yugeon. Automatické poplatky nabízejí tři úrovně podle místních pozorování, bez záruky času potvrzení. Sazbu v yugeon/vB lze zadat ručně. Před odesláním ověřte konečný poplatek a součet v SMW. Odmítnutá transakce nesníží zůstatek.

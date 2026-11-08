@@ -1,6 +1,6 @@
 # SUMUWW Wallet Android 1.1.9
 
-Il limite predefinito è di 125 connessioni. Il nodo cerca di stabilire 10 connessioni in uscita e su ciascuna inoltra sia blocchi sia transazioni. Accetta fino a 115 connessioni in ingresso.
+Il nodo apre normalmente 10 connessioni in uscita. La maggior parte inoltra blocchi e transazioni. Può usare una connessione di riserva verificata per i blocchi e aprirne brevemente un’undicesima per cercare altri nodi. Il limite complessivo è 125. Sono ammesse fino a 117 connessioni in ingresso, o 115 con 10 in uscita.
 
 
 1 SMW = 100.000.000 yugeon. Le commissioni automatiche offrono tre livelli basati sulle osservazioni locali, senza garantire i tempi di conferma. Puoi inserire una tariffa in yugeon/vB. Prima di inviare, controlla commissione finale e totale in SMW. Una transazione rifiutata non riduce il saldo.

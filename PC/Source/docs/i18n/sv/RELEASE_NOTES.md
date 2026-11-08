@@ -1,6 +1,6 @@
 # SUMUWW · Versionsinformation
 
-Standardgränsen är 125 anslutningar. Noden försöker upprätta 10 utgående anslutningar och vidarebefordrar både block och transaktioner via var och en. Den kan ta emot upp till 115 inkommande anslutningar.
+Noden öppnar normalt 10 utgående anslutningar. De flesta förmedlar block och transaktioner. En verifierad reservanslutning kan förmedla block, och noden kan tillfälligt öppna en elfte anslutning för att hitta andra noder. Totalt tillåts 125 anslutningar. Högst 117 kan vara inkommande, eller 115 vid 10 utgående.
 
 
 SUMUWW PC 0.57.51 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.

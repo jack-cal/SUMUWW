@@ -1,6 +1,6 @@
 # SUMUWW · Notas da versão
 
-O limite padrão é de 125 conexões. O nó procura estabelecer 10 conexões de saída e transmite blocos e transações por todas elas. Aceita até 115 conexões de entrada.
+O nó normalmente abre 10 conexões de saída. A maioria retransmite blocos e transações. Uma conexão de reserva já verificada pode retransmitir blocos, e uma 11ª conexão pode ser aberta por pouco tempo para descobrir outros nós. O limite total é de 125. O nó aceita até 117 conexões de entrada, ou 115 quando há 10 de saída.
 
 
 SUMUWW PC 0.57.51 · O nó valida, guarda, retransmite e permite consultar a cadeia.

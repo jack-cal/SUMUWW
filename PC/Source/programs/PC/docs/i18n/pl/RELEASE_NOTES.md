@@ -1,6 +1,6 @@
 # SUMUWW · Informacje o wersji
 
-Domyślny limit to 125 połączeń. Węzeł dąży do utrzymania 10 połączeń wychodzących i przez każde z nich przekazuje bloki oraz transakcje. Przyjmuje do 115 połączeń przychodzących.
+Węzeł zwykle otwiera 10 połączeń wychodzących. Większość przekazuje bloki i transakcje. Sprawdzone połączenie zapasowe może przekazywać bloki. Węzeł może też na krótko otworzyć jedenaste połączenie, aby znaleźć inne węzły. Łączny limit wynosi 125. Połączeń przychodzących może być do 117, a przy 10 wychodzących do 115.
 
 
 SUMUWW PC 0.57.51 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.

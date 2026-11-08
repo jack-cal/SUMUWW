@@ -1,6 +1,6 @@
 # SUMUWW · Nodedrift
 
-Standardgrensen er 125 forbindelser. Noden prøver å opprette 10 utgående forbindelser og videresender både blokker og transaksjoner over hver av dem. Den tar imot opptil 115 innkommende forbindelser.
+Noden åpner vanligvis 10 utgående forbindelser. De fleste videresender blokker og transaksjoner. En kontrollert reserveforbindelse kan videresende blokker, og noden kan åpne en ellevte forbindelse en kort stund for å finne andre noder. Grensen er 125 forbindelser totalt. Det er plass til opptil 117 innkommende forbindelser, eller 115 når 10 er utgående.
 
 
 SUMUWW PC 0.57.51 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.

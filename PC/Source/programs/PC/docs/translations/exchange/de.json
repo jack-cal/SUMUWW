@@ -31,5 +31,5 @@
     "Installieren Sie die Abhängigkeiten und führen Sie python examples/node_contract.py im Quellcode aus. Öffentliche Testschlüssel und temporäres Regtest prüfen Übermittlung, Ablehnung, Bestätigungen, Reorganisation und Datenerhalt. Echte Guthaben, Benutzerprofile und Hardware-Signierer werden nicht verwendet."
   ],
   "scope": "SUMUWW PC interface specification, supported features and disposable tests. Directly authored translations.",
-  "peer_policy": "Standardmäßig sind 125 Verbindungen möglich. Der Knoten strebt 10 ausgehende Verbindungen an und leitet über jede davon Blöcke und Transaktionen weiter. Bis zu 115 eingehende Verbindungen sind möglich."
+  "peer_policy": "Der Knoten baut normalerweise 10 ausgehende Verbindungen auf. Die meisten leiten Blöcke und Transaktionen weiter. Eine geprüfte Ersatzverbindung kann Blöcke weiterleiten. Zur Suche nach weiteren Knoten kann kurzzeitig eine elfte Verbindung hinzukommen. Insgesamt sind 125 Verbindungen möglich. Bei 10 ausgehenden Verbindungen sind bis zu 115 eingehende möglich, sonst höchstens 117."
 }

@@ -1,6 +1,6 @@
 # SUMUWW · Operación del nodo
 
-El límite predeterminado es de 125 conexiones. El nodo busca 10 conexiones salientes y transmite bloques y transacciones por todas ellas. Admite hasta 115 conexiones entrantes.
+El nodo suele abrir 10 conexiones salientes. La mayoría retransmite bloques y transacciones. Puede usar una conexión de respaldo verificada para los bloques y abrir brevemente una conexión más para descubrir otros nodos. El límite total es de 125. Admite hasta 117 conexiones entrantes, o 115 si hay 10 salientes.
 
 
 SUMUWW PC 0.57.51 · El nodo valida, guarda, retransmite y permite consultar la cadena.

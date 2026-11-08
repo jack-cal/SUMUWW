@@ -122,19 +122,31 @@ class PeerSocketTests(unittest.IsolatedAsyncioTestCase):
         others = [self.node(seeded=True, discover_peers=False) for _ in range(11)]
         for n in others:
             await n.start()
-        for n in others[:10]:
+        self.assertEqual(117, hub._incoming_capacity())
+        for n in others[:8]:
             hub._addresses.add_hint(n.address)
         await hub.start()
+        await eventually(lambda: len(hub._healthy_sessions()) == 8)
+        self.assertEqual(117, hub._incoming_capacity())
+        hub._addresses.add_hint(others[8].address)
+        await eventually(lambda: len(hub._healthy_sessions()) == 9)
+        self.assertEqual(116, hub._incoming_capacity())
+        # A spare whose chain the node has already verified may relay just blocks.
+        # Use an elapsed retry interval without delaying the test.
+        hub._addresses.verified(others[9].address)
+        hub._addresses.retry_clock = lambda: hub._peer_clock() + 15
         await eventually(lambda: len(hub._healthy_sessions()) == 10)
         info = hub.info()
         self.assertEqual((10, 0, 115, 125), (info['outbound_peers'], info['inbound_peers'],
                          info['incoming_capacity'], info['incoming_admission']['transient_connection_limit']))
-        self.assertEqual(['full'] * 10, [row['relay_mode'] for row in info['peer_connections']])
+        self.assertEqual(9, sum(row['relay_mode'] == 'full' for row in info['peer_connections']))
+        self.assertTrue(hub._outgoing_session(others[9].address).block_relay_only)
         tx = self.spend()
-        others[9].chain.submit_transaction(tx)
-        await eventually(lambda: all(n.chain.has_mempool_transaction(tx.txid()) for n in [hub, *others[:10]]))
-        others[9].chain.mine(ALICE.script_pubkey, 1)
-        await eventually(lambda: all(n.chain.tip_hash == others[9].chain.tip_hash for n in [hub, *others[:10]]))
+        others[0].chain.submit_transaction(tx)
+        await eventually(lambda: all(n.chain.has_mempool_transaction(tx.txid()) for n in [hub, *others[:9]]))
+        self.assertFalse(others[9].chain.has_mempool_transaction(tx.txid()))
+        others[0].chain.mine(ALICE.script_pubkey, 1)
+        await eventually(lambda: all(n.chain.tip_hash == others[0].chain.tip_hash for n in [hub, *others[:10]]))
         before = {s.nonce for s in hub._healthy_sessions()}
         hub._addresses.add_hint(others[-1].address)
         hub._next_exploration = 0
@@ -158,6 +170,37 @@ class PeerSocketTests(unittest.IsolatedAsyncioTestCase):
         self.writers.append(writer)
         self.assertEqual(b'', await asyncio.wait_for(reader.read(1), 1))
         self.assertEqual(3, len(hub._sessions))
+
+    async def test_public_default_total_includes_pending_inbound_handshakes(self):
+        hub = self.node(public_peer_policy=True, allow_internet=True, dht_enabled=False,
+                        discovery_scope='loopback')
+        hub.timeout = 90
+        await hub.start()
+        remotes = [self.node(discover_peers=False) for _ in range(10)]
+        for remote in remotes:
+            await remote.start()
+
+        async def hold_incoming():
+            reader, writer = await asyncio.open_connection(*hub.address)
+            self.writers.append(writer)
+            self.assertEqual('version', (await read_frame(reader, 5)).command)
+            return writer
+
+        incoming = []
+        for count in (30, 30, 30, 27):
+            incoming.extend(await asyncio.gather(*(hold_incoming() for _ in range(count))))
+        for remote in remotes[:8]:
+            hub._addresses.add_hint(remote.address)
+        for outbound in (8, 9, 10):
+            await eventually(lambda: len(hub._healthy_sessions()) == outbound)
+            self.assertEqual(125 - outbound, hub._incoming_capacity())
+            self.assertEqual(125, len(hub._sessions))
+            reader, writer = await asyncio.open_connection(*hub.address)
+            self.writers.append(writer)
+            self.assertEqual(b'', await asyncio.wait_for(reader.read(1), 2))
+            if outbound < 10:
+                incoming.pop().close()
+                hub._addresses.add_hint(remotes[outbound].address)
 
     async def test_signed_block_relay_preference_is_honored_by_new_listener(self):
         from unittest.mock import patch

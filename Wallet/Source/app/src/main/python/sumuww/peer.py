@@ -86,6 +86,7 @@ MAX_QUOTA_DELAY = 10
 PEER_EXPLORATION_INTERVAL = 300
 PUBLIC_CONNECTION_LIMIT = 125
 PUBLIC_OUTGOING_TARGET = 10
+PUBLIC_INCOMING_LIMIT = 117
 INCOMING_PROBE_INTERVAL = .25
 INCOMING_SOURCE_PROBE_INTERVAL = 5
 INCOMING_ROTATION_INTERVAL = 60
@@ -770,7 +771,12 @@ class PeerNode:
     def _incoming_capacity(self):
         if self.max_peers is None:return None
         if self.public_peer_policy:
-            return self.max_peers - min(self._outgoing_target + len(self._configured), self.max_peers - 1)
+            # Keep room to dial even when incoming connections arrive first.
+            reserve = min(self._outgoing_target, PUBLIC_CONNECTION_LIMIT - PUBLIC_INCOMING_LIMIT,
+                          self.max_peers - 1)
+            outgoing = self._opening_connections + sum(
+                session.outgoing is not None for session in self._sessions.values())
+            return self.max_peers - max(reserve, outgoing)
         if not (self.allow_internet or self.allow_lan):
             return self.max_peers
         # A one-session limit cannot reserve both directions; keep its listener
@@ -924,16 +930,25 @@ class PeerNode:
         if self.max_peers is None:return self.healthy_peer_target
         # Incoming anchors stay connected, but must not consume the reserved
         # opportunity to verify a durable outbound backup address.
-        occupied = sum((session.outgoing is None or
-                        self.public_peer_policy and session.outgoing in self._configured)
+        occupied = sum(session.outgoing is None
                        and session is not self._incoming_probe
                        and not session.writer.is_closing()
                        for session in self._sessions.values())
         return min(self.healthy_peer_target, max(0, self.max_peers - occupied))
 
     def _counts_toward_discovery(self, session):
-        return session.outgoing is not None and (not self.public_peer_policy or
-            (session.outgoing not in self._configured and not session.exploration_probe))
+        return session.outgoing is not None and not session.exploration_probe
+
+    def _use_block_backup(self, target):
+        # A previously synchronized contact can back up block propagation if
+        # verified transaction routes will still outnumber block-only routes.
+        if not self._addresses.was_verified(target):
+            return False
+        full = sum(s.outgoing is not None and not s.block_relay_only
+                   for s in self._healthy_sessions())
+        blocks = sum(s.outgoing is not None and s.block_relay_only
+                     for s in self._sessions.values())
+        return full > blocks + 1
 
     def _discovery_settled(self):
         # Unlimited discovery keeps looking for new live contacts; it never
@@ -1215,7 +1230,8 @@ class PeerNode:
                 self._stats['peer_limit_rejections'] += 1
                 writer.close()
                 return None
-            session.block_relay_only = session.exploration_probe
+            session.block_relay_only = session.exploration_probe or (
+                not manual and self._use_block_backup(outgoing))
         session.remote_ip = remote_ip
         self._sessions[id(writer)] = session
         if probing_incoming:

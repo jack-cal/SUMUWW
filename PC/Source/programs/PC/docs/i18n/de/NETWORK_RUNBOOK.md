@@ -1,6 +1,6 @@
 # SUMUWW · Node-Betrieb
 
-Standardmäßig sind 125 Verbindungen möglich. Der Knoten strebt 10 ausgehende Verbindungen an und leitet über jede davon Blöcke und Transaktionen weiter. Bis zu 115 eingehende Verbindungen sind möglich.
+Der Knoten baut normalerweise 10 ausgehende Verbindungen auf. Die meisten leiten Blöcke und Transaktionen weiter. Eine geprüfte Ersatzverbindung kann Blöcke weiterleiten. Zur Suche nach weiteren Knoten kann kurzzeitig eine elfte Verbindung hinzukommen. Insgesamt sind 125 Verbindungen möglich. Bei 10 ausgehenden Verbindungen sind bis zu 115 eingehende möglich, sonst höchstens 117.
 
 
 SUMUWW PC 0.57.51 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.

@@ -1,6 +1,6 @@
 # SUMUWW Wallet PC 1.0.10
 
-Grænsen er som standard 125 forbindelser. Noden søger at oprette 10 udgående forbindelser og videresender både blokke og transaktioner på dem alle. Den kan modtage op til 115 indgående forbindelser.
+Noden åbner normalt 10 udgående forbindelser. De fleste videresender blokke og transaktioner. En afprøvet reserveforbindelse kan videresende blokke, og noden kan kortvarigt åbne en 11. forbindelse for at finde andre noder. Grænsen er 125 i alt. Der er plads til op til 117 indgående forbindelser, eller 115 ved 10 udgående.
 
 
 1 SMW = 100.000.000 yugeon. Automatiske gebyrer tilbyder tre niveauer ud fra lokale observationer uden at garantere bekræftelsestiden. Du kan indtaste en sats i yugeon/vB. Kontrollér det endelige gebyr og totalen i SMW før afsendelse. En afvist transaktion reducerer ikke saldoen.

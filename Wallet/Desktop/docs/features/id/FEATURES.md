@@ -1,6 +1,6 @@
 # SUMUWW Wallet PC 1.0.10
 
-Batas bawaan adalah 125 koneksi. Node berupaya membuka 10 koneksi keluar dan meneruskan blok serta transaksi melalui setiap koneksi tersebut. Node dapat menerima hingga 115 koneksi masuk.
+Node biasanya membuka 10 koneksi keluar. Sebagian besar meneruskan blok dan transaksi. Node dapat menggunakan koneksi cadangan yang telah diverifikasi untuk meneruskan blok dan membuka koneksi ke-11 sebentar untuk mencari node lain. Batas totalnya 125 koneksi. Maksimal ada 117 koneksi masuk, atau 115 jika ada 10 koneksi keluar.
 
 
 1 SMW = 100.000.000 yugeon. Biaya otomatis menawarkan tiga tingkat berdasarkan pengamatan lokal, tanpa menjamin waktu konfirmasi. Anda dapat memasukkan tarif yugeon/vB secara manual. Periksa biaya akhir dan total dalam SMW sebelum mengirim. Transaksi yang ditolak tidak mengurangi saldo.

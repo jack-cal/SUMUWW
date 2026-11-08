@@ -1,6 +1,6 @@
 # SUMUWW Wallet PC 1.0.10
 
-Domyślny limit to 125 połączeń. Węzeł dąży do utrzymania 10 połączeń wychodzących i przez każde z nich przekazuje bloki oraz transakcje. Przyjmuje do 115 połączeń przychodzących.
+Węzeł zwykle otwiera 10 połączeń wychodzących. Większość przekazuje bloki i transakcje. Sprawdzone połączenie zapasowe może przekazywać bloki. Węzeł może też na krótko otworzyć jedenaste połączenie, aby znaleźć inne węzły. Łączny limit wynosi 125. Połączeń przychodzących może być do 117, a przy 10 wychodzących do 115.
 
 
 1 SMW = 100 000 000 yugeon. Opłaty automatyczne oferują trzy poziomy na podstawie lokalnych obserwacji, bez gwarancji czasu potwierdzenia. Możesz wpisać stawkę w yugeon/vB. Przed wysłaniem sprawdź końcową opłatę i sumę w SMW. Odrzucona transakcja nie zmniejsza salda.

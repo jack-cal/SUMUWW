@@ -1,6 +1,6 @@
 # SUMUWW · Solmun käyttö
 
-Oletusraja on 125 yhteyttä. Solmu pyrkii muodostamaan 10 lähtevää yhteyttä ja välittää sekä lohkoja että tapahtumia jokaisen kautta. Saapuvia yhteyksiä voi olla enintään 115.
+Solmu avaa tavallisesti 10 lähtevää yhteyttä. Useimmat välittävät lohkoja ja tapahtumia. Solmu voi käyttää varmennettua varayhteyttä lohkojen välitykseen ja avata hetkeksi yhdennentoista yhteyden muiden solmujen etsintään. Yhteyksiä voi olla yhteensä 125. Saapuvia yhteyksiä voi olla enintään 117 tai 10 lähtevän yhteyden kanssa enintään 115.
 
 
 SUMUWW PC 0.57.51 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
