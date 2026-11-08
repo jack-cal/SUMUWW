@@ -1,9 +1,9 @@
 # SUMUWW · Versionsnoter
 
-Noden åbner normalt 10 udgående forbindelser. De fleste videresender blokke og transaktioner. En afprøvet reserveforbindelse kan videresende blokke, og noden kan kortvarigt åbne en 11. forbindelse for at finde andre noder. Grænsen er 125 i alt. Der er plads til op til 117 indgående forbindelser, eller 115 ved 10 udgående. På computeren vises nu kun det samlede antal tilsluttede noder. Hver miner bygger sine egne blokke. PC-noden videresender færdige blokke og afviser telefonens anmodninger om mineopgaver og indsendte løsninger.
+Noden åbner normalt 10 udgående forbindelser. De fleste videresender blokke og transaktioner. En afprøvet reserveforbindelse kan videresende blokke, og noden kan kortvarigt åbne en 11. forbindelse for at finde andre noder. Grænsen er 125 i alt. Der er plads til op til 117 indgående forbindelser, eller 115 ved 10 udgående.
 
 
-SUMUWW PC 0.57.53 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
+SUMUWW PC 0.57.51 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
 
 ## Signaturformat
 

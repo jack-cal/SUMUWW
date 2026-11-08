@@ -1,9 +1,9 @@
 # SUMUWW · Versjonsmerknader
 
-Noden åpner vanligvis 10 utgående forbindelser. De fleste videresender blokker og transaksjoner. En kontrollert reserveforbindelse kan videresende blokker, og noden kan åpne en ellevte forbindelse en kort stund for å finne andre noder. Grensen er 125 forbindelser totalt. Det er plass til opptil 117 innkommende forbindelser, eller 115 når 10 er utgående. Skrivebordsappen viser nå bare det totale antallet tilkoblede noder. Hver utvinner bygger sine egne blokker. PC-noden videresender ferdige blokker og avviser forespørsler om utvinningsoppgaver og løsninger fra telefoner.
+Noden åpner vanligvis 10 utgående forbindelser. De fleste videresender blokker og transaksjoner. En kontrollert reserveforbindelse kan videresende blokker, og noden kan åpne en ellevte forbindelse en kort stund for å finne andre noder. Grensen er 125 forbindelser totalt. Det er plass til opptil 117 innkommende forbindelser, eller 115 når 10 er utgående.
 
 
-SUMUWW PC 0.57.53 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
+SUMUWW PC 0.57.51 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
 
 ## Signaturformat
 

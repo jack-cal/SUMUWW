@@ -1,9 +1,9 @@
 # SUMUWW · Ghi chú phiên bản
 
-Nút thường mở 10 kết nối đi. Phần lớn chuyển tiếp cả khối và giao dịch. Nút có thể dùng một kết nối dự phòng đã xác minh để chuyển tiếp khối và mở kết nối thứ 11 trong thời gian ngắn để tìm nút khác. Tổng giới hạn là 125 kết nối. Nút nhận tối đa 117 kết nối đến, hoặc 115 khi có 10 kết nối đi. Ứng dụng trên máy tính hiện chỉ hiển thị tổng số nút đang kết nối. Mỗi thiết bị đào tự tạo khối. Nút trên máy tính chuyển tiếp các khối hoàn chỉnh và từ chối yêu cầu cấp việc đào cũng như kết quả tính toán do điện thoại gửi đến.
+Nút thường mở 10 kết nối đi. Phần lớn chuyển tiếp cả khối và giao dịch. Nút có thể dùng một kết nối dự phòng đã xác minh để chuyển tiếp khối và mở kết nối thứ 11 trong thời gian ngắn để tìm nút khác. Tổng giới hạn là 125 kết nối. Nút nhận tối đa 117 kết nối đến, hoặc 115 khi có 10 kết nối đi.
 
 
-SUMUWW PC 0.57.53 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
+SUMUWW PC 0.57.51 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
 
 ## Định dạng chữ ký
 

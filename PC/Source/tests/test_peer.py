@@ -1,7 +1,6 @@
 """Actual IPv4 loopback socket checks; no public peers or production keys."""
 
 import asyncio
-import json
 from dataclasses import replace
 from pathlib import Path
 import os
@@ -9,7 +8,6 @@ import shutil
 import tempfile
 import unittest
 
-from sumuww.address import encode_address
 from sumuww.block import Block, GENESIS_TIME, PROFILE_ID, genesis_block, mine_header
 from sumuww.chain import Chain
 from sumuww.peer import PeerNode
@@ -106,29 +104,6 @@ class PeerSocketTests(unittest.IsolatedAsyncioTestCase):
                                   (TxOutput(3 * COIN, BOB.script_pubkey),
                                    TxOutput(47 * COIN - 100_000, ALICE.script_pubkey)))
         return sign_p2wpkh(transaction, 0, first.outputs[0], ALICE)
-
-    async def test_mobile_wallet_queries_work_without_delegated_mining(self):
-        node = self.node()
-        await node.start()
-        async def request(op, **fields):
-            reader, writer = await asyncio.open_connection(*node.address)
-            self.writers.append(writer)
-            self.assertEqual((await read_frame(reader, 2)).command, 'version')
-            data = dict(genesis=node.genesis.hex(), op=op, **fields)
-            await write_frame(writer, 'smwlight', json.dumps(data).encode(), 2)
-            reply = await read_frame(reader, 2)
-            self.assertEqual(reply.command, 'smwreply')
-            return json.loads(reply.payload)
-        tip = node.chain.tip_hash
-        status = await request('status')
-        self.assertEqual(status['height'], 0)
-        # A valid legacy work request and a stale solution must both be rejected.
-        work = await request('work', address=encode_address(ALICE.script_pubkey), producer='01' * 32)
-        solve = await request('solve', job='old-job', nonce=0)
-        for reply in (work, solve):
-            self.assertEqual(reply, {'error': 'Request rejected', 'reason': 'ValueError'})
-        self.assertEqual(node.chain.tip_hash, tip)
-        self.assertEqual((await request('check', points=[0]))['hashes'], [status['tip']])
 
     async def test_two_nodes_catch_up_over_real_sockets(self):
         source, target = self.node(), self.node()

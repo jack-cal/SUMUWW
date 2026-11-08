@@ -1,9 +1,9 @@
 # SUMUWW · Provoz uzlu
 
-Uzel běžně otevírá 10 odchozích spojení. Většina přenáší bloky i transakce. Ověřené záložní spojení může přenášet bloky a k hledání dalších uzlů lze krátce otevřít jedenácté spojení. Celkový limit je 125 spojení. Příchozích může být až 117, při 10 odchozích nejvýše 115. Aplikace pro počítač nyní zobrazuje pouze celkový počet připojených uzlů. Každý těžař sestavuje vlastní bloky. Uzel na PC předává hotové bloky a odmítá žádosti telefonu o těžební úlohy i odevzdaná řešení.
+Uzel běžně otevírá 10 odchozích spojení. Většina přenáší bloky i transakce. Ověřené záložní spojení může přenášet bloky a k hledání dalších uzlů lze krátce otevřít jedenácté spojení. Celkový limit je 125 spojení. Příchozích může být až 117, při 10 odchozích nejvýše 115.
 
 
-SUMUWW PC 0.57.53 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
+SUMUWW PC 0.57.51 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
 
 ## Síť a adresy
 

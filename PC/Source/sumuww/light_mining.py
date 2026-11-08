@@ -1,9 +1,12 @@
 """Bounded mobile requests on the native listener. A light client is never a sync peer."""
 import json
+import secrets
 import time
-from collections import deque
+from collections import OrderedDict, deque
+from dataclasses import replace
 
 from .address import decode_address
+from .block import Block
 from .fees import estimate_payment_fee, fee_overview
 from .primitives import hash_to_display, sha256d
 from .rpc import RpcServer
@@ -27,7 +30,9 @@ def coinbase_branch(block):
 class MobileRequests:
     def __init__(self, node):
         self.node = node
+        self.jobs = OrderedDict()
         self.calls = deque()
+        self.templates = deque()
         self.alert_token = None
         self.alert_rows = {}
 
@@ -47,26 +52,27 @@ class MobileRequests:
         if not isinstance(req, dict) or req.get('genesis') != self.node.genesis.hex():
             raise ValueError('Wrong network')
         op = req['op']
-        if op in ('work', 'solve'):
-            raise ValueError('Remote mining is unavailable')
         chain = self.node.chain
+        if op == 'solve':
+            job = self.jobs.get(req['job'])
+            nonce = req['nonce']
+            if type(nonce) is not int or not 0 <= nonce <= 0xffffffff:
+                raise ValueError('Invalid nonce')
+            if not job or job[0] < time.monotonic() or chain.tip_hash != job[1].header.previous_hash:
+                return {'stale': True}
+            block = Block(replace(job[1].header, nonce=nonce), job[1].transactions)
+            from .primitives import valid_target
+            if int.from_bytes(block.block_hash(), 'little') > valid_target(block.header.bits, chain.network.pow_limit):
+                raise ValueError('Insufficient work')
+            accepted = chain.accept_block(block)
+            self.jobs.pop(req['job'], None)
+            return {'accepted': accepted, 'hash': hash_to_display(block.block_hash())}
         if op == 'send':
             tx = Transaction.deserialize(bytes.fromhex(req['hex']))
             return {'txid': hash_to_display(chain.submit_transaction(tx))}
         with chain.read_snapshot():
             height = chain._row(chain.tip_hash)[2]
             tip = hash_to_display(chain.tip_hash)
-            if op == 'coinbaseproof':
-                from .primitives import hash_from_display
-                digest = hash_from_display(req['hash'])
-                block = chain.get_block(digest)
-                coinbase = block.transactions[0].serialize()
-                if len(coinbase) > (MAX_REPLY - 8192) // 2:
-                    # The ordinary P2P getdata request can carry this one
-                    # larger block and does not require any earlier bodies.
-                    return {'use_block': True}
-                return {'coinbase': coinbase.hex(), 'count': len(block.transactions),
-                        'branch': coinbase_branch(block)}
             if op == 'check':
                 points = req['points']
                 if not isinstance(points, list) or len(points) > 200:
@@ -98,7 +104,32 @@ class MobileRequests:
                 if type(offset) is not int or not 0 <= offset <= 1000000:
                     raise ValueError('Invalid offset')
                 return dict(self.coins(chain, 'listunspent', address, offset=offset, limit=100), tip=tip)
-            raise ValueError('Unknown operation')
+            if op != 'work':
+                raise ValueError('Unknown operation')
+            if chain.network.name == 'dora' and not self.node.synchronization_info()['mining_ready']:
+                return {'waiting': True}
+            self.allow(self.templates, 5, 8)
+            from .link_crypto import BEACON_TAG, PRODUCER_TAG, producer_output
+            from .primitives import merkle_root
+            identity_output = producer_output(req['producer'])
+            block = chain._block_template(script, extra_nonce=secrets.randbits(32))
+            original = block.transactions[0]
+            outputs = tuple(identity_output if o.script_pubkey.startswith(b'\x6a\x25' + PRODUCER_TAG)
+                            else o for o in original.outputs)
+            if len(original.serialize()) > 48000:
+                # The optional beacon can exceed a mobile reply budget.
+                outputs = tuple(o for o in outputs if not (o.value == 0 and o.script_pubkey[:2] == bytes((106,77))
+                                                            and o.script_pubkey[4:9] == BEACON_TAG))
+            coinbase = replace(original, outputs=outputs)
+            transactions = (coinbase,) + block.transactions[1:]
+            root, _ = merkle_root([tx.txid() for tx in transactions])
+            block = Block(replace(block.header, merkle_root=root), transactions)
+            job_id = secrets.token_hex(16)
+            self.jobs[job_id] = (time.monotonic() + 300, block)
+            while len(self.jobs) > 8:
+                self.jobs.popitem(last=False)
+            return {'job': job_id, 'height': height + 1, 'header': block.header.serialize().hex(),
+                    'coinbase': block.transactions[0].serialize().hex(), 'branch': coinbase_branch(block)}
 
     def transfer_alerts(self, chain, script):
         # Build a shared window once per chain/mempool revision. The phone gets only

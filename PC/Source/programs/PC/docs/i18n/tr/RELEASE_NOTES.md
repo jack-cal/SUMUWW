@@ -1,9 +1,9 @@
 # SUMUWW · Sürüm notları
 
-Düğüm genellikle 10 giden bağlantı açar. Bunların çoğu hem blokları hem de işlemleri iletir. Doğrulanmış bir yedek bağlantı blokları iletebilir. Düğüm başka düğümler bulmak için kısa süreliğine 11. bağlantıyı açabilir. Toplam sınır 125 bağlantıdır. En fazla 117 gelen bağlantı kabul edilir. 10 giden bağlantı varken bu sayı 115’tir. Masaüstü uygulaması artık yalnızca bağlı düğümlerin toplam sayısını gösteriyor. Her madenci kendi bloklarını oluşturur. Bilgisayar düğümü tamamlanmış blokları iletir ve telefondan gelen madencilik işi istekleri ile çözüm gönderimlerini reddeder.
+Düğüm genellikle 10 giden bağlantı açar. Bunların çoğu hem blokları hem de işlemleri iletir. Doğrulanmış bir yedek bağlantı blokları iletebilir. Düğüm başka düğümler bulmak için kısa süreliğine 11. bağlantıyı açabilir. Toplam sınır 125 bağlantıdır. En fazla 117 gelen bağlantı kabul edilir. 10 giden bağlantı varken bu sayı 115’tir.
 
 
-SUMUWW PC 0.57.53 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
+SUMUWW PC 0.57.51 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
 
 ## İmza biçimi
 

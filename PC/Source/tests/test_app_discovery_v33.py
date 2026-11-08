@@ -50,7 +50,6 @@ class DiscoveryStatusTests(unittest.TestCase):
               ready=False, state='active', network='dora'):
         self.app.network_name = network
         self.app._apply_status({'node': {'height': 100, 'peers': peers, 'mining_ready': ready,
-            'outbound_peers': peers, 'inbound_peers': 0,
             'listen': {'host': '127.0.0.1', 'port': 12345},
             'dht_discovery': {'state': state, 'round_in_progress': round_in_progress,
                               'next_query_seconds': seconds}},
@@ -84,12 +83,6 @@ class DiscoveryStatusTests(unittest.TestCase):
 
     def test_connected_sync_and_ready_take_priority_over_discovery_counter(self):
         self.apply(peers=2, ready=False)
-        self.assertEqual(self.app.translator.render(
-            'Block height {0}   ·   Connected nodes {1}   ·   Address {2}', 100, 2, '127.0.0.1:12345'),
-            self.app.node_text.get())
-        self.assertEqual(self.app.translator.render(
-            'Internet {0}   ·   Connected nodes {1}   ·   Saved peers {2}', 'enabled', 2, 0),
-            self.app.connection_text.get())
         self.assertEqual(self.app.translator.render('Synchronizing with connected nodes · Mining waiting'),
                          self.app.sync_text.get())
         self.apply(peers=2, ready=True)
