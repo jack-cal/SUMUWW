@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Notas da versão
+# SUMUWW Android 0.6.98 · Notas da versão
 
-SUMUWW Android 0.6.95 · O nó valida, guarda, retransmite e permite consultar a cadeia.
+O telefone se conecta a um nó completo SUMUWW com a versão 0.57.49 ou posterior. Ele verifica a recompensa e calcula a prova de trabalho sem baixar todo o histórico de transações.
 
 A especificação API descreve o núcleo do nó integrado. O aplicativo Android não tem tela de configuração RPC.
 

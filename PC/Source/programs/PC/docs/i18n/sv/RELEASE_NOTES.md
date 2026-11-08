@@ -1,6 +1,6 @@
 # SUMUWW · Versionsinformation
 
-SUMUWW PC 0.57.46 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
+SUMUWW PC 0.57.49 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
 
 ## Signeringsformat
 

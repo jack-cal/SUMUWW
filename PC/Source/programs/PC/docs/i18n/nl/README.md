@@ -1,6 +1,6 @@
 # SUMUWW · Documentatie
 
-SUMUWW PC 0.57.46 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
+SUMUWW PC 0.57.49 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
 
 ## Ondertekenformaat
 

@@ -1,6 +1,6 @@
 # SUMUWW · Doğrulama
 
-SUMUWW PC 0.57.46 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
+SUMUWW PC 0.57.49 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
 
 ## İmza biçimi
 

@@ -7,7 +7,7 @@
       {
         "id": "home",
         "title": "Home",
-        "body": "Shows your SMW balance, available balance, mining progress and recent activity. The network section shows local block height and connected peers. Wallet shows immature rewards and pending changes."
+        "body": "Only blocks mined by this phone appear here. Open a record to see its reward and confirmations."
       },
       {
         "id": "mining",
@@ -31,13 +31,13 @@
       },
       {
         "id": "history",
-        "title": "Transaction history",
-        "body": "Shows mining rewards, received funds, sent funds, confirmation count, block height, and transaction ID. Filters apply to the loaded page; use Previous or Next to browse more than 50 records."
+        "title": "Mining history",
+        "body": "Only blocks mined by this phone appear here. Open a record to see its reward and confirmations."
       },
       {
         "id": "network",
         "title": "Node connection",
-        "body": "The app runs a local SMW node. Connected peers counts other nodes, so zero does not mean your own node disappeared. With internet enabled, automatic SMW discovery tries to find compatible peers. If none are reachable, add a peer IP or domain:port manually. Mining waits until a peer is synchronized."
+        "body": "The phone connects to a SUMUWW full node running version 0.57.49 or later. It checks the reward and calculates the proof of work on the phone. It does not download the chain’s transaction history."
       },
       {
         "id": "settings",
@@ -52,7 +52,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android application",
-        "body": "The phone mines independently and communicates with compatible SMW peers. A synchronized reachable peer and an open wallet are required on the main network. Automatic discovery does not guarantee access through every NAT or firewall. No mining pool, market price service or QR feature is included.\n\nFees may be calculated automatically or entered manually, with up to eight decimal places. The sender pays the fee. Review the fee and total debit before submitting. Node acceptance is not recipient receipt or block confirmation. Rejection, uncertain results, incoming pending transfers and block inclusion are shown separately. Do not resend an uncertain transaction before checking history.\n\nA local foreground service hosts the node. Active mining uses a wake lock; Android or the device manufacturer may still stop the process. Notifications require permission. Closed apps cannot guarantee immediate receipt alerts; results are checked after reopening and synchronization. Old transactions and mining rewards are excluded from new incoming-transfer alerts."
+        "body": "The phone connects to a SUMUWW full node running version 0.57.49 or later. It checks the reward and calculates the proof of work on the phone. It does not download the chain’s transaction history. Only blocks mined by this phone appear here. Open a record to see its reward and confirmations."
       },
       {
         "id": "mobile_protection",
@@ -69,7 +69,7 @@
       {
         "id": "home",
         "title": "홈",
-        "body": "SMW 보유량, 사용 가능한 잔액, 채굴 진행 상황과 최근 활동을 보여줍니다. 네트워크 영역에서 내 블록 높이와 연결 피어를 확인하며, 미성숙 보상과 대기 증감은 지갑에서 확인합니다."
+        "body": "이 휴대폰에서 직접 채굴한 블록만 표시합니다. 항목을 누르면 보상과 확인 수를 볼 수 있습니다."
       },
       {
         "id": "mining",
@@ -93,13 +93,13 @@
       },
       {
         "id": "history",
-        "title": "거래내역",
-        "body": "채굴 보상, 받은 금액, 보낸 금액, 확인 수, 블록 높이, 거래 ID를 보여줍니다. 필터는 현재 불러온 페이지에 적용되며 50건을 넘으면 이전·다음으로 이동합니다."
+        "title": "내 채굴 내역",
+        "body": "이 휴대폰에서 직접 채굴한 블록만 표시합니다. 항목을 누르면 보상과 확인 수를 볼 수 있습니다."
       },
       {
         "id": "network",
         "title": "노드 연결",
-        "body": "앱은 자체 SMW 노드를 실행합니다. 연결 피어는 다른 노드의 수이므로 0이라고 내 노드가 사라진 것은 아닙니다. 인터넷 연결 시 호환 피어를 자동 탐색합니다. 접속 가능한 피어를 찾지 못하면 상대의 IP 또는 도메인:포트를 직접 등록하세요. 피어와 동기화되기 전에는 채굴이 대기합니다."
+        "body": "휴대폰은 SUMUWW 0.57.49 이상의 풀노드에 연결합니다. 보상 주소를 확인한 뒤 휴대폰에서 직접 채굴하며, 전체 체인의 거래 내역은 내려받지 않습니다."
       },
       {
         "id": "settings",
@@ -114,7 +114,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android 앱",
-        "body": "휴대폰은 독립적으로 채굴하고 호환 SMW 노드와 통신합니다. 메인 네트워크 채굴에는 동기화된 접속 가능한 상대와 열린 지갑이 필요합니다. 자동 검색이 모든 NAT·방화벽 환경의 접속을 보장하지 않습니다. 공동채굴·시장 가격 서비스·QR 기능은 포함하지 않습니다.\n\n수수료는 자동 계산 또는 직접 설정하며 최대 소수점 8자리까지 입력합니다. 수수료는 보내는 사람이 부담합니다. 제출 전 수수료와 총 지출을 확인합니다. 노드 접수는 상대방 수신이나 블록 확인을 뜻하지 않습니다. 거절·결과 불명확·입금 대기·블록 포함을 구분해 표시합니다. 결과가 불명확하면 거래내역 확인 전 다시 보내지 마세요.\n\n로컬 포그라운드 서비스에서 노드를 실행하고 채굴 중에는 웨이크락을 사용합니다. Android·제조사가 프로세스를 종료할 수 있습니다. 시스템 알림은 권한이 필요합니다. 종료된 앱은 즉시 입금 알림을 보장할 수 없으며 재실행·동기화 뒤 확인합니다. 기존 거래와 채굴 보상은 새 입금 알림에서 제외합니다."
+        "body": "휴대폰은 SUMUWW 0.57.49 이상의 풀노드에 연결합니다. 보상 주소를 확인한 뒤 휴대폰에서 직접 채굴하며, 전체 체인의 거래 내역은 내려받지 않습니다. 이 휴대폰에서 직접 채굴한 블록만 표시합니다. 항목을 누르면 보상과 확인 수를 볼 수 있습니다."
       },
       {
         "id": "mobile_protection",
@@ -131,7 +131,7 @@
       {
         "id": "home",
         "title": "Accueil",
-        "body": "Affiche le solde SMW, le solde disponible, la progression du minage et l’activité récente. La section réseau indique la hauteur locale et les pairs connectés. Le portefeuille affiche les récompenses immatures et les changements en attente."
+        "body": "Seuls les blocs minés par ce téléphone apparaissent ici. Touchez une entrée pour voir la récompense et les confirmations."
       },
       {
         "id": "mining",
@@ -155,13 +155,13 @@
       },
       {
         "id": "history",
-        "title": "Historique",
-        "body": "Affiche récompenses, entrées, sorties, confirmations, hauteur et identifiant de transaction. Les filtres portent sur la page chargée ; utilisez Précédent et Suivant au-delà de 50 lignes."
+        "title": "Historique du minage",
+        "body": "Seuls les blocs minés par ce téléphone apparaissent ici. Touchez une entrée pour voir la récompense et les confirmations."
       },
       {
         "id": "network",
         "title": "Connexion du nœud",
-        "body": "L’application exécute son propre nœud SMW. Zéro pair ne signifie pas que votre nœud a disparu. Avec Internet, la découverte automatique cherche des pairs compatibles. Si aucun n’est accessible, ajoutez une IP ou un domaine:port manuellement. Le minage attend un pair synchronisé."
+        "body": "Le téléphone se connecte à un nœud complet SUMUWW en version 0.57.49 ou ultérieure. Il vérifie la récompense et calcule la preuve de travail sans télécharger tout l’historique des transactions."
       },
       {
         "id": "settings",
@@ -176,7 +176,7 @@
       {
         "id": "current_transfer_states",
         "title": "Application Android",
-        "body": "Le téléphone mine indépendamment et communique avec des pairs compatibles. Le réseau principal exige un pair accessible synchronisé et un portefeuille ouvert. La découverte ne garantit pas le passage des NAT et pare-feu. Aucun pool, cours de marché ou QR n’est inclus.\n\nFrais automatiques ou manuels, jusqu’à huit décimales, payés par l’expéditeur. Vérifiez les frais et le débit total. Acceptation par le nœud, réception et inclusion dans un bloc sont distinctes. Refus et résultat incertain sont signalés. Vérifiez l’historique avant de renvoyer.\n\nLe service au premier plan héberge le nœud et garde le processeur actif pendant le minage. Android peut arrêter le processus. Les notifications exigent une autorisation. Après fermeture, vérification au redémarrage et après synchronisation. Les anciennes transactions et récompenses ne déclenchent pas de nouvelle réception."
+        "body": "Le téléphone se connecte à un nœud complet SUMUWW en version 0.57.49 ou ultérieure. Il vérifie la récompense et calcule la preuve de travail sans télécharger tout l’historique des transactions. Seuls les blocs minés par ce téléphone apparaissent ici. Touchez une entrée pour voir la récompense et les confirmations."
       },
       {
         "id": "mobile_protection",
@@ -193,7 +193,7 @@
       {
         "id": "home",
         "title": "Inicio",
-        "body": "Muestra el saldo SMW, el saldo disponible, el progreso de minería y la actividad reciente. La sección de red muestra la altura local y los pares conectados. La cartera muestra las recompensas inmaduras y las variaciones pendientes."
+        "body": "Aquí solo aparecen los bloques minados por este teléfono. Toca uno para ver la recompensa y las confirmaciones."
       },
       {
         "id": "mining",
@@ -217,13 +217,13 @@
       },
       {
         "id": "history",
-        "title": "Historial",
-        "body": "Muestra recompensas, entradas, salidas, confirmaciones, altura e ID de transacción. Los filtros se aplican a la página cargada; use Anterior y Siguiente para más de 50 registros."
+        "title": "Historial de minería",
+        "body": "Aquí solo aparecen los bloques minados por este teléfono. Toca uno para ver la recompensa y las confirmaciones."
       },
       {
         "id": "network",
         "title": "Conexión del nodo",
-        "body": "La app ejecuta su propio nodo SMW. Cero pares no significa que su nodo haya desaparecido. Con Internet, el descubrimiento automático busca pares compatibles. Si ninguno es accesible, añada manualmente una IP o dominio:puerto. La minería espera a que un par esté sincronizado."
+        "body": "El teléfono se conecta a un nodo completo de SUMUWW con la versión 0.57.49 o posterior. Comprueba la recompensa y calcula la prueba de trabajo sin descargar todo el historial de transacciones."
       },
       {
         "id": "settings",
@@ -238,7 +238,7 @@
       {
         "id": "current_transfer_states",
         "title": "Aplicación Android",
-        "body": "El teléfono mina de forma independiente con pares SMW compatibles. La red principal requiere un par sincronizado accesible y monedero abierto. La búsqueda no garantiza superar NAT o cortafuegos. Sin pool, precios de mercado ni QR.\n\nComisión automática o manual, hasta ocho decimales, pagada por el remitente. Revisa comisión y débito total. Aceptación del nodo, recepción e inclusión en bloque son estados distintos. Se indican rechazo y resultado incierto. Consulta el historial antes de repetir.\n\nUn servicio en primer plano mantiene el nodo y activa el procesador al minar. Android puede detenerlo. Las notificaciones requieren permiso. Tras cerrar se verifica al abrir y sincronizar. Operaciones antiguas y recompensas no generan avisos de nuevo ingreso."
+        "body": "El teléfono se conecta a un nodo completo de SUMUWW con la versión 0.57.49 o posterior. Comprueba la recompensa y calcula la prueba de trabajo sin descargar todo el historial de transacciones. Aquí solo aparecen los bloques minados por este teléfono. Toca uno para ver la recompensa y las confirmaciones."
       },
       {
         "id": "mobile_protection",
@@ -255,7 +255,7 @@
       {
         "id": "home",
         "title": "الرئيسية",
-        "body": "يعرض رصيد SMW والرصيد المتاح وتقدم التعدين والنشاط الأخير. يعرض قسم الشبكة ارتفاع السلسلة المحلية والعقد المتصلة. تعرض المحفظة المكافآت غير الناضجة وصافي التغير المعلق."
+        "body": "تظهر هنا الكتل التي عدّنها هذا الهاتف فقط. اضغط على سجل لعرض المكافأة وعدد التأكيدات."
       },
       {
         "id": "mining",
@@ -279,13 +279,13 @@
       },
       {
         "id": "history",
-        "title": "السجل",
-        "body": "يعرض مكافآت التعدين والوارد والصادر وعدد التأكيدات وارتفاع الكتلة ومعرف المعاملة. تنطبق المرشحات على الصفحة المحملة؛ استخدم السابق والتالي لأكثر من 50 سجلًا."
+        "title": "سجل التعدين",
+        "body": "تظهر هنا الكتل التي عدّنها هذا الهاتف فقط. اضغط على سجل لعرض المكافأة وعدد التأكيدات."
       },
       {
         "id": "network",
         "title": "اتصال العقدة",
-        "body": "يشغّل التطبيق عقدة SMW محلية. صفر من الأقران لا يعني اختفاء عقدتك. عند توفر الإنترنت، يحاول الاكتشاف التلقائي العثور على عقد متوافقة. إذا لم تكن أي عقدة متاحة، أضف عنوان IP أو نطاقًا:منفذًا يدويًا. ينتظر التعدين مزامنة عقدة أخرى."
+        "body": "يتصل الهاتف بعقدة SUMUWW كاملة تعمل بالإصدار 0.57.49 أو أحدث. يتحقق من المكافأة ويحسب إثبات العمل على الهاتف دون تنزيل سجل معاملات السلسلة بالكامل."
       },
       {
         "id": "settings",
@@ -300,7 +300,7 @@
       {
         "id": "current_transfer_states",
         "title": "تطبيق Android",
-        "body": "يعدّن الهاتف مستقلاً ويتصل بعقد متوافقة. تتطلب الشبكة الرئيسية عقدة متزامنة قابلة للوصول ومحفظة مفتوحة. البحث التلقائي لا يضمن تجاوز NAT والجدران النارية. لا توجد مجموعة تعدين أو أسعار سوق أو QR.\n\nالرسوم تلقائية أو يدوية حتى ثماني منازل عشرية ويدفعها المرسل. راجع الرسوم والمجموع. قبول العقدة والاستلام والتضمين في كتلة حالات منفصلة. يظهر الرفض والنتيجة غير المؤكدة. تحقق من السجل قبل الإعادة.\n\nتستضيف خدمة أمامية العقدة وتبقي المعالج نشطاً أثناء التعدين. قد يوقف Android العملية. تتطلب الإشعارات إذناً. بعد إغلاق التطبيق، تحقق من النتائج عند فتحه مجدداً ومزامنته. المعاملات القديمة ومكافآت التعدين ليست تنبيهات استلام جديد."
+        "body": "يتصل الهاتف بعقدة SUMUWW كاملة تعمل بالإصدار 0.57.49 أو أحدث. يتحقق من المكافأة ويحسب إثبات العمل على الهاتف دون تنزيل سجل معاملات السلسلة بالكامل. تظهر هنا الكتل التي عدّنها هذا الهاتف فقط. اضغط على سجل لعرض المكافأة وعدد التأكيدات."
       },
       {
         "id": "mobile_protection",
@@ -317,7 +317,7 @@
       {
         "id": "home",
         "title": "首页",
-        "body": "显示 SMW 余额、可用余额、挖矿进度和最近活动。网络区域显示本地块高和已连接节点。未成熟奖励及待处理变动在钱包中查看。"
+        "body": "这里仅显示本手机挖出的区块。点按一条记录可查看奖励和确认数。"
       },
       {
         "id": "mining",
@@ -341,13 +341,13 @@
       },
       {
         "id": "history",
-        "title": "交易记录",
-        "body": "显示挖矿奖励、收款、付款、确认数、块高和交易 ID。筛选仅作用于已加载页面；超过 50 条时使用上一页或下一页。"
+        "title": "挖矿记录",
+        "body": "这里仅显示本手机挖出的区块。点按一条记录可查看奖励和确认数。"
       },
       {
         "id": "network",
         "title": "节点连接",
-        "body": "应用运行本地 SMW 节点。已连接节点为零并不代表自己的节点消失。联网后会自动寻找兼容节点；若找不到可连接的节点，请手动添加对方的 IP 或域名:端口。挖矿会等待与节点同步。"
+        "body": "手机连接运行 0.57.49 或更高版本的 SUMUWW 全节点，在本机核对奖励并计算工作量证明，无需下载整条链的交易记录。"
       },
       {
         "id": "settings",
@@ -362,7 +362,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android 应用",
-        "body": "手机独立挖矿并与兼容节点通信。主网需要可连接的同步节点及已打开的钱包。自动发现不能保证穿过所有 NAT 和防火墙。没有矿池、市场价格服务或 QR 功能。\n\n手续费自动计算或手动设置，最多八位小数，由发送方承担。提交前检查手续费与总支出。节点接受不等于对方收款或区块确认。拒绝、结果不明、收款待确认和区块包含分别显示。结果不明时先检查记录再决定是否重发。\n\n前台服务运行节点，挖矿时使用唤醒锁。Android 或厂商仍可能终止进程。通知需要权限。应用关闭后，在重开及同步后检查结果。旧交易与挖矿奖励不作为新收款提醒。"
+        "body": "手机连接运行 0.57.49 或更高版本的 SUMUWW 全节点，在本机核对奖励并计算工作量证明，无需下载整条链的交易记录。 这里仅显示本手机挖出的区块。点按一条记录可查看奖励和确认数。"
       },
       {
         "id": "mobile_protection",
@@ -379,7 +379,7 @@
       {
         "id": "home",
         "title": "Início",
-        "body": "Mostra o saldo SMW, o saldo disponível, o progresso de mineração e a atividade recente. A seção de rede mostra a altura local e os nós conectados. A carteira mostra recompensas imaturas e alterações pendentes."
+        "body": "Aqui aparecem apenas os blocos minerados por este telefone. Toque em um registro para ver a recompensa e as confirmações."
       },
       {
         "id": "mining",
@@ -403,13 +403,13 @@
       },
       {
         "id": "history",
-        "title": "Histórico",
-        "body": "Mostra recompensas, entradas, saídas, confirmações, altura e ID da transação. Os filtros se aplicam à página carregada; use Anterior e Próximo para ver mais de 50 registros."
+        "title": "Histórico de mineração",
+        "body": "Aqui aparecem apenas os blocos minerados por este telefone. Toque em um registro para ver a recompensa e as confirmações."
       },
       {
         "id": "network",
         "title": "Conexão do nó",
-        "body": "A aplicação executa o seu próprio nó SMW. Zero pares não significa que o nó desapareceu. Com Internet, a descoberta automática procura pares compatíveis. Se nenhum estiver acessível, adicione manualmente um IP ou domínio:porta. A mineração espera a sincronização de um par."
+        "body": "O telefone se conecta a um nó completo SUMUWW com a versão 0.57.49 ou posterior. Ele verifica a recompensa e calcula a prova de trabalho sem baixar todo o histórico de transações."
       },
       {
         "id": "settings",
@@ -424,7 +424,7 @@
       {
         "id": "current_transfer_states",
         "title": "Aplicativo Android",
-        "body": "O telefone minera independentemente com pares compatíveis. A rede principal exige par sincronizado acessível e carteira aberta. A descoberta não garante atravessar NAT ou firewall. Sem pool, preços de mercado ou QR.\n\nTaxa automática ou manual, até oito casas decimais, paga pelo remetente. Confira taxa e débito total. Aceitação no nó, recebimento e inclusão em bloco são separados. Rejeição e resultado incerto são indicados. Consulte o histórico antes de repetir.\n\nServiço em primeiro plano hospeda o nó e mantém o processador ativo ao minerar. Android pode encerrar o processo. Notificações exigem permissão. Após fechar, verifica ao reabrir e sincronizar. Transações antigas e recompensas não geram avisos de nova entrada."
+        "body": "O telefone se conecta a um nó completo SUMUWW com a versão 0.57.49 ou posterior. Ele verifica a recompensa e calcula a prova de trabalho sem baixar todo o histórico de transações. Aqui aparecem apenas os blocos minerados por este telefone. Toque em um registro para ver a recompensa e as confirmações."
       },
       {
         "id": "mobile_protection",
@@ -441,7 +441,7 @@
       {
         "id": "home",
         "title": "Главная",
-        "body": "Показывает баланс SMW, доступный баланс, прогресс майнинга и недавние действия. Раздел сети показывает локальную высоту и подключённые узлы. Незрелые награды и ожидающие изменения находятся в кошельке."
+        "body": "Здесь показаны только блоки, добытые этим телефоном. Нажмите на запись, чтобы увидеть награду и число подтверждений."
       },
       {
         "id": "mining",
@@ -465,13 +465,13 @@
       },
       {
         "id": "history",
-        "title": "История",
-        "body": "Показывает награды, входящие и исходящие средства, подтверждения, высоту блока и ID транзакции. Фильтры действуют на загруженную страницу; для более 50 записей используйте переходы."
+        "title": "История майнинга",
+        "body": "Здесь показаны только блоки, добытые этим телефоном. Нажмите на запись, чтобы увидеть награду и число подтверждений."
       },
       {
         "id": "network",
         "title": "Подключение узла",
-        "body": "Приложение запускает собственный узел SMW. Ноль подключённых узлов не означает, что ваш узел исчез. При наличии интернета автоматический поиск ищет совместимые узлы. Если доступных нет, добавьте IP или домен:порт вручную. Майнинг ждёт синхронизации с узлом."
+        "body": "Телефон подключается к полному узлу SUMUWW версии 0.57.49 или новее. Он проверяет награду и вычисляет доказательство работы без загрузки всей истории транзакций."
       },
       {
         "id": "settings",
@@ -486,7 +486,7 @@
       {
         "id": "current_transfer_states",
         "title": "Приложение Android",
-        "body": "Телефон майнит независимо и взаимодействует с совместимыми узлами. В основной сети нужны доступный синхронизированный узел и открытый кошелёк. Поиск не гарантирует обход NAT и брандмауэров. Нет пула, рыночных цен или QR.\n\nКомиссия автоматическая или ручная, до восьми знаков, за счёт отправителя. Проверьте комиссию и общий расход. Приём узлом, получение и включение в блок различны. Показываются отказ и неопределённый результат. Перед повтором проверьте историю.\n\nУзел работает в службе переднего плана; при майнинге процессор активен. Android может завершить процесс. Уведомления требуют разрешения. После завершения приложения проверьте результат при следующем открытии и синхронизации. Старые переводы и награды не считаются новыми поступлениями."
+        "body": "Телефон подключается к полному узлу SUMUWW версии 0.57.49 или новее. Он проверяет награду и вычисляет доказательство работы без загрузки всей истории транзакций. Здесь показаны только блоки, добытые этим телефоном. Нажмите на запись, чтобы увидеть награду и число подтверждений."
       },
       {
         "id": "mobile_protection",
@@ -503,7 +503,7 @@
       {
         "id": "home",
         "title": "Startseite",
-        "body": "Zeigt SMW-Guthaben, verfügbares Guthaben, Mining-Fortschritt und letzte Aktivitäten. Der Netzwerkbereich zeigt lokale Blockhöhe und verbundene Peers. Unreife Belohnungen und ausstehende Änderungen stehen in der Wallet."
+        "body": "Hier erscheinen nur Blöcke, die dieses Gerät geschürft hat. Tippe auf einen Eintrag, um die Belohnung und die Bestätigungen zu sehen."
       },
       {
         "id": "mining",
@@ -527,13 +527,13 @@
       },
       {
         "id": "history",
-        "title": "Verlauf",
-        "body": "Zeigt Erträge, Eingänge, Ausgänge, Bestätigungen, Blockhöhe und Transaktions-ID. Filter gelten für die geladene Seite; bei mehr als 50 Einträgen mit Zurück und Weiter blättern."
+        "title": "Mining-Verlauf",
+        "body": "Hier erscheinen nur Blöcke, die dieses Gerät geschürft hat. Tippe auf einen Eintrag, um die Belohnung und die Bestätigungen zu sehen."
       },
       {
         "id": "network",
         "title": "Knotenverbindung",
-        "body": "Die App betreibt einen eigenen SMW-Knoten. Null Peers bedeutet nicht, dass er verschwunden ist. Bei Internetzugang sucht die automatische Erkennung nach kompatiblen Peers. Ist keiner erreichbar, fügen Sie IP oder Domain:Port manuell hinzu. Mining wartet auf einen synchronisierten Peer."
+        "body": "Das Gerät verbindet sich mit einem SUMUWW-Vollknoten ab Version 0.57.49. Es prüft die Belohnung und berechnet den Arbeitsnachweis, ohne den gesamten Transaktionsverlauf der Blockchain herunterzuladen."
       },
       {
         "id": "settings",
@@ -548,7 +548,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android-Anwendung",
-        "body": "Das Telefon schürft unabhängig mit kompatiblen Knoten. Im Hauptnetz sind ein erreichbarer synchronisierter Peer und eine offene Wallet nötig. Suche garantiert keinen Zugang durch NAT oder Firewall. Kein Pool, Marktpreis oder QR.\n\nAutomatische oder manuelle Gebühr mit bis zu acht Nachkommastellen; der Sender zahlt. Gebühr und Gesamtabbuchung prüfen. Annahme durch den Knoten, Empfang und Blockaufnahme sind verschieden. Ablehnung und unklarer Ausgang werden angezeigt. Vor Wiederholung Verlauf prüfen.\n\nEin Vordergrunddienst betreibt den Knoten; beim Mining bleibt die CPU aktiv. Android kann den Prozess beenden. Meldungen benötigen Erlaubnis. Nach Schließen erfolgt die Prüfung beim Öffnen und Synchronisieren. Alte Transaktionen und Mining-Belohnungen gelten nicht als neue Eingänge."
+        "body": "Das Gerät verbindet sich mit einem SUMUWW-Vollknoten ab Version 0.57.49. Es prüft die Belohnung und berechnet den Arbeitsnachweis, ohne den gesamten Transaktionsverlauf der Blockchain herunterzuladen. Hier erscheinen nur Blöcke, die dieses Gerät geschürft hat. Tippe auf einen Eintrag, um die Belohnung und die Bestätigungen zu sehen."
       },
       {
         "id": "mobile_protection",
@@ -565,7 +565,7 @@
       {
         "id": "home",
         "title": "Nyumbani",
-        "body": "Huonyesha salio la SMW, salio linalopatikana, maendeleo ya uchimbaji na shughuli za karibuni. Sehemu ya mtandao huonyesha urefu wa mnyororo wa ndani na nodi zilizounganishwa. Pochi huonyesha zawadi ambazo hazijakomaa na mabadiliko ya salio yanayosubiri."
+        "body": "Hapa utaona tu bloku zilizochimbwa na simu hii. Gusa rekodi ili kuona zawadi na idadi ya uthibitisho."
       },
       {
         "id": "mining",
@@ -589,13 +589,13 @@
       },
       {
         "id": "history",
-        "title": "Historia",
-        "body": "Huonyesha zawadi, kilichopokelewa, kilichotumwa, uthibitisho, urefu wa blok na kitambulisho cha muamala. Vichujio hutumika kwenye ukurasa uliopakiwa; tumia Iliyotangulia na Inayofuata kwa rekodi zaidi ya 50."
+        "title": "Historia ya uchimbaji",
+        "body": "Hapa utaona tu bloku zilizochimbwa na simu hii. Gusa rekodi ili kuona zawadi na idadi ya uthibitisho."
       },
       {
         "id": "network",
         "title": "Muunganisho wa nodi",
-        "body": "Programu huendesha nodi yake ya SMW. Nodi nyingine sifuri haimaanishi nodi yako imepotea. Ikiwa intaneti ipo, utafutaji wa moja kwa moja hutafuta nodi zinazolingana. Ikiwa hakuna inayofikika, ongeza IP au domain:port mwenyewe. Uchimbaji husubiri nodi nyingine isawazishwe."
+        "body": "Simu huunganika na nodi kamili ya SUMUWW ya toleo la 0.57.49 au jipya zaidi. Hukagua zawadi na kukokotoa uthibitisho wa kazi bila kupakua historia yote ya miamala ya mnyororo."
       },
       {
         "id": "settings",
@@ -610,7 +610,7 @@
       {
         "id": "current_transfer_states",
         "title": "Programu ya Android",
-        "body": "Simu huchimba yenyewe na kuwasiliana na nodi zinazolingana. Mtandao mkuu unahitaji nodi iliyosawazishwa inayofikika na pochi iliyofunguliwa. Utafutaji hauhakikishi kupita NAT au firewall. Hakuna pool, bei za soko au QR.\n\nAda hukokotolewa au kuwekwa mwenyewe hadi desimali nane; mtumaji hulipa. Hakiki ada na jumla. Kukubaliwa na nodi, kupokelewa na kuingia kwenye bloku ni hatua tofauti. Kukataliwa na matokeo yasiyojulikana huonyeshwa. Hakiki historia kabla ya kutuma tena.\n\nHuduma ya mbele huendesha nodi na huweka CPU hai wakati wa kuchimba. Android inaweza kusimamisha programu. Arifa zinahitaji ruhusa. Baada ya kufungwa, hakiki unapofungua na kusawazisha. Miamala ya zamani na zawadi si mapokezi mapya."
+        "body": "Simu huunganika na nodi kamili ya SUMUWW ya toleo la 0.57.49 au jipya zaidi. Hukagua zawadi na kukokotoa uthibitisho wa kazi bila kupakua historia yote ya miamala ya mnyororo. Hapa utaona tu bloku zilizochimbwa na simu hii. Gusa rekodi ili kuona zawadi na idadi ya uthibitisho."
       },
       {
         "id": "mobile_protection",
@@ -627,7 +627,7 @@
       {
         "id": "home",
         "title": "होम",
-        "body": "SMW शेष, उपलब्ध शेष, माइनिंग प्रगति और हाल की गतिविधि दिखाता है। नेटवर्क भाग में स्थानीय ब्लॉक ऊँचाई और जुड़े पीयर दिखते हैं। अपरिपक्व पुरस्कार और लंबित शुद्ध बदलाव वॉलेट में देखें।"
+        "body": "यहाँ केवल इसी फ़ोन पर माइन किए गए ब्लॉक दिखाई देते हैं। इनाम और पुष्टियों की संख्या देखने के लिए किसी रिकॉर्ड पर टैप करें।"
       },
       {
         "id": "mining",
@@ -651,13 +651,13 @@
       },
       {
         "id": "history",
-        "title": "लेन-देन इतिहास",
-        "body": "खनन पुरस्कार, प्राप्त और भेजी राशि, पुष्टियाँ, ब्लॉक ऊँचाई और लेन-देन ID दिखाता है। फ़िल्टर लोड किए गए पृष्ठ पर लागू होते हैं; 50 से अधिक रिकॉर्ड के लिए पिछले और अगले का उपयोग करें।"
+        "title": "माइनिंग का इतिहास",
+        "body": "यहाँ केवल इसी फ़ोन पर माइन किए गए ब्लॉक दिखाई देते हैं। इनाम और पुष्टियों की संख्या देखने के लिए किसी रिकॉर्ड पर टैप करें।"
       },
       {
         "id": "network",
         "title": "नोड कनेक्शन",
-        "body": "ऐप अपना SMW नोड चलाता है। शून्य जुड़े पीयर का अर्थ यह नहीं कि आपका नोड गायब है। इंटरनेट पर स्वचालित खोज संगत पीयर ढूँढती है। यदि कोई उपलब्ध न हो, तो उसका IP या डोमेन:पोर्ट खुद जोड़ें। पीयर से सिंक होने तक खनन प्रतीक्षा करता है।"
+        "body": "फ़ोन SUMUWW के पूर्ण नोड के संस्करण 0.57.49 या बाद के संस्करण से जुड़ता है। यह इनाम की जाँच और प्रूफ़ ऑफ़ वर्क की गणना फ़ोन पर करता है। पूरी चेन के लेनदेन का इतिहास डाउनलोड नहीं होता।"
       },
       {
         "id": "settings",
@@ -672,7 +672,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android ऐप",
-        "body": "फोन स्वतंत्र माइनिंग करता है और संगत नोड से जुड़ता है। मुख्य नेटवर्क में पहुँच योग्य सिंक्रनाइज़ नोड और खुला वॉलेट चाहिए। खोज सभी NAT और फ़ायरवॉल पार करने की गारंटी नहीं है। पूल, बाजार मूल्य या QR नहीं है।\n\nशुल्क स्वचालित या स्वयं तय, अधिकतम आठ दशमलव, भेजने वाला देता है। शुल्क और कुल खर्च जाँचें। नोड स्वीकृति, प्राप्ति और ब्लॉक में शामिल होना अलग हैं। अस्वीकार और अस्पष्ट परिणाम दिखते हैं। दोबारा भेजने से पहले इतिहास जाँचें।\n\nअग्रभूमि सेवा नोड चलाती है और माइनिंग में CPU सक्रिय रहता है। Android प्रक्रिया रोक सकता है। सूचनाओं को अनुमति चाहिए। बंद होने के बाद फिर खोलने और सिंक पर जाँच होती है। पुराने लेनदेन और पुरस्कार नई प्राप्ति नहीं हैं।"
+        "body": "फ़ोन SUMUWW के पूर्ण नोड के संस्करण 0.57.49 या बाद के संस्करण से जुड़ता है। यह इनाम की जाँच और प्रूफ़ ऑफ़ वर्क की गणना फ़ोन पर करता है। पूरी चेन के लेनदेन का इतिहास डाउनलोड नहीं होता। यहाँ केवल इसी फ़ोन पर माइन किए गए ब्लॉक दिखाई देते हैं। इनाम और पुष्टियों की संख्या देखने के लिए किसी रिकॉर्ड पर टैप करें।"
       },
       {
         "id": "mobile_protection",
@@ -689,7 +689,7 @@
       {
         "id": "home",
         "title": "ホーム",
-        "body": "SMW 残高、使用可能な残高、マイニングの進捗、最近の活動を表示します。ネットワーク欄ではローカルのブロック高さと接続中のピアを確認できます。ウォレットには未成熟の報酬と未確認取引による増減を表示します。"
+        "body": "この端末で採掘したブロックだけを表示します。項目をタップすると報酬と承認数を確認できます。"
       },
       {
         "id": "mining",
@@ -713,13 +713,13 @@
       },
       {
         "id": "history",
-        "title": "取引履歴",
-        "body": "マイニング報酬、受け取った資金、送金した資金、確認数、ブロックの高さ、トランザクション ID を表示します。フィルタはロードされたページに適用されます。 50 を超えるレコードを参照するには、「前へ」または「次へ」を使用します。"
+        "title": "マイニング履歴",
+        "body": "この端末で採掘したブロックだけを表示します。項目をタップすると報酬と承認数を確認できます。"
       },
       {
         "id": "network",
         "title": "ノード接続",
-        "body": "アプリはローカル SMW ノードを実行します。接続されたピアは他のノードをカウントするため、ゼロは自分のノードが消滅したことを意味するわけではありません。インターネットが有効になっている場合、自動 SMW 検出は互換性のあるピアを見つけようとします。どれにも到達できない場合は、ピア IP またはドメイン:ポートを手動で追加します。マイニングは、ピアが同期されるまで待機します。"
+        "body": "端末はバージョン 0.57.49 以降の SUMUWW フルノードに接続し、報酬の確認とプルーフ・オブ・ワークの計算を端末上で行います。チェーン全体の取引履歴はダウンロードしません。"
       },
       {
         "id": "settings",
@@ -734,7 +734,7 @@
       {
         "id": "current_transfer_states",
         "title": "Androidアプリ",
-        "body": "電話機は独立してマイニングし、互換性のある SMW ピアと通信します。メインネットワークには、同期された到達可能なピアとオープンウォレットが必要です。自動検出は、すべての NAT またはファイアウォールを介したアクセスを保証するものではありません。マイニングプール、相場サービス、QR機能は含まれておりません。\n\n手数料は自動的に計算されるか、小数点以下 8 桁まで手動で入力されます。送信者は手数料を支払います。送信する前に、手数料と引き落とし総額を確認してください。ノードの受け入れは、受信者の受信またはブロックの確認ではありません。拒否、不確実な結果、受信保留中の転送、およびブロックの包含が個別に表示されます。履歴を確認する前に、不確実なトランザクションを再送信しないでください。\n\nローカルのフォアグラウンド サービスがノードをホストします。アクティブマイニングはウェイクロックを使用します。 Android またはデバイスのメーカーがプロセスを停止する可能性があります。通知には許可が必要です。閉じたアプリは即時受信アラートを保証できません。結果は、再度開いて同期した後に確認されます。古いトランザクションとマイニング報酬は、新しい受信転送アラートから除外されます。"
+        "body": "端末はバージョン 0.57.49 以降の SUMUWW フルノードに接続し、報酬の確認とプルーフ・オブ・ワークの計算を端末上で行います。チェーン全体の取引履歴はダウンロードしません。 この端末で採掘したブロックだけを表示します。項目をタップすると報酬と承認数を確認できます。"
       },
       {
         "id": "mobile_protection",
@@ -751,7 +751,7 @@
       {
         "id": "home",
         "title": "Beranda",
-        "body": "Menunjukkan saldo SMW Anda, saldo yang tersedia, kemajuan penambangan, dan aktivitas terkini. Bagian jaringan menunjukkan tinggi blok lokal dan rekan yang terhubung. Dompet menunjukkan imbalan yang belum matang dan perubahan yang tertunda."
+        "body": "Hanya blok yang ditambang oleh ponsel ini yang ditampilkan. Ketuk satu catatan untuk melihat imbalan dan jumlah konfirmasi."
       },
       {
         "id": "mining",
@@ -775,13 +775,13 @@
       },
       {
         "id": "history",
-        "title": "Riwayat transaksi",
-        "body": "Menampilkan hadiah penambangan, dana yang diterima, dana yang dikirim, jumlah konfirmasi, tinggi blok, dan ID transaksi. Filter berlaku untuk halaman yang dimuat; gunakan Sebelumnya atau Berikutnya untuk menelusuri lebih dari catatan 50."
+        "title": "Riwayat penambangan",
+        "body": "Hanya blok yang ditambang oleh ponsel ini yang ditampilkan. Ketuk satu catatan untuk melihat imbalan dan jumlah konfirmasi."
       },
       {
         "id": "network",
         "title": "Koneksi simpul",
-        "body": "Aplikasi ini menjalankan node SMW lokal. Rekan yang terhubung menghitung node lain, jadi nol tidak berarti node Anda sendiri hilang. Dengan internet diaktifkan, penemuan SMW otomatis mencoba menemukan rekan yang kompatibel. Jika tidak ada yang dapat dijangkau, tambahkan IP rekan atau domain:port secara manual. Penambangan menunggu hingga peer disinkronkan."
+        "body": "Ponsel terhubung ke node penuh SUMUWW versi 0.57.49 atau yang lebih baru. Ponsel memeriksa imbalan dan menghitung bukti kerja tanpa mengunduh seluruh riwayat transaksi."
       },
       {
         "id": "settings",
@@ -796,7 +796,7 @@
       {
         "id": "current_transfer_states",
         "title": "Aplikasi Android",
-        "body": "Ponsel ini menambang secara mandiri dan berkomunikasi dengan rekan SMW yang kompatibel. Rekan yang dapat dijangkau dan disinkronkan dan dompet terbuka diperlukan di jaringan utama. Penemuan otomatis tidak menjamin akses melalui setiap NAT atau firewall. Tidak ada kumpulan penambangan, layanan harga pasar, atau fitur QR yang disertakan.\n\nBiaya dapat dihitung secara otomatis atau dimasukkan secara manual, hingga delapan angka desimal. Pengirim membayar biayanya. Tinjau biaya dan total debit sebelum mengirimkan. Penerimaan node bukanlah tanda terima penerima atau konfirmasi blok. Penolakan, hasil yang tidak pasti, transfer masuk yang tertunda, dan penyertaan blok ditampilkan secara terpisah. Jangan mengirim ulang transaksi yang belum pasti sebelum memeriksa riwayat.\n\nLayanan latar depan lokal menghosting node. Penambangan aktif menjaga CPU tetap berjalan dengan wake lock; Android atau produsen perangkat mungkin masih menghentikan proses tersebut. Pemberitahuan memerlukan izin. Aplikasi yang ditutup tidak dapat menjamin peringatan penerimaan langsung; hasilnya diperiksa setelah pembukaan kembali dan sinkronisasi. Transaksi lama dan hadiah penambangan tidak termasuk dalam peringatan transfer masuk yang baru."
+        "body": "Ponsel terhubung ke node penuh SUMUWW versi 0.57.49 atau yang lebih baru. Ponsel memeriksa imbalan dan menghitung bukti kerja tanpa mengunduh seluruh riwayat transaksi. Hanya blok yang ditambang oleh ponsel ini yang ditampilkan. Ketuk satu catatan untuk melihat imbalan dan jumlah konfirmasi."
       },
       {
         "id": "mobile_protection",
@@ -813,7 +813,7 @@
       {
         "id": "home",
         "title": "Trang chủ",
-        "body": "Hiển thị số dư SMW, số dư khả dụng, tiến trình khai thác và hoạt động gần đây của bạn. Phần mạng hiển thị chiều cao khối cục bộ và các nút được kết nối. Ví hiển thị phần thưởng chưa trưởng thành và các thay đổi đang chờ xử lý."
+        "body": "Chỉ các khối do chính điện thoại này đào mới xuất hiện ở đây. Chạm vào một mục để xem phần thưởng và số lượt xác nhận."
       },
       {
         "id": "mining",
@@ -837,13 +837,13 @@
       },
       {
         "id": "history",
-        "title": "Lịch sử giao dịch",
-        "body": "Hiển thị phần thưởng khai thác, số tiền nhận được, số tiền đã gửi, số lượng xác nhận, chiều cao khối và ID giao dịch. Bộ lọc áp dụng cho trang được tải; sử dụng Trước hoặc Tiếp theo để duyệt nhiều hơn bản ghi 50."
+        "title": "Lịch sử đào",
+        "body": "Chỉ các khối do chính điện thoại này đào mới xuất hiện ở đây. Chạm vào một mục để xem phần thưởng và số lượt xác nhận."
       },
       {
         "id": "network",
         "title": "Kết nối nút",
-        "body": "Ứng dụng chạy nút SMW cục bộ. Số nút kết nối chỉ tính các nút khác, vì vậy số 0 không có nghĩa là nút của riêng bạn biến mất. Khi internet được bật, tính năng phát hiện SMW tự động sẽ cố gắng tìm các nút tương thích. Nếu không thể truy cập được, hãy thêm IP ngang hàng hoặc miền: cổng theo cách thủ công. Việc khai thác chờ cho đến khi một thiết bị ngang hàng được đồng bộ hóa."
+        "body": "Điện thoại kết nối với nút đầy đủ SUMUWW phiên bản 0.57.49 trở lên, kiểm tra phần thưởng và tính bằng chứng công việc ngay trên máy mà không tải toàn bộ lịch sử giao dịch."
       },
       {
         "id": "settings",
@@ -858,7 +858,7 @@
       {
         "id": "current_transfer_states",
         "title": "Ứng dụng Android",
-        "body": "Điện thoại khai thác độc lập và giao tiếp với các đồng nghiệp SMW tương thích. Cần có một thiết bị ngang hàng có thể truy cập được đồng bộ hóa và một ví mở trên mạng chính. Tự động phát hiện không đảm bảo quyền truy cập thông qua mọi NAT hoặc tường lửa. Không bao gồm nhóm khai thác, dịch vụ giá thị trường hoặc tính năng QR.\n\nPhí có thể được tính tự động hoặc nhập thủ công, tối đa tám chữ số thập phân. Người gửi trả phí. Xem lại phí và tổng số tiền ghi nợ trước khi gửi. Việc chấp nhận nút không phải là biên nhận của người nhận hoặc xác nhận khối. Từ chối, kết quả không chắc chắn, chuyển khoản đang chờ xử lý và đưa khối vào được hiển thị riêng. Không gửi lại giao dịch không chắc chắn trước khi kiểm tra lịch sử.\n\nDịch vụ tiền cảnh cục bộ lưu trữ nút. Khai thác tích cực sử dụng khóa đánh thức; Android hoặc nhà sản xuất thiết bị vẫn có thể dừng quá trình này. Thông báo yêu cầu sự cho phép. Các ứng dụng đã đóng không thể đảm bảo nhận được thông báo ngay lập tức; kết quả được kiểm tra sau khi mở lại và đồng bộ hóa. Các giao dịch cũ và phần thưởng khai thác được loại trừ khỏi các cảnh báo chuyển khoản mới."
+        "body": "Điện thoại kết nối với nút đầy đủ SUMUWW phiên bản 0.57.49 trở lên, kiểm tra phần thưởng và tính bằng chứng công việc ngay trên máy mà không tải toàn bộ lịch sử giao dịch. Chỉ các khối do chính điện thoại này đào mới xuất hiện ở đây. Chạm vào một mục để xem phần thưởng và số lượt xác nhận."
       },
       {
         "id": "mobile_protection",
@@ -875,7 +875,7 @@
       {
         "id": "home",
         "title": "Ana sayfa",
-        "body": "SMW bakiyenizi, mevcut bakiyenizi, madencilik ilerlemenizi ve son etkinliğinizi gösterir. Ağ bölümü yerel blok yüksekliğini ve bağlı eşleri gösterir. Cüzdan olgunlaşmamış ödülleri ve bekleyen değişiklikleri gösteriyor."
+        "body": "Burada yalnızca bu telefonun çıkardığı bloklar gösterilir. Ödülü ve onay sayısını görmek için bir kayda dokunun."
       },
       {
         "id": "mining",
@@ -899,13 +899,13 @@
       },
       {
         "id": "history",
-        "title": "İşlem geçmişi",
-        "body": "Madencilik ödüllerini, alınan fonları, gönderilen fonları, onay sayısını, blok yüksekliğini ve işlem kimliğini gösterir. Filtreler yüklenen sayfaya uygulanır; 50'den daha fazla kayda göz atmak için Önceki veya Sonraki'yi kullanın."
+        "title": "Madencilik geçmişi",
+        "body": "Burada yalnızca bu telefonun çıkardığı bloklar gösterilir. Ödülü ve onay sayısını görmek için bir kayda dokunun."
       },
       {
         "id": "network",
         "title": "Düğüm bağlantısı",
-        "body": "Uygulama yerel bir SMW düğümünü çalıştırır. Bağlı eşler diğer düğümleri sayar; dolayısıyla sıfır, kendi düğümünüzün kaybolduğu anlamına gelmez. İnternet etkinleştirildiğinde, otomatik SMW keşfi uyumlu eşleri bulmaya çalışır. Hiçbirine ulaşılamıyorsa manuel olarak bir eş IP veya etki alanı:bağlantı noktası ekleyin. Madencilik, bir eşin senkronize edilmesini bekler."
+        "body": "Telefon, 0.57.49 veya sonraki bir sürümü çalıştıran bir SUMUWW tam düğümüne bağlanır. Ödülü kontrol eder ve tüm işlem geçmişini indirmeden iş ispatını hesaplar."
       },
       {
         "id": "settings",
@@ -920,7 +920,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android uygulaması",
-        "body": "Telefon bağımsız olarak madencilik yapar ve uyumlu SMW eşleriyle iletişim kurar. Ana ağda senkronize ulaşılabilir bir eş ve açık bir cüzdan gereklidir. Otomatik bulma, her NAT veya güvenlik duvarı üzerinden erişimi garanti etmez. Hiçbir madencilik havuzu, piyasa fiyatı hizmeti veya QR özelliği dahil değildir.\n\nÜcretler otomatik olarak hesaplanabilir veya en fazla sekiz ondalık basamakla manuel olarak girilebilir. Gönderici ücreti öder. Göndermeden önce ücreti ve toplam borcu inceleyin. Düğüm kabulü, alıcının makbuzu veya blok onayı değildir. Reddetme, belirsiz sonuçlar, gelen bekleyen transferler ve blok dahil etme ayrı ayrı gösterilir. Geçmişi kontrol etmeden belirsiz bir işlemi tekrar göndermeyin.\n\nDüğümü yerel bir ön plan hizmeti barındırır. Aktif madencilik, uyanık kalma kilidi kullanır; Android veya cihaz üreticisi yine de işlemi durdurabilir. Bildirimler izin gerektirir. Kapalı uygulamalar anında alındı ​​uyarılarını garanti edemez; sonuçlar yeniden açıldıktan ve senkronize edildikten sonra kontrol edilir. Eski işlemler ve madencilik ödülleri yeni gelen transfer uyarılarına dahil edilmez."
+        "body": "Telefon, 0.57.49 veya sonraki bir sürümü çalıştıran bir SUMUWW tam düğümüne bağlanır. Ödülü kontrol eder ve tüm işlem geçmişini indirmeden iş ispatını hesaplar. Burada yalnızca bu telefonun çıkardığı bloklar gösterilir. Ödülü ve onay sayısını görmek için bir kayda dokunun."
       },
       {
         "id": "mobile_protection",
@@ -937,7 +937,7 @@
       {
         "id": "home",
         "title": "หน้าแรก",
-        "body": "แสดงยอดคงเหลือ SMW ของคุณ ยอดคงเหลือ ความคืบหน้าการขุด และกิจกรรมล่าสุด ส่วนเครือข่ายแสดงความสูงของบล็อกในเครื่องและเพียร์ที่เชื่อมต่อ Wallet แสดงรางวัลที่ยังใช้ไม่ได้และการเปลี่ยนแปลงที่รอดำเนินการ"
+        "body": "หน้านี้แสดงเฉพาะบล็อกที่โทรศัพท์เครื่องนี้ขุดได้ แตะรายการเพื่อดูรางวัลและจำนวนการยืนยัน"
       },
       {
         "id": "mining",
@@ -961,13 +961,13 @@
       },
       {
         "id": "history",
-        "title": "ประวัติการทำธุรกรรม",
-        "body": "แสดงรางวัลการขุด เงินที่ได้รับ เงินที่ส่ง จำนวนการยืนยัน ความสูงของบล็อก และรหัสธุรกรรม ตัวกรองมีผลกับหน้าที่โหลด ใช้ก่อนหน้าหรือถัดไปเพื่อเรียกดูบันทึก 50 มากกว่า"
+        "title": "ประวัติการขุด",
+        "body": "หน้านี้แสดงเฉพาะบล็อกที่โทรศัพท์เครื่องนี้ขุดได้ แตะรายการเพื่อดูรางวัลและจำนวนการยืนยัน"
       },
       {
         "id": "network",
         "title": "การเชื่อมต่อโหนด",
-        "body": "แอปรันโหนด SMW ในเครื่อง เพียร์ที่เชื่อมต่อจะนับโหนดอื่นๆ ดังนั้นศูนย์ไม่ได้หมายความว่าโหนดของคุณหายไป เมื่อเปิดใช้งานอินเทอร์เน็ต การค้นพบ SMW อัตโนมัติจะพยายามค้นหาเพื่อนที่เข้ากันได้ หากไม่สามารถเข้าถึงได้ ให้เพิ่ม IP เพียร์หรือโดเมน: พอร์ตด้วยตนเอง การขุดจะรอจนกว่าเพียร์จะซิงโครไนซ์"
+        "body": "โทรศัพท์เชื่อมต่อกับฟูลโหนด SUMUWW รุ่น 0.57.49 ขึ้นไป ตรวจสอบรางวัลและคำนวณหลักฐานการทำงานบนเครื่อง โดยไม่ต้องดาวน์โหลดประวัติธุรกรรมทั้งหมดของเชน"
       },
       {
         "id": "settings",
@@ -982,7 +982,7 @@
       {
         "id": "current_transfer_states",
         "title": "แอปพลิเคชัน Android",
-        "body": "โทรศัพท์จะขุดเหมืองอย่างอิสระและสื่อสารกับเพียร์ SMW ที่เข้ากันได้ จำเป็นต้องมีเพียร์ที่เข้าถึงได้แบบซิงโครไนซ์และกระเป๋าเงินแบบเปิดบนเครือข่ายหลัก การค้นพบอัตโนมัติไม่ได้รับประกันการเข้าถึงผ่าน NAT หรือไฟร์วอลล์ทุกตัว ไม่มีพูลการขุด บริการราคาตลาด หรือฟีเจอร์ QR รวมอยู่ด้วย\n\nค่าธรรมเนียมอาจคำนวณโดยอัตโนมัติหรือป้อนด้วยตนเองโดยมีทศนิยมสูงสุดแปดตำแหน่ง ผู้ส่งเป็นผู้ชำระค่าธรรมเนียม ตรวจสอบค่าธรรมเนียมและเดบิตรวมก่อนส่ง การยอมรับโหนดไม่ใช่การรับของผู้รับหรือการยืนยันการบล็อก การปฏิเสธ ผลลัพธ์ที่ไม่แน่นอน การโอนที่รอดำเนินการ และการรวมบล็อกจะแสดงแยกกัน อย่าส่งธุรกรรมที่ไม่แน่นอนอีกครั้งก่อนตรวจสอบประวัติ\n\nบริการเบื้องหน้าท้องถิ่นโฮสต์โหนด การขุดที่ใช้งานอยู่จะใช้wake lock เพื่อให้ CPU ทำงานต่อ Android หรือผู้ผลิตอุปกรณ์อาจยังคงหยุดกระบวนการนี้ การแจ้งเตือนต้องได้รับอนุญาต แอปที่ปิดไม่สามารถรับประกันการแจ้งเตือนการรับทันที ผลลัพธ์จะถูกตรวจสอบหลังจากเปิดใหม่และการซิงโครไนซ์ ธุรกรรมเก่าและรางวัลการขุดจะไม่รวมอยู่ในการแจ้งเตือนการโอนเข้ามาใหม่"
+        "body": "โทรศัพท์เชื่อมต่อกับฟูลโหนด SUMUWW รุ่น 0.57.49 ขึ้นไป ตรวจสอบรางวัลและคำนวณหลักฐานการทำงานบนเครื่อง โดยไม่ต้องดาวน์โหลดประวัติธุรกรรมทั้งหมดของเชน หน้านี้แสดงเฉพาะบล็อกที่โทรศัพท์เครื่องนี้ขุดได้ แตะรายการเพื่อดูรางวัลและจำนวนการยืนยัน"
       },
       {
         "id": "mobile_protection",
@@ -999,7 +999,7 @@
       {
         "id": "home",
         "title": "Home",
-        "body": "Mostra il saldo SMW, il saldo disponibile, l'avanzamento dell'estrazione e l'attività recente. La sezione della rete mostra l'altezza del blocco locale e i peer connessi. Il portafoglio mostra ricompense immature e modifiche in sospeso."
+        "body": "Qui compaiono solo i blocchi estratti da questo telefono. Tocca una voce per visualizzare la ricompensa e le conferme."
       },
       {
         "id": "mining",
@@ -1023,13 +1023,13 @@
       },
       {
         "id": "history",
-        "title": "Cronologia delle transazioni",
-        "body": "Mostra premi di mining, fondi ricevuti e inviati, conferme, altezza e ID della transazione. I filtri valgono per la pagina caricata; usa Precedente e Avanti per consultare oltre 50 record."
+        "title": "Cronologia del mining",
+        "body": "Qui compaiono solo i blocchi estratti da questo telefono. Tocca una voce per visualizzare la ricompensa e le conferme."
       },
       {
         "id": "network",
         "title": "Connessione nodo",
-        "body": "L'app esegue un nodo SMW locale. I peer connessi contano gli altri nodi, quindi zero non significa che il tuo nodo è scomparso. Con Internet abilitato, il rilevamento automatico di SMW tenta di trovare peer compatibili. Se nessuno è raggiungibile, aggiungi manualmente un IP peer o un dominio:porta. Il mining attende finché un peer non viene sincronizzato."
+        "body": "Il telefono si collega a un nodo completo SUMUWW con versione 0.57.49 o successiva. Verifica la ricompensa e calcola la prova di lavoro senza scaricare l’intera cronologia delle transazioni."
       },
       {
         "id": "settings",
@@ -1044,7 +1044,7 @@
       {
         "id": "current_transfer_states",
         "title": "Applicazione Android",
-        "body": "Il telefono esegue il mining autonomamente e comunica con peer SMW compatibili. Sulla rete principale servono un portafoglio aperto e un peer raggiungibile sincronizzato verificato di recente. La ricerca automatica non supera necessariamente ogni NAT o firewall. Non sono inclusi pool, prezzi di mercato o funzioni QR.\n\nLa commissione può essere automatica o manuale, con al massimo otto decimali; la paga il mittente. Controlla commissione e addebito totale. L’accettazione del nodo non equivale a ricezione o conferma in un blocco. Rifiuti, esiti incerti, entrate in sospeso e conferme sono distinti. Prima di reinviare un esito incerto controlla la cronologia.\n\nUn servizio in primo piano ospita il nodo locale. Durante il mining un wakelock mantiene attiva la CPU, ma Android o il produttore possono comunque arrestare il processo. Le notifiche richiedono autorizzazione. Se l’app è arrestata, non sono garantiti avvisi immediati: i risultati vengono controllati dopo riapertura e sincronizzazione. Le vecchie transazioni e i premi sono esclusi dai nuovi avvisi di entrata."
+        "body": "Il telefono si collega a un nodo completo SUMUWW con versione 0.57.49 o successiva. Verifica la ricompensa e calcola la prova di lavoro senza scaricare l’intera cronologia delle transazioni. Qui compaiono solo i blocchi estratti da questo telefono. Tocca una voce per visualizzare la ricompensa e le conferme."
       },
       {
         "id": "mobile_protection",
@@ -1061,7 +1061,7 @@
       {
         "id": "home",
         "title": "হোম",
-        "body": "আপনার SMW ব্যালেন্স, উপলব্ধ ব্যালেন্স, খনির অগ্রগতি এবং সাম্প্রতিক কার্যকলাপ দেখায়। নেটওয়ার্ক বিভাগ স্থানীয় ব্লকের উচ্চতা এবং সংযুক্ত পিয়ারগুলোর দেখায়। Wallet অপরিপক্ক পুরস্কার এবং মুলতুবি পরিবর্তন দেখায়।"
+        "body": "এখানে শুধু এই ফোনে মাইন করা ব্লকগুলো দেখা যায়। পুরস্কার ও নিশ্চিতকরণের সংখ্যা দেখতে একটি রেকর্ডে ট্যাপ করুন।"
       },
       {
         "id": "mining",
@@ -1085,13 +1085,13 @@
       },
       {
         "id": "history",
-        "title": "লেনদেনের ইতিহাস",
-        "body": "খনির পুরস্কার, প্রাপ্ত তহবিল, পাঠানো তহবিল, নিশ্চিতকরণ গণনা, ব্লকের উচ্চতা এবং লেনদেন আইডি দেখায়। ফিল্টার লোড পৃষ্ঠায় প্রযোজ্য; 50 এর বেশি রেকর্ড ব্রাউজ করতে পূর্ববর্তী বা পরবর্তী ব্যবহার করুন।"
+        "title": "মাইনিংয়ের ইতিহাস",
+        "body": "এখানে শুধু এই ফোনে মাইন করা ব্লকগুলো দেখা যায়। পুরস্কার ও নিশ্চিতকরণের সংখ্যা দেখতে একটি রেকর্ডে ট্যাপ করুন।"
       },
       {
         "id": "network",
         "title": "নোড সংযোগ",
-        "body": "অ্যাপ নিজস্ব স্থানীয় SMW নোড চালায়। সংযুক্ত পিয়ারের সংখ্যা অন্য নোড গোনে; শূন্য মানে নিজের নোড হারিয়ে গেছে নয়। ইন্টারনেট চালু থাকলে স্বয়ংক্রিয় আবিষ্কার সামঞ্জস্যপূর্ণ পিয়ার খোঁজে। কাউকে পাওয়া না গেলে পিয়ারের IP বা domain:port নিজে যোগ করা যায়। পিয়ার সিঙ্ক না হওয়া পর্যন্ত মাইনিং অপেক্ষা করে।"
+        "body": "ফোনটি SUMUWW-এর 0.57.49 বা পরবর্তী সংস্করণের একটি পূর্ণ নোডে যুক্ত হয়। পুরো চেইনের লেনদেনের ইতিহাস ডাউনলোড না করেই ফোনে পুরস্কার যাচাই ও প্রুফ অব ওয়ার্ক গণনা করা হয়।"
       },
       {
         "id": "settings",
@@ -1106,7 +1106,7 @@
       {
         "id": "current_transfer_states",
         "title": "অ্যান্ড্রয়েড অ্যাপ্লিকেশন",
-        "body": "ফোনটি স্বাধীনভাবে খনন করে এবং সামঞ্জস্যপূর্ণ SMW পিয়ারগুলোর সাথে যোগাযোগ করে। প্রধান নেটওয়ার্কে একটি সিঙ্ক্রোনাইজড পৌঁছানোর যোগ্য পিয়ার এবং একটি খোলা ওয়ালেট প্রয়োজন৷ স্বয়ংক্রিয় আবিষ্কার প্রতিটি NAT বা ফায়ারওয়ালের মাধ্যমে অ্যাক্সেসের নিশ্চয়তা দেয় না। কোন মাইনিং পুল, বাজার মূল্য পরিষেবা বা QR বৈশিষ্ট্য অন্তর্ভুক্ত করা হয় না।\n\nআট দশমিক স্থান পর্যন্ত ফি স্বয়ংক্রিয়ভাবে গণনা করা যেতে পারে বা ম্যানুয়ালি প্রবেশ করানো যেতে পারে। প্রেরক ফি প্রদান করে। জমা দেওয়ার আগে ফি এবং মোট ডেবিট পর্যালোচনা করুন। নোড গ্রহণ প্রাপক প্রাপ্তি বা ব্লক নিশ্চিতকরণ নয়। প্রত্যাখ্যান, অনিশ্চিত ফলাফল, ইনকামিং পেন্ডিং ট্রান্সফার এবং ব্লক ইনক্লুশন আলাদাভাবে দেখানো হয়েছে। ইতিহাস চেক করার আগে একটি অনিশ্চিত লেনদেন পুনরায় পাঠাবেন না।\n\nএকটি স্থানীয় ফোরগ্রাউন্ড পরিষেবা নোড হোস্ট করে। সক্রিয় মাইনিং একটি ওয়েক লক ব্যবহার করে; অ্যান্ড্রয়েড বা ডিভাইস প্রস্তুতকারক এখনও প্রক্রিয়াটি বন্ধ করতে পারে। বিজ্ঞপ্তি অনুমতি প্রয়োজন. বন্ধ অ্যাপস তাৎক্ষণিক প্রাপ্তি সতর্কতা গ্যারান্টি দিতে পারে না; ফলাফল পুনরায় খোলা এবং সিঙ্ক্রোনাইজেশন পরে চেক করা হয়. পুরানো লেনদেন এবং খনির পুরষ্কারগুলি নতুন ইনকামিং-ট্রান্সফার সতর্কতা থেকে বাদ দেওয়া হয়েছে৷"
+        "body": "ফোনটি SUMUWW-এর 0.57.49 বা পরবর্তী সংস্করণের একটি পূর্ণ নোডে যুক্ত হয়। পুরো চেইনের লেনদেনের ইতিহাস ডাউনলোড না করেই ফোনে পুরস্কার যাচাই ও প্রুফ অব ওয়ার্ক গণনা করা হয়। এখানে শুধু এই ফোনে মাইন করা ব্লকগুলো দেখা যায়। পুরস্কার ও নিশ্চিতকরণের সংখ্যা দেখতে একটি রেকর্ডে ট্যাপ করুন।"
       },
       {
         "id": "mobile_protection",
@@ -1123,7 +1123,7 @@
       {
         "id": "home",
         "title": "ہوم",
-        "body": "آپ کا SMW بیلنس، دستیاب بیلنس، کان کنی کی پیشرفت اور حالیہ سرگرمی دکھاتا ہے۔ نیٹ ورک سیکشن مقامی بلاک کی اونچائی اور منسلک ساتھیوں کو دکھاتا ہے۔ Wallet ابھی ناقابلِ خرچ انعامات اور زیر التواء تبدیلیاں دکھاتا ہے۔"
+        "body": "یہاں صرف وہ بلاک دکھائی دیتے ہیں جو اسی فون نے مائن کیے ہیں۔ انعام اور تصدیقات کی تعداد دیکھنے کے لیے ریکارڈ پر ٹیپ کریں۔"
       },
       {
         "id": "mining",
@@ -1147,13 +1147,13 @@
       },
       {
         "id": "history",
-        "title": "لین دین کی تاریخ",
-        "body": "کان کنی کے انعامات، موصول شدہ فنڈز، بھیجے گئے فنڈز، تصدیقی گنتی، بلاک کی اونچائی، اور ٹرانزیکشن ID دکھاتا ہے۔ فلٹرز بھری ہوئی صفحہ پر لاگو ہوتے ہیں۔ 50 سے زیادہ ریکارڈز کو براؤز کرنے کے لیے پچھلا یا اگلا استعمال کریں۔"
+        "title": "مائننگ کی تاریخ",
+        "body": "یہاں صرف وہ بلاک دکھائی دیتے ہیں جو اسی فون نے مائن کیے ہیں۔ انعام اور تصدیقات کی تعداد دیکھنے کے لیے ریکارڈ پر ٹیپ کریں۔"
       },
       {
         "id": "network",
         "title": "نوڈ کنکشن",
-        "body": "ایپ مقامی SMW نوڈ چلاتی ہے۔ منسلک پیئر دوسرے نوڈس کو شمار کرتے ہیں، لہذا صفر کا مطلب یہ نہیں ہے کہ آپ کا اپنا نوڈ غائب ہوگیا۔ انٹرنیٹ فعال ہونے کے ساتھ، خودکار SMW دریافت ہم آہنگ ساتھیوں کو تلاش کرنے کی کوشش کرتی ہے۔ اگر کوئی بھی قابل رسائی نہیں ہے تو، ایک پیئر IP یا domain:port دستی طور پر شامل کریں۔ کان کنی اس وقت تک انتظار کرتی ہے جب تک کہ پیئر مطابقت پذیر نہ ہو۔"
+        "body": "فون SUMUWW کے ایسے مکمل نوڈ سے جڑتا ہے جس پر ورژن 0.57.49 یا اس کے بعد کا ورژن ہو۔ فون انعام کی جانچ اور پروف آف ورک کا حساب خود کرتا ہے اور پوری چین کے لین دین کی تاریخ ڈاؤن لوڈ نہیں کرتا۔"
       },
       {
         "id": "settings",
@@ -1168,7 +1168,7 @@
       {
         "id": "current_transfer_states",
         "title": "اینڈرائیڈ ایپلی کیشن",
-        "body": "فون آزادانہ طور پر مائنز کرتا ہے اور ہم آہنگ SMW ساتھیوں کے ساتھ بات چیت کرتا ہے۔ مرکزی نیٹ ورک پر ایک مطابقت پذیر قابل رسائی پیئر اور ایک کھلا پرس درکار ہے۔ خودکار دریافت ہر NAT یا فائر وال کے ذریعے رسائی کی ضمانت نہیں دیتی۔ کوئی مائننگ پول، مارکیٹ پرائس سروس یا QR فیچر شامل نہیں ہے۔\n\nفیس کا حساب خود بخود لگایا جا سکتا ہے یا دستی طور پر درج کیا جا سکتا ہے، آٹھ اعشاریہ تک کے مقامات کے ساتھ۔ بھیجنے والا فیس ادا کرتا ہے۔ جمع کرانے سے پہلے فیس اور کل ڈیبٹ کا جائزہ لیں۔ نوڈ قبولیت وصول کنندہ کی رسید یا بلاک کی تصدیق نہیں ہے۔ مسترد، غیر یقینی نتائج، آنے والی زیر التوا منتقلی اور بلاک شمولیت کو الگ سے دکھایا گیا ہے۔ تاریخ چیک کرنے سے پہلے غیر یقینی لین دین کو دوبارہ نہ بھیجیں۔\n\nایک مقامی پیش منظر کی خدمت نوڈ کی میزبانی کرتی ہے۔ فعال کان کنی ایک ویک لاک کا استعمال کرتی ہے۔ اینڈرائیڈ یا ڈیوائس بنانے والا ابھی بھی اس عمل کو روک سکتا ہے۔ اطلاعات کے لیے اجازت درکار ہے۔ بند ایپس فوری رسید الرٹس کی ضمانت نہیں دے سکتیں۔ نتائج کو دوبارہ کھولنے اور مطابقت پذیری کے بعد چیک کیا جاتا ہے۔ پرانے لین دین اور کان کنی کے انعامات نئے آنے والے ٹرانسفر الرٹس سے خارج ہیں۔"
+        "body": "فون SUMUWW کے ایسے مکمل نوڈ سے جڑتا ہے جس پر ورژن 0.57.49 یا اس کے بعد کا ورژن ہو۔ فون انعام کی جانچ اور پروف آف ورک کا حساب خود کرتا ہے اور پوری چین کے لین دین کی تاریخ ڈاؤن لوڈ نہیں کرتا۔ یہاں صرف وہ بلاک دکھائی دیتے ہیں جو اسی فون نے مائن کیے ہیں۔ انعام اور تصدیقات کی تعداد دیکھنے کے لیے ریکارڈ پر ٹیپ کریں۔"
       },
       {
         "id": "mobile_protection",
@@ -1185,7 +1185,7 @@
       {
         "id": "home",
         "title": "Główna",
-        "body": "Pokazuje saldo SMW, dostępne saldo, postęp wydobycia i ostatnią aktywność. Sekcja sieci pokazuje wysokość bloku lokalnego i podłączonych elementów równorzędnych. Portfel pokazuje niedojrzałe nagrody i oczekujące zmiany."
+        "body": "Tutaj widać tylko bloki wydobyte przez ten telefon. Dotknij wpisu, aby zobaczyć nagrodę i liczbę potwierdzeń."
       },
       {
         "id": "mining",
@@ -1209,13 +1209,13 @@
       },
       {
         "id": "history",
-        "title": "Historia transakcji",
-        "body": "Pokazuje nagrody za wydobycie, otrzymane i wysłane środki, liczbę potwierdzeń, wysokość bloku i identyfikator transakcji. Filtry dotyczą załadowanej strony; użyj opcji Poprzedni lub Następny, aby przeglądać więcej niż 50 rekordów."
+        "title": "Historia wydobycia",
+        "body": "Tutaj widać tylko bloki wydobyte przez ten telefon. Dotknij wpisu, aby zobaczyć nagrodę i liczbę potwierdzeń."
       },
       {
         "id": "network",
         "title": "Połączenie węzła",
-        "body": "Aplikacja uruchamia lokalny węzeł SMW. Połączeni równorzędni zliczają inne węzły, więc zero nie oznacza, że ​​Twój własny węzeł zniknął. Przy włączonym Internecie automatyczne wykrywanie SMW próbuje znaleźć kompatybilne elementy równorzędne. Jeśli żaden nie jest osiągalny, ręcznie dodaj równorzędny adres IP lub domenę:port. Wydobywanie czeka, aż peer zostanie zsynchronizowany."
+        "body": "Telefon łączy się z pełnym węzłem SUMUWW w wersji 0.57.49 lub nowszej. Sprawdza nagrodę i oblicza dowód pracy bez pobierania całej historii transakcji."
       },
       {
         "id": "settings",
@@ -1230,7 +1230,7 @@
       {
         "id": "current_transfer_states",
         "title": "Aplikacja na Androida",
-        "body": "Telefon samodzielnie wydobywa bloki i komunikuje się z kompatybilnymi urządzeniami równorzędnymi SMW. W sieci głównej wymagany jest zsynchronizowany osiągalny peer i otwarty portfel. Automatyczne wykrywanie nie gwarantuje dostępu przez każdy NAT lub zaporę sieciową. Nie uwzględniono żadnej puli wydobywczej, usługi cen rynkowych ani funkcji QR.\n\nOpłaty mogą być naliczane automatycznie lub wprowadzane ręcznie, z dokładnością do ośmiu miejsc po przecinku. Nadawca płaci opłatę. Przed przesłaniem sprawdź opłatę i całkowite obciążenie. Akceptacja węzła nie jest potwierdzeniem odbiorcy ani potwierdzeniem bloku. Odrzucenie, niepewne wyniki, oczekujące przelewy przychodzące i włączenie bloku są wyświetlane osobno. Nie wysyłaj ponownie niepewnej transakcji przed sprawdzeniem historii.\n\nLokalna usługa pierwszego planu hostuje węzeł. Aktywne wydobycie wykorzystuje blokadę wybudzania utrzymującą aktywność CPU; Android lub producent urządzenia może nadal zatrzymać proces. Powiadomienia wymagają pozwolenia. Zamknięte aplikacje nie mogą zagwarantować natychmiastowych powiadomień o odbiorze; wyniki są sprawdzane po ponownym otwarciu i synchronizacji. Stare transakcje i nagrody za wydobycie nie są uwzględniane w nowych alertach dotyczących przelewów przychodzących."
+        "body": "Telefon łączy się z pełnym węzłem SUMUWW w wersji 0.57.49 lub nowszej. Sprawdza nagrodę i oblicza dowód pracy bez pobierania całej historii transakcji. Tutaj widać tylko bloki wydobyte przez ten telefon. Dotknij wpisu, aby zobaczyć nagrodę i liczbę potwierdzeń."
       },
       {
         "id": "mobile_protection",
@@ -1247,7 +1247,7 @@
       {
         "id": "home",
         "title": "Home",
-        "body": "Toont uw SMW-saldo, beschikbaar saldo, mijnbouwvoortgang en recente activiteit. Het netwerkgedeelte toont de lokale blokhoogte en verbonden peers. Wallet toont onvolwassen beloningen en openstaande wijzigingen."
+        "body": "Hier staan alleen blokken die deze telefoon heeft gemined. Tik op een vermelding om de beloning en het aantal bevestigingen te bekijken."
       },
       {
         "id": "mining",
@@ -1271,13 +1271,13 @@
       },
       {
         "id": "history",
-        "title": "Transactiegeschiedenis",
-        "body": "Toont mijnbeloningen, ontvangen geld, verzonden geld, aantal bevestigingen, blokhoogte en transactie-ID. Filters zijn van toepassing op de geladen pagina; gebruik Vorige of Volgende om door meer dan 50 records te bladeren."
+        "title": "Mininggeschiedenis",
+        "body": "Hier staan alleen blokken die deze telefoon heeft gemined. Tik op een vermelding om de beloning en het aantal bevestigingen te bekijken."
       },
       {
         "id": "network",
         "title": "Knooppuntverbinding",
-        "body": "De app voert een lokaal SMW knooppunt uit. Verbonden peers tellen andere knooppunten mee, dus nul betekent niet dat uw eigen knooppunt is verdwenen. Als internet is ingeschakeld, probeert de automatische SMW-detectie compatibele peers te vinden. Als er geen bereikbaar zijn, voeg dan handmatig een peer-IP of domein:poort toe. Mining wacht totdat een peer is gesynchroniseerd."
+        "body": "De telefoon maakt verbinding met een volledige SUMUWW-node met versie 0.57.49 of hoger. Hij controleert de beloning en berekent het werkbewijs zonder de hele transactiegeschiedenis te downloaden."
       },
       {
         "id": "settings",
@@ -1292,7 +1292,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android-applicatie",
-        "body": "De telefoon mineert zelfstandig en communiceert met compatibele SMW-peers. Op het hoofdnetwerk zijn een gesynchroniseerde, bereikbare peer en een open portemonnee vereist. Automatische detectie garandeert geen toegang via elke NAT of firewall. Er is geen miningpool, marktprijsservice of QR-functie inbegrepen.\n\nDe kosten kunnen automatisch worden berekend of handmatig worden ingevoerd, met maximaal acht decimalen. De afzender betaalt de vergoeding. Controleer de kosten en het totale afschrijvingsbedrag voordat u deze indient. Knooppuntacceptatie is geen ontvangersontvangst of blokbevestiging. Afwijzing, onzekere resultaten, inkomende openstaande overdrachten en opname in een blok worden afzonderlijk weergegeven. Verzend een onzekere transactie niet opnieuw voordat u de geschiedenis heeft gecontroleerd.\n\nEen lokale voorgrondservice host het knooppunt. Actieve mijnbouw maakt gebruik van een wake lock om de CPU actief te houden; Android of de fabrikant van het apparaat stopt mogelijk het proces nog steeds. Voor meldingen is toestemming vereist. Gesloten apps kunnen geen onmiddellijke ontvangstwaarschuwingen garanderen; resultaten worden gecontroleerd na heropening en synchronisatie. Oude transacties en mijnbeloningen worden uitgesloten van waarschuwingen voor nieuwe inkomende overdrachten."
+        "body": "De telefoon maakt verbinding met een volledige SUMUWW-node met versie 0.57.49 of hoger. Hij controleert de beloning en berekent het werkbewijs zonder de hele transactiegeschiedenis te downloaden. Hier staan alleen blokken die deze telefoon heeft gemined. Tik op een vermelding om de beloning en het aantal bevestigingen te bekijken."
       },
       {
         "id": "mobile_protection",
@@ -1309,7 +1309,7 @@
       {
         "id": "home",
         "title": "Home",
-        "body": "Ipinapakita ang iyong SMW balanse, available na balanse, pag-unlad ng pagmimina at kamakailang aktibidad. Ipinapakita ng seksyon ng network ang taas ng lokal na bloke at mga konektadong peer. Ang wallet ay nagpapakita ng mga reward na hindi pa maaaring gastusin at mga nakabinbing pagbabago."
+        "body": "Ang mga block na mismong minina ng teleponong ito lang ang makikita rito. I-tap ang tala para makita ang gantimpala at bilang ng kumpirmasyon."
       },
       {
         "id": "mining",
@@ -1333,13 +1333,13 @@
       },
       {
         "id": "history",
-        "title": "Kasaysayan ng transaksyon",
-        "body": "Nagpapakita ng mga reward sa pagmimina, nakatanggap ng mga pondo, nagpadala ng mga pondo, bilang ng kumpirmasyon, taas ng block, at transaction ID. Nalalapat ang mga filter sa na-load na pahina; gamitin ang Nakaraan o Susunod upang mag-browse ng higit sa 50 mga tala."
+        "title": "Kasaysayan ng pagmimina",
+        "body": "Ang mga block na mismong minina ng teleponong ito lang ang makikita rito. I-tap ang tala para makita ang gantimpala at bilang ng kumpirmasyon."
       },
       {
         "id": "network",
         "title": "Koneksyon ng node",
-        "body": "Ang app ay nagpapatakbo ng lokal na SMW node. Ang mga konektadong peer ay nagbibilang ng iba pang mga node, kaya ang zero ay hindi nangangahulugang nawala ang iyong sariling node. Kapag naka-enable ang internet, sinusubukan ng awtomatikong SMW na pagtuklas na maghanap ng mga katugmang kapantay. Kung walang maabot, magdagdag ng peer IP o domain:port nang manu-mano. Naghihintay ang pagmimina hanggang sa ma-synchronize ang isang peer."
+        "body": "Kumokonekta ang telepono sa isang SUMUWW full node na may bersyong 0.57.49 o mas bago. Sinusuri nito ang gantimpala at kinakalkula ang proof of work nang hindi dina-download ang buong kasaysayan ng mga transaksyon."
       },
       {
         "id": "settings",
@@ -1354,7 +1354,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android application",
-        "body": "Ang telepono ay nagmimina nang nakapag-iisa at nakikipag-ugnayan sa mga katugmang SMW na mga kapantay. Ang isang naka-synchronize na maaabot na peer at isang bukas na wallet ay kinakailangan sa pangunahing network. Hindi ginagarantiyahan ng awtomatikong pagtuklas ang pag-access sa bawat NAT o firewall. Walang mining pool, market price service o QR feature na kasama.\n\nAng mga bayarin ay maaaring awtomatikong kalkulahin o ipasok nang manu-mano, na may hanggang walong decimal na lugar. Ang nagpadala ay nagbabayad ng bayad. Suriin ang bayad at kabuuang debit bago isumite. Ang pagtanggap ng node ay hindi resibo ng tatanggap o pagkumpirma ng block. Ang pagtanggi, hindi tiyak na mga resulta, mga papasok na nakabinbing paglilipat at pagsasama ng block ay ipinapakita nang hiwalay. Huwag magpadala muli ng hindi tiyak na transaksyon bago suriin ang kasaysayan.\n\nAng isang lokal na serbisyo sa harapan ay nagho-host ng node. Ang aktibong pagmimina ay gumagamit ng wake lock para panatilihing aktibo ang CPU; Maaaring ihinto pa rin ng Android o ng manufacturer ng device ang proseso. Nangangailangan ng pahintulot ang mga notification. Hindi magagarantiya ng mga saradong app ang mga agarang alerto sa pagtanggap; ang mga resulta ay sinusuri pagkatapos ng muling pagbubukas at pag-synchronize. Ang mga lumang transaksyon at mga reward sa pagmimina ay hindi kasama sa mga bagong alerto sa papasok na paglilipat."
+        "body": "Kumokonekta ang telepono sa isang SUMUWW full node na may bersyong 0.57.49 o mas bago. Sinusuri nito ang gantimpala at kinakalkula ang proof of work nang hindi dina-download ang buong kasaysayan ng mga transaksyon. Ang mga block na mismong minina ng teleponong ito lang ang makikita rito. I-tap ang tala para makita ang gantimpala at bilang ng kumpirmasyon."
       },
       {
         "id": "mobile_protection",
@@ -1371,7 +1371,7 @@
       {
         "id": "home",
         "title": "முகப்பு",
-        "body": "உங்கள் SMW இருப்பு, கிடைக்கும் இருப்பு, சுரங்க முன்னேற்றம் மற்றும் சமீபத்திய செயல்பாடு ஆகியவற்றைக் காட்டுகிறது. நெட்வொர்க் பிரிவு உள்ளூர் தொகுதி உயரம் மற்றும் இணைக்கப்பட்ட சகாக்களைக் காட்டுகிறது. வாலட் முதிர்ச்சியடையாத வெகுமதிகளையும் நிலுவையில் உள்ள மாற்றங்களையும் காட்டுகிறது."
+        "body": "இந்தக் கைப்பேசியில் மைனிங் செய்த தொகுதிகள் மட்டுமே இங்கே தெரியும். வெகுமதியையும் உறுதிப்படுத்தல்களின் எண்ணிக்கையையும் காண ஒரு பதிவைத் தொடவும்."
       },
       {
         "id": "mining",
@@ -1395,13 +1395,13 @@
       },
       {
         "id": "history",
-        "title": "பரிவர்த்தனை வரலாறு",
-        "body": "சுரங்க வெகுமதிகள், பெறப்பட்ட நிதிகள், அனுப்பப்பட்ட நிதிகள், உறுதிப்படுத்தல் எண்ணிக்கை, தொகுதி உயரம் மற்றும் பரிவர்த்தனை ஐடி ஆகியவற்றைக் காட்டுகிறது. ஏற்றப்பட்ட பக்கத்திற்கு வடிப்பான்கள் பொருந்தும்; 50 க்கும் மேற்பட்ட பதிவுகளை உலாவ முந்தைய அல்லது அடுத்ததைப் பயன்படுத்தவும்."
+        "title": "மைனிங் வரலாறு",
+        "body": "இந்தக் கைப்பேசியில் மைனிங் செய்த தொகுதிகள் மட்டுமே இங்கே தெரியும். வெகுமதியையும் உறுதிப்படுத்தல்களின் எண்ணிக்கையையும் காண ஒரு பதிவைத் தொடவும்."
       },
       {
         "id": "network",
         "title": "முனை இணைப்பு",
-        "body": "பயன்பாடு உள்ளூர் SMW முனையை இயக்குகிறது. இணைக்கப்பட்ட சகாக்கள் மற்ற முனைகளைக் கணக்கிடுவார்கள், எனவே பூஜ்ஜியம் என்பது உங்கள் சொந்த முனை மறைந்துவிட்டதாக அர்த்தமல்ல. இணையம் இயக்கப்பட்டிருந்தால், தானியங்கி SMW கண்டுபிடிப்பானது இணக்கமான சகாக்களைக் கண்டறிய முயற்சிக்கிறது. யாரையும் அணுக முடியாவிட்டால், ஒரு பியர் ஐபி அல்லது டொமைன்:போர்ட்டை கைமுறையாகச் சேர்க்கவும். ஒரு பியர் ஒத்திசைக்கப்படும் வரை சுரங்கம் காத்திருக்கிறது."
+        "body": "கைப்பேசி SUMUWW முழு முனையின் 0.57.49 அல்லது அதற்குப் பிந்தைய பதிப்புடன் இணைகிறது. வெகுமதியைச் சரிபார்த்து வேலைச் சான்றைக் கைப்பேசியிலேயே கணக்கிடுகிறது. சங்கிலியின் முழுப் பரிவர்த்தனை வரலாற்றையும் பதிவிறக்குவதில்லை."
       },
       {
         "id": "settings",
@@ -1416,7 +1416,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android பயன்பாடு",
-        "body": "தொலைபேசி தனியாக மைனிங் செய்து இணக்கமான SMW பியர்களுடன் தொடர்புகொள்கிறது. முதன்மை நெட்வொர்க்கில் அணுகக்கூடிய ஒத்திசைந்த பியரும் திறந்த வாலட்டும் தேவை. தானியங்கித் தேடல் எல்லா NAT அல்லது ஃபயர்வால்களிலும் அணுகலை உறுதி செய்யாது. மைனிங் பூல், சந்தை விலை சேவை அல்லது QR வசதி இல்லை.\n\nகட்டணம் எட்டு தசம இடங்கள் வரை தானாகக் கணக்கிடப்படலாம் அல்லது கைமுறையாக உள்ளிடப்படலாம். அனுப்புநர் கட்டணம் செலுத்துகிறார். சமர்ப்பிக்கும் முன் கட்டணத்தையும் மொத்தப் பற்றையும் மதிப்பாய்வு செய்யவும். நோடு ஏற்றுக்கொண்டது பெறுநர் பெற்றதையோ பிளாக் உறுதிப்படுத்தலையோ குறிக்காது. நிராகரிப்பு, உறுதியற்ற முடிவு, நிலுவை உள்வரும் பரிவர்த்தனை மற்றும் பிளாக் சேர்ப்பு தனித்தனியாகக் காட்டப்படும். வரலாற்றைச் சரிபார்க்கும் முன் உறுதியற்ற பரிவர்த்தனையை மீண்டும் அனுப்ப வேண்டாம்.\n\nஉள்ளூர் foreground service நோடை இயக்குகிறது. செயலில் உள்ள மைனிங் wake lock பயன்படுத்துகிறது; Android அல்லது சாதன உற்பத்தியாளர் செயல்முறையை நிறுத்தலாம். அறிவிப்புகளுக்கு அனுமதி தேவை. செயலி மூடப்பட்டால் உடனடி வரவு அறிவிப்பை உறுதி செய்ய முடியாது; மீண்டும் திறந்து ஒத்திசைத்த பிறகு நிலை சரிபார்க்கப்படும். பழைய பரிவர்த்தனைகளும் மைனிங் வெகுமதிகளும் புதிய உள்வரும் பரிவர்த்தனை அறிவிப்புகளிலிருந்து விலக்கப்படும்."
+        "body": "கைப்பேசி SUMUWW முழு முனையின் 0.57.49 அல்லது அதற்குப் பிந்தைய பதிப்புடன் இணைகிறது. வெகுமதியைச் சரிபார்த்து வேலைச் சான்றைக் கைப்பேசியிலேயே கணக்கிடுகிறது. சங்கிலியின் முழுப் பரிவர்த்தனை வரலாற்றையும் பதிவிறக்குவதில்லை. இந்தக் கைப்பேசியில் மைனிங் செய்த தொகுதிகள் மட்டுமே இங்கே தெரியும். வெகுமதியையும் உறுதிப்படுத்தல்களின் எண்ணிக்கையையும் காண ஒரு பதிவைத் தொடவும்."
       },
       {
         "id": "mobile_protection",
@@ -1433,7 +1433,7 @@
       {
         "id": "home",
         "title": "首頁",
-        "body": "顯示 SMW 餘額、可用餘額、挖礦進度和最近活動。網路區域顯示本地塊高和已連線節點。未成熟獎勵及待處理變動在錢包中檢視。"
+        "body": "這裡只顯示這支手機挖出的區塊。點選一筆紀錄即可查看獎勵與確認數。"
       },
       {
         "id": "mining",
@@ -1457,13 +1457,13 @@
       },
       {
         "id": "history",
-        "title": "交易記錄",
-        "body": "顯示挖礦獎勵、收款、付款、確認數、塊高和交易 ID。篩選僅作用於已載入頁面；超過 50 條時使用上一頁或下一頁。"
+        "title": "挖礦紀錄",
+        "body": "這裡只顯示這支手機挖出的區塊。點選一筆紀錄即可查看獎勵與確認數。"
       },
       {
         "id": "network",
         "title": "節點連線",
-        "body": "應用執行本地 SMW 節點。已連線節點為零並不代表自己的節點消失。聯網後會自動尋找相容節點；若找不到可連線的節點，請手動新增對方的 IP 或域名:埠。挖礦會等待與節點同步。"
+        "body": "手機會連線至 0.57.49 或更新版本的 SUMUWW 完整節點，在手機上核對獎勵並計算工作量證明，無須下載整條鏈的交易紀錄。"
       },
       {
         "id": "settings",
@@ -1478,7 +1478,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android 應用程式",
-        "body": "手機獨立挖礦並與相容節點通訊。主網需要可連線的同步節點及已開啟的錢包。自動發現不能保證穿過所有 NAT 和防火牆。沒有礦池、市場價格服務或 QR 功能。\n\n手續費自動計算或手動設定，最多八位小數，由傳送方承擔。提交前檢查手續費與總支出。節點接受不等於對方收款或區塊確認。拒絕、結果不明、收款待確認和區塊包含分別顯示。結果不明時先檢查記錄再決定是否重發。\n\n前臺服務執行節點，挖礦時使用喚醒鎖。Android 或廠商仍可能終止程序。通知需要許可權。應用關閉後，在重開及同步後檢查結果。舊交易與挖礦獎勵不作為新收款提醒。"
+        "body": "手機會連線至 0.57.49 或更新版本的 SUMUWW 完整節點，在手機上核對獎勵並計算工作量證明，無須下載整條鏈的交易紀錄。 這裡只顯示這支手機挖出的區塊。點選一筆紀錄即可查看獎勵與確認數。"
       },
       {
         "id": "mobile_protection",
@@ -1495,7 +1495,7 @@
       {
         "id": "home",
         "title": "首頁",
-        "body": "顯示 SMW 餘額、可用餘額、挖礦進度和最近活動。網絡區域顯示本地塊高和已連線節點。未成熟獎勵及待處理變動在錢包中檢視。"
+        "body": "這裡只會顯示由這部手機挖出的區塊。點選記錄即可查看獎勵和確認次數。"
       },
       {
         "id": "mining",
@@ -1519,13 +1519,13 @@
       },
       {
         "id": "history",
-        "title": "交易記錄",
-        "body": "顯示挖礦獎勵、收款、付款、確認數、塊高和交易 ID。篩選僅作用於已載入頁面；超過 50 條時使用上一頁或下一頁。"
+        "title": "挖礦記錄",
+        "body": "這裡只會顯示由這部手機挖出的區塊。點選記錄即可查看獎勵和確認次數。"
       },
       {
         "id": "network",
         "title": "節點連線",
-        "body": "應用執行本地 SMW 節點。已連線節點為零並不代表自己的節點消失。聯網後會自動尋找相容節點；若找不到可連線的節點，請手動新增對方的 IP 或域名:埠。挖礦會等待與節點同步。"
+        "body": "手機會連接運行 0.57.49 或更新版本的 SUMUWW 完整節點，在本機核對獎勵及計算工作量證明，毋須下載整條鏈的交易記錄。"
       },
       {
         "id": "settings",
@@ -1540,7 +1540,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android 應用程式",
-        "body": "手機獨立挖礦並與相容節點通訊。主網需要可連線的同步節點及已開啟的錢包。自動發現不能保證穿過所有 NAT 和防火牆。沒有礦池、市場價格服務或 QR 功能。\n\n手續費自動計算或手動設定，最多八位小數，由傳送方承擔。提交前檢查手續費與總支出。節點接受不等於對方收款或區塊確認。拒絕、結果不明、收款待確認和區塊包含分別顯示。結果不明時先檢查記錄再決定是否重發。\n\n前台服務執行節點，挖礦時使用喚醒鎖。Android 或廠商仍可能終止程序。通知需要許可權。應用關閉後，在重開及同步後檢查結果。舊交易與挖礦獎勵不作為新收款提醒。"
+        "body": "手機會連接運行 0.57.49 或更新版本的 SUMUWW 完整節點，在本機核對獎勵及計算工作量證明，毋須下載整條鏈的交易記錄。 這裡只會顯示由這部手機挖出的區塊。點選記錄即可查看獎勵和確認次數。"
       },
       {
         "id": "mobile_protection",
@@ -1557,7 +1557,7 @@
       {
         "id": "home",
         "title": "Domů",
-        "body": "Zobrazuje zůstatek SMW, dostupný zůstatek, postup těžby a nedávnou aktivitu. Sekce sítě ukazuje místní výšku bloků a připojené uzly. Peněženka zobrazuje nezralé odměny a čekající změny."
+        "body": "Zde se zobrazují jen bloky vytěžené tímto telefonem. Klepnutím na záznam zobrazíte odměnu a počet potvrzení."
       },
       {
         "id": "mining",
@@ -1581,13 +1581,13 @@
       },
       {
         "id": "history",
-        "title": "Historie transakcí",
-        "body": "Zobrazuje odměny za těžbu, přijaté a odeslané prostředky, počet potvrzení, výšku bloku a ID transakce. Filtry se vztahují na načtenou stránku; při prohlížení více než 50 záznamů použijte Předchozí nebo Další."
+        "title": "Historie těžby",
+        "body": "Zde se zobrazují jen bloky vytěžené tímto telefonem. Klepnutím na záznam zobrazíte odměnu a počet potvrzení."
       },
       {
         "id": "network",
         "title": "Připojení uzlu",
-        "body": "Aplikace provozuje místní uzel SMW. Počet připojených uzlů počítá ostatní uzly, takže nula neznamená, že váš vlastní uzel zmizel. Při povoleném internetu se automatické vyhledávání SMW pokouší najít kompatibilní uzly. Pokud žádný není dostupný, přidejte ručně IP nebo doménu:port uzlu. Těžba čeká, dokud se uzel nesynchronizuje."
+        "body": "Telefon se připojuje k plnému uzlu SUMUWW verze 0.57.49 nebo novější. Ověří odměnu a vypočítá důkaz práce bez stahování celé historie transakcí."
       },
       {
         "id": "settings",
@@ -1602,7 +1602,7 @@
       {
         "id": "current_transfer_states",
         "title": "Aplikace pro Android",
-        "body": "Telefon těží nezávisle a komunikuje s kompatibilními uzly SMW. V hlavní síti je nutný synchronizovaný dostupný uzel a otevřená peněženka. Automatické vyhledávání nezaručuje přístup přes každý NAT nebo firewall. Těžební pool, služba tržních cen ani funkce QR nejsou součástí aplikace.\n\nPoplatky lze vypočítat automaticky nebo zadat ručně s nejvýše osmi desetinnými místy. Poplatek platí odesílatel. Před odesláním zkontrolujte poplatek a celkový odečet. Přijetí uzlem neznamená přijetí příjemcem ani potvrzení v bloku. Odmítnutí, nejistý výsledek, čekající příchozí převod a zařazení do bloku se zobrazují odděleně. Nejistou transakci neposílejte znovu bez kontroly historie.\n\nUzel hostuje místní služba na popředí. Aktivní těžba používá zámek probuzení; Android nebo výrobce zařízení přesto mohou proces zastavit. Oznámení vyžadují oprávnění. Zavřená aplikace nemůže zaručit okamžitá upozornění na příjem; výsledky se kontrolují po opětovném otevření a synchronizaci. Staré transakce a odměny za těžbu jsou vyloučeny z nových upozornění na příchozí převody."
+        "body": "Telefon se připojuje k plnému uzlu SUMUWW verze 0.57.49 nebo novější. Ověří odměnu a vypočítá důkaz práce bez stahování celé historie transakcí. Zde se zobrazují jen bloky vytěžené tímto telefonem. Klepnutím na záznam zobrazíte odměnu a počet potvrzení."
       },
       {
         "id": "mobile_protection",
@@ -1619,7 +1619,7 @@
       {
         "id": "home",
         "title": "Hjem",
-        "body": "Viser din SMW-saldo, tilgængelige saldo, mining-fremgang og seneste aktivitet. Netværksafsnittet viser lokal blokhøjde og tilsluttede noder. Tegnebog viser umodne belønninger og afventende ændringer."
+        "body": "Her vises kun blokke, som denne telefon har udvundet. Tryk på en post for at se belønningen og antallet af bekræftelser."
       },
       {
         "id": "mining",
@@ -1643,13 +1643,13 @@
       },
       {
         "id": "history",
-        "title": "Transaktionshistorik",
-        "body": "Viser mining-belønninger, modtagne og sendte midler, antal bekræftelser, blokhøjde og transaktions-ID. Filtre gælder den indlæste side; brug Forrige eller Næste for at gennemse mere end 50 poster."
+        "title": "Minehistorik",
+        "body": "Her vises kun blokke, som denne telefon har udvundet. Tryk på en post for at se belønningen og antallet af bekræftelser."
       },
       {
         "id": "network",
         "title": "Nodeforbindelse",
-        "body": "Appen kører en lokal SMW-node. Tilsluttede noder tæller andre noder, så nul betyder ikke, at din egen node er forsvundet. Med internet aktiveret forsøger SMWs automatiske søgning at finde kompatible noder. Hvis ingen er tilgængelige, skal du tilføje en nodes IP eller domæne:port manuelt. Mining venter, indtil en node er synkroniseret."
+        "body": "Telefonen opretter forbindelse til en fuld SUMUWW-node med version 0.57.49 eller nyere. Den kontrollerer belønningen og beregner proof of work uden at hente hele transaktionshistorikken."
       },
       {
         "id": "settings",
@@ -1664,7 +1664,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android-app",
-        "body": "Telefonen miner selvstændigt og kommunikerer med kompatible SMW-noder. På hovednetværket kræves en synkroniseret, tilgængelig node og en åben tegnebog. Automatisk søgning garanterer ikke adgang gennem enhver NAT eller firewall. Mining-pulje, markedspristjeneste og QR-funktion er ikke inkluderet.\n\nGebyrer kan beregnes automatisk eller indtastes manuelt med op til otte decimaler. Afsenderen betaler gebyret. Gennemgå gebyret og den samlede debitering før indsendelse. Nodens accept er ikke modtagerens modtagelse eller blokbekræftelse. Afvisning, usikre resultater, afventende indgående overførsler og medtagelse i blok vises separat. Send ikke en usikker transaktion igen, før du har kontrolleret historikken.\n\nEn lokal forgrundstjeneste hoster noden. Aktiv mining bruger en wake lock; Android eller enhedsproducenten kan stadig stoppe processen. Notifikationer kræver tilladelse. Lukkede apps kan ikke garantere øjeblikkelige modtagelsesadvarsler; resultater kontrolleres efter genåbning og synkronisering. Gamle transaktioner og mining-belønninger er udelukket fra nye advarsler om indgående overførsler."
+        "body": "Telefonen opretter forbindelse til en fuld SUMUWW-node med version 0.57.49 eller nyere. Den kontrollerer belønningen og beregner proof of work uden at hente hele transaktionshistorikken. Her vises kun blokke, som denne telefon har udvundet. Tryk på en post for at se belønningen og antallet af bekræftelser."
       },
       {
         "id": "mobile_protection",
@@ -1681,7 +1681,7 @@
       {
         "id": "home",
         "title": "Koti",
-        "body": "Näyttää SMW-saldosi, käytettävissä olevan saldon, louhinnan etenemisen ja viimeisimmät tapahtumat. Verkko-osio näyttää paikallisen lohkokorkeuden ja yhdistetyt vertaiset. Lompakko näyttää epäkypsät palkkiot ja odottavat muutokset."
+        "body": "Tässä näkyvät vain tällä puhelimella louhitut lohkot. Näytä palkkio ja vahvistusten määrä napauttamalla merkintää."
       },
       {
         "id": "mining",
@@ -1705,13 +1705,13 @@
       },
       {
         "id": "history",
-        "title": "Transaktiohistoria",
-        "body": "Näyttää louhintapalkkiot, vastaanotetut ja lähetetyt varat, vahvistusmäärän, lohkokorkeuden ja transaktion tunnisteen. Suodattimet koskevat ladattua sivua; selaa yli 50 tietuetta Edellinen- ja Seuraava-painikkeilla."
+        "title": "Louhintahistoria",
+        "body": "Tässä näkyvät vain tällä puhelimella louhitut lohkot. Näytä palkkio ja vahvistusten määrä napauttamalla merkintää."
       },
       {
         "id": "network",
         "title": "Solmuyhteys",
-        "body": "Sovellus käyttää paikallista SMW-solmua. Yhdistetyt vertaiset laskee muut solmut, joten nolla ei tarkoita oman solmusi kadonneen. Kun internet on käytössä, SUMUWWin automaattinen haku yrittää löytää yhteensopivia vertaisia. Jos yksikään ei ole tavoitettavissa, lisää vertaisen IP tai verkkotunnus:portti käsin. Louhinta odottaa vertaisen synkronointia."
+        "body": "Puhelin muodostaa yhteyden SUMUWW-täyssolmuun, jonka versio on 0.57.49 tai uudempi. Se tarkistaa palkkion ja laskee työtodisteen lataamatta ketjun koko tapahtumahistoriaa."
       },
       {
         "id": "settings",
@@ -1726,7 +1726,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android-sovellus",
-        "body": "Puhelin louhii itsenäisesti ja viestii yhteensopivien SMW-vertaisten kanssa. Pääverkossa vaaditaan synkronoitu, tavoitettava vertainen ja avoin lompakko. Automaattinen haku ei takaa pääsyä jokaisen NATin tai palomuurin läpi. Louhintapoolia, markkinahintapalvelua tai QR-toimintoa ei ole mukana.\n\nMaksut voidaan laskea automaattisesti tai syöttää käsin enintään kahdeksalla desimaalilla. Lähettäjä maksaa maksun. Tarkista maksu ja kokonaisveloitus ennen lähettämistä. Solmun hyväksyntä ei ole vastaanottajan vastaanotto tai lohkovahvistus. Hylkäys, epävarmat tulokset, odottavat saapuvat siirrot ja lohkoon sisällyttäminen näytetään erikseen. Älä lähetä epävarmaa transaktiota uudelleen ennen historian tarkistamista.\n\nPaikallinen etualapalvelu ylläpitää solmua. Aktiivinen louhinta käyttää herätelukkoa; Android tai laitteen valmistaja voi silti pysäyttää prosessin. Ilmoitukset vaativat luvan. Suljetut sovellukset eivät voi taata välittömiä vastaanottoilmoituksia; tulokset tarkistetaan uudelleenavauksen ja synkronoinnin jälkeen. Vanhat transaktiot ja louhintapalkkiot jätetään uusien saapuvien siirtoilmoitusten ulkopuolelle."
+        "body": "Puhelin muodostaa yhteyden SUMUWW-täyssolmuun, jonka versio on 0.57.49 tai uudempi. Se tarkistaa palkkion ja laskee työtodisteen lataamatta ketjun koko tapahtumahistoriaa. Tässä näkyvät vain tällä puhelimella louhitut lohkot. Näytä palkkio ja vahvistusten määrä napauttamalla merkintää."
       },
       {
         "id": "mobile_protection",
@@ -1743,7 +1743,7 @@
       {
         "id": "home",
         "title": "Αρχική",
-        "body": "Εμφανίζει το υπόλοιπο SMW, το διαθέσιμο υπόλοιπο, την πρόοδο εξόρυξης και την πρόσφατη δραστηριότητα. Η ενότητα δικτύου δείχνει το τοπικό ύψος μπλοκ και τους συνδεδεμένους ομότιμους. Το Πορτοφόλι δείχνει ανώριμες ανταμοιβές και εκκρεμείς μεταβολές."
+        "body": "Εδώ εμφανίζονται μόνο τα μπλοκ που εξόρυξε αυτό το τηλέφωνο. Πατήστε μια εγγραφή για να δείτε την ανταμοιβή και τις επιβεβαιώσεις."
       },
       {
         "id": "mining",
@@ -1767,13 +1767,13 @@
       },
       {
         "id": "history",
-        "title": "Ιστορικό συναλλαγών",
-        "body": "Δείχνει ανταμοιβές εξόρυξης, εισερχόμενα και εξερχόμενα κεφάλαια, αριθμό επιβεβαιώσεων, ύψος μπλοκ και αναγνωριστικό συναλλαγής. Τα φίλτρα ισχύουν για τη φορτωμένη σελίδα· χρησιμοποιήστε Προηγούμενο ή Επόμενο για περιήγηση σε περισσότερες από 50 εγγραφές."
+        "title": "Ιστορικό εξόρυξης",
+        "body": "Εδώ εμφανίζονται μόνο τα μπλοκ που εξόρυξε αυτό το τηλέφωνο. Πατήστε μια εγγραφή για να δείτε την ανταμοιβή και τις επιβεβαιώσεις."
       },
       {
         "id": "network",
         "title": "Σύνδεση κόμβου",
-        "body": "Η εφαρμογή εκτελεί τοπικό κόμβο SMW. Οι συνδεδεμένοι ομότιμοι μετρούν άλλους κόμβους, άρα το μηδέν δεν σημαίνει ότι εξαφανίστηκε ο δικός σας κόμβος. Με ενεργό διαδίκτυο, η αυτόματη ανακάλυψη SMW προσπαθεί να βρει συμβατούς ομότιμους. Αν κανένας δεν είναι προσβάσιμος, προσθέστε IP ή τομέα:θύρα ομότιμου χειροκίνητα. Η εξόρυξη περιμένει μέχρι να συγχρονιστεί ομότιμος."
+        "body": "Το τηλέφωνο συνδέεται σε πλήρη κόμβο SUMUWW με έκδοση 0.57.49 ή νεότερη. Ελέγχει την ανταμοιβή και υπολογίζει την απόδειξη εργασίας χωρίς να κατεβάζει όλο το ιστορικό συναλλαγών."
       },
       {
         "id": "settings",
@@ -1788,7 +1788,7 @@
       {
         "id": "current_transfer_states",
         "title": "Εφαρμογή Android",
-        "body": "Το τηλέφωνο εξορύσσει ανεξάρτητα και επικοινωνεί με συμβατούς ομότιμους SMW. Στο κύριο δίκτυο απαιτούνται συγχρονισμένος προσβάσιμος ομότιμος και ανοιχτό πορτοφόλι. Η αυτόματη ανακάλυψη δεν εγγυάται πρόσβαση μέσω κάθε NAT ή τείχους προστασίας. Δεν περιλαμβάνονται δεξαμενή εξόρυξης, υπηρεσία τιμών αγοράς ή λειτουργία QR.\n\nΤα τέλη μπορούν να υπολογίζονται αυτόματα ή να εισάγονται χειροκίνητα, με έως οκτώ δεκαδικά ψηφία. Ο αποστολέας πληρώνει το τέλος. Ελέγξτε το τέλος και τη συνολική χρέωση πριν από την υποβολή. Η αποδοχή από τον κόμβο δεν είναι λήψη από τον παραλήπτη ή επιβεβαίωση μπλοκ. Απόρριψη, αβέβαια αποτελέσματα, εκκρεμείς εισερχόμενες μεταφορές και ένταξη σε μπλοκ εμφανίζονται ξεχωριστά. Μην υποβάλλετε ξανά αβέβαιη συναλλαγή πριν ελέγξετε το ιστορικό.\n\nΜια τοπική υπηρεσία προσκηνίου φιλοξενεί τον κόμβο. Η ενεργή εξόρυξη χρησιμοποιεί κλείδωμα αφύπνισης· το Android ή ο κατασκευαστής μπορεί παρ' όλα αυτά να σταματήσει τη διεργασία. Οι ειδοποιήσεις απαιτούν άδεια. Οι κλειστές εφαρμογές δεν εγγυώνται άμεσες ειδοποιήσεις λήψης· τα αποτελέσματα ελέγχονται μετά το άνοιγμα και τον συγχρονισμό. Οι παλιές συναλλαγές και οι ανταμοιβές εξόρυξης εξαιρούνται από νέες ειδοποιήσεις εισερχόμενων μεταφορών."
+        "body": "Το τηλέφωνο συνδέεται σε πλήρη κόμβο SUMUWW με έκδοση 0.57.49 ή νεότερη. Ελέγχει την ανταμοιβή και υπολογίζει την απόδειξη εργασίας χωρίς να κατεβάζει όλο το ιστορικό συναλλαγών. Εδώ εμφανίζονται μόνο τα μπλοκ που εξόρυξε αυτό το τηλέφωνο. Πατήστε μια εγγραφή για να δείτε την ανταμοιβή και τις επιβεβαιώσεις."
       },
       {
         "id": "mobile_protection",
@@ -1805,7 +1805,7 @@
       {
         "id": "home",
         "title": "Hjem",
-        "body": "Viser SMW-saldoen, tilgjengelig saldo, utvinningsfremdrift og nylig aktivitet. Nettverksdelen viser lokal blokkhøyde og tilkoblede noder. Lommebok viser umodne belønninger og ventende endringer."
+        "body": "Her vises bare blokker som denne telefonen har utvunnet. Trykk på en oppføring for å se belønningen og antallet bekreftelser."
       },
       {
         "id": "mining",
@@ -1829,13 +1829,13 @@
       },
       {
         "id": "history",
-        "title": "Transaksjonshistorikk",
-        "body": "Viser utvinningsbelønninger, mottatte og sendte midler, antall bekreftelser, blokkhøyde og transaksjons-ID. Filtre gjelder den innlastede siden; bruk Forrige eller Neste for å bla gjennom mer enn 50 poster."
+        "title": "Utvinningshistorikk",
+        "body": "Her vises bare blokker som denne telefonen har utvunnet. Trykk på en oppføring for å se belønningen og antallet bekreftelser."
       },
       {
         "id": "network",
         "title": "Nodetilkobling",
-        "body": "Appen kjører en lokal SMW-node. Tilkoblede noder teller andre noder, så null betyr ikke at din egen node har forsvunnet. Med internett aktivert prøver automatisk SMW-oppdagelse å finne kompatible noder. Hvis ingen kan nås, legg til en nodes IP eller domene:port manuelt. Utvinning venter til en node er synkronisert."
+        "body": "Telefonen kobler seg til en fullnode for SUMUWW som kjører versjon 0.57.49 eller nyere. Den sjekker belønningen og beregner arbeidsbeviset uten å laste ned hele transaksjonshistorikken."
       },
       {
         "id": "settings",
@@ -1850,7 +1850,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android-app",
-        "body": "Telefonen utvinner selvstendig og kommuniserer med kompatible SMW-noder. En synkronisert, tilgjengelig node og en åpen lommebok kreves på hovednettverket. Automatisk oppdagelse garanterer ikke tilgang gjennom alle NAT-er eller brannmurer. Ingen utvinningspool, markedspristjeneste eller QR-funksjon er inkludert.\n\nGebyrer kan beregnes automatisk eller angis manuelt, med opptil åtte desimaler. Avsenderen betaler gebyret. Se over gebyr og samlet belastning før innsending. At noden godtar transaksjonen, betyr ikke at mottakeren har mottatt den eller at den er bekreftet i en blokk. Avvisning, usikre resultater, ventende innkommende overføringer og blokkinkludering vises separat. Ikke send en usikker transaksjon på nytt før du har kontrollert historikken.\n\nEn lokal forgrunnstjeneste kjører noden. Aktiv utvinning bruker en vekkelås; Android eller enhetsprodusenten kan likevel stoppe prosessen. Varsler krever tillatelse. En lukket app kan ikke garantere umiddelbare mottaksvarsler; resultatene kontrolleres etter ny åpning og synkronisering. Gamle transaksjoner og utvinningsbelønninger utelates fra varsler om nye innkommende overføringer."
+        "body": "Telefonen kobler seg til en fullnode for SUMUWW som kjører versjon 0.57.49 eller nyere. Den sjekker belønningen og beregner arbeidsbeviset uten å laste ned hele transaksjonshistorikken. Her vises bare blokker som denne telefonen har utvunnet. Trykk på en oppføring for å se belønningen og antallet bekreftelser."
       },
       {
         "id": "mobile_protection",
@@ -1867,7 +1867,7 @@
       {
         "id": "home",
         "title": "Hem",
-        "body": "Visar ditt SMW-saldo, tillgängligt saldo, brytningsförlopp och senaste aktivitet. Nätverksavsnittet visar lokal blockhöjd och anslutna noder. Plånbok visar omogna belöningar och väntande ändringar."
+        "body": "Här visas bara block som den här telefonen har utvunnit. Tryck på en post för att se belöningen och antalet bekräftelser."
       },
       {
         "id": "mining",
@@ -1891,13 +1891,13 @@
       },
       {
         "id": "history",
-        "title": "Transaktionshistorik",
-        "body": "Visar brytningsbelöningar, mottagna medel, skickade medel, antal bekräftelser, blockhöjd och transaktions-ID. Filter gäller den inlästa sidan; använd Föregående eller Nästa för att bläddra bland fler än 50 poster."
+        "title": "Utvinningshistorik",
+        "body": "Här visas bara block som den här telefonen har utvunnit. Tryck på en post för att se belöningen och antalet bekräftelser."
       },
       {
         "id": "network",
         "title": "Nodanslutning",
-        "body": "Appen kör en lokal SMW-nod. Anslutna noder räknar andra noder, så noll betyder inte att din egen nod har försvunnit. När internet är aktiverat försöker automatisk SMW-upptäckt hitta kompatibla noder. Om ingen kan nås lägger du till en nod som IP eller domän:port manuellt. Brytningen väntar tills en nod är synkroniserad."
+        "body": "Telefonen ansluter till en fullnod för SUMUWW med version 0.57.49 eller senare. Den kontrollerar belöningen och beräknar arbetsbeviset utan att ladda ned hela transaktionshistoriken."
       },
       {
         "id": "settings",
@@ -1912,7 +1912,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android-app",
-        "body": "Telefonen bryter självständigt och kommunicerar med kompatibla SMW-noder. En synkroniserad nåbar nod och en öppen plånbok krävs i huvudnätverket. Automatisk upptäckt garanterar inte åtkomst genom alla NAT eller brandväggar. Ingen brytningspool, marknadspristjänst eller QR-funktion ingår.\n\nAvgifter kan beräknas automatiskt eller anges manuellt med upp till åtta decimaler. Avsändaren betalar avgiften. Granska avgiften och den totala debiteringen före inlämning. Nodens acceptans är inte mottagarens mottagande eller blockbekräftelse. Avvisning, osäkra resultat, inkommande väntande överföringar och blockinkludering visas separat. Skicka inte om en osäker transaktion innan du kontrollerat historiken.\n\nEn lokal förgrundstjänst driver noden. Aktiv brytning använder ett väckningslås; Android eller enhetstillverkaren kan fortfarande stoppa processen. Aviseringar kräver behörighet. Stängda appar kan inte garantera omedelbara mottagningsaviseringar; resultat kontrolleras efter att appen öppnats igen och synkroniserats. Gamla transaktioner och brytningsbelöningar undantas från aviseringar om nya inkommande överföringar."
+        "body": "Telefonen ansluter till en fullnod för SUMUWW med version 0.57.49 eller senare. Den kontrollerar belöningen och beräknar arbetsbeviset utan att ladda ned hela transaktionshistoriken. Här visas bara block som den här telefonen har utvunnit. Tryck på en post för att se belöningen och antalet bekräftelser."
       },
       {
         "id": "mobile_protection",
@@ -1929,7 +1929,7 @@
       {
         "id": "home",
         "title": "Почетна",
-        "body": "Приказује SMW стање, расположиво стање, напредак рударења и недавну активност. Одељак мреже приказује локалну висину блока и повезане чворове. Новчаник приказује недозреле награде и промене на чекању."
+        "body": "Овде се приказују само блокови које је изрударио овај телефон. Додирните запис да видите награду и број потврда."
       },
       {
         "id": "mining",
@@ -1953,13 +1953,13 @@
       },
       {
         "id": "history",
-        "title": "Историја трансакција",
-        "body": "Приказује рударске награде, примљена средства, послата средства, број потврда, висину блока и ID трансакције. Филтери важе за учитану страницу; користите Претходно или Следеће за преглед више од 50 записа."
+        "title": "Историја рударења",
+        "body": "Овде се приказују само блокови које је изрударио овај телефон. Додирните запис да видите награду и број потврда."
       },
       {
         "id": "network",
         "title": "Повезивање чвора",
-        "body": "Апликација покреће локални SMW чвор. Повезани чворови броје друге чворове, па нула не значи да је ваш чвор нестао. Када је интернет укључен, аутоматско SMW откривање покушава да пронађе компатибилне чворове. Ако ниједан није доступан, ручно додајте IP или домен:порт чвора. Рударење чека док чвор не буде синхронизован."
+        "body": "Телефон се повезује са пуним SUMUWW чвором верзије 0.57.49 или новије. Проверава награду и израчунава доказ рада без преузимања целокупне историје трансакција."
       },
       {
         "id": "settings",
@@ -1974,7 +1974,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android апликација",
-        "body": "Телефон рудари самостално и комуницира са компатибилним SMW чворовима. На главној мрежи потребни су синхронизован доступан чвор и отворен новчаник. Аутоматско откривање не гарантује приступ кроз сваки NAT или заштитни зид. Нису укључени рударски пул, сервис тржишних цена или QR функција.\n\nНакнаде могу бити аутоматски израчунате или ручно унете, са највише осам децималних места. Пошиљалац плаћа накнаду. Прегледајте накнаду и укупно задужење пре предаје. Прихватање чвора није пријем код примаоца нити потврда блока. Одбијање, неизвесни резултати, долазни преноси на чекању и укључивање у блок приказују се одвојено. Не шаљите поново неизвесну трансакцију пре провере историје.\n\nЛокална услуга у првом плану хостује чвор. Активно рударење користи закључавање будности; Android или произвођач уређаја ипак могу зауставити процес. Обавештења захтевају дозволу. Затворене апликације не могу гарантовати тренутна обавештења о пријему; резултати се проверавају након поновног отварања и синхронизације. Старе трансакције и рударске награде искључене су из обавештења о новим долазним преносима."
+        "body": "Телефон се повезује са пуним SUMUWW чвором верзије 0.57.49 или новије. Проверава награду и израчунава доказ рада без преузимања целокупне историје трансакција. Овде се приказују само блокови које је изрударио овај телефон. Додирните запис да видите награду и број потврда."
       },
       {
         "id": "mobile_protection",
@@ -1991,7 +1991,7 @@
       {
         "id": "home",
         "title": "Нүүр",
-        "body": "Таны SMW үлдэгдэл, боломжит үлдэгдэл, олборлолтын явц болон сүүлийн үйл ажиллагааг харуулна. Сүлжээний хэсэгт дотоод блокийн өндөр болон холбогдсон зангилаанууд харагдана. Хэтэвч нь боловсроогүй шагнал болон хүлээгдэж буй өөрчлөлтийг харуулна."
+        "body": "Зөвхөн энэ утсаар олборлосон блокуудыг энд харуулна. Урамшуулал болон баталгаажуулалтын тоог харахын тулд бичлэг дээр товшино уу."
       },
       {
         "id": "mining",
@@ -2015,13 +2015,13 @@
       },
       {
         "id": "history",
-        "title": "Гүйлгээний түүх",
-        "body": "Олборлолтын шагнал, хүлээн авсан хөрөнгө, илгээсэн хөрөнгө, баталгаажуулалтын тоо, блокийн өндөр болон гүйлгээний ID-г харуулна. Шүүлтүүр ачаалсан хуудсанд үйлчилнэ; 50-аас олон бичлэг үзэхдээ Өмнөх эсвэл Дараахыг ашиглана уу."
+        "title": "Олборлолтын түүх",
+        "body": "Зөвхөн энэ утсаар олборлосон блокуудыг энд харуулна. Урамшуулал болон баталгаажуулалтын тоог харахын тулд бичлэг дээр товшино уу."
       },
       {
         "id": "network",
         "title": "Зангилааны холболт",
-        "body": "Апп дотоод SMW зангилаа ажиллуулна. Холбогдсон зангилаанууд нь бусад зангилааг тоолдог тул тэг болсон нь таны зангилаа алга болсон гэсэн үг биш. Интернэт идэвхтэй үед автомат SMW илрүүлэлт нийцтэй зангилаанууд хайна. Аль нь ч холбогдох боломжгүй бол зангилааны IP эсвэл домэйн:порт гараар нэмнэ үү. Зангилаа синхрончлогдох хүртэл олборлолт хүлээнэ."
+        "body": "Утас SUMUWW-ийн 0.57.49 буюу түүнээс шинэ хувилбартай бүрэн зангилаанд холбогдоно. Гинжин дэх бүх гүйлгээний түүхийг таталгүйгээр урамшууллыг шалгаж, ажлын нотолгоог утсан дээрээ тооцоолно."
       },
       {
         "id": "settings",
@@ -2036,7 +2036,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android апп",
-        "body": "Утас бие даан олборлож нийцтэй SMW зангилаануудтай харилцана. Үндсэн сүлжээнд синхрончилсон, холбогдох боломжтой зангилаа болон нээлттэй хэтэвч шаардлагатай. Автомат илрүүлэлт бүх NAT эсвэл галт ханаар нэвтрэхийг батлахгүй. Олборлолтын пул, зах зээлийн үнийн үйлчилгээ эсвэл QR боломж ороогүй.\n\nШимтгэлийг автоматаар тооцоолох эсвэл таслалаас хойш найм хүртэл оронтойгоор гараар оруулж болно. Илгээгч шимтгэл төлнө. Илгээхийн өмнө шимтгэл болон нийт суутгалыг хянана уу. Зангилаа хүлээн авсан нь хүлээн авагчид хүрсэн эсвэл блокт баталгаажсан гэсэн үг биш. Татгалзалт, тодорхойгүй үр дүн, хүлээгдэж буй орлого болон блокт орох төлөвийг тусад нь харуулна. Түүхийг шалгалгүй тодорхойгүй гүйлгээг дахин бүү илгээгээрэй.\n\nДотоод foreground үйлчилгээ зангилааг ажиллуулна. Идэвхтэй олборлолт сэрүүн байлгах түгжээ ашиглана; Android эсвэл төхөөрөмж үйлдвэрлэгч үйл явцыг зогсоож болно. Мэдэгдэлд зөвшөөрөл шаардлагатай. Хаалттай апп шуурхай хүлээн авалтын мэдэгдлийг батлахгүй; дахин нээж синхрончилсны дараа үр дүнг шалгана. Хуучин гүйлгээ болон олборлолтын шагналыг шинэ орлогын мэдэгдлээс хасна."
+        "body": "Утас SUMUWW-ийн 0.57.49 буюу түүнээс шинэ хувилбартай бүрэн зангилаанд холбогдоно. Гинжин дэх бүх гүйлгээний түүхийг таталгүйгээр урамшууллыг шалгаж, ажлын нотолгоог утсан дээрээ тооцоолно. Зөвхөн энэ утсаар олборлосон блокуудыг энд харуулна. Урамшуулал болон баталгаажуулалтын тоог харахын тулд бичлэг дээр товшино уу."
       },
       {
         "id": "mobile_protection",
@@ -2053,7 +2053,7 @@
       {
         "id": "home",
         "title": "ᠨᠢᠭᠤᠷ",
-        "body": "ᠲᠠᠨ ᠤ SMW ᠦᠯᠡᠳᠡᠭᠳᠡᠯ᠂ ᠵᠠᠷᠴᠤᠭᠤᠯᠵᠤ ᠪᠣᠯᠬᠤ ᠦᠯᠡᠳᠡᠭᠳᠡᠯ᠂ ᠣᠯᠪᠣᠷᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠠᠬᠢᠴᠠ᠂ ᠰᠡᠭᠦᠯ ᠦᠨ ᠦᠢᠯᠡ ᠠᠵᠢᠯᠯᠠᠭ᠎ᠠ ᠶᠢ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠲᠣᠣᠷᠴᠢᠯᠠᠯ ᠤᠨ ᠬᠡᠰᠡᠭ ᠳᠣᠲᠣᠭᠠᠳᠤ ᠪᠯᠣᠺ ᠤᠨ ᠥᠨᠳᠥᠷ ᠪᠠ ᠬᠣᠯᠪᠣᠭᠰᠠᠨ ᠲᠦᠩᠰᠢ ᠶᠢ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠲᠦᠷᠢᠦᠪᠴᠢ ᠪᠣᠯᠪᠣᠰᠣᠷᠠᠭᠤᠢ ᠱᠠᠩᠨᠠᠯ ᠪᠠ ᠬᠦᠯᠢᠶᠡᠭᠳᠡᠵᠦ ᠪᠤᠢ ᠥᠭᠡᠷᠴᠡᠯᠲᠡ ᠶᠢ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃"
+        "body": "ᠡᠨᠳᠡ ᠵᠥᠪᠬᠡᠨ ᠡᠨᠡ ᠤᠲᠠᠰᠤ ᠪᠠᠷ ᠣᠯᠪᠣᠷᠢᠯᠠᠭᠰᠠᠨ ᠪᠯᠣᠺ ᠤᠳ ᠢ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠪᠢᠴᠢᠯᠭᠡ ᠶᠢ ᠳᠠᠷᠤᠵᠤ ᠰᠢᠭᠨᠠᠯ ᠪᠠ ᠪᠠᠲᠤᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠲᠣᠭ᠎ᠠ ᠶᠢ ᠦᠵᠡᠨ᠎ᠡ᠃"
       },
       {
         "id": "mining",
@@ -2077,13 +2077,13 @@
       },
       {
         "id": "history",
-        "title": "ᠭᠦᠶᠦᠯᠭᠡ ᠶᠢᠨ ᠲᠡᠦᠬᠡ",
-        "body": "ᠣᠯᠪᠣᠷᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠱᠠᠩᠨᠠᠯ᠂ ᠬᠦᠯᠢᠶᠡᠨ ᠠᠪᠤᠭᠰᠠᠨ ᠮᠥᠩᠭᠥ᠂ ᠢᠯᠡᠭᠡᠭᠰᠡᠨ ᠮᠥᠩᠭᠥ᠂ ᠪᠠᠲᠤᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠲᠣᠭ᠎ᠠ᠂ ᠪᠯᠣᠺ ᠤᠨ ᠥᠨᠳᠥᠷ᠂ ᠭᠦᠶᠦᠯᠭᠡ ᠶᠢᠨ ID ᠶᠢ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠱᠦᠭᠦᠭᠦᠷ ᠠᠴᠢᠶᠠᠯᠠᠭᠰᠠᠨ ᠬᠠᠭᠤᠳᠠᠰᠤ ᠳᠤ ᠦᠢᠯᠡᠴᠢᠯᠡᠨ᠎ᠡ; 50 ᠠᠴᠠ ᠣᠯᠠᠨ ᠪᠢᠴᠢᠯᠭᠡ ᠦᠵᠡᠬᠦ ᠳᠦ ᠥᠮᠦᠨᠡᠬᠢ ᠪᠤᠶᠤ ᠳᠠᠷᠠᠭᠠᠬᠢ ᠶᠢ ᠠᠰᠢᠭᠯᠠᠨ᠎ᠠ᠃"
+        "title": "ᠣᠯᠪᠣᠷᠢᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠲᠡᠦᠬᠡ",
+        "body": "ᠡᠨᠳᠡ ᠵᠥᠪᠬᠡᠨ ᠡᠨᠡ ᠤᠲᠠᠰᠤ ᠪᠠᠷ ᠣᠯᠪᠣᠷᠢᠯᠠᠭᠰᠠᠨ ᠪᠯᠣᠺ ᠤᠳ ᠢ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠪᠢᠴᠢᠯᠭᠡ ᠶᠢ ᠳᠠᠷᠤᠵᠤ ᠰᠢᠭᠨᠠᠯ ᠪᠠ ᠪᠠᠲᠤᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠲᠣᠭ᠎ᠠ ᠶᠢ ᠦᠵᠡᠨ᠎ᠡ᠃"
       },
       {
         "id": "network",
         "title": "ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠶᠢᠨ ᠬᠣᠯᠪᠣᠯᠲᠠ",
-        "body": "ᠠᠫᠫ ᠳᠣᠲᠣᠭᠠᠳᠤ SMW ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠠᠵᠢᠯᠯᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠬᠣᠯᠪᠣᠭᠰᠠᠨ ᠲᠦᠩᠰᠢ ᠨᠢ ᠥᠭᠡᠷ᠎ᠡ ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠶᠢ ᠲᠣᠭᠠᠯᠠᠨ᠎ᠠ᠂ ᠲᠡᠶᠢᠮᠦ ᠡᠴᠡ ᠲᠡᠭ ᠨᠢ ᠥᠪᠡᠷ ᠦᠨ ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠠᠯᠭ᠎ᠠ ᠪᠣᠯᠣᠭᠰᠠᠨ ᠢ ᠢᠯᠡᠳᠬᠡᠬᠦ ᠦᠭᠡᠢ᠃ ᠢᠨᠲ᠋ᠧᠷᠨᠡᠲ ᠨᠡᠭᠡᠭᠡᠯᠲᠡᠲᠡᠢ ᠳᠦ SMW ᠶᠢᠨ ᠠᠦ᠋ᠲ᠋ᠣ᠋ ᠬᠠᠶᠢᠯᠲᠠ ᠨᠡᠶᠢᠴᠡᠲᠡᠢ ᠲᠦᠩᠰᠢ ᠣᠯᠬᠤ ᠶᠢ ᠣᠷᠣᠯᠳᠣᠨ᠎ᠠ᠃ ᠬᠦᠷᠴᠦ ᠪᠣᠯᠬᠤ ᠲᠦᠩᠰᠢ ᠦᠭᠡᠢ ᠪᠣᠯ IP ᠪᠤᠶᠤ domain:port ᠢ ᠭᠠᠷ ᠢᠶᠠᠷ ᠨᠡᠮᠡᠨ᠎ᠡ᠃ ᠣᠯᠪᠣᠷᠯᠠᠯᠲᠠ ᠲᠦᠩᠰᠢ ᠢᠵᠢᠯᠡᠰᠢᠬᠦ ᠬᠦᠷᠲᠡᠯ᠎ᠡ ᠬᠦᠯᠢᠶᠡᠨ᠎ᠡ᠃"
+        "body": "ᠤᠲᠠᠰᠤ SUMUWW ᠶᠢᠨ 0.57.49 ᠪᠤᠶᠤ ᠲᠡᠭᠦᠨ ᠡᠴᠡ ᠰᠢᠨ᠎ᠡ ᠬᠤᠪᠢᠯᠪᠤᠷᠢ ᠲᠠᠢ ᠪᠦᠷᠢᠨ ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠳᠤ ᠬᠣᠯᠪᠣᠭᠳᠠᠨ᠎ᠠ᠃ ᠰᠢᠭᠨᠠᠯ ᠢ ᠰᠠᠯᠭᠠᠵᠤ ᠠᠵᠢᠯ ᠤᠨ ᠨᠣᠲᠠᠯᠭ᠎ᠠ ᠶᠢ ᠤᠲᠠᠰᠤ ᠪᠠᠷ ᠪᠣᠳᠣᠨ᠎ᠠ᠃ ᠬᠡᠯᠬᠢᠶ᠎ᠡ ᠶᠢᠨ ᠪᠦᠬᠦ ᠠᠷᠠᠯᠵᠢᠶ᠎ᠠ ᠶᠢᠨ ᠲᠡᠦᠬᠡ ᠶᠢ ᠲᠠᠲᠠᠬᠤ ᠦᠭᠡᠢ᠃"
       },
       {
         "id": "settings",
@@ -2098,7 +2098,7 @@
       {
         "id": "current_transfer_states",
         "title": "Android ᠠᠫᠫ",
-        "body": "ᠤᠲᠠᠰᠤ ᠪᠡᠶ᠎ᠡ ᠳᠠᠭᠠᠵᠤ ᠣᠯᠪᠣᠷᠯᠠᠵᠤ᠂ ᠨᠡᠶᠢᠴᠡᠲᠡᠢ SMW ᠲᠦᠩᠰᠢ ᠲᠡᠢ ᠬᠠᠷᠢᠯᠴᠠᠨ᠎ᠠ᠃ ᠦᠨᠳᠦᠰᠦᠨ ᠲᠣᠣᠷᠴᠢᠯᠠᠯ ᠳᠤ ᠢᠵᠢᠯᠡᠰᠢᠭᠦᠯᠦᠭᠰᠡᠨ᠂ ᠬᠦᠷᠴᠦ ᠪᠣᠯᠬᠤ ᠲᠦᠩᠰᠢ ᠪᠠ ᠨᠡᠭᠡᠭᠡᠯᠲᠡᠲᠡᠢ ᠲᠦᠷᠢᠦᠪᠴᠢ ᠬᠡᠷᠡᠭᠲᠡᠢ᠃ ᠠᠦ᠋ᠲ᠋ᠣ᠋ ᠬᠠᠶᠢᠯᠲᠠ ᠪᠦᠬᠦ NAT ᠪᠤᠶᠤ ᠭᠠᠯ ᠤᠨ ᠬᠠᠨ᠎ᠠ ᠪᠠᠷ ᠨᠡᠪᠲᠡᠷᠡᠬᠦ ᠶᠢ ᠪᠠᠲᠤᠯᠠᠬᠤ ᠦᠭᠡᠢ᠃ ᠣᠯᠪᠣᠷᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠪᠦᠯᠦᠭ᠂ ᠵᠠᠬ᠎ᠠ ᠶᠢᠨ ᠦᠨ᠎ᠡ ᠶᠢᠨ ᠦᠢᠯᠡᠴᠢᠯᠭᠡ ᠪᠤᠶᠤ QR ᠪᠣᠯᠣᠮᠵᠢ ᠣᠷᠣᠭᠰᠠᠨ ᠦᠭᠡᠢ᠃\n\nᠰᠢᠮᠲᠡᠭᠡᠯ ᠢ ᠠᠦ᠋ᠲ᠋ᠣ᠋ ᠪᠠᠷ ᠪᠣᠳᠣᠬᠤ ᠪᠤᠶᠤ ᠠᠷᠪᠠᠲᠤ ᠶᠢᠨ ᠨᠠᠶᠢᠮᠠᠨ ᠣᠷᠣᠨ ᠬᠦᠷᠲᠡᠯ᠎ᠡ ᠭᠠᠷ ᠢᠶᠠᠷ ᠣᠷᠣᠭᠤᠯᠵᠤ ᠪᠣᠯᠣᠨ᠎ᠠ᠃ ᠢᠯᠡᠭᠡᠭᠴᠢ ᠰᠢᠮᠲᠡᠭᠡᠯ ᠲᠥᠯᠦᠨ᠎ᠡ᠃ ᠢᠯᠡᠭᠡᠬᠦ ᠡᠴᠡ ᠡᠮᠦᠨ᠎ᠡ ᠰᠢᠮᠲᠡᠭᠡᠯ ᠪᠠ ᠨᠡᠶᠢᠲᠡ ᠰᠤᠤᠲᠭᠠᠯ ᠢ ᠬᠢᠨᠠᠨ᠎ᠠ᠃ ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠬᠦᠯᠢᠶᠡᠨ ᠠᠪᠤᠭᠰᠠᠨ ᠨᠢ ᠬᠦᠯᠢᠶᠡᠨ ᠠᠪᠤᠭᠴᠢ ᠳᠤ ᠬᠦᠷᠦᠭᠰᠡᠨ ᠪᠤᠶᠤ ᠪᠯᠣᠺ ᠲᠤ ᠪᠠᠲᠤᠯᠠᠭᠳᠠᠭᠰᠠᠨ ᠢ ᠢᠯᠡᠳᠬᠡᠬᠦ ᠦᠭᠡᠢ᠃ ᠲᠠᠲᠠᠭᠠᠯᠵᠠᠯ᠂ ᠲᠣᠳᠣᠷᠬᠠᠢ ᠦᠭᠡᠢ ᠦᠷ᠎ᠡ ᠳᠦᠩ᠂ ᠣᠷᠣᠬᠤ ᠬᠦᠯᠢᠶᠡᠭᠳᠡᠵᠦ ᠪᠤᠢ ᠰᠢᠯᠵᠢᠭᠦᠯᠭᠡ᠂ ᠪᠯᠣᠺ ᠲᠤ ᠣᠷᠣᠯᠲᠠ ᠶᠢ ᠲᠤᠰ ᠲᠤᠰ ᠲᠤ ᠨᠢ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠲᠡᠦᠬᠡ ᠪᠡᠨ ᠰᠢᠯᠭᠠᠬᠤ ᠠᠴᠠ ᠡᠮᠦᠨ᠎ᠡ ᠲᠣᠳᠣᠷᠬᠠᠢ ᠦᠭᠡᠢ ᠭᠦᠶᠦᠯᠭᠡ ᠶᠢ ᠳᠠᠬᠢᠨ ᠪᠦᠦ ᠢᠯᠡᠭᠡᠭᠡᠷᠡᠢ᠃\n\nᠳᠣᠲᠣᠭᠠᠳᠤ foreground ᠦᠢᠯᠡᠴᠢᠯᠭᠡ ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠶᠢ ᠠᠵᠢᠯᠯᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠢᠳᠡᠪᠬᠢᠲᠡᠢ ᠣᠯᠪᠣᠷᠯᠠᠯᠲᠠ ᠰᠡᠷᠦᠭᠦᠨ ᠪᠠᠷᠢᠬᠤ ᠴᠣᠣᠵᠢ ᠠᠰᠢᠭᠯᠠᠨ᠎ᠠ; Android ᠪᠤᠶᠤ ᠲᠥᠬᠥᠭᠡᠷᠦᠮᠵᠢ ᠶᠢᠨ ᠦᠢᠯᠡᠳᠦᠭᠴᠢ ᠫᠷᠣᠼᠧᠰ ᠢ ᠵᠣᠭᠰᠣᠭᠠᠵᠤ ᠪᠣᠯᠣᠨ᠎ᠠ᠃ ᠮᠡᠳᠡᠭᠳᠡᠯ ᠳᠦ ᠡᠷᠬᠡ ᠬᠡᠷᠡᠭᠲᠡᠢ᠃ ᠬᠠᠭᠠᠯᠲᠠᠲᠠᠢ ᠠᠫᠫ ᠳᠠᠷᠤᠢ ᠣᠷᠣᠯᠭ᠎ᠠ ᠶᠢᠨ ᠮᠡᠳᠡᠭᠳᠡᠯ ᠢ ᠪᠠᠲᠤᠯᠠᠬᠤ ᠦᠭᠡᠢ; ᠳᠠᠬᠢᠨ ᠨᠡᠭᠡᠭᠡᠵᠦ ᠢᠵᠢᠯᠡᠰᠢᠭᠦᠯᠦᠭᠰᠡᠨ ᠦ ᠳᠠᠷᠠᠭ᠎ᠠ ᠦᠷ᠎ᠡ ᠳᠦᠩ ᠢ ᠰᠢᠯᠭᠠᠨ᠎ᠠ᠃ ᠬᠠᠭᠤᠴᠢᠨ ᠭᠦᠶᠦᠯᠭᠡ ᠪᠠ ᠣᠯᠪᠣᠷᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠱᠠᠩᠨᠠᠯ ᠢ ᠰᠢᠨ᠎ᠡ ᠣᠷᠣᠯᠭ᠎ᠠ ᠶᠢᠨ ᠮᠡᠳᠡᠭᠳᠡᠯ ᠡᠴᠡ ᠬᠠᠰᠤᠨ᠎ᠠ᠃"
+        "body": "ᠤᠲᠠᠰᠤ SUMUWW ᠶᠢᠨ 0.57.49 ᠪᠤᠶᠤ ᠲᠡᠭᠦᠨ ᠡᠴᠡ ᠰᠢᠨ᠎ᠡ ᠬᠤᠪᠢᠯᠪᠤᠷᠢ ᠲᠠᠢ ᠪᠦᠷᠢᠨ ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠳᠤ ᠬᠣᠯᠪᠣᠭᠳᠠᠨ᠎ᠠ᠃ ᠰᠢᠭᠨᠠᠯ ᠢ ᠰᠠᠯᠭᠠᠵᠤ ᠠᠵᠢᠯ ᠤᠨ ᠨᠣᠲᠠᠯᠭ᠎ᠠ ᠶᠢ ᠤᠲᠠᠰᠤ ᠪᠠᠷ ᠪᠣᠳᠣᠨ᠎ᠠ᠃ ᠬᠡᠯᠬᠢᠶ᠎ᠡ ᠶᠢᠨ ᠪᠦᠬᠦ ᠠᠷᠠᠯᠵᠢᠶ᠎ᠠ ᠶᠢᠨ ᠲᠡᠦᠬᠡ ᠶᠢ ᠲᠠᠲᠠᠬᠤ ᠦᠭᠡᠢ᠃ ᠡᠨᠳᠡ ᠵᠥᠪᠬᠡᠨ ᠡᠨᠡ ᠤᠲᠠᠰᠤ ᠪᠠᠷ ᠣᠯᠪᠣᠷᠢᠯᠠᠭᠰᠠᠨ ᠪᠯᠣᠺ ᠤᠳ ᠢ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠪᠢᠴᠢᠯᠭᠡ ᠶᠢ ᠳᠠᠷᠤᠵᠤ ᠰᠢᠭᠨᠠᠯ ᠪᠠ ᠪᠠᠲᠤᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠲᠣᠭ᠎ᠠ ᠶᠢ ᠦᠵᠡᠨ᠎ᠡ᠃"
       },
       {
         "id": "mobile_protection",

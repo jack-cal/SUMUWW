@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Documentatie
+# SUMUWW Android 0.6.98 · Documentatie
 
-SUMUWW Android 0.6.95 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
+De telefoon maakt verbinding met een volledige SUMUWW-node met versie 0.57.49 of hoger. Hij controleert de beloning en berekent het werkbewijs zonder de hele transactiegeschiedenis te downloaden.
 
 ## Netwerk en adressen
 

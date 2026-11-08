@@ -1,6 +1,6 @@
 # SUMUWW · Nodegrænseflade
 
-SUMUWW PC 0.57.46 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
+SUMUWW PC 0.57.49 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
 
 ## Netværk og adresser
 

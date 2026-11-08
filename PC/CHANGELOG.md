@@ -1,3 +1,11 @@
+# SUMUWW PC 0.57.49
+
+The full node provides compact mining jobs and wallet queries for the Android light miner. Mining retries temporary database write contention and records an error code if a batch stops unexpectedly.
+
+[Downloads and checksums](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.49)
+
+---
+
 # SUMUWW Windows 0.57.48
 
 Windows full node, wallet and optional CPU miner. The mining path submits proof-of-work blocks through normal node validation; connection evidence continues asynchronously after block acceptance.

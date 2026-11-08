@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Vérification
+# SUMUWW Android 0.6.98 · Vérification
 
-SUMUWW Android 0.6.95 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
+Le téléphone se connecte à un nœud complet SUMUWW en version 0.57.49 ou ultérieure. Il vérifie la récompense et calcule la preuve de travail sans télécharger tout l’historique des transactions.
 
 La spécification API décrit le cœur du nœud intégré. L’application Android n’a pas d’écran de configuration RPC.
 

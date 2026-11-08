@@ -1,6 +1,12 @@
-# SUMUWW Android 0.6.95 · Nyaraka
+# SUMUWW Android 0.6.98 · Nyaraka
 
-SUMUWW Android 0.6.95 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
+Simu huunganika na nodi kamili ya SUMUWW ya toleo la 0.57.49 au jipya zaidi. Hukagua zawadi na kukokotoa uthibitisho wa kazi bila kupakua historia yote ya miamala ya mnyororo.
+
+Pendekezo la ada huonekana baada ya nodi iliyounganishwa kutuma taarifa. Pochi huonyesha mabadiliko ya salio yanayosubiri kuthibitishwa baada ya kukagua kiasi chote.
+
+## Historia ya uchimbaji
+
+Hapa utaona tu bloku zilizochimbwa na simu hii. Gusa rekodi ili kuona zawadi na idadi ya uthibitisho.
 
 ## Mtandao na anwani
 

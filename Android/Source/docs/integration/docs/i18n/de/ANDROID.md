@@ -1,6 +1,12 @@
-# SUMUWW Android 0.6.95 · Dokumentation
+# SUMUWW Android 0.6.98 · Dokumentation
 
-SUMUWW Android 0.6.95 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
+Das Gerät verbindet sich mit einem SUMUWW-Vollknoten ab Version 0.57.49. Es prüft die Belohnung und berechnet den Arbeitsnachweis, ohne den gesamten Transaktionsverlauf der Blockchain herunterzuladen.
+
+Die Gebührenempfehlung erscheint, sobald der verbundene Knoten die Daten liefert. Die Wallet zeigt die ausstehende Saldoänderung an, sobald sie den Gesamtbetrag geprüft hat.
+
+## Mining-Verlauf
+
+Hier erscheinen nur Blöcke, die dieses Gerät geschürft hat. Tippe auf einen Eintrag, um die Belohnung und die Bestätigungen zu sehen.
 
 ## Netzwerk und Adressen
 

@@ -10,7 +10,7 @@ import os
 from pathlib import Path
 import threading
 import time
-from sumuww.app_service import AppService
+from light_service import LightService
 from sumuww import keystore
 from sumuww.primitives import format_amount, subsidy
 from mobile_mining_metrics import metrics as mining_metrics, install as install_mining_metrics
@@ -110,7 +110,7 @@ def start(directory):
             if os.name=='posix':
                 from mobile_interfaces import network_identity
                 network_provider=network_identity
-            service=AppService(directory,network='dora',bootstrap=True,allow_lan=True,allow_internet=True,
+            service=LightService(directory,network='dora',bootstrap=True,allow_lan=True,allow_internet=True,
                                network_provider=network_provider)
             _runtime_state='starting'
             _runtime_error=None
@@ -285,29 +285,11 @@ def stop_mining_for_safety(reason):
     with _batch_guard: _batch['protection_reason']=str(reason)
     return status()
 
-def block_history(offset='0',limit='50',height=''):
-    height = int(height) if height.strip() else None
-    return _json(_result(_service.block_history(int(offset), int(limit), height)))
+def transfer_alerts(offset='0'):
+    return _json(_result(_get()._submit('transfer_alerts', int(offset))))
 
-def filtered_history(offset='0',limit='50',kind='all',query=''):
-    offset,limit=int(offset),int(limit)
-    if offset<0 or not 1<=limit<=200 or kind not in ('all','receive','send','mining'):
+
+def filtered_history(offset='0', limit='50', kind='mining', query=''):
+    if int(offset) < 0 or not 1 <= int(limit) <= 200 or kind not in ('all','mining','receive','send') or len(query)>64:
         raise ValueError('Invalid history request')
-    query=query.strip().lower()
-    if len(query)>64: raise ValueError('Transaction ID is too long')
-    for attempt in range(2):
-        selected=[];matched=0;position=0;tip=None;owner=None
-        while True:
-            page=_result(_get().transaction_history(position,200))
-            if tip is None: tip,owner=page['tip'],page['address']
-            if page['tip']!=tip or page['address']!=owner: break
-            for tx in page['transactions']:
-                txkind='mining' if tx['coinbase'] else 'receive' if tx['net_amount']>=0 else 'send'
-                if (kind=='all' or txkind==kind) and query in tx['txid'].lower():
-                    if offset<=matched<offset+limit: selected.append(tx)
-                    matched+=1
-            position+=len(page['transactions'])
-            if position>=page['total']:
-                page.update(transactions=selected,total=matched,offset=offset,limit=limit)
-                return _json(page)
-    raise RuntimeError('History changed during search; refresh and try again')
+    return _json(_result(_get()._submit('mined_search', int(offset), int(limit), query.strip())))

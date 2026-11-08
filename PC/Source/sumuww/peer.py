@@ -1901,6 +1901,20 @@ class PeerNode:
         await self._send(session, 'version', encode_version(own))
         session.handshake_stage = 'waiting_version'
         frame = await self._read(session)
+        if frame.command == 'smwlight' and session.outgoing is None:
+            from .light_mining import MobileRequests, MAX_REPLY
+            import json
+            if not hasattr(self, '_mobile_requests'):
+                self._mobile_requests = MobileRequests(self)
+            try:
+                response = self._mobile_requests.handle(frame.payload)
+                data = json.dumps(response, separators=(',', ':')).encode()
+                if len(data) > MAX_REPLY:
+                    raise ValueError('Response too large')
+            except (ValueError, KeyError, TypeError, ArithmeticError, RuntimeError) as error:
+                data = json.dumps({'error': 'Request rejected', 'reason': type(error).__name__}).encode()
+            await self._send(session, 'smwreply', data)
+            return
         if frame.command != 'version':
             raise ProtocolError('Expected version as the first peer message')
         remote = _decode_payload(decode_version, frame.payload)

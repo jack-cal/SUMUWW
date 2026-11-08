@@ -10,7 +10,7 @@
       {
         "id": "home",
         "title": "Home",
-        "body": "Check your balance, local block height and connected peers here."
+        "body": "Only blocks mined by this phone appear here. Open a record to see its reward and confirmations."
       },
       {
         "id": "mining",
@@ -24,8 +24,8 @@
       },
       {
         "id": "history",
-        "title": "History",
-        "body": "Review mining rewards, incoming and outgoing transactions, and their confirmations."
+        "title": "Mining history",
+        "body": "Only blocks mined by this phone appear here. Open a record to see its reward and confirmations."
       },
       {
         "id": "more",
@@ -50,7 +50,7 @@
       {
         "id": "home",
         "title": "홈",
-        "body": "잔액과 내 노드의 블록 높이, 연결된 다른 노드 수를 확인합니다."
+        "body": "이 휴대폰에서 직접 채굴한 블록만 표시합니다. 항목을 누르면 보상과 확인 수를 볼 수 있습니다."
       },
       {
         "id": "mining",
@@ -64,8 +64,8 @@
       },
       {
         "id": "history",
-        "title": "거래내역",
-        "body": "채굴 보상과 송금·입금 내역, 블록 확인 수를 확인합니다."
+        "title": "내 채굴 내역",
+        "body": "이 휴대폰에서 직접 채굴한 블록만 표시합니다. 항목을 누르면 보상과 확인 수를 볼 수 있습니다."
       },
       {
         "id": "more",
@@ -90,7 +90,7 @@
       {
         "id": "home",
         "title": "Accueil",
-        "body": "Consultez solde, hauteur locale et nombre de pairs connectés."
+        "body": "Seuls les blocs minés par ce téléphone apparaissent ici. Touchez une entrée pour voir la récompense et les confirmations."
       },
       {
         "id": "mining",
@@ -104,8 +104,8 @@
       },
       {
         "id": "history",
-        "title": "Historique",
-        "body": "Vérifiez récompenses, transactions entrantes et sortantes, et confirmations."
+        "title": "Historique du minage",
+        "body": "Seuls les blocs minés par ce téléphone apparaissent ici. Touchez une entrée pour voir la récompense et les confirmations."
       },
       {
         "id": "more",
@@ -130,7 +130,7 @@
       {
         "id": "home",
         "title": "Inicio",
-        "body": "Consulte saldo, altura local y número de pares conectados."
+        "body": "Aquí solo aparecen los bloques minados por este teléfono. Toca uno para ver la recompensa y las confirmaciones."
       },
       {
         "id": "mining",
@@ -144,8 +144,8 @@
       },
       {
         "id": "history",
-        "title": "Historial",
-        "body": "Revise recompensas, entradas, salidas y confirmaciones."
+        "title": "Historial de minería",
+        "body": "Aquí solo aparecen los bloques minados por este teléfono. Toca uno para ver la recompensa y las confirmaciones."
       },
       {
         "id": "more",
@@ -170,7 +170,7 @@
       {
         "id": "home",
         "title": "الرئيسية",
-        "body": "تحقق من الرصيد وارتفاع السلسلة المحلية وعدد العقد المتصلة."
+        "body": "تظهر هنا الكتل التي عدّنها هذا الهاتف فقط. اضغط على سجل لعرض المكافأة وعدد التأكيدات."
       },
       {
         "id": "mining",
@@ -184,8 +184,8 @@
       },
       {
         "id": "history",
-        "title": "السجل",
-        "body": "راجع المكافآت والمعاملات الواردة والصادرة وعدد التأكيدات."
+        "title": "سجل التعدين",
+        "body": "تظهر هنا الكتل التي عدّنها هذا الهاتف فقط. اضغط على سجل لعرض المكافأة وعدد التأكيدات."
       },
       {
         "id": "more",
@@ -210,7 +210,7 @@
       {
         "id": "home",
         "title": "首页",
-        "body": "查看余额、本地区块高度和已连接节点数。"
+        "body": "这里仅显示本手机挖出的区块。点按一条记录可查看奖励和确认数。"
       },
       {
         "id": "mining",
@@ -224,8 +224,8 @@
       },
       {
         "id": "history",
-        "title": "交易记录",
-        "body": "查看挖矿奖励、收付款记录和确认数。"
+        "title": "挖矿记录",
+        "body": "这里仅显示本手机挖出的区块。点按一条记录可查看奖励和确认数。"
       },
       {
         "id": "more",
@@ -250,7 +250,7 @@
       {
         "id": "home",
         "title": "Início",
-        "body": "Confira o saldo, a altura local e o número de pares conectados."
+        "body": "Aqui aparecem apenas os blocos minerados por este telefone. Toque em um registro para ver a recompensa e as confirmações."
       },
       {
         "id": "mining",
@@ -264,8 +264,8 @@
       },
       {
         "id": "history",
-        "title": "Histórico",
-        "body": "Veja recompensas, entradas, saídas e confirmações."
+        "title": "Histórico de mineração",
+        "body": "Aqui aparecem apenas os blocos minerados por este telefone. Toque em um registro para ver a recompensa e as confirmações."
       },
       {
         "id": "more",
@@ -290,7 +290,7 @@
       {
         "id": "home",
         "title": "Главная",
-        "body": "Здесь видны баланс, локальная высота цепи и число подключённых узлов."
+        "body": "Здесь показаны только блоки, добытые этим телефоном. Нажмите на запись, чтобы увидеть награду и число подтверждений."
       },
       {
         "id": "mining",
@@ -304,8 +304,8 @@
       },
       {
         "id": "history",
-        "title": "История",
-        "body": "Просматривайте награды, входящие и исходящие операции и подтверждения."
+        "title": "История майнинга",
+        "body": "Здесь показаны только блоки, добытые этим телефоном. Нажмите на запись, чтобы увидеть награду и число подтверждений."
       },
       {
         "id": "more",
@@ -330,7 +330,7 @@
       {
         "id": "home",
         "title": "Startseite",
-        "body": "Hier sehen Sie Guthaben, lokale Blockhöhe und verbundene Peers."
+        "body": "Hier erscheinen nur Blöcke, die dieses Gerät geschürft hat. Tippe auf einen Eintrag, um die Belohnung und die Bestätigungen zu sehen."
       },
       {
         "id": "mining",
@@ -344,8 +344,8 @@
       },
       {
         "id": "history",
-        "title": "Verlauf",
-        "body": "Prüfen Sie Erträge, Ein- und Ausgänge sowie Bestätigungen."
+        "title": "Mining-Verlauf",
+        "body": "Hier erscheinen nur Blöcke, die dieses Gerät geschürft hat. Tippe auf einen Eintrag, um die Belohnung und die Bestätigungen zu sehen."
       },
       {
         "id": "more",
@@ -370,7 +370,7 @@
       {
         "id": "home",
         "title": "Nyumbani",
-        "body": "Angalia salio, urefu wa blockchain ya ndani na idadi ya nodi zilizounganishwa."
+        "body": "Hapa utaona tu bloku zilizochimbwa na simu hii. Gusa rekodi ili kuona zawadi na idadi ya uthibitisho."
       },
       {
         "id": "mining",
@@ -384,8 +384,8 @@
       },
       {
         "id": "history",
-        "title": "Historia",
-        "body": "Kagua zawadi, mapokezi, matumizi na uthibitisho."
+        "title": "Historia ya uchimbaji",
+        "body": "Hapa utaona tu bloku zilizochimbwa na simu hii. Gusa rekodi ili kuona zawadi na idadi ya uthibitisho."
       },
       {
         "id": "more",
@@ -410,7 +410,7 @@
       {
         "id": "home",
         "title": "होम",
-        "body": "शेष राशि, स्थानीय ब्लॉक ऊँचाई और जुड़े पीयर देखें।"
+        "body": "यहाँ केवल इसी फ़ोन पर माइन किए गए ब्लॉक दिखाई देते हैं। इनाम और पुष्टियों की संख्या देखने के लिए किसी रिकॉर्ड पर टैप करें।"
       },
       {
         "id": "mining",
@@ -424,8 +424,8 @@
       },
       {
         "id": "history",
-        "title": "इतिहास",
-        "body": "पुरस्कार, प्राप्त और भेजी राशि तथा पुष्टियाँ देखें।"
+        "title": "माइनिंग का इतिहास",
+        "body": "यहाँ केवल इसी फ़ोन पर माइन किए गए ब्लॉक दिखाई देते हैं। इनाम और पुष्टियों की संख्या देखने के लिए किसी रिकॉर्ड पर टैप करें।"
       },
       {
         "id": "more",
@@ -450,7 +450,7 @@
       {
         "id": "home",
         "title": "ホーム",
-        "body": "ここで残高、ローカルのブロック高さ、接続中のピアを確認できます。"
+        "body": "この端末で採掘したブロックだけを表示します。項目をタップすると報酬と承認数を確認できます。"
       },
       {
         "id": "mining",
@@ -464,8 +464,8 @@
       },
       {
         "id": "history",
-        "title": "取引履歴",
-        "body": "マイニング報酬、送受信トランザクション、およびその確認を確認します。"
+        "title": "マイニング履歴",
+        "body": "この端末で採掘したブロックだけを表示します。項目をタップすると報酬と承認数を確認できます。"
       },
       {
         "id": "more",
@@ -490,7 +490,7 @@
       {
         "id": "home",
         "title": "Beranda",
-        "body": "Periksa saldo Anda, tinggi blok lokal, dan rekan yang terhubung di sini."
+        "body": "Hanya blok yang ditambang oleh ponsel ini yang ditampilkan. Ketuk satu catatan untuk melihat imbalan dan jumlah konfirmasi."
       },
       {
         "id": "mining",
@@ -504,8 +504,8 @@
       },
       {
         "id": "history",
-        "title": "Riwayat",
-        "body": "Tinjau imbalan penambangan, transaksi masuk dan keluar, serta konfirmasinya."
+        "title": "Riwayat penambangan",
+        "body": "Hanya blok yang ditambang oleh ponsel ini yang ditampilkan. Ketuk satu catatan untuk melihat imbalan dan jumlah konfirmasi."
       },
       {
         "id": "more",
@@ -530,7 +530,7 @@
       {
         "id": "home",
         "title": "Trang chủ",
-        "body": "Kiểm tra số dư của bạn, chiều cao khối cục bộ và các nút được kết nối tại đây."
+        "body": "Chỉ các khối do chính điện thoại này đào mới xuất hiện ở đây. Chạm vào một mục để xem phần thưởng và số lượt xác nhận."
       },
       {
         "id": "mining",
@@ -544,8 +544,8 @@
       },
       {
         "id": "history",
-        "title": "Lịch sử",
-        "body": "Xem xét phần thưởng khai thác, giao dịch đến và đi cũng như xác nhận của chúng."
+        "title": "Lịch sử đào",
+        "body": "Chỉ các khối do chính điện thoại này đào mới xuất hiện ở đây. Chạm vào một mục để xem phần thưởng và số lượt xác nhận."
       },
       {
         "id": "more",
@@ -570,7 +570,7 @@
       {
         "id": "home",
         "title": "Ana sayfa",
-        "body": "Bakiyenizi, yerel blok yüksekliğini ve bağlı eşlerinizi buradan kontrol edin."
+        "body": "Burada yalnızca bu telefonun çıkardığı bloklar gösterilir. Ödülü ve onay sayısını görmek için bir kayda dokunun."
       },
       {
         "id": "mining",
@@ -584,8 +584,8 @@
       },
       {
         "id": "history",
-        "title": "Geçmiş",
-        "body": "Madencilik ödüllerini, gelen ve giden işlemleri ve bunların onaylarını inceleyin."
+        "title": "Madencilik geçmişi",
+        "body": "Burada yalnızca bu telefonun çıkardığı bloklar gösterilir. Ödülü ve onay sayısını görmek için bir kayda dokunun."
       },
       {
         "id": "more",
@@ -610,7 +610,7 @@
       {
         "id": "home",
         "title": "หน้าแรก",
-        "body": "ตรวจสอบยอดคงเหลือ ความสูงของบล็อกในพื้นที่ และเพื่อนที่เชื่อมต่อที่นี่"
+        "body": "หน้านี้แสดงเฉพาะบล็อกที่โทรศัพท์เครื่องนี้ขุดได้ แตะรายการเพื่อดูรางวัลและจำนวนการยืนยัน"
       },
       {
         "id": "mining",
@@ -624,8 +624,8 @@
       },
       {
         "id": "history",
-        "title": "ประวัติธุรกรรม",
-        "body": "ตรวจสอบรางวัลการขุด ธุรกรรมขาเข้าและขาออก และการยืนยัน"
+        "title": "ประวัติการขุด",
+        "body": "หน้านี้แสดงเฉพาะบล็อกที่โทรศัพท์เครื่องนี้ขุดได้ แตะรายการเพื่อดูรางวัลและจำนวนการยืนยัน"
       },
       {
         "id": "more",
@@ -650,7 +650,7 @@
       {
         "id": "home",
         "title": "Home",
-        "body": "Controlla il tuo saldo, l'altezza del blocco locale e i peer collegati qui."
+        "body": "Qui compaiono solo i blocchi estratti da questo telefono. Tocca una voce per visualizzare la ricompensa e le conferme."
       },
       {
         "id": "mining",
@@ -664,8 +664,8 @@
       },
       {
         "id": "history",
-        "title": "Cronologia",
-        "body": "Esamina i premi minerari, le transazioni in entrata e in uscita e le relative conferme."
+        "title": "Cronologia del mining",
+        "body": "Qui compaiono solo i blocchi estratti da questo telefono. Tocca una voce per visualizzare la ricompensa e le conferme."
       },
       {
         "id": "more",
@@ -690,7 +690,7 @@
       {
         "id": "home",
         "title": "হোম",
-        "body": "এখানে আপনার ব্যালেন্স, স্থানীয় ব্লকের উচ্চতা এবং সংযুক্ত পিয়ারগুলোর পরীক্ষা করুন।"
+        "body": "এখানে শুধু এই ফোনে মাইন করা ব্লকগুলো দেখা যায়। পুরস্কার ও নিশ্চিতকরণের সংখ্যা দেখতে একটি রেকর্ডে ট্যাপ করুন।"
       },
       {
         "id": "mining",
@@ -704,8 +704,8 @@
       },
       {
         "id": "history",
-        "title": "ইতিহাস",
-        "body": "খনির পুরষ্কার, আগত এবং বহির্গামী লেনদেন এবং তাদের নিশ্চিতকরণ পর্যালোচনা করুন।"
+        "title": "মাইনিংয়ের ইতিহাস",
+        "body": "এখানে শুধু এই ফোনে মাইন করা ব্লকগুলো দেখা যায়। পুরস্কার ও নিশ্চিতকরণের সংখ্যা দেখতে একটি রেকর্ডে ট্যাপ করুন।"
       },
       {
         "id": "more",
@@ -730,7 +730,7 @@
       {
         "id": "home",
         "title": "ہوم",
-        "body": "اپنا بیلنس، مقامی بلاک کی اونچائی اور منسلک ساتھیوں کو یہاں چیک کریں۔"
+        "body": "یہاں صرف وہ بلاک دکھائی دیتے ہیں جو اسی فون نے مائن کیے ہیں۔ انعام اور تصدیقات کی تعداد دیکھنے کے لیے ریکارڈ پر ٹیپ کریں۔"
       },
       {
         "id": "mining",
@@ -744,8 +744,8 @@
       },
       {
         "id": "history",
-        "title": "تاریخ",
-        "body": "کان کنی کے انعامات، آنے والے اور جانے والے لین دین، اور ان کی تصدیقوں کا جائزہ لیں۔"
+        "title": "مائننگ کی تاریخ",
+        "body": "یہاں صرف وہ بلاک دکھائی دیتے ہیں جو اسی فون نے مائن کیے ہیں۔ انعام اور تصدیقات کی تعداد دیکھنے کے لیے ریکارڈ پر ٹیپ کریں۔"
       },
       {
         "id": "more",
@@ -770,7 +770,7 @@
       {
         "id": "home",
         "title": "Główna",
-        "body": "Sprawdź tutaj swoje saldo, wysokość lokalnego bloku i podłączone urządzenia równorzędne."
+        "body": "Tutaj widać tylko bloki wydobyte przez ten telefon. Dotknij wpisu, aby zobaczyć nagrodę i liczbę potwierdzeń."
       },
       {
         "id": "mining",
@@ -784,8 +784,8 @@
       },
       {
         "id": "history",
-        "title": "Historia",
-        "body": "Przeglądaj nagrody za wydobycie, transakcje przychodzące i wychodzące oraz ich potwierdzenia."
+        "title": "Historia wydobycia",
+        "body": "Tutaj widać tylko bloki wydobyte przez ten telefon. Dotknij wpisu, aby zobaczyć nagrodę i liczbę potwierdzeń."
       },
       {
         "id": "more",
@@ -810,7 +810,7 @@
       {
         "id": "home",
         "title": "Home",
-        "body": "Controleer hier uw saldo, lokale blokhoogte en aangesloten peers."
+        "body": "Hier staan alleen blokken die deze telefoon heeft gemined. Tik op een vermelding om de beloning en het aantal bevestigingen te bekijken."
       },
       {
         "id": "mining",
@@ -824,8 +824,8 @@
       },
       {
         "id": "history",
-        "title": "Geschiedenis",
-        "body": "Bekijk mijnbeloningen, inkomende en uitgaande transacties en hun bevestigingen."
+        "title": "Mininggeschiedenis",
+        "body": "Hier staan alleen blokken die deze telefoon heeft gemined. Tik op een vermelding om de beloning en het aantal bevestigingen te bekijken."
       },
       {
         "id": "more",
@@ -850,7 +850,7 @@
       {
         "id": "home",
         "title": "Home",
-        "body": "Suriin ang iyong balanse, lokal na taas ng block at konektadong mga kapantay dito."
+        "body": "Ang mga block na mismong minina ng teleponong ito lang ang makikita rito. I-tap ang tala para makita ang gantimpala at bilang ng kumpirmasyon."
       },
       {
         "id": "mining",
@@ -864,8 +864,8 @@
       },
       {
         "id": "history",
-        "title": "Kasaysayan",
-        "body": "Suriin ang mining reward, papasok at papalabas na transaksyon at mga kumpirmasyon."
+        "title": "Kasaysayan ng pagmimina",
+        "body": "Ang mga block na mismong minina ng teleponong ito lang ang makikita rito. I-tap ang tala para makita ang gantimpala at bilang ng kumpirmasyon."
       },
       {
         "id": "more",
@@ -890,7 +890,7 @@
       {
         "id": "home",
         "title": "முகப்பு",
-        "body": "உங்கள் இருப்பு, உள்ளூர் தொகுதி உயரம் மற்றும் இணைக்கப்பட்ட சகாக்களை இங்கே சரிபார்க்கவும்."
+        "body": "இந்தக் கைப்பேசியில் மைனிங் செய்த தொகுதிகள் மட்டுமே இங்கே தெரியும். வெகுமதியையும் உறுதிப்படுத்தல்களின் எண்ணிக்கையையும் காண ஒரு பதிவைத் தொடவும்."
       },
       {
         "id": "mining",
@@ -904,8 +904,8 @@
       },
       {
         "id": "history",
-        "title": "வரலாறு",
-        "body": "சுரங்க வெகுமதிகள், உள்வரும் மற்றும் வெளிச்செல்லும் பரிவர்த்தனைகள் மற்றும் அவற்றின் உறுதிப்படுத்தல்களை மதிப்பாய்வு செய்யவும்."
+        "title": "மைனிங் வரலாறு",
+        "body": "இந்தக் கைப்பேசியில் மைனிங் செய்த தொகுதிகள் மட்டுமே இங்கே தெரியும். வெகுமதியையும் உறுதிப்படுத்தல்களின் எண்ணிக்கையையும் காண ஒரு பதிவைத் தொடவும்."
       },
       {
         "id": "more",
@@ -930,7 +930,7 @@
       {
         "id": "home",
         "title": "首頁",
-        "body": "在此檢查您的餘額、本地區塊高度和已連接的節點。"
+        "body": "這裡只顯示這支手機挖出的區塊。點選一筆紀錄即可查看獎勵與確認數。"
       },
       {
         "id": "mining",
@@ -944,8 +944,8 @@
       },
       {
         "id": "history",
-        "title": "交易紀錄",
-        "body": "檢視挖礦獎勵、收付款記錄和確認數。"
+        "title": "挖礦紀錄",
+        "body": "這裡只顯示這支手機挖出的區塊。點選一筆紀錄即可查看獎勵與確認數。"
       },
       {
         "id": "more",
@@ -970,7 +970,7 @@
       {
         "id": "home",
         "title": "首頁",
-        "body": "在此檢查您的餘額、本地區塊高度和已連接的節點。"
+        "body": "這裡只會顯示由這部手機挖出的區塊。點選記錄即可查看獎勵和確認次數。"
       },
       {
         "id": "mining",
@@ -984,8 +984,8 @@
       },
       {
         "id": "history",
-        "title": "交易紀錄",
-        "body": "檢視挖礦獎勵、收付款記錄和確認數。"
+        "title": "挖礦記錄",
+        "body": "這裡只會顯示由這部手機挖出的區塊。點選記錄即可查看獎勵和確認次數。"
       },
       {
         "id": "more",
@@ -1010,7 +1010,7 @@
       {
         "id": "home",
         "title": "Domů",
-        "body": "Zde zkontrolujete zůstatek, místní výšku bloků a připojené uzly."
+        "body": "Zde se zobrazují jen bloky vytěžené tímto telefonem. Klepnutím na záznam zobrazíte odměnu a počet potvrzení."
       },
       {
         "id": "mining",
@@ -1024,8 +1024,8 @@
       },
       {
         "id": "history",
-        "title": "Historie",
-        "body": "Prohlížejte odměny za těžbu, příchozí a odchozí transakce i jejich potvrzení."
+        "title": "Historie těžby",
+        "body": "Zde se zobrazují jen bloky vytěžené tímto telefonem. Klepnutím na záznam zobrazíte odměnu a počet potvrzení."
       },
       {
         "id": "more",
@@ -1050,7 +1050,7 @@
       {
         "id": "home",
         "title": "Hjem",
-        "body": "Kontrollér din saldo, lokale blokhøjde og tilsluttede noder her."
+        "body": "Her vises kun blokke, som denne telefon har udvundet. Tryk på en post for at se belønningen og antallet af bekræftelser."
       },
       {
         "id": "mining",
@@ -1064,8 +1064,8 @@
       },
       {
         "id": "history",
-        "title": "Historik",
-        "body": "Gennemgå mining-belønninger, indgående og udgående transaktioner samt deres bekræftelser."
+        "title": "Minehistorik",
+        "body": "Her vises kun blokke, som denne telefon har udvundet. Tryk på en post for at se belønningen og antallet af bekræftelser."
       },
       {
         "id": "more",
@@ -1090,7 +1090,7 @@
       {
         "id": "home",
         "title": "Koti",
-        "body": "Tarkista tässä saldo, paikallinen lohkokorkeus ja yhdistetyt vertaiset."
+        "body": "Tässä näkyvät vain tällä puhelimella louhitut lohkot. Näytä palkkio ja vahvistusten määrä napauttamalla merkintää."
       },
       {
         "id": "mining",
@@ -1104,8 +1104,8 @@
       },
       {
         "id": "history",
-        "title": "Historia",
-        "body": "Tarkista louhintapalkkiot, saapuvat ja lähtevät transaktiot sekä niiden vahvistukset."
+        "title": "Louhintahistoria",
+        "body": "Tässä näkyvät vain tällä puhelimella louhitut lohkot. Näytä palkkio ja vahvistusten määrä napauttamalla merkintää."
       },
       {
         "id": "more",
@@ -1130,7 +1130,7 @@
       {
         "id": "home",
         "title": "Αρχική",
-        "body": "Ελέγξτε εδώ το υπόλοιπο, το τοπικό ύψος μπλοκ και τους συνδεδεμένους ομότιμους."
+        "body": "Εδώ εμφανίζονται μόνο τα μπλοκ που εξόρυξε αυτό το τηλέφωνο. Πατήστε μια εγγραφή για να δείτε την ανταμοιβή και τις επιβεβαιώσεις."
       },
       {
         "id": "mining",
@@ -1144,8 +1144,8 @@
       },
       {
         "id": "history",
-        "title": "Ιστορικό",
-        "body": "Ελέγξτε ανταμοιβές εξόρυξης, εισερχόμενες και εξερχόμενες συναλλαγές και τις επιβεβαιώσεις τους."
+        "title": "Ιστορικό εξόρυξης",
+        "body": "Εδώ εμφανίζονται μόνο τα μπλοκ που εξόρυξε αυτό το τηλέφωνο. Πατήστε μια εγγραφή για να δείτε την ανταμοιβή και τις επιβεβαιώσεις."
       },
       {
         "id": "more",
@@ -1170,7 +1170,7 @@
       {
         "id": "home",
         "title": "Hjem",
-        "body": "Kontroller saldoen, lokal blokkhøyde og tilkoblede noder her."
+        "body": "Her vises bare blokker som denne telefonen har utvunnet. Trykk på en oppføring for å se belønningen og antallet bekreftelser."
       },
       {
         "id": "mining",
@@ -1184,8 +1184,8 @@
       },
       {
         "id": "history",
-        "title": "Historikk",
-        "body": "Se over utvinningsbelønninger, innkommende og utgående transaksjoner og bekreftelsene deres."
+        "title": "Utvinningshistorikk",
+        "body": "Her vises bare blokker som denne telefonen har utvunnet. Trykk på en oppføring for å se belønningen og antallet bekreftelser."
       },
       {
         "id": "more",
@@ -1210,7 +1210,7 @@
       {
         "id": "home",
         "title": "Hem",
-        "body": "Kontrollera saldo, lokal blockhöjd och anslutna noder här."
+        "body": "Här visas bara block som den här telefonen har utvunnit. Tryck på en post för att se belöningen och antalet bekräftelser."
       },
       {
         "id": "mining",
@@ -1224,8 +1224,8 @@
       },
       {
         "id": "history",
-        "title": "Historik",
-        "body": "Granska brytningsbelöningar, inkommande och utgående transaktioner och deras bekräftelser."
+        "title": "Utvinningshistorik",
+        "body": "Här visas bara block som den här telefonen har utvunnit. Tryck på en post för att se belöningen och antalet bekräftelser."
       },
       {
         "id": "more",
@@ -1250,7 +1250,7 @@
       {
         "id": "home",
         "title": "Почетна",
-        "body": "Овде проверите стање, локалну висину блока и повезане чворове."
+        "body": "Овде се приказују само блокови које је изрударио овај телефон. Додирните запис да видите награду и број потврда."
       },
       {
         "id": "mining",
@@ -1264,8 +1264,8 @@
       },
       {
         "id": "history",
-        "title": "Историја",
-        "body": "Прегледајте рударске награде, долазне и одлазне трансакције и њихове потврде."
+        "title": "Историја рударења",
+        "body": "Овде се приказују само блокови које је изрударио овај телефон. Додирните запис да видите награду и број потврда."
       },
       {
         "id": "more",
@@ -1290,7 +1290,7 @@
       {
         "id": "home",
         "title": "Нүүр",
-        "body": "Энд үлдэгдэл, дотоод блокийн өндөр болон холбогдсон зангилаануудыг шалгана уу."
+        "body": "Зөвхөн энэ утсаар олборлосон блокуудыг энд харуулна. Урамшуулал болон баталгаажуулалтын тоог харахын тулд бичлэг дээр товшино уу."
       },
       {
         "id": "mining",
@@ -1304,8 +1304,8 @@
       },
       {
         "id": "history",
-        "title": "Түүх",
-        "body": "Олборлолтын шагнал, орлого, зарлагын гүйлгээ болон тэдгээрийн баталгаажуулалтыг хянана уу."
+        "title": "Олборлолтын түүх",
+        "body": "Зөвхөн энэ утсаар олборлосон блокуудыг энд харуулна. Урамшуулал болон баталгаажуулалтын тоог харахын тулд бичлэг дээр товшино уу."
       },
       {
         "id": "more",
@@ -1330,7 +1330,7 @@
       {
         "id": "home",
         "title": "ᠨᠢᠭᠤᠷ",
-        "body": "ᠡᠨᠳᠡ ᠦᠯᠡᠳᠡᠭᠳᠡᠯ᠂ ᠳᠣᠲᠣᠭᠠᠳᠤ ᠪᠯᠣᠺ ᠤᠨ ᠥᠨᠳᠥᠷ᠂ ᠬᠣᠯᠪᠣᠭᠰᠠᠨ ᠲᠦᠩᠰᠢ ᠪᠡᠨ ᠰᠢᠯᠭᠠᠨ᠎ᠠ ᠤᠤ᠃"
+        "body": "ᠡᠨᠳᠡ ᠵᠥᠪᠬᠡᠨ ᠡᠨᠡ ᠤᠲᠠᠰᠤ ᠪᠠᠷ ᠣᠯᠪᠣᠷᠢᠯᠠᠭᠰᠠᠨ ᠪᠯᠣᠺ ᠤᠳ ᠢ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠪᠢᠴᠢᠯᠭᠡ ᠶᠢ ᠳᠠᠷᠤᠵᠤ ᠰᠢᠭᠨᠠᠯ ᠪᠠ ᠪᠠᠲᠤᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠲᠣᠭ᠎ᠠ ᠶᠢ ᠦᠵᠡᠨ᠎ᠡ᠃"
       },
       {
         "id": "mining",
@@ -1344,8 +1344,8 @@
       },
       {
         "id": "history",
-        "title": "ᠲᠡᠦᠬᠡ",
-        "body": "ᠣᠯᠪᠣᠷᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠱᠠᠩᠨᠠᠯ᠂ ᠣᠷᠣᠬᠤ ᠪᠠ ᠭᠠᠷᠬᠤ ᠭᠦᠶᠦᠯᠭᠡ᠂ ᠲᠡᠳᠡᠭᠡᠷ ᠦᠨ ᠪᠠᠲᠤᠯᠠᠯᠲᠠ ᠶᠢ ᠬᠢᠨᠠᠨ᠎ᠠ ᠤᠤ᠃"
+        "title": "ᠣᠯᠪᠣᠷᠢᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠲᠡᠦᠬᠡ",
+        "body": "ᠡᠨᠳᠡ ᠵᠥᠪᠬᠡᠨ ᠡᠨᠡ ᠤᠲᠠᠰᠤ ᠪᠠᠷ ᠣᠯᠪᠣᠷᠢᠯᠠᠭᠰᠠᠨ ᠪᠯᠣᠺ ᠤᠳ ᠢ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠪᠢᠴᠢᠯᠭᠡ ᠶᠢ ᠳᠠᠷᠤᠵᠤ ᠰᠢᠭᠨᠠᠯ ᠪᠠ ᠪᠠᠲᠤᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠲᠣᠭ᠎ᠠ ᠶᠢ ᠦᠵᠡᠨ᠎ᠡ᠃"
       },
       {
         "id": "more",

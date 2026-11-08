@@ -1,6 +1,6 @@
 # SUMUWW · Verificação
 
-SUMUWW PC 0.57.46 · O nó valida, guarda, retransmite e permite consultar a cadeia.
+SUMUWW PC 0.57.49 · O nó valida, guarda, retransmite e permite consultar a cadeia.
 
 ## Formato de assinatura
 

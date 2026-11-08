@@ -1,6 +1,12 @@
-# SUMUWW Android 0.6.95 · Tài liệu
+# SUMUWW Android 0.6.98 · Tài liệu
 
-SUMUWW Android 0.6.95 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
+Điện thoại kết nối với nút đầy đủ SUMUWW phiên bản 0.57.49 trở lên, kiểm tra phần thưởng và tính bằng chứng công việc ngay trên máy mà không tải toàn bộ lịch sử giao dịch.
+
+Phí đề xuất xuất hiện khi nút đang kết nối cung cấp dữ liệu. Ví hiển thị mức thay đổi số dư đang chờ xác nhận sau khi kiểm tra được toàn bộ số tiền.
+
+## Lịch sử đào
+
+Chỉ các khối do chính điện thoại này đào mới xuất hiện ở đây. Chạm vào một mục để xem phần thưởng và số lượt xác nhận.
 
 ## Mạng và địa chỉ
 

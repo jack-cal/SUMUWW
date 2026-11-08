@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · API ya RPC na HTTP
+# SUMUWW Android 0.6.98 · API ya RPC na HTTP
 
-SUMUWW Android 0.6.95 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
+Simu huunganika na nodi kamili ya SUMUWW ya toleo la 0.57.49 au jipya zaidi. Hukagua zawadi na kukokotoa uthibitisho wa kazi bila kupakua historia yote ya miamala ya mnyororo.
 
 Maelezo ya API yanaeleza kiini cha nodi kilichojumuishwa. Programu ya Android haina skrini ya mipangilio ya RPC.
 

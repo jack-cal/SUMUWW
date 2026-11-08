@@ -1,6 +1,6 @@
 # SUMUWW · API RPC và HTTP
 
-SUMUWW PC 0.57.46 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
+SUMUWW PC 0.57.49 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
 
 ## API RPC và HTTP
 

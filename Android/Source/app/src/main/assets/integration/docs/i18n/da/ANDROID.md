@@ -1,6 +1,12 @@
-# SUMUWW Android 0.6.95 · Dokumentation
+# SUMUWW Android 0.6.98 · Dokumentation
 
-SUMUWW Android 0.6.95 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
+Telefonen opretter forbindelse til en fuld SUMUWW-node med version 0.57.49 eller nyere. Den kontrollerer belønningen og beregner proof of work uden at hente hele transaktionshistorikken.
+
+Den anbefalede betaling for transaktionen vises, når den tilsluttede node leverer oplysningerne. Tegnebogen viser den ventende saldoændring, når hele beløbet kan bekræftes.
+
+## Minehistorik
+
+Her vises kun blokke, som denne telefon har udvundet. Tryk på en post for at se belønningen og antallet af bekræftelser.
 
 ## Netværk og adresser
 

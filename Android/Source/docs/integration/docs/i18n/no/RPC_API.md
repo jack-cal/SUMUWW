@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · RPC- og HTTP-API
+# SUMUWW Android 0.6.98 · RPC- og HTTP-API
 
-SUMUWW Android 0.6.95 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
+Telefonen kobler seg til en fullnode for SUMUWW som kjører versjon 0.57.49 eller nyere. Den sjekker belønningen og beregner arbeidsbeviset uten å laste ned hele transaksjonshistorikken.
 
 API-spesifikasjonen beskriver den innebygde nodekjernen. Android-appen har ingen skjerm for RPC-oppsett.
 

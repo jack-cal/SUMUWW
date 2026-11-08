@@ -14,6 +14,7 @@ import queue
 import secrets
 import threading
 import time
+import sqlite3
 import tempfile
 
 from .__main__ import create_payment
@@ -301,8 +302,12 @@ def _search_active_chain(chain, public_script, cancellation):
             continue
         # The write transaction decides activation. A competing block
         # cannot make an inactive branch look like a successful reward.
-        if chain.accept_block(block):
-            return block.block_hash()
+        try:
+            if chain.accept_block(block):
+                return block.block_hash()
+        except ValidationError:
+            if chain.tip_hash == parent:
+                raise
     return None
 
 
@@ -710,9 +715,16 @@ class AppService:
                 if digest is not None and not any(output.script_pubkey==script for output in digest.transactions[0].outputs):
                     raise AppServiceError('Resume the wallet used for the pending mining candidate')
                 if digest is None:
-                    digest = await asyncio.get_running_loop().run_in_executor(
-                        self._mining_executor, self._mining_session.run,
-                        self.database, self.network, script, interruption)
+                    try:
+                        digest = await asyncio.get_running_loop().run_in_executor(
+                            self._mining_executor, self._mining_session.run,
+                            self.database, self.network, script, interruption)
+                    except sqlite3.OperationalError as conflict:
+                        code = getattr(conflict, 'sqlite_errorcode', 0) & 255
+                        if code not in (sqlite3.SQLITE_BUSY, sqlite3.SQLITE_LOCKED):
+                            raise
+                        await asyncio.sleep(.5)
+                        continue
                 from .block import Block
                 if isinstance(digest,Block):
                     block=digest;digest=None;parent=block.header.previous_hash
@@ -751,15 +763,30 @@ class AppService:
                       'network_wait_seconds': self._mining_wait_seconds +
                           (time.monotonic() - self._mining_wait_started if self._mining_wait_started is not None else 0.0)}
             else:
-                error = _safe_error(caught)
+                error = self._mining_error(caught)
         except Exception as caught:
-            error = _safe_error(caught)
+            error = self._mining_error(caught)
         finally:
             self._finish_mining_wait()
             with self._control:
                 self._mining_reserved = False
                 self._mining_state = 'idle'
             _finish(future, value, error)
+
+    def _mining_error(self, exc):
+        # Only code locations and exception types belong in local diagnostics.
+        import traceback
+        frames = traceback.extract_tb(exc.__traceback__)
+        location = [Path(f.filename).stem + '.' + f.name + ':' + str(f.lineno) for f in frames[-6:]]
+        record = {'time': int(time.time()), 'type': type(exc).__name__, 'location': location,
+                  'sqlite': getattr(exc, 'sqlite_errorname', None)}
+        try:
+            _atomic_json(self.directory / 'mining-error.json', record)
+        except (OSError, ValueError):
+            pass
+        error = _safe_error(exc)
+        error.mining_code = type(exc).__name__ + (' · ' + location[-1] if location else '')
+        return error
 
     def _finish_mining_wait(self):
         if self._mining_wait_started is not None:

@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · API RPC i HTTP
+# SUMUWW Android 0.6.98 · API RPC i HTTP
 
-SUMUWW Android 0.6.95 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+Telefon łączy się z pełnym węzłem SUMUWW w wersji 0.57.49 lub nowszej. Sprawdza nagrodę i oblicza dowód pracy bez pobierania całej historii transakcji.
 
 Specyfikacja API opisuje wbudowany rdzeń węzła. Aplikacja Android nie ma ekranu konfiguracji RPC.
 

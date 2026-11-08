@@ -1,6 +1,6 @@
 # SUMUWW · Kiolesura cha nodi
 
-SUMUWW PC 0.57.46 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
+SUMUWW PC 0.57.49 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
 
 ## Mtandao na anwani
 

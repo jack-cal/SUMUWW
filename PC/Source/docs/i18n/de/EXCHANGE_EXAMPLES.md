@@ -1,6 +1,6 @@
 # SUMUWW · Prüfung
 
-SUMUWW PC 0.57.46 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
+SUMUWW PC 0.57.49 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
 
 ## Signaturformat
 

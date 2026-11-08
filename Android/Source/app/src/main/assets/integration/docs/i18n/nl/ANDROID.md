@@ -1,6 +1,12 @@
-# SUMUWW Android 0.6.95 · Documentatie
+# SUMUWW Android 0.6.98 · Documentatie
 
-SUMUWW Android 0.6.95 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
+De telefoon maakt verbinding met een volledige SUMUWW-node met versie 0.57.49 of hoger. Hij controleert de beloning en berekent het werkbewijs zonder de hele transactiegeschiedenis te downloaden.
+
+De aanbevolen transactiekosten verschijnen zodra de verbonden node de gegevens levert. De wallet toont de verwachte saldoverandering zodra het volledige bedrag is gecontroleerd.
+
+## Mininggeschiedenis
+
+Hier staan alleen blokken die deze telefoon heeft gemined. Tik op een vermelding om de beloning en het aantal bevestigingen te bekijken.
 
 ## Netwerk en adressen
 

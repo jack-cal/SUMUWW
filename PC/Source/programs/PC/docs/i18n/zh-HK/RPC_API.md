@@ -1,6 +1,6 @@
 # SUMUWW · RPC 與 HTTP API
 
-SUMUWW PC 0.57.46 · 節點負責驗證、儲存、傳播及查詢鏈上資料。
+SUMUWW PC 0.57.49 · 節點負責驗證、儲存、傳播及查詢鏈上資料。
 
 ## RPC 與 HTTP API
 

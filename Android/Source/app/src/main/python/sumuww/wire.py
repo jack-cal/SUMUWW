@@ -27,6 +27,8 @@ MAX_PAYLOAD = 4_000_000
 BOUNDARY_PROTOCOL_VERSION = 5
 
 def _payload_limit(command):
+    if command == "smwlight": return 65536
+    if command == "smwreply": return 131072
     if command=='bpart':
         from .boundary_transport import PART_FRAME_BYTES
         return PART_FRAME_BYTES

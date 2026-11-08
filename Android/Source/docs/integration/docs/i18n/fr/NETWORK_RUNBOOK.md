@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Exploitation du nœud
+# SUMUWW Android 0.6.98 · Exploitation du nœud
 
-SUMUWW Android 0.6.95 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
+Le téléphone se connecte à un nœud complet SUMUWW en version 0.57.49 ou ultérieure. Il vérifie la récompense et calcule la preuve de travail sans télécharger tout l’historique des transactions.
 
 ## Réseau et adresses
 

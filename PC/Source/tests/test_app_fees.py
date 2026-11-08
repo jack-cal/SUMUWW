@@ -199,7 +199,10 @@ class PaymentQuoteUiTests(unittest.TestCase):
                       'estimated_vsize': 141, 'source': 'live_mempool', 'capped': False}
 
     def tearDown(self):
+        import gc
         self.app._finish_close()
+        self.app = self.root = self.service = None
+        gc.collect()  # Release the test interpreter on the thread that created it.
         self.temp.cleanup()
 
     def test_automatic_default_confirms_exact_total_then_submits_same_quote(self):

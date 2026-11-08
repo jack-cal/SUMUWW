@@ -1,3 +1,7 @@
+# SUMUWW Windows 0.57.49
+
+The full node provides compact mining jobs for Android 0.6.97 over its existing peer connection. The miner retries temporary SQLite write contention and records an error code and code location locally if a batch stops unexpectedly.
+
 SUMUWW 0.57.48 — update before block 9,600. See UPGRADE_9600.md and the local 34-language upgrade9600 guide.
 
 # SUMUWW PC 0.57.48

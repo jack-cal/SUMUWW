@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · API RPC dan HTTP
+# SUMUWW Android 0.6.98 · API RPC dan HTTP
 
-SUMUWW Android 0.6.95 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
+Ponsel terhubung ke node penuh SUMUWW versi 0.57.49 atau yang lebih baru. Ponsel memeriksa imbalan dan menghitung bukti kerja tanpa mengunduh seluruh riwayat transaksi.
 
 Spesifikasi API menjelaskan inti node tertanam. Aplikasi Android tidak memiliki layar pengaturan RPC.
 

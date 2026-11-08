@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Belgeler
+# SUMUWW Android 0.6.98 · Belgeler
 
-SUMUWW Android 0.6.95 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
+Telefon, 0.57.49 veya sonraki bir sürümü çalıştıran bir SUMUWW tam düğümüne bağlanır. Ödülü kontrol eder ve tüm işlem geçmişini indirmeden iş ispatını hesaplar.
 
 ## Ağ ve adresler
 

@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Poznámky k vydání
+# SUMUWW Android 0.6.98 · Poznámky k vydání
 
-SUMUWW Android 0.6.95 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
+Telefon se připojuje k plnému uzlu SUMUWW verze 0.57.49 nebo novější. Ověří odměnu a vypočítá důkaz práce bez stahování celé historie transakcí.
 
 Specifikace API popisuje vestavěné jádro uzlu. Aplikace Android nemá obrazovku nastavení RPC.
 

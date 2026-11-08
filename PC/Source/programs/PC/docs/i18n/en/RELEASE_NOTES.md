@@ -1,6 +1,6 @@
 # SUMUWW · Release notes
 
-SUMUWW PC 0.57.46 · The node validates, stores, relays and exposes chain data.
+SUMUWW PC 0.57.49 · The node validates, stores, relays and exposes chain data.
 
 ## Signing format
 

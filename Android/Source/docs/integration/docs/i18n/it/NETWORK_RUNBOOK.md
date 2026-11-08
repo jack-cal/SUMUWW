@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Gestione del nodo
+# SUMUWW Android 0.6.98 · Gestione del nodo
 
-SUMUWW Android 0.6.95 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
+Il telefono si collega a un nodo completo SUMUWW con versione 0.57.49 o successiva. Verifica la ricompensa e calcola la prova di lavoro senza scaricare l’intera cronologia delle transazioni.
 
 ## Rete e indirizzi
 

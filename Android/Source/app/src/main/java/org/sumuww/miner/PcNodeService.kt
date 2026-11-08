@@ -92,11 +92,11 @@ class PcNodeService:Service() {
     val text=if(mining)"Mining ${batch?.optInt("completed")}/${batch?.optInt("target")}" else "Node · ${node?.optInt("peers",0)?:0} peers · ${node?.optString("sync_state","stopped")?:"stopped"}"
     if(!closing)notificationManager.notify(42,notification(text))
     val address=status.optJSONObject("wallet")?.optString("address","")?:""
-    if(address.isNotBlank()){
+    if(address.isNotBlank() && (node?.optInt("peers",0)?:0)>0){
      val alerts=TransferAlerts(this);val cutoff=alerts.cutoff(address,node?.optInt("height",0)?:0)
      val rows=org.json.JSONArray();var offset=0;var snapshot="";var snapshotHeight=0;var consistent=true
      while(!closing){
-      val page=JSONObject(PcRuntime.call("transaction_history",offset.toString(),"200"))
+      val page=JSONObject(PcRuntime.call("transfer_alerts",offset.toString()))
       if(offset==0){snapshot=page.getString("tip");snapshotHeight=page.getInt("height")}
       else if(snapshot!=page.getString("tip")){consistent=false;break}
       val items=page.getJSONArray("transactions")
@@ -105,7 +105,7 @@ class PcNodeService:Service() {
       if(items.length()==0||offset>=page.getInt("total")||(0 until items.length()).any{val tx=items.getJSONObject(it);tx.optString("status")=="confirmed"&&tx.optInt("height")<cutoff})break
      }
      val sameWallet=JSONObject(PcRuntime.call("status")).optJSONObject("wallet")?.optString("address")==address
-     val events=if(consistent&&sameWallet&&!closing)alerts.observe(address,snapshotHeight,rows,snapshot,cutoff)else emptyList()
+     val events=if(consistent&&sameWallet&&!closing)alerts.observe(address,snapshotHeight,rows,snapshot,maxOf(cutoff,snapshotHeight-144))else emptyList()
      if(events.isNotEmpty()){
       notificationManager.createNotificationChannel(NotificationChannel("dora-transfers",UiLanguage.text(this,"거래 알림"),NotificationManager.IMPORTANCE_DEFAULT))
       events.forEach{event->

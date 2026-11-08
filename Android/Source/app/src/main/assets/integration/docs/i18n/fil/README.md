@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Dokumentasyon
+# SUMUWW Android 0.6.98 · Dokumentasyon
 
-SUMUWW Android 0.6.95 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
+Kumokonekta ang telepono sa isang SUMUWW full node na may bersyong 0.57.49 o mas bago. Sinusuri nito ang gantimpala at kinakalkula ang proof of work nang hindi dina-download ang buong kasaysayan ng mga transaksyon.
 
 ## Network at mga address
 

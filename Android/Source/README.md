@@ -1,9 +1,11 @@
-SUMUWW 0.6.96 — update before block 9,600. See UPGRADE_9600.md and the local 34-language upgrade9600 guide.
+# SUMUWW Android 0.6.98
 
-# SUMUWW Android 0.6.96 (155)
+Fee recommendations appear when the connected node supplies them. The wallet shows a pending balance change when it can verify the full amount.
 
-SUMUWW Android provides an independently validating full node, a personal wallet, CPU mining, peer synchronization and connection proofs. Automatic fees use current pending volume, block capacity and transaction priority. Past block fees are not used. A quiet queue keeps the minimum rate. The preview refreshes; the final confirmation fixes the fee. Observations cover the connected local node, not every node. Multisig and output-lock validation is available for isolated activation tests; public activation is not scheduled. Open More > Help > Documentation for offline Android documentation in all 34 supported languages. English is the default; saved language preferences remain in effect.
+The phone connects to a SUMUWW full node running version 0.57.49 or later. It checks the reward and calculates the proof of work on the phone. It does not download the chain’s transaction history. Only blocks mined by this phone appear here. Open a record to see its reward and confirmations.
 
-Install over the existing org.sumuww.miner app with the same signing certificate. Wallet formats, stored chain history and public-network consensus rules are preserved. The node core supports signed transaction validation/submission, block/transaction/UTXO queries and reorganization state. The Android app has no RPC configuration screen. See [Android node interface](docs/integration/docs/i18n/en/ANDROID.html).
+A reachable compatible full node supplies balances and the active chain used to check confirmations. Wallet keys and transaction signing stay on the phone. A previous chain database stays on disk. Older rewards can be identified when the device has a matching local producer job.
+
+Install over the existing org.sumuww.miner app with the same signing certificate. Wallet formats, older local chain files and public-network consensus rules are preserved. The node core supports signed transaction validation/submission, block/transaction/UTXO queries and reorganization state. The Android app has no RPC configuration screen. See [Android node interface](docs/integration/docs/i18n/en/ANDROID.html).
 
 Tests run in the separate .audit package on disposable regtest data. The test fixture is included only in the instrumentation APK. The production APK contains the application modules and offline documents.

@@ -1,6 +1,6 @@
 # SUMUWW · Notas de versión
 
-SUMUWW PC 0.57.46 · El nodo valida, guarda, retransmite y permite consultar la cadena.
+SUMUWW PC 0.57.49 · El nodo valida, guarda, retransmite y permite consultar la cadena.
 
 ## Formato de firma
 

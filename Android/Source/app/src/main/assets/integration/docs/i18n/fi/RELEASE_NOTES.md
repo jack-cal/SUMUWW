@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Julkaisutiedot
+# SUMUWW Android 0.6.98 · Julkaisutiedot
 
-SUMUWW Android 0.6.95 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
+Puhelin muodostaa yhteyden SUMUWW-täyssolmuun, jonka versio on 0.57.49 tai uudempi. Se tarkistaa palkkion ja laskee työtodisteen lataamatta ketjun koko tapahtumahistoriaa.
 
 API-määrittely kuvaa sisäänrakennettua solmuydintä. Android-sovelluksessa ei ole RPC-asetusnäkymää.
 

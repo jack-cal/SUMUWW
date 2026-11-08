@@ -1,6 +1,6 @@
 # SUMUWW · Uhakiki
 
-SUMUWW PC 0.57.46 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
+SUMUWW PC 0.57.49 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
 
 ## Muundo wa saini
 

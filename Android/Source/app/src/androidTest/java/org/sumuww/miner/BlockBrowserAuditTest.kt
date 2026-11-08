@@ -18,10 +18,6 @@ import java.io.File
 class BlockBrowserAuditTest {
     private fun views(view:View):List<View> = listOf(view)+
         if(view is ViewGroup)(0 until view.childCount).flatMap{views(view.getChildAt(it))}else emptyList()
-    private fun result(offset:Int=0)=JSONObject().put("offset",offset).put("height",103).put("total",104)
-        .put("blocks",JSONArray().apply{for(h in (103-offset) downTo maxOf(0,54-offset))put(JSONObject()
-            .put("height",h).put("hash",h.toString().padStart(64,'0')).put("timestamp",1792677600)
-            .put("producer_id","ab".repeat(32)).put("origin",if(h%2==0)"local" else "other"))})
     @Test fun allLanguagesAndSeparateMiningPage(){
         val inst=InstrumentationRegistry.getInstrumentation();val context=inst.targetContext
         check(context.packageName.endsWith(".audit"))
@@ -37,25 +33,24 @@ class BlockBrowserAuditTest {
                     activity.setContentView(screen.appRoot)
                     val status=JSONObject().put("mobile_batch",JSONObject().put("running",true).put("completed",7).put("target",100))
                     val model=SumuwwScreens.Model(1,status,null,0,"all",0,"00:00:00","100","","",null,false,false,
-                        SumuwwThemeCalendar.resolve("default"),"light",name,blocks=result())
+                        SumuwwThemeCalendar.resolve("default"),"light",name)
                     screen.render(model)
                     assertNull(screen.content.findViewWithTag<View>("sumuww-all-blocks-list"))
                     val stop=views(screen.content).filterIsInstance<TextView>().single{it.isClickable&&it.text.toString()==UiLanguage.text(context,"채굴 중지")}
                     stop.performClick();assertEquals("stopMining",actions.last().first)
+                    screen.render(model.copy(page=5, status=JSONObject().put("fees", JSONObject())))
+                    val waitingFee = UiLanguage.text(context, "자동 계산 · 최종 수수료는 전송 전에 확인합니다")
+                    assertTrue("Offline fee preview must wait for data ($code)", views(screen.content).filterIsInstance<TextView>().any { it.text.toString() == waitingFee })
                     screen.render(model.copy(page=4))
-                    screen.content.findViewWithTag<View>("sumuww-all-blocks").performClick()
-                    assertEquals("page" to "15",actions.last())
-                    screen.render(model.copy(page=15))
-                    assertEquals(50,screen.content.findViewWithTag<ViewGroup>("sumuww-all-blocks-list").childCount)
-                    assertTrue(views(screen.topHeader).filterIsInstance<TextView>().any{it.text.toString()==UiLanguage.text(context,"전체 블록")})
-                    screen.content.findViewWithTag<View>("blocks-next").performClick();assertEquals("blocksNext",actions.last().first)
-                    screen.render(model.copy(page=15,blocks=result(100)))
-                    assertEquals(4,screen.content.findViewWithTag<ViewGroup>("sumuww-all-blocks-list").childCount)
-                    assertNull(screen.content.findViewWithTag<View>("blocks-next"))
-                    screen.content.findViewWithTag<View>("blocks-previous").performClick();assertEquals("blocksPrevious",actions.last().first)
-                    screen.content.findViewWithTag<EditText>("blockSearch").setText("0")
-                    screen.content.findViewWithTag<View>("blocks-search").performClick();assertEquals("blockSearch" to "0",actions.last())
-                    screen.content.findViewWithTag<View>("blocks-refresh").performClick();assertEquals("blocksRefresh",actions.last().first)
+                    assertNull(screen.content.findViewWithTag<View>("sumuww-all-blocks"))
+                    screen.content.findViewWithTag<View>("device-mining-history").performClick()
+                    assertEquals("history",actions.last().first)
+                    val rows=JSONArray().put(JSONObject().put("txid","01".repeat(32)).put("coinbase",true)
+                        .put("status","confirmed").put("height",103).put("net_amount",5000000000L).put("confirmations",1))
+                    screen.render(model.copy(page=3,history=JSONObject().put("total",1).put("transactions",rows)))
+                    assertTrue(views(screen.content).filterIsInstance<TextView>().any{it.text.toString().contains("50 SMW")})
+                    assertNull(screen.content.findViewWithTag<View>("blocks-search"))
+
                 }
                 inst.waitForIdleSync()
                 if(code in setOf("en","ko","ar","mn-Mong","de","ta")){

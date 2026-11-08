@@ -1,6 +1,6 @@
 # SUMUWW · Nodegrensesnitt
 
-SUMUWW PC 0.57.46 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
+SUMUWW PC 0.57.49 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
 
 ## Nettverk og adresser
 

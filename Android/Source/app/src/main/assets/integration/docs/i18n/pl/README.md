@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Dokumentacja
+# SUMUWW Android 0.6.98 · Dokumentacja
 
-SUMUWW Android 0.6.95 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+Telefon łączy się z pełnym węzłem SUMUWW w wersji 0.57.49 lub nowszej. Sprawdza nagrodę i oblicza dowód pracy bez pobierania całej historii transakcji.
 
 ## Sieć i adresy
 

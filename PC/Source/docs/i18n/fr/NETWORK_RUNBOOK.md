@@ -1,6 +1,6 @@
 # SUMUWW · Exploitation du nœud
 
-SUMUWW PC 0.57.46 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
+SUMUWW PC 0.57.49 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
 
 ## Réseau et adresses
 

@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.95 · Interfaccia del nodo
+# SUMUWW Android 0.6.98 · Interfaccia del nodo
 
-SUMUWW Android 0.6.95 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
+Il telefono si collega a un nodo completo SUMUWW con versione 0.57.49 o successiva. Verifica la ricompensa e calcola la prova di lavoro senza scaricare l’intera cronologia delle transazioni.
 
 La specifica API descrive il nucleo del nodo integrato. L’app Android non dispone di una schermata di configurazione RPC.
 

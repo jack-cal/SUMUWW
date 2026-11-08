@@ -1,6 +1,6 @@
 # SUMUWW · Vận hành nút
 
-SUMUWW PC 0.57.46 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
+SUMUWW PC 0.57.49 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
 
 ## Mạng và địa chỉ
 

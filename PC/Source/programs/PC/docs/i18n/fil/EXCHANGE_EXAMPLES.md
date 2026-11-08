@@ -1,6 +1,6 @@
 # SUMUWW · Beripikasyon
 
-SUMUWW PC 0.57.46 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
+SUMUWW PC 0.57.49 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
 
 ## Pormat ng lagda
 

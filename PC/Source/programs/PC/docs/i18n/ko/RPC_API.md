@@ -1,6 +1,6 @@
 # SUMUWW · RPC·HTTP API
 
-SUMUWW PC 0.57.46 · 노드는 체인 데이터를 검증·저장·전파·조회합니다.
+SUMUWW PC 0.57.49 · 노드는 체인 데이터를 검증·저장·전파·조회합니다.
 
 ## RPC·HTTP API
 

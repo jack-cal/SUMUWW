@@ -2043,7 +2043,9 @@ class SumuwwApp:
         self._sync_controls()
         self._request_status()
         if not cancelled:
-            messagebox.showerror(tr('Check mining'), _error_message(error), parent=self.root)
+            detail = getattr(error, 'mining_code', None)
+            message = str(_error_message(error)) if not detail else str(tr('Check mining')) + ' · ' + detail
+            messagebox.showerror(tr('Check mining'), message, parent=self.root)
 
     def _wait_for_mining_sync(self):
         self._mining_waiting = True

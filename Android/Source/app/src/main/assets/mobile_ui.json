@@ -8539,6 +8539,41 @@
       "Није могуће проверити ажурирања. Проверите директно на GitHub-у.",
       "Шинэчлэлт шалгаж чадсангүй. GitHub дээр шууд шалгана уу.",
       "ᠰᠢᠨᠡᠴᠢᠯᠡᠯᠲᠡ ᠶᠢ ᠱᠠᠯᠭᠠᠵᠤ ᠴᠢᠳᠠᠭᠰᠠᠨ ᠦᠭᠡᠢ᠃ GitHub ᠳᠡᠭᠡᠷ᠎ᠡ ᠱᠠᠯᠭᠠᠨ᠎ᠠ ᠤᠤ᠃"
+    ],
+    "내 채굴 내역": [
+      "Mining history",
+      "Historique du minage",
+      "Historial de minería",
+      "سجل التعدين",
+      "挖矿记录",
+      "Histórico de mineração",
+      "История майнинга",
+      "Mining-Verlauf",
+      "Historia ya uchimbaji",
+      "माइनिंग का इतिहास",
+      "マイニング履歴",
+      "Riwayat penambangan",
+      "Lịch sử đào",
+      "Madencilik geçmişi",
+      "ประวัติการขุด",
+      "Cronologia del mining",
+      "মাইনিংয়ের ইতিহাস",
+      "مائننگ کی تاریخ",
+      "Historia wydobycia",
+      "Mininggeschiedenis",
+      "Kasaysayan ng pagmimina",
+      "மைனிங் வரலாறு",
+      "挖礦紀錄",
+      "挖礦記錄",
+      "Historie těžby",
+      "Minehistorik",
+      "Louhintahistoria",
+      "Ιστορικό εξόρυξης",
+      "Utvinningshistorikk",
+      "Utvinningshistorik",
+      "Историја рударења",
+      "Олборлолтын түүх",
+      "ᠣᠯᠪᠣᠷᠢᠯᠠᠯᠲᠠ ᠶᠢᠨ ᠲᠡᠦᠬᠡ"
     ]
   },
   "source_keys": {
@@ -8815,7 +8850,8 @@
     "일반 연결 안내": "Direct connection uses neither Tor nor I2P. It usually connects faster and uses fewer resources. Other peers can see your connection IP.",
     "Tor 사용 안내": "Benefit: Tor helps hide your real IP from other peers.\n\nTrade-offs: Connecting and syncing may be slower, and battery and data use may increase. Transaction records remain public. If Tor fails, direct connections stay disabled.",
     "I2P 사용 안내": "Benefit: I2P helps hide your real IP from other I2P peers.\n\nTrade-offs: I2P peers are required. Connecting and syncing may be slower, and battery and data use may increase. Transaction records remain public. If I2P fails, direct connections stay disabled.",
-    "Tor/I2P 로컬 서비스를 먼저 실행하세요. 연결 실패 시 직접 연결로 전환하지 않습니다. I2P는 b32.i2p 피어가 필요합니다.": "Tor/I2P requires a running local router. No direct fallback. I2P uses b32.i2p peers."
+    "Tor/I2P 로컬 서비스를 먼저 실행하세요. 연결 실패 시 직접 연결로 전환하지 않습니다. I2P는 b32.i2p 피어가 필요합니다.": "Tor/I2P requires a running local router. No direct fallback. I2P uses b32.i2p peers.",
+    "내 채굴 내역": "Mining history"
   },
   "korean_overrides": {
     "시얀": "시안",
@@ -8836,6 +8872,7 @@
     "일반 연결 안내": "Tor와 I2P를 사용하지 않습니다. 보통 연결이 빠르고 자원을 적게 쓰지만, 상대 노드에게 연결 IP가 보입니다.",
     "Tor 사용 안내": "Tor\n\n장점: 상대 노드에게 실제 IP를 숨기는 데 도움이 됩니다.\n\n단점: 연결·동기화가 느려지고 배터리·데이터 사용이 늘 수 있습니다. 거래 기록은 공개됩니다. 연결에 실패해도 일반 연결로 전환하지 않습니다.",
     "I2P 사용 안내": "I2P\n\n장점: 상대 노드에게 실제 IP를 숨기는 데 도움이 됩니다.\n\n단점: 연결·동기화가 느려지고 배터리·데이터 사용이 늘 수 있습니다. 거래 기록은 공개됩니다. 연결에 실패해도 일반 연결로 전환하지 않습니다.\n\nI2P 피어가 필요합니다.",
-    "Tor/I2P 로컬 서비스를 먼저 실행하세요. 연결 실패 시 직접 연결로 전환하지 않습니다. I2P는 b32.i2p 피어가 필요합니다.": "Tor와 I2P는 SUMUWW에 내장된 선택 기능입니다. 선택한 기능만 실행되며 일반 연결에서는 둘 다 실행하지 않습니다. 별도 설치나 포트 설정은 필요 없습니다. 익명망 연결에 실패해도 일반 연결로 전환하지 않습니다. I2P는 b32.i2p 피어가 필요합니다."
+    "Tor/I2P 로컬 서비스를 먼저 실행하세요. 연결 실패 시 직접 연결로 전환하지 않습니다. I2P는 b32.i2p 피어가 필요합니다.": "Tor와 I2P는 SUMUWW에 내장된 선택 기능입니다. 선택한 기능만 실행되며 일반 연결에서는 둘 다 실행하지 않습니다. 별도 설치나 포트 설정은 필요 없습니다. 익명망 연결에 실패해도 일반 연결로 전환하지 않습니다. I2P는 b32.i2p 피어가 필요합니다.",
+    "내 채굴 내역": "내 채굴 내역"
   }
 }
