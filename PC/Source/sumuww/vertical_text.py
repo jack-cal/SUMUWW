@@ -48,7 +48,15 @@ def _apis():
         function.argtypes, function.restype = args, result
     path = Path(__file__).resolve().parent.parent / 'assets/fonts/NotoSansMongolian-Regular.ttf'
     if not gdi.AddFontResourceExW(str(path), 0x10, None):
-        raise OSError(c.get_last_error(), 'Could not load bundled Mongolian font')
+        # Some Windows execution contexts cannot register a font by path.
+        # GDI copies this font into the process, keeping the same typeface.
+        data = path.read_bytes()
+        faces = w.DWORD()
+        add_font = gdi.AddFontMemResourceEx
+        add_font.argtypes = [c.c_void_p, w.DWORD, c.c_void_p, c.POINTER(w.DWORD)]
+        add_font.restype = w.HANDLE
+        if not add_font(c.create_string_buffer(data), len(data), None, c.byref(faces)):
+            raise OSError(c.get_last_error(), 'Could not load bundled Mongolian font')
     return gdi, user
 
 

@@ -24,8 +24,7 @@ def apply_window_icon(root, language):
     try:
         path = artwork(language, 'ico')
         if sys.platform == 'win32' and path.is_file():
-            # Tk's iconbitmap allocates unreleased native resources on each
-            # update. Own the native icon handles and release replaced ones.
+            # Reuse native handles when a window is mapped or its language changes.
             from .windows_icon import install_taskbar_icon
             install_taskbar_icon(root, path)
             return

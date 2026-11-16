@@ -23,6 +23,24 @@ from .transaction import Transaction, TxOutput, bip143_sighash_all
 
 SECP256K1_ORDER = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141
 SIGHASH_ALL = 0x01
+# A low-R, low-S DER signature is at most 70 bytes before its hash-type byte.
+LOW_R_SIGNATURE_WITH_HASHTYPE_SIZE = 71
+
+
+def sign_low_r_digest(private_key, digest):
+    """Apply Core's low-R retry rule using libsecp256k1's RFC6979 signer."""
+    signature = private_key.sign(digest, hasher=None)
+    counter = 0
+    while signature[3] > 32:  # DER length of the R integer (33 needs a sign pad).
+        counter += 1
+        entropy = counter.to_bytes(4, 'little') + bytes(28)
+        if hasattr(private_key, 'sign_with_extra_entropy'):
+            signature = private_key.sign_with_extra_entropy(digest, entropy)
+        else:
+            from coincurve._libsecp256k1 import ffi
+            data = ffi.new('unsigned char[32]', entropy)
+            signature = private_key.sign(digest, hasher=None, custom_nonce=(ffi.NULL, data))
+    return signature
 
 
 def hash160(data: bytes) -> bytes:
@@ -98,10 +116,12 @@ class RegtestKey:
     def public_key_bytes(self, *, compressed: bool = True) -> bytes:
         return self._private_key.public_key.format(compressed=compressed)
 
-    def sign_digest(self, digest: bytes) -> bytes:
+    def sign_digest(self, digest: bytes, *, low_r=False) -> bytes:
         """DER ECDSA of an already computed 32-byte digest, without rehashing."""
         if not isinstance(digest, bytes) or len(digest) != 32:
             raise ValueError("signature digest must be exactly 32 bytes")
+        if low_r:
+            return sign_low_r_digest(self._private_key, digest)
         return self._private_key.sign(digest, hasher=None)
 
     def __repr__(self) -> str:
@@ -124,6 +144,7 @@ def sign_p2wpkh(
     input_index: int,
     spent_output: TxOutput,
     key: RegtestKey,
+    *, low_r=False,
 ) -> Transaction:
     """Return a new transaction with one native P2WPKH input signed locally."""
     _require_supported_output(spent_output)
@@ -133,7 +154,10 @@ def sign_p2wpkh(
     if spent_output.script_pubkey != key.script_pubkey:
         raise InvalidTransaction("test key does not own the spent output")
     digest = bip143_sighash_all(tx, input_index, spent_output.script_pubkey, spent_output.value)
-    signature = key.sign_digest(digest) + bytes([SIGHASH_ALL])
+    der = key.sign_digest(digest, low_r=True) if low_r else key.sign_digest(digest)
+    signature = der + bytes([SIGHASH_ALL])
+    if low_r and len(signature) > LOW_R_SIGNATURE_WITH_HASHTYPE_SIZE:
+        raise InvalidTransaction("P2WPKH wallet signature exceeds its quoted 71-byte bound")
     inputs = list(tx.inputs)
     inputs[input_index] = replace(inputs[input_index], witness=(signature, key.pubkey))
     signed = replace(tx, inputs=tuple(inputs))

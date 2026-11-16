@@ -83,3 +83,19 @@ validateaddress 檢查校驗碼及所選網絡。decoderawtransaction 的 decode
 [文件](README.html) · [節點介面](EXCHANGE_INTEGRATION.html) · [節點運作](NETWORK_RUNBOOK.html) · [版本說明](RELEASE_NOTES.html) · [查驗](EXCHANGE_EXAMPLES.html)
 
 [英文詳細參考](../../../EXCHANGE_INTEGRATION.html) · [API_CONTRACT.json](../../../API_CONTRACT.json) · [vectors.json](../../../examples/exchange/vectors.json)
+
+<!-- payment-policy-20261116 -->
+
+## 交易手續費、確認內容與兼容性
+
+手續費等於輸入金額總和減去輸出金額總和。只有錢包實際建立符合要求的找贖時，估算才計入找贖輸出的大小。低於錢包找贖門檻的餘額會計入手續費，確認前會顯示最終手續費與總扣款。費率單位為 yugeon/vB；虛擬大小是交易權重除以四後向上取整的數值。
+
+錢包只選取一次輸入及輸出，並按同一交易方案產生簽署。確認後提交的是已儲存的簽署交易，不會重新組合交易或重算手續費。報價到期或輸入已被花費時，必須重新核對。進入本機待處理佇列，不代表已獲區塊確認。
+
+一般 P2WPKH 轉賬使用 low-R、low-S 簽署，連同 SIGHASH_ALL 位元組在內最多為 71 位元組。這是錢包的簽署及大小估算政策，並非對其他有效簽署新增的共識限制。簽署較短時，實際虛擬大小可能小於估算值。建議費率仍按本機節點的待處理佇列計算；採用與 Bitcoin 相近的大小計算方式，不表示使用 Bitcoin 網絡的費率。
+
+## Windows I2P 組件及安全檢查
+
+Windows 套件包含官方 i2pd 3.0.0，並更新雜湊值及初始連線所需的憑證。在已記錄的檢查中，Defender 仍會偵測官方 I2P 執行檔及原始 ZIP。雜湊值與官方相符，並不能證明安全或確定是誤報。本機檔案排除設定只適用於登記設定的電腦，公開套件不會自動加入排除設定；其他電腦仍可能封鎖同一批檔案。
+
+<!-- /payment-policy-20261116 -->

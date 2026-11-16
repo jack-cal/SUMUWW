@@ -16,6 +16,6 @@ class WalletV4Test {
         File(context.getExternalFilesDir(null), "wallet-v4-validation.json").writeText(report.toString(2))
         assertTrue(report.toString(), report.getBoolean("passed"))
         assertEquals(9000, report.getInt("activation_height"))
-        assertTrue(report.getJSONArray("checks").toString().contains("unsigned_selected_block_rejected"))
+        assertTrue(report.getJSONArray("checks").toString().contains("valid_selected_block_accepted_without_connection_proof"))
     }
 }

@@ -142,6 +142,7 @@ class AndroidIPv6Tests(unittest.IsolatedAsyncioTestCase):
         class Transport:
             def __init__(self): self.closed = False
             def close(self): self.closed = True
+            def is_closing(self): return self.closed
         bindings, transports = [], []
         async def create(factory, *, local_addr, family):
             bindings.append((local_addr[0], family))

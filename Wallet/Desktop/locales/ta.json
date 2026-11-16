@@ -134,5 +134,7 @@
   "Issuance limit (block)": "தொகுதியின் வெளியீட்டு வரம்பு",
   "Available fees (block)": "தொகுதியில் கிடைக்கும் கட்டணம்",
   "Unclaimed reward": "பெறப்படாத வெகுமதி",
-  "Reward not fully claimed": "வெகுமதியின் ஒரு பகுதி பெறப்பட்டது"
+  "Reward not fully claimed": "வெகுமதியின் ஒரு பகுதி பெறப்பட்டது",
+  "Confirm": "உறுதிப்படுத்தவும்",
+  "Net amount": "இருப்பில் ஏற்பட்ட மாற்றம்"
 }

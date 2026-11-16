@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Issuance limit (block)",
   "Available fees (block)": "Available fees (block)",
   "Unclaimed reward": "Unclaimed reward",
-  "Reward not fully claimed": "Reward not fully claimed"
+  "Reward not fully claimed": "Reward not fully claimed",
+  "Confirm": "Confirm",
+  "Net amount": "Net amount"
 }

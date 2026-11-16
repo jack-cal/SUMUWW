@@ -1,8 +1,13 @@
-<!doctype html><html lang="zh-HK"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{max-width:1040px;margin:32px auto;padding:24px;font:17px/1.8 system-ui}table{border-collapse:collapse}td,th{border:1px solid #aaa;padding:8px}pre{white-space:pre-wrap}</style><h1>SUMUWW Wallet PC 1.0.10</h1>
+<!doctype html><html lang="zh-HK"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{max-width:1040px;margin:32px auto;padding:24px;font:17px/1.8 system-ui}table{border-collapse:collapse}td,th{border:1px solid #aaa;padding:8px}pre{white-space:pre-wrap}</style><h1>SUMUWW Wallet PC 1.0.15</h1>
 <p>節點通常會建立 10 個對外連線，大部分用來轉發區塊和交易。節點可透過已驗證的備用連線轉發區塊，亦可暫時開啟第 11 個連線來尋找其他節點。連線總數上限為 125。連入連線最多 117 個，有 10 個對外連線時則最多 115 個。</p>
 <p>1 SMW = 100,000,000 yugeon。自動費用按本機觀測提供慢速、一般及快速選項，但不保證確認時間。你亦可手動輸入 yugeon/vB 費率。發送前請核對以 SMW 顯示的最終費用及總額。被拒絕的交易不會扣減餘額。</p>
+<p>使用一筆 1 SMW 的輸入時，手續費視乎是否需要找續。假設輸入和輸出均為 P2WPKH，費率是 1 yugeon/vB，轉出 0.99999890 SMW 時毋須找續，手續費是 110 yugeon。用同一筆輸入轉出 0.8 SMW 時，交易會多一個找續輸出，手續費是 141 yugeon。扣除手續費後，餘額達到找續的最低金額，錢包才會找續。這個門檻已計及日後動用這筆找續的成本。低於門檻的餘額會計入確認轉帳時顯示的手續費。估算原生隔離見證（P2WPKH）錢包輸入的大小時，簽名連同雜湊類型最多按 71 個位元組計算。</p>
+
 <p><code>1 yugeon = 0.00000001 SMW</code></p>
 <p><code>1 SMW = 100,000,000 yugeon</code></p>
 <p>自動手續費按目前待處理數據量、區塊容量及交易優先次序計算，不採用過往區塊的手續費。待處理量較少時維持最低費率。預覽會更新，最後確認時固定手續費。觀測範圍是已連線的本機節點，並非所有節點。</p>
 <p>重新啟動錢包後，本節點記錄的交易替換歷史仍會保留。已移除的交易不計入結餘。</p>
 <p>挖礦紀錄分別顯示每個區塊的新增發行獎勵、交易手續費獎勵和總獎勵，錢包實際收到的金額會另外顯示。若只領取部分獎勵，系統不會自行推定兩類獎勵的分配。節點提供 28 個 RPC 方法，包括手續費估算，並驗證及轉發已簽署交易。</p></html><p><a href="../../upgrade9600/zh-HK.html">請在第9,600個區塊前更新。</a></p>
+
+
+<!-- payment-policy-20261116 --><section class="policy-update" id="payment-policy"><h2>交易手續費、確認內容與兼容性</h2><p>手續費等於輸入金額總和減去輸出金額總和。只有錢包實際建立符合要求的找贖時，估算才計入找贖輸出的大小。低於錢包找贖門檻的餘額會計入手續費，確認前會顯示最終手續費與總扣款。費率單位為 yugeon/vB；虛擬大小是交易權重除以四後向上取整的數值。</p><p>錢包只選取一次輸入及輸出，並按同一交易方案產生簽署。確認後提交的是已儲存的簽署交易，不會重新組合交易或重算手續費。報價到期或輸入已被花費時，必須重新核對。進入本機待處理佇列，不代表已獲區塊確認。</p><p>一般 P2WPKH 轉賬使用 low-R、low-S 簽署，連同 SIGHASH_ALL 位元組在內最多為 71 位元組。這是錢包的簽署及大小估算政策，並非對其他有效簽署新增的共識限制。簽署較短時，實際虛擬大小可能小於估算值。建議費率仍按本機節點的待處理佇列計算；採用與 Bitcoin 相近的大小計算方式，不表示使用 Bitcoin 網絡的費率。</p><h2>Windows I2P 組件及安全檢查</h2><p>Windows 套件包含官方 i2pd 3.0.0，並更新雜湊值及初始連線所需的憑證。在已記錄的檢查中，Defender 仍會偵測官方 I2P 執行檔及原始 ZIP。雜湊值與官方相符，並不能證明安全或確定是誤報。本機檔案排除設定只適用於登記設定的電腦，公開套件不會自動加入排除設定；其他電腦仍可能封鎖同一批檔案。</p></section><!-- /payment-policy-20261116 -->

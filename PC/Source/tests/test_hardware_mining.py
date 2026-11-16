@@ -13,17 +13,18 @@ from sumuww.stratum_mining import StratumMiner, word_swap
 
 class DevicePolicyTests(unittest.TestCase):
     def test_unlock_boundaries_and_cpu(self):
-        for mode,minimum in [('gpu',12000),('asic',12000)]:
-            with self.assertRaises(ValueError):policy.require_unlocked(mode,minimum-1)
-            policy.require_unlocked(mode,minimum)
-            policy.require_unlocked(mode,minimum+1)
+        with self.assertRaises(ValueError):
+            policy.require_unlocked('gpu',11999)
+        policy.require_unlocked('gpu',12000)
+        with self.assertRaises(ValueError):
+            policy.require_unlocked('asic',12001)
         policy.require_unlocked('cpu',0)
         self.assertEqual(policy.public_settings(policy.validate_settings(),11999)['available_modes'],['cpu'])
-        self.assertEqual(policy.public_settings(policy.validate_settings(),12000)['available_modes'],['cpu','gpu','asic'])
-        self.assertEqual(policy.public_settings(policy.validate_settings(),12001)['available_modes'],['cpu','gpu','asic'])
+        self.assertEqual(policy.public_settings(policy.validate_settings(),12000)['available_modes'],['cpu','gpu'])
+        self.assertEqual(policy.public_settings(policy.validate_settings(),12001)['available_modes'],['cpu','gpu'])
     def test_preference_roundtrip_and_secret_not_in_status(self):
         with tempfile.TemporaryDirectory() as root:
-            v=policy.validate_settings('asic','0.0.0.0',3333,'test-password-16chars')
+            v=policy.validate_settings('gpu','0.0.0.0',3333,'test-password-16chars')
             policy.save_settings(root,v)
             self.assertEqual(policy.load_settings(root),v)
             self.assertNotIn(v['password'],json.dumps(policy.public_settings(v,12000)))
@@ -31,7 +32,10 @@ class DevicePolicyTests(unittest.TestCase):
         for args in [('asic','127.0.0.1',3333,''),('gpu','8.8.8.8',3333,''),('asic','127.0.0.1',True,'test-password-16chars')]:
             with self.assertRaises(ValueError):policy.validate_settings(*args)
         with tempfile.TemporaryDirectory() as root:
-            Path(root,policy.SETTINGS_NAME).write_text('{}')
+            saved=dict(policy.validate_settings(), mode='asic', password='test-password-16chars')
+            Path(root,policy.SETTINGS_NAME).write_text(json.dumps(saved))
+            with self.assertRaises(ValueError):policy.create_backend(saved)
+            with self.assertRaises(ValueError):policy.validate_settings('asic',password=saved['password'])
             self.assertEqual(policy.load_settings(root)['mode'],'cpu')
 
 class StratumSoloTests(unittest.TestCase):
@@ -94,8 +98,8 @@ class HardwareServiceTests(unittest.TestCase):
             service=AppService(root,network='regtest',bootstrap=False)
             try:
                 service.start().result(timeout=10)
-                for mode in ('gpu','asic'):
-                    with self.assertRaisesRegex(Exception,'height'):
+                for mode,reason in [('gpu','height'),('asic','Select CPU or GPU')]:
+                    with self.assertRaisesRegex(Exception,reason):
                         service.configure_mining_hardware(mode,'127.0.0.1',3333,'test-password-16chars').result(timeout=5)
                 status=service.status().result(timeout=5)
                 self.assertEqual(status['mining']['hardware']['mode'],'cpu')

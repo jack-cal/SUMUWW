@@ -26,7 +26,7 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from .address import encode_address
 from .profiles import SUMUWW, NetworkProfile, REGTEST, get_network
 from .primitives import hash_to_display
-from .wallet import SECP256K1_ORDER, p2wpkh_script
+from .wallet import SECP256K1_ORDER, p2wpkh_script, sign_low_r_digest
 from .hd import (SUMUWW_NAMESPACE, HARDENED, HDKeyError, HDNode,
                  entropy_to_mnemonic, mnemonic_to_entropy, mnemonic_to_seed)
 
@@ -82,9 +82,11 @@ class WalletKey:
     def address(self) -> str:
         return encode_address(self.script_pubkey, network=self.network)
 
-    def sign_digest(self, digest: bytes) -> bytes:
+    def sign_digest(self, digest: bytes, *, low_r=False) -> bytes:
         if not isinstance(digest, bytes) or len(digest) != 32:
             raise WalletError("signature digest must be exactly 32 bytes")
+        if low_r:
+            return sign_low_r_digest(self._private_key, digest)
         return self._private_key.sign(digest, hasher=None)
 
     def __repr__(self) -> str:

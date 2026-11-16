@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Блокийн гаргалтын хязгаар",
   "Available fees (block)": "Блокийн боломжит шимтгэл",
   "Unclaimed reward": "Аваагүй шагнал",
-  "Reward not fully claimed": "Шагналыг хэсэгчлэн авсан"
+  "Reward not fully claimed": "Шагналыг хэсэгчлэн авсан",
+  "Confirm": "Батлах",
+  "Net amount": "Үлдэгдлийн өөрчлөлт"
 }

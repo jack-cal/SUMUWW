@@ -1,3 +1,3 @@
-# SUMUWW Android 0.6.99 (162)
+# SUMUWW 0.6.102 source update
 
-This release uses the Android 0.6.96 full node and the local validation checkpoint from Windows 0.57.54. The Android service waits for the first upgrade check and accepts the local 0.6.96.1 and 0.6.96.2 version formats. The source archive identifies its Git commit in SOURCE_COMMIT.txt and lists the file hashes in SOURCE_FILES.json.
+Based on the released 0.6.99 source archive. See SOURCE_BASE.txt for its source reference. SOURCE_FILES.json lists the SHA-256 checksums of this revised source tree.

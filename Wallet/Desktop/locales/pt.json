@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Limite de emissão do bloco",
   "Available fees (block)": "Taxas disponíveis do bloco",
   "Unclaimed reward": "Recompensa não reivindicada",
-  "Reward not fully claimed": "Recompensa reivindicada parcialmente"
+  "Reward not fully claimed": "Recompensa reivindicada parcialmente",
+  "Confirm": "Confirmar",
+  "Net amount": "Variação do saldo"
 }

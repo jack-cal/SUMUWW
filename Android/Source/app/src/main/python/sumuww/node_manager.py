@@ -30,7 +30,7 @@ from .peer import _endpoint
 from .peerd import endpoint
 from .profiles import NETWORK_NAMES, get_network
 from .primitives import hash_to_display
-from .wire import (DISCOVERY_PROTOCOL_VERSION, PROTOCOL_VERSION, PeerDisconnected, ProtocolError,
+from .wire import (DISCOVERY_PROTOCOL_VERSION, IPV6_PROTOCOL_VERSION, PROTOCOL_VERSION, PeerDisconnected, ProtocolError,
                    Version, decode_version, encode_version, read_frame, write_frame)
 
 
@@ -182,7 +182,7 @@ async def probe_peer(address,*,network='dora',allow_internet=False,allow_lan=Fal
     profile=get_network(network)
     started=time.monotonic()
     result={'endpoint':normalized,'status':'unreachable','reason':'Connection failed',
-            'protocol':None,'advertised_tip':None,'claimed_height':None,'latency_ms':None,
+            'protocol':None,'peer_id':None,'advertised_tip':None,'claimed_height':None,'latency_ms':None,
             'discovered_peers':[],'full_chain_validated':False}
 
     async def session(protocol):
@@ -206,20 +206,21 @@ async def probe_peer(address,*,network='dora',allow_internet=False,allow_lan=Fal
             if remote.genesis!=profile.genesis.block_hash() or remote.profile!=profile.profile_id:
                 result.update(status='wrong_network',reason='Network or genesis mismatch')
                 return False
-            if remote.protocol not in (PROTOCOL_VERSION,DISCOVERY_PROTOCOL_VERSION):
+            if remote.protocol not in (PROTOCOL_VERSION,DISCOVERY_PROTOCOL_VERSION,IPV6_PROTOCOL_VERSION):
                 result.update(status='protocol_error',reason='Unsupported protocol')
                 return False
             legacy_candidate=protocol==DISCOVERY_PROTOCOL_VERSION and remote.protocol==PROTOCOL_VERSION
+            negotiated=max(protocol,remote.protocol)
             nonce=secrets.randbits(64)
             if nonce==remote.nonce:
                 nonce^=1
-            own=Version(protocol,profile.genesis.block_hash(),nonce,profile.profile_id,profile.genesis.block_hash())
+            own=Version(negotiated,profile.genesis.block_hash(),nonce,profile.profile_id,profile.genesis.block_hash())
             await write_frame(writer,'version',encode_version(own),timeout,magic=profile.message_magic)
             frame=await read_frame(reader,timeout,magic=profile.message_magic)
             if frame.command!='verack' or frame.payload:
                 raise ProtocolError('Expected empty verack')
-            result.update(status='reachable',reason='SMW identity handshake passed',protocol=protocol,
-                          advertised_tip=hash_to_display(remote.tip),latency_ms=round((time.monotonic()-started)*1000,1))
+            result.update(status='reachable',reason='SMW identity handshake passed',protocol=negotiated,
+                          peer_id=f'{remote.nonce:016x}',advertised_tip=hash_to_display(remote.tip),latency_ms=round((time.monotonic()-started)*1000,1))
             return False
         except PeerDisconnected:
             return legacy_candidate and result['status']!='reachable'

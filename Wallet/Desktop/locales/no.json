@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Blokkens utstedelsesgrense",
   "Available fees (block)": "Tilgjengelige blokkgebyrer",
   "Unclaimed reward": "Belønning som ikke er hentet",
-  "Reward not fully claimed": "Belønning delvis hentet"
+  "Reward not fully claimed": "Belønning delvis hentet",
+  "Confirm": "Bekreft",
+  "Net amount": "Endring i saldo"
 }

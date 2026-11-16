@@ -5,7 +5,9 @@ space needed by the pending ancestor packages ahead of a new transaction.
 Targets are block-capacity budgets (fast 1, normal 3, slow 6), not deadlines.
 Only this node's accepted mempool is observable; peers may see a different pool.
 """
+from dataclasses import dataclass
 from fractions import Fraction
+from math import ceil
 from weakref import WeakKeyDictionary
 from collections import deque
 import time
@@ -161,63 +163,130 @@ def fee_overview(chain):
             'target_blocks': dict(TARGET_BLOCKS), 'confirmation_time_guaranteed': False}
 
 
-def estimate_payment_fee(chain, wallet_script, recipient_script, amount_units, *, mode="normal", rate=None):
-    """Suggest the total fee using a conservative supported-payment size.
+# Bitcoin Core v31.0 wallet defaults, in smallest units per virtual byte.
+WALLET_DISCARD_RATE = Fraction(10)
+DUST_RELAY_RATE = Fraction(3)
 
-    The caller should keep an outer read snapshot around estimation and signing
-    when preparing an exact payment quote. This function also works standalone.
-    Signatures are bounded at 73 bytes and the change output is always budgeted,
-    so shorter DER signatures or exact-change payments never exceed the size.
-    """
+
+def minimum_viable_change(output, *, discard_rate=WALLET_DISCARD_RATE,
+                          long_term_rate=None, dust_relay_rate=DUST_RELAY_RATE):
+    """Wallet change policy for the P2WPKH outputs this wallet can spend."""
+    if len(output.script_pubkey) != 22 or output.script_pubkey[:2] != b'\x00\x14':
+        raise ValueError('Unsupported wallet change script')
+    # Core's GetDiscardRate uses the wallet discard rate when no long-term
+    # confirmation estimate is available. SUMUWW estimates its live queue.
+    if long_term_rate:
+        discard_rate = min(discard_rate, long_term_rate)
+    discard_rate = max(discard_rate, dust_relay_rate)
+    # Core policy discounts the witness in its 67-vB dust spend template.
+    # The wallet estimates 68 vB for a signed P2WPKH input.
+    dust = ceil(discard_rate * (len(output.serialize()) + 67))
+    return max(dust, ceil(discard_rate * 68) + 1)
+
+
+@dataclass(frozen=True)
+class PaymentPlan:
+    transaction: Transaction
+    prevouts: tuple
+    quote: dict
+
+    def sign(self, key):
+        from .wallet import sign_p2wpkh
+        tx = self.transaction
+        for index, output in enumerate(self.prevouts):
+            tx = sign_p2wpkh(tx, index, output, key, low_r=True)
+        return tx
+
+
+def plan_payment(chain, wallet_script, recipient_script, amount_units, *,
+                 mode='normal', rate=None, fixed_fee=None, discard_rate=WALLET_DISCARD_RATE):
+    """Select inputs and decide outputs once, before signing the reviewed payment."""
     require_int(amount_units, 1, MAX_MONEY)
     if not isinstance(wallet_script, bytes) or not isinstance(recipient_script, bytes):
         raise TypeError('Payment scripts must be bytes')
+    from .wallet import LOW_R_SIGNATURE_WITH_HASHTYPE_SIZE
+    automatic = fixed_fee is None and rate is None
+    cap = MAX_AUTO_FEE_UNITS if automatic else MAX_MANUAL_FEE_UNITS
     with chain.read_snapshot():
-        automatic = rate is None
-        if automatic:
-            rate, source, samples = _suggestion(chain, mode)
-            cap = MAX_AUTO_FEE_UNITS
+        if fixed_fee is not None:
+            require_int(fixed_fee, 0, MAX_MONEY)
+            if fixed_fee > cap:
+                raise ValueError('Manual fee exceeds the wallet fee limit')
+            chosen_rate, source, samples = None, 'manual', 0
+        elif automatic:
+            chosen_rate, source, samples = _suggestion(chain, mode)
         else:
-            rate = parse_rate(rate, chain)
-            source, samples, cap = "manual_rate", 0, MAX_MANUAL_FEE_UNITS
-        pending = {item.outpoint() for tx in chain.mempool_transactions() for item in tx.inputs}
-        spend_height = chain.info()['height'] + 1
-        coins = [(outpoint, coin) for outpoint, coin in chain.list_utxos(wallet_script)
-                 if (not coin.coinbase or coinbase_is_mature(coin.height, spend_height))
-                 and TxInput(*outpoint).outpoint() not in pending]
-        selected = []
+            chosen_rate, source, samples = parse_rate(rate, chain), 'manual_rate', 0
+
+        def requested_fee(size):
+            return fixed_fee if fixed_fee is not None else ceil(chosen_rate * size)
+
+        recipient = TxOutput(amount_units, recipient_script)
+        change_template = TxOutput(0, wallet_script)
+        minimum_change = minimum_viable_change(change_template, discard_rate=discard_rate)
+        change_bytes = len(change_template.serialize())
+        pending = {i.outpoint() for tx in chain.mempool_transactions() for i in tx.inputs}
+        height = chain.info()['height'] + 1
+        inputs, prevouts = [], []
         total = 0
-        fee = 1
-        index = 0
-        capped = False
-        while True:
-            required = checked_amount_sum((amount_units, fee))
-            while total < required and index < len(coins):
-                outpoint, coin = coins[index]
-                selected.append(TxInput(*outpoint, witness=(bytes(73), bytes(33))))
-                total = checked_amount_sum((total, coin.output.value))
-                index += 1
-            if total < required:
-                raise ValueError('Insufficient mature confirmed funds after pending spends')
-            payment = Transaction(2, tuple(selected), (TxOutput(amount_units, recipient_script), TxOutput(0, wallet_script)))
-            size = virtual_size(payment)
-            if automatic:
-                rate, source, samples = _suggestion(chain, mode, size)
-            suggested = (rate.numerator * size + rate.denominator - 1) // rate.denominator
-            capped = suggested > cap
-            if capped and source == "manual_rate":
-                raise ValueError("Manual fee exceeds the wallet fee limit")
-            suggested = min(cap, max(1, suggested))
-            if suggested < chain.mempool_policy.required_fee(size):
-                raise ValueError("Relay minimum exceeds the automatic fee limit")
-            if suggested <= fee:
-                return {'fee_units': fee, 'estimated_vsize': size, 'source': source,
-                        'capped': capped, 'sample_count': samples,
-                        'auto_fee_cap_units': MAX_AUTO_FEE_UNITS,
-                        'rate_yugeon_per_vb': rate_text(Fraction(fee, size)),
-                        'mode': mode, 'amount_unit': 'yugeon',
-                        'target_blocks': TARGET_BLOCKS.get(mode) if automatic else None}
-            fee = suggested
+        for outpoint, coin in chain.list_utxos(wallet_script):
+            txin = TxInput(*outpoint)
+            if txin.outpoint() in pending or (coin.coinbase and not coinbase_is_mature(coin.height, height)):
+                continue
+            inputs.append(txin)
+            prevouts.append(coin.output)
+            total = checked_amount_sum((total, coin.output.value))
+            available = total - amount_units
+            if available < 0:
+                continue
+            # A signed input's maximum witness is used for the estimate only.
+            witness = (bytes(LOW_R_SIGNATURE_WITH_HASHTYPE_SIZE), bytes(33))
+            padded = tuple(TxInput(i.prev_txid, i.prev_index, witness=witness) for i in inputs)
+            size = virtual_size(Transaction(2, padded, (recipient,)))
+            single_requested = requested_fee(size)
+            if not automatic and single_requested > cap:
+                raise ValueError('Manual fee exceeds the wallet fee limit')
+            # Core selects on effective input values: size each P2WPKH input
+            # separately, then charge the non-input part and change output.
+            # Keep the signed-size bound for the fee finally shown to the user.
+            selection_fee = fixed_fee
+            change_creation_fee = 0
+            if fixed_fee is None:
+                selection_fee = (len(inputs) * requested_fee(68)
+                                 + requested_fee(11 + len(recipient.serialize())))
+                change_creation_fee = requested_fee(change_bytes)
+            if available < min(max(single_requested, selection_fee), cap):
+                continue
+            change_requested = requested_fee(size + change_bytes)
+            change_fee = min(change_requested, cap)
+            selection_change = available - min(selection_fee + change_creation_fee, cap)
+            change = available - change_fee
+            if min(selection_change, change) >= minimum_change:
+                outputs = (recipient, TxOutput(change, wallet_script))
+                fee, requested = change_fee, change_requested
+                size += change_bytes
+            else:
+                outputs = (recipient,)
+                fee, requested = available, single_requested
+            if fee > cap:
+                # Another input can make viable change without exceeding the cap.
+                continue
+            if not automatic and requested > cap:
+                raise ValueError('Manual fee exceeds the wallet fee limit')
+            if fixed_fee is None and fee < chain.mempool_policy.required_fee(size):
+                raise ValueError('Relay minimum exceeds the automatic fee limit')
+            quote = {'fee_units': fee, 'estimated_vsize': size, 'source': source,
+                     'capped': requested > cap, 'sample_count': samples,
+                     'auto_fee_cap_units': MAX_AUTO_FEE_UNITS,
+                     'rate_yugeon_per_vb': rate_text(Fraction(fee, size)),
+                     'mode': mode, 'amount_unit': 'yugeon',
+                     'target_blocks': TARGET_BLOCKS.get(mode) if automatic else None}
+            return PaymentPlan(Transaction(2, tuple(inputs), outputs), tuple(prevouts), quote)
+        raise ValueError('Insufficient mature confirmed funds after pending spends')
+
+
+def estimate_payment_fee(chain, wallet_script, recipient_script, amount_units, *, mode='normal', rate=None):
+    return plan_payment(chain, wallet_script, recipient_script, amount_units, mode=mode, rate=rate).quote
 
 
 def rate_text(rate):

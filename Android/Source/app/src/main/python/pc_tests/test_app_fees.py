@@ -78,16 +78,15 @@ class PaymentQuoteTests(unittest.TestCase):
         self.assertEqual('0.00200000', result['fee_smw'])
 
     def test_no_estimation_or_resigning_after_confirmation(self):
-        estimate = {'fee_units': 12345, 'estimated_vsize': 141,
-                    'source': 'live_mempool', 'capped': False}
-        with patch('sumuww.app_service.estimate_payment_fee', return_value=estimate) as estimator:
+        from sumuww.fees import plan_payment
+        with patch('sumuww.app_service.plan_payment', wraps=plan_payment) as estimator:
             quote = self.prepare()
-        with patch('sumuww.app_service.estimate_payment_fee', side_effect=AssertionError('recalculated')), \
-                patch('sumuww.app_service.create_payment', side_effect=AssertionError('resigned')):
+        with patch('sumuww.app_service.plan_payment', side_effect=AssertionError('recalculated')), \
+                patch('sumuww.fees.PaymentPlan.sign', side_effect=AssertionError('resigned')):
             result = self.submit(quote)
         estimator.assert_called_once()
-        self.assertEqual('0.00012345', result['fee_smw'])
-        self.assertEqual('1.00012345', quote['total_smw'])
+        self.assertEqual('0.00000141', result['fee_smw'])
+        self.assertEqual('1.00000141', quote['total_smw'])
 
     def test_expiry_rejects_original_transaction_and_releases_quote(self):
         with patch('sumuww.app_service._quote_clock', return_value=10):

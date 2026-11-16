@@ -1,6 +1,6 @@
 # SUMUWW connection-proof protocol · heights 9,000 and 9,600
 
-Protocol baseline at 9,000, certified candidate selection from source block 9,600. Locally prepared edition 2.3; publication is separate.
+Protocol baseline at 9,000, certified candidate selection from source block 9,600. Whitepaper edition 2.4, 16 November 2026.
 
 ## History, money and compatibility
 

@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Όριο έκδοσης του μπλοκ",
   "Available fees (block)": "Διαθέσιμα τέλη του μπλοκ",
   "Unclaimed reward": "Μη διεκδικημένη ανταμοιβή",
-  "Reward not fully claimed": "Μερική διεκδίκηση ανταμοιβής"
+  "Reward not fully claimed": "Μερική διεκδίκηση ανταμοιβής",
+  "Confirm": "Επιβεβαίωση",
+  "Net amount": "Μεταβολή υπολοίπου"
 }

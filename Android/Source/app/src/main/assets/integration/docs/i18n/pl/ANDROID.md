@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.99 · Dokumentacja
+# SUMUWW Android 0.6.103 · Dokumentacja
 
-SUMUWW Android 0.6.99 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+SUMUWW Android 0.6.103 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 ## Sieć i adresy
 
@@ -11,6 +11,9 @@ Sieć publiczna to `sumuww`, wewnętrzny alias to `dora`. Sprawdź poniższy has
 `_units` to całkowite najmniejsze jednostki, `_smw` to tekst z 8 miejscami po przecinku, `_dora` to alias zgodności. Pole kwoty `_sumuww` nie istnieje. 1 SMW = 100000000 jednostek. `gettxout` nie ma `spendable` i może zwrócić niedojrzałą coinbase. Do wydania w następnym bloku potrzeba co najmniej 100 potwierdzeń. Filtruj `listunspent` po `spendable`; available w `getaddressbalance` wyklucza niedojrzałe środki i wejścia zajęte przez oczekujące wydatki. Nowe wyjścia mempoolu nie są potwierdzone. Sprawdzaj szczyt między stronami i ponownie waliduj wybrane wejścia.
 
 1 SMW = 100 000 000 yugeon. Opłaty automatyczne oferują trzy poziomy na podstawie lokalnych obserwacji, bez gwarancji czasu potwierdzenia. Możesz wpisać stawkę w yugeon/vB. Przed wysłaniem sprawdź końcową opłatę i sumę w SMW. Odrzucona transakcja nie zmniejsza salda.
+
+Przy jednym wejściu o wartości 1 SMW opłata zależy od tego, czy trzeba wydać resztę. Jeśli wejście i wszystkie wyjścia są typu P2WPKH, przy stawce 1 yugeon/vB wysłanie 0.99999890 SMW kosztuje 110 yugeon i nie pozostawia reszty. Wysłanie 0.8 SMW z tego samego wejścia wymaga dodatkowego wyjścia na resztę i zwiększa opłatę do 141 yugeon. Portfel zwraca resztę, jeśli po odjęciu opłaty pozostała kwota osiąga próg uwzględniający koszt jej późniejszego wydania. Gdy kwota jest mniejsza, wchodzi w skład opłaty wyświetlanej przed zatwierdzeniem. Dla wejścia portfela w formacie natywnego SegWit (P2WPKH) szacunek przewiduje do 71 bajtów na podpis wraz z typem skrótu.
+
 
 `1 yugeon = 0.00000001 SMW` · `1 SMW = 100000000 yugeon`
 
@@ -32,3 +35,21 @@ Historia wydobycia pokazuje osobno nową emisję, opłaty i łączną nagrodę k
 `getrawtransaction` szuka w aktywnym łańcuchu i mempoolu, nie tylko w osieroconych gałęziach. Wejścia wskazują wcześniejsze wyjścia, nie jednoznaczny adres nadawcy. `getblock` przyjmuje logiczne `verbose`; zapisane nieaktywne bloki mają `active=false`, `confirmations=-1`. Surowe transakcje pozostają dostępne po hashu bloku. `findspendingtransaction` szuka tylko potwierdzonych aktywnych wydań; null nie dowodzi dostępności. Sprawdź `gettxout` z `include_mempool=true`. Potwierdzenia i aktywność mogą zmienić się po reorganizacji.
 
 [API_CONTRACT.json](../../../API_CONTRACT.json)
+
+<!-- payment-policy-20261116 -->
+
+## Opłaty, sprawdzona transakcja i zgodność
+
+Opłata to suma wejść pomniejszona o sumę wyjść. Oszacowanie uwzględnia wyjście reszty tylko wtedy, gdy portfel rzeczywiście tworzy resztę spełniającą jego próg. Pozostała kwota poniżej tego progu jest doliczana do opłaty; wynikowa opłata i łączne obciążenie są wyświetlane do sprawdzenia. Stawkę podaje się w yugeon/vB. Rozmiar wirtualny to waga transakcji podzielona przez cztery i zaokrąglona w górę.
+
+Portfel wybiera wejścia i wyjścia jeden raz, a następnie podpisuje ten sam plan transakcji. Potwierdzenie wysyła zapisaną podpisaną transakcję, bez jej ponownego tworzenia i przeliczania opłaty. Wygaśnięcie wyceny lub wcześniejsze wydanie wejścia wymaga ponownego sprawdzenia. Przyjęcie do lokalnej kolejki nie oznacza potwierdzenia w bloku.
+
+Przy zwykłych płatnościach P2WPKH portfel tworzy podpisy low-R i low-S o długości do 71 bajtów, łącznie z bajtem SIGHASH_ALL. Jest to polityka podpisywania i szacowania rozmiaru, a nie nowy limit konsensusu dla pozostałych prawidłowych podpisów. Krótszy podpis może zmniejszyć rzeczywisty rozmiar wirtualny. Sugerowane stawki nadal wynikają z lokalnej kolejki; podobny do Bitcoin sposób liczenia rozmiaru nie oznacza stosowania stawek sieci Bitcoin.
+
+## Zgodność podpisów Android
+
+Format plików portfela, adresy i istniejące monety nie zmieniły się. Dotychczasową zaszyfrowaną kopię można przywrócić w nowej aplikacji i nadal używać tego samego portfela. Węzeł Android 0.6.103 i portfel 1.1.14 korzystają z nowego klucza podpisywania wydań. Nie zastąpią instalacji podpisanej innym kluczem. Zachowaj starą aplikację i jej dane do czasu uzyskania zaszyfrowanej kopii portfela i działającego sposobu odzyskiwania. Nie odinstalowuj starej aplikacji tylko po to, by wymusić instalację aktualizacji.
+
+<!-- /payment-policy-20261116 -->
+
+Po otrzymaniu poprawnej odpowiedzi z wersją węzeł daje drugiej stronie czas na przesłanie potwierdzenia. Jeśli dwa połączenia wychodzące prowadzą do tego samego węzła, dostępna ścieżka pozostaje otwarta do zakończenia synchronizacji przez jedno z nich. Wbudowana diagnostyka przyjmuje blok z prawidłowym dowodem pracy, zanim otrzyma dowód połączenia. Następnie sprawdza podpisy trzech świadków, przekazanie dowodu połączenia innemu węzłowi i zachowanie go po ponownym uruchomieniu.

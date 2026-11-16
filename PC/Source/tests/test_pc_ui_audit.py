@@ -56,7 +56,7 @@ class PcControlIntegrationTests(unittest.TestCase):
    self.assertTrue(self.app._dialog_open)
    self.assertEqual('disabled',str(self.app.create_button.cget('state')))
    radios=[w for w in self.widgets(dialog) if isinstance(w,ttk.Radiobutton)]
-   self.assertEqual(['normal','disabled','disabled'],[str(w.cget('state')) for w in radios])
+   self.assertEqual([('CPU','normal'),('GPU','disabled')],[(str(w.cget('text')),str(w.cget('state'))) for w in radios])
    next(w for w in self.widgets(dialog) if isinstance(w,ttk.Button) and str(w.cget('text'))==str(tr('Cancel'))).invoke()
   self.dialog_action(cancel)
   self.assertEqual('normal',str(self.app.create_button.cget('state')))

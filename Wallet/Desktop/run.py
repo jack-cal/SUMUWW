@@ -14,17 +14,66 @@ if not getattr(sys, 'frozen', False):
 from sumuww.windows_tk import prepare_tk
 prepare_tk()
 import tkinter as tk
-from tkinter import filedialog, messagebox, simpledialog, ttk
+from tkinter import filedialog, simpledialog, ttk
 from sumuww.brand import apply_window_icon, artwork
 from sumuww.vertical_text import VerticalLabel, VerticalButton
 from sumuww.primitives import format_amount
 from sumuww import __version__ as CORE_VERSION
 import wallet_runtime as runtime
 
-VERSION = '1.0.10'
+VERSION = '1.0.15'
 
 
-class FeeDialog(simpledialog.Dialog):
+class WalletDialog(simpledialog.Dialog):
+    def buttonbox(self):
+        controls = ttk.Frame(self, padding=8)
+        controls.pack()
+        VerticalButton(controls, text=self.t('Confirm'), command=self.ok).pack(side='left', padx=4)
+        VerticalButton(controls, text=self.t('Cancel'), command=self.cancel).pack(side='left', padx=4)
+        self.bind('<Return>', self.ok)
+        self.bind('<Escape>', self.cancel)
+
+
+class TextPrompt(WalletDialog):
+    def __init__(self, parent, translate, title, prompt, mask):
+        self.t = translate
+        self.prompt = prompt
+        self.mask = mask
+        super().__init__(parent, title)
+
+    def body(self, parent):
+        VerticalLabel(parent, text=self.prompt, wraplength=420).pack(anchor='w', padx=10, pady=6)
+        self.entry = ttk.Entry(parent, width=45, show=self.mask)
+        self.entry.pack(fill='x', padx=10, pady=6)
+        return self.entry
+
+    def apply(self):
+        self.result = self.entry.get()
+
+
+class ConfirmationDialog(WalletDialog):
+    def __init__(self, parent, translate, title, message):
+        self.t = translate
+        self.message = message
+        super().__init__(parent, title)
+
+    def body(self, parent):
+        VerticalLabel(parent, text=self.message, wraplength=540, justify='left').pack(padx=14, pady=10)
+
+    def apply(self):
+        self.result = True
+
+
+class NoticeDialog(ConfirmationDialog):
+    def buttonbox(self):
+        bar = ttk.Frame(self, padding=8)
+        bar.pack()
+        VerticalButton(bar, text=self.t('Confirm'), command=self.ok).pack()
+        self.bind('<Return>', self.ok)
+        self.bind('<Escape>', self.cancel)
+
+
+class FeeDialog(WalletDialog):
     def __init__(self, parent, translate, preview=lambda: {}):
         self.t = translate
         self.preview = preview
@@ -86,6 +135,7 @@ class WalletApp:
         self.pool = ThreadPoolExecutor(max_workers=1, thread_name_prefix='wallet-ui')
         self.results = queue.Queue()
         self.busy = False
+        self.poll_pending = False
         self.closed = False
         self.started = False
         self.state = {}
@@ -273,34 +323,42 @@ class WalletApp:
         )
         return next((self.t(label) for matches, label in rules if matches), message)
 
-    def submit(self, function, done=None):
-        if self.busy or self.closed:
+    def submit(self, function, done=None, *, polling=False):
+        if self.busy or self.closed or (polling and self.poll_pending):
             return
-        self.set_busy(True)
+        if polling:
+            self.poll_pending = True
+        else:
+            self.set_busy(True)
         def worker():
             try:
-                self.results.put((done, function(), None))
+                self.results.put((done, function(), None, polling))
             except Exception as error:
-                self.results.put((done, None, str(error)))
+                self.results.put((done, None, str(error) or type(error).__name__, polling))
         self.pool.submit(worker)
 
-    def call(self, method, *args, done=None):
+    def call(self, method, *args, done=None, polling=False):
         def action():
             result = json.loads(runtime.call(method, *args))
             if not result['ok']:
                 raise ValueError(result['error'])
             return result['data']
-        self.submit(action, done or self.refresh)
+        self.submit(action, done or self.refresh, polling=polling)
 
     def drain(self):
         if self.closed:
             return
         try:
             while True:
-                done, value, error = self.results.get_nowait()
-                self.set_busy(False)
-                if error:
-                    messagebox.showerror(self.t('Check'), self.friendly(error), parent=self.root)
+                done, value, error, polling = self.results.get_nowait()
+                if polling:
+                    self.poll_pending = False
+                    if self.busy or self.root.tk.call('grab', 'current', self.root._w):
+                        continue
+                else:
+                    self.set_busy(False)
+                if error is not None:
+                    self.notice(self.t('Check'), self.friendly(error))
                 elif done:
                     done(value)
         except queue.Empty:
@@ -345,11 +403,22 @@ class WalletApp:
     def poll(self):
         if self.closed:
             return
-        self.refresh()
+        # Keep navigation and confirmation available while the balance is updating.
+        if self.started and not self.root.tk.call('grab', 'current', self.root._w):
+            self.call('status', done=self.update, polling=True)
         self.root.after(4000, self.poll)
 
+    def ask_text(self, title, prompt, *, show='', parent=None):
+        return TextPrompt(parent or self.root, self.t, title, prompt, show).result
+
+    def confirm(self, title, message, *, parent=None):
+        return bool(ConfirmationDialog(parent or self.root, self.t, title, message).result)
+
+    def notice(self, title, message):
+        NoticeDialog(self.root, self.t, title, message)
+
     def password(self):
-        return simpledialog.askstring(self.t('Wallet password'), self.t('Wallet password'), show='*', parent=self.root)
+        return self.ask_text(self.t('Wallet password'), self.t('Wallet password'), show='*', parent=self.root)
 
     def unlock(self):
         password = self.password()
@@ -360,11 +429,11 @@ class WalletApp:
         password = self.password()
         if not password:
             return
-        confirmation = simpledialog.askstring(self.t('Confirm password'), self.t('Confirm password'), show='*', parent=self.root)
+        confirmation = self.ask_text(self.t('Confirm password'), self.t('Confirm password'), show='*', parent=self.root)
         if len(password) < 12 or password != confirmation:
-            return messagebox.showerror(self.t('Check'), self.t('Use a matching password of at least 12 characters.'), parent=self.root)
+            return self.notice(self.t('Check'), self.t('Use a matching password of at least 12 characters.'))
         if method == 'recover':
-            words = simpledialog.askstring(self.t('Recovery words'), self.t('Recovery words in order'), show='*', parent=self.root)
+            words = self.ask_text(self.t('Recovery words'), self.t('Recovery words in order'), show='*', parent=self.root)
             if words:
                 self.call(method, password, words, done=self.refresh)
         else:
@@ -380,7 +449,7 @@ class WalletApp:
             if len(raw) > runtime.keystore.MAX_WALLET_BYTES:
                 raise ValueError(self.t('The file is unreadable or too large.'))
         except (OSError, ValueError) as error:
-            return messagebox.showerror(self.t('Check file'), str(error), parent=self.root)
+            return self.notice(self.t('Check file'), str(error))
         password = self.password()
         if password:
             self.call('restore', password, base64.b64encode(raw).decode('ascii'), done=self.refresh)
@@ -397,9 +466,9 @@ class WalletApp:
                 # Never overwrite an existing wallet, database or backup.
                 with open(path, 'xb') as stream:
                     stream.write(base64.b64decode(value['encrypted'], validate=True))
-                messagebox.showinfo(self.t('Wallet'), self.t('Encrypted backup saved'), parent=self.root)
+                self.notice(self.t('Wallet'), self.t('Encrypted backup saved'))
             except (OSError, ValueError):
-                messagebox.showerror(self.t('Check file'), self.t('Backup could not be saved'), parent=self.root)
+                self.notice(self.t('Check file'), self.t('Backup could not be saved'))
 
     def phrase(self):
         password = self.password()
@@ -442,15 +511,15 @@ class WalletApp:
 
     def receive(self):
         address = (self.state.get('wallet') or {}).get('address')
-        if address and messagebox.askokcancel(self.t('Receive SMW'), address + '\n\n' + self.t('Copy address'), parent=self.root):
+        if address and self.confirm(self.t('Receive SMW'), address + '\n\n' + self.t('Copy address'), parent=self.root):
             self.root.clipboard_clear()
             self.root.clipboard_append(address)
 
     def send(self):
-        recipient = simpledialog.askstring(self.t('Send SMW'), self.t('Recipient'), parent=self.root)
+        recipient = self.ask_text(self.t('Send SMW'), self.t('Recipient'), parent=self.root)
         if not recipient:
             return
-        amount = simpledialog.askstring(self.t('Send SMW'), self.t('Amount (SMW)'), parent=self.root)
+        amount = self.ask_text(self.t('Send SMW'), self.t('Amount (SMW)'), parent=self.root)
         if not amount:
             return
         fee = FeeDialog(self.root, self.t, lambda: self.state.get('fees')).result
@@ -460,7 +529,7 @@ class WalletApp:
     def review(self, quote):
         text = '\n\n'.join(self.t(label) + ': ' + str(quote.get(key, '')) for label, key in (
             ('Recipient', 'recipient'), ('Amount', 'amount_dora'), ('Network fee', 'fee_dora'), ('Total', 'total_dora')))
-        if messagebox.askokcancel(self.t('Confirm transfer'), text, parent=self.root):
+        if self.confirm(self.t('Confirm transfer'), text, parent=self.root):
             self.call('submit', quote['quote_id'], done=self.sent)
         else:
             self.refresh()
@@ -472,11 +541,11 @@ class WalletApp:
             text = self.friendly(result.get('error', ''))
         else:
             text = self.t('Transfer outcome is unknown. Check activity before sending again.')
-        messagebox.showinfo(self.t('Transfer result'), text, parent=self.root)
+        self.notice(self.t('Transfer result'), text)
         self.refresh()
 
     def add_peer(self):
-        peer = simpledialog.askstring(self.t('Add peer'), self.t('Peer address (host:port)'), parent=self.root)
+        peer = self.ask_text(self.t('Add peer'), self.t('Peer address (host:port)'), parent=self.root)
         if peer:
             self.call('peer', peer, done=self.refresh)
 
@@ -497,7 +566,7 @@ class WalletApp:
                 lines.append(self.t('Pending') if tx.get('status') == 'pending' else self.t('{0} confirmations').replace('{0}', str(tx.get('confirmations', 0))))
             units = tx.get('net_amount', 0)
             amount = ('-' if units < 0 else '') + format_amount(abs(units))
-            lines.append(self.t('Amount') + ': ' + amount + ' SMW')
+            lines.append(self.t('Net amount') + ': ' + amount + ' SMW')
             from sumuww.rewards import reward_rows
             for label, value in reward_rows(tx.get('mining_reward')):
                 lines.append(self.t(label) + ': ' + value)

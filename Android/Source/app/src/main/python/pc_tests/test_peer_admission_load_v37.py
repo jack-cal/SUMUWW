@@ -35,7 +35,7 @@ class Sampler:
         self.task = None
         self.delays = []
         self.values = {'sessions_peak': 0, 'registered_peer_tasks_peak': 0,
-                       'server_active_transports_peak': 0, 'ready_sessions_peak': 0,
+                       'inbound_session_transports_peak': 0, 'ready_sessions_peak': 0,
                        'closing_sessions_peak': 0, 'receive_buffer_total_bytes_peak': 0,
                        'send_buffer_total_bytes_peak': 0, 'all_fixture_and_actor_tasks_peak': 0}
 
@@ -47,7 +47,7 @@ class Sampler:
                    'closing_sessions_peak': sum(item.writer.is_closing() for item in sessions),
                    'receive_buffer_total_bytes_peak': sum(len(item.reader._buffer) for item in sessions),
                    'send_buffer_total_bytes_peak': sum(item.writer.transport.get_write_buffer_size() for item in sessions),
-                   'server_active_transports_peak': node._server._active_count if node._server else 0,
+                   'inbound_session_transports_peak': sum(s.outgoing is None and not s.writer.is_closing() for s in sessions),
                    'all_fixture_and_actor_tasks_peak': len(asyncio.all_tasks())}
         for key, value in current.items():
             self.values[key] = max(self.values[key], value)
@@ -198,17 +198,18 @@ class AdmissionLoadTests(unittest.IsolatedAsyncioTestCase):
     async def closed_cleanly(self, node, server, sampler, label, *, limit=2):
         began = time.monotonic()
         await asyncio.wait_for(node.stop(), limit)
+        await asyncio.wait_for(server.wait_closed(), limit)
         record = {'phase': label, **await sampler.finish(),
                   'stop_seconds': round(time.monotonic() - began, 3),
                   'sessions_after_stop': len(node._sessions), 'peer_tasks_after_stop': len(node._tasks),
-                  'server_active_transports_after_stop': server._active_count,
+                  'listener_closed_after_stop': not server.is_serving(),
                   'server_sockets_after_stop': len(server.sockets),
                   'internal_errors': node._stats['internal_errors']}
         self.records.append(record)
         self.assertFalse(node._sessions)
         self.assertFalse(node._tasks)
         self.assertFalse(server.sockets)
-        self.assertEqual(0, server._active_count)
+        self.assertFalse(server.is_serving())
         self.assertEqual(0, node._stats['internal_errors'])
         self.assertLessEqual(record['sessions_peak'], 8)
         return record

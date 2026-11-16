@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Blockets utgivningsgräns",
   "Available fees (block)": "Tillgängliga blockavgifter",
   "Unclaimed reward": "Ej uttagen belöning",
-  "Reward not fully claimed": "Belöning delvis uttagen"
+  "Reward not fully claimed": "Belöning delvis uttagen",
+  "Confirm": "Bekräfta",
+  "Net amount": "Saldoförändring"
 }

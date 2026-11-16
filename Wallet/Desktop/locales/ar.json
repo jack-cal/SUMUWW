@@ -134,5 +134,7 @@
   "Issuance limit (block)": "حد إصدار الكتلة",
   "Available fees (block)": "الرسوم المتاحة للكتلة",
   "Unclaimed reward": "المكافأة غير المطالب بها",
-  "Reward not fully claimed": "تمت المطالبة بجزء من المكافأة"
+  "Reward not fully claimed": "تمت المطالبة بجزء من المكافأة",
+  "Confirm": "تأكيد",
+  "Net amount": "التغيّر في الرصيد"
 }

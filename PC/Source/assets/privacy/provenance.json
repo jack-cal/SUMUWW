@@ -14,41 +14,6 @@
   },
   "downloaded": [
     {
-      "file": "i2pd_2.61.0_win64_mingw.zip",
-      "url": "https://github.com/PurpleI2P/i2pd/releases/download/2.61.0/i2pd_2.61.0_win64_mingw.zip",
-      "sha256": "a0a8fb199a6bc5b487df71567791de6997050b921d65622ef9e936ffa88bc83f",
-      "bytes": 4301473,
-      "contents": [
-        "i2pd.exe",
-        "contrib/i2pd.conf",
-        "contrib/certificates/",
-        "contrib/certificates/family/",
-        "contrib/certificates/family/gostcoin.crt",
-        "contrib/certificates/family/i2p-dev.crt",
-        "contrib/certificates/family/i2pd-dev.crt",
-        "contrib/certificates/family/mca2-i2p.crt",
-        "contrib/certificates/family/stormycloud.crt",
-        "contrib/certificates/family/volatile.crt",
-        "contrib/certificates/reseed/",
-        "contrib/certificates/reseed/acetone_at_mail.i2p.crt",
-        "contrib/certificates/reseed/admin_at_likogan.dev.crt",
-        "contrib/certificates/reseed/admin_at_stormycloud.org.crt",
-        "contrib/certificates/reseed/creativecowpat_at_mail.i2p.crt",
-        "contrib/certificates/reseed/diyarciftci_at_protonmail.com.crt",
-        "contrib/certificates/reseed/echelon3_at_mail.i2p.crt",
-        "contrib/certificates/reseed/hankhill19580_at_gmail.com.crt",
-        "contrib/certificates/reseed/i2p-reseed_at_mk16.de.crt",
-        "contrib/certificates/reseed/igor_at_novg.net.crt",
-        "contrib/certificates/reseed/lazygravy_at_mail.i2p.crt",
-        "contrib/certificates/reseed/orignal_at_mail.i2p.crt",
-        "contrib/certificates/reseed/r4sas-reseed_at_mail.i2p.crt",
-        "contrib/certificates/reseed/rambler_at_mail.i2p.crt",
-        "contrib/certificates/reseed/reseed_at_diva.exchange.crt",
-        "contrib/certificates/reseed/sahil_at_mail.i2p.crt",
-        "contrib/certificates/reseed/vserod1488_at_proton.me.crt"
-      ]
-    },
-    {
       "file": "i2pd_2.61.0_android_binary.zip",
       "url": "https://github.com/PurpleI2P/i2pd-android/releases/download/2.61.0/i2pd_2.61.0_android_binary.zip",
       "sha256": "21f10756e35aaea91bdd78a6d79c9165d2040df9628cff0b0b8caac9af00d9a2",
@@ -97,6 +62,40 @@
         "jni/armeabi-v7a/libtor.so",
         "jni/x86/libtor.so",
         "jni/x86_64/libtor.so"
+      ]
+    },
+    {
+      "file": "i2pd_3.0.0_win64_mingw.zip",
+      "url": "https://github.com/PurpleI2P/i2pd/releases/download/3.0.0/i2pd_3.0.0_win64_mingw.zip",
+      "sha256": "973abdd5793e05cd21171ee701f3e2603d756543872dfb81d0a5c2d1a3ff3fb3",
+      "bytes": 4867598,
+      "contents": [
+        "i2pd.exe",
+        "contrib/certificates/family/gostcoin.crt",
+        "contrib/certificates/family/i2p-dev.crt",
+        "contrib/certificates/family/i2pd-dev.crt",
+        "contrib/certificates/family/mca2-i2p.crt",
+        "contrib/certificates/family/stormycloud.crt",
+        "contrib/certificates/family/volatile.crt",
+        "contrib/certificates/reseed/acetone_at_mail.i2p.crt",
+        "contrib/certificates/reseed/admin_at_likogan.dev.crt",
+        "contrib/certificates/reseed/admin_at_stormycloud.org.crt",
+        "contrib/certificates/reseed/creativecowpat_at_mail.i2p.crt",
+        "contrib/certificates/reseed/damian.buho_at_proton.me.crt",
+        "contrib/certificates/reseed/diyarciftci_at_protonmail.com.crt",
+        "contrib/certificates/reseed/echelon3_at_mail.i2p.crt",
+        "contrib/certificates/reseed/freedompeer_at_skhron.eu.crt",
+        "contrib/certificates/reseed/i2p-reseed_at_mk16.de.crt",
+        "contrib/certificates/reseed/idk_at_stormycloud.org.crt",
+        "contrib/certificates/reseed/igor_at_novg.net.crt",
+        "contrib/certificates/reseed/lazygravy_at_mail.i2p.crt",
+        "contrib/certificates/reseed/orignal_at_mail.i2p.crt",
+        "contrib/certificates/reseed/r4sas-reseed_at_mail.i2p.crt",
+        "contrib/certificates/reseed/rambler_at_mail.i2p.crt",
+        "contrib/certificates/reseed/reseedserver_at_mail.i2p.crt",
+        "contrib/certificates/reseed/reseed_at_diva.exchange.crt",
+        "contrib/certificates/reseed/sahil_at_mail.i2p.crt",
+        "contrib/certificates/reseed/vserod1488_at_proton.me.crt"
       ]
     }
   ]

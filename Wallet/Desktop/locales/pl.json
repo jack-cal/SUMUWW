@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Limit emisji bloku",
   "Available fees (block)": "Dostępne opłaty bloku",
   "Unclaimed reward": "Nieodebrana nagroda",
-  "Reward not fully claimed": "Nagroda odebrana częściowo"
+  "Reward not fully claimed": "Nagroda odebrana częściowo",
+  "Confirm": "Potwierdź",
+  "Net amount": "Zmiana salda"
 }

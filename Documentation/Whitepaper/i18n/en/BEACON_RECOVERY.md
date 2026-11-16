@@ -1,4 +1,4 @@
-> Document edition 2.3, 26 October 2026. Source-block 9,600 activation.
+> Document edition 2.4, 16 November 2026. Source-block 9,600 activation.
 
 # Automatic beacon generation recovery
 

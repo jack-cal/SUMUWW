@@ -134,5 +134,7 @@
   "Issuance limit (block)": "เพดานการออกเหรียญของบล็อก",
   "Available fees (block)": "ค่าธรรมเนียมที่รับได้ของบล็อก",
   "Unclaimed reward": "รางวัลที่ไม่ได้รับ",
-  "Reward not fully claimed": "รับรางวัลเพียงบางส่วน"
+  "Reward not fully claimed": "รับรางวัลเพียงบางส่วน",
+  "Confirm": "ยืนยัน",
+  "Net amount": "ยอดเงินที่เปลี่ยนแปลง"
 }

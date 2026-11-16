@@ -22,7 +22,7 @@
       {
         "id": "send",
         "title": "Send and receive",
-        "body": "Receive displays your address for copying or sharing. To send, enter a SMW address and amount, review the calculated fee and total debit, then confirm. The sender pays the fee. Amounts support up to eight decimal places."
+        "body": "Receive displays your address for copying or sharing. To send, enter a SMW address and amount, review the calculated fee and total debit, then confirm. The sender pays the fee. Amounts support up to eight decimal places.\n\nFor a 1 SMW input, the fee depends on whether the transaction needs change. With P2WPKH inputs and outputs at 1 yugeon/vB, sending 0.99999890 SMW costs 110 yugeon and leaves no change. Sending 0.8 SMW from the same input creates a change output and costs 141 yugeon. The wallet creates change only if the amount left after paying the fee meets the minimum for a change output. This minimum accounts for the cost of spending the change later. A smaller remainder goes into the fee shown before you confirm. For a native SegWit wallet input (P2WPKH), the estimate allows up to 71 bytes for the signature, including its hash type."
       },
       {
         "id": "balances",
@@ -84,7 +84,7 @@
       {
         "id": "send",
         "title": "보내기와 받기",
-        "body": "받기 화면에서 내 주소를 복사하거나 공유합니다. 보내려면 상대 주소와 금액을 입력하고 계산된 수수료·총 지출을 확인한 뒤 전송을 승인합니다. 수수료는 보내는 쪽이 부담하며 금액은 소수점 8자리까지 지원합니다."
+        "body": "받기 화면에서 내 주소를 복사하거나 공유합니다. 보내려면 상대 주소와 금액을 입력하고 계산된 수수료·총 지출을 확인한 뒤 전송을 승인합니다. 수수료는 보내는 쪽이 부담하며 금액은 소수점 8자리까지 지원합니다.\n\n1 SMW짜리 입력 하나를 쓸 때도 거스름돈이 있느냐에 따라 수수료가 달라집니다. 입력과 출력이 모두 P2WPKH이고 수수료율이 1유건/vB일 때, 0.99999890 SMW를 보내면 거스름돈 없이 수수료로 110유건을 냅니다. 같은 입력에서 0.8 SMW를 보내면 거스름돈 출력이 생겨 수수료가 141유건입니다. 지갑은 거스름돈을 나중에 쓸 비용까지 고려해 거스름돈 출력을 만들지 결정합니다. 남은 금액이 그 기준에 못 미치면 송금 확인 화면의 수수료에 포함됩니다. P2WPKH 입력의 크기를 추정할 때는 해시 유형을 포함해 서명 한 개를 최대 71바이트로 계산합니다."
       },
       {
         "id": "balances",
@@ -146,7 +146,7 @@
       {
         "id": "send",
         "title": "Envoyer et recevoir",
-        "body": "Copiez ou partagez votre adresse dans Recevoir. Pour envoyer, indiquez l'adresse et le montant, vérifiez les frais et le débit total, puis confirmez. L'expéditeur paie les frais. Huit décimales sont possibles."
+        "body": "Copiez ou partagez votre adresse dans Recevoir. Pour envoyer, indiquez l'adresse et le montant, vérifiez les frais et le débit total, puis confirmez. L'expéditeur paie les frais. Huit décimales sont possibles.\n\nPour une entrée de 1 SMW, les frais varient selon qu’il faut vous rendre la monnaie ou non. Avec des entrées et sorties P2WPKH et un taux de 1 yugeon/vB, envoyer 0.99999890 SMW coûte 110 yugeon, sans monnaie à rendre. Envoyer 0.8 SMW à partir de la même entrée ajoute une sortie de change et porte les frais à 141 yugeon. Le portefeuille rend la monnaie si le montant restant après les frais atteint un seuil qui tient compte du coût à payer pour la dépenser plus tard. En dessous de ce seuil, le reste est inclus dans les frais affichés avant confirmation. Pour une entrée du portefeuille en SegWit natif (P2WPKH), l’estimation prévoit jusqu’à 71 octets pour la signature, type de hachage compris."
       },
       {
         "id": "balances",
@@ -208,7 +208,7 @@
       {
         "id": "send",
         "title": "Enviar y recibir",
-        "body": "Copie o comparta su dirección en Recibir. Para enviar, indique dirección e importe, revise comisión y débito total, y confirme. La comisión la paga quien envía. Se admiten ocho decimales."
+        "body": "Copie o comparta su dirección en Recibir. Para enviar, indique dirección e importe, revise comisión y débito total, y confirme. La comisión la paga quien envía. Se admiten ocho decimales.\n\nCon una entrada de 1 SMW, la comisión depende de si hay que devolver cambio. Si todas las entradas y salidas son P2WPKH y la tarifa es de 1 yugeon/vB, enviar 0.99999890 SMW cuesta 110 yugeon y no queda cambio. Si envías 0.8 SMW con la misma entrada, se añade una salida de cambio y la comisión asciende a 141 yugeon. La cartera devuelve el cambio si lo que queda después de pagar la comisión alcanza un mínimo que tiene en cuenta el coste de gastar ese cambio más adelante. Si queda menos, el resto se incluye en la comisión que ves antes de confirmar. Para una entrada de la cartera que usa SegWit nativo (P2WPKH), el cálculo reserva hasta 71 bytes para la firma, incluido el tipo de hash."
       },
       {
         "id": "balances",
@@ -270,7 +270,7 @@
       {
         "id": "send",
         "title": "الإرسال والاستلام",
-        "body": "انسخ عنوانك أو شاركه من شاشة الاستلام. للإرسال أدخل العنوان والمبلغ، راجع الرسوم والإجمالي ثم أكد. يدفع المرسل الرسوم. يدعم المبلغ ثماني منازل عشرية."
+        "body": "انسخ عنوانك أو شاركه من شاشة الاستلام. للإرسال أدخل العنوان والمبلغ، راجع الرسوم والإجمالي ثم أكد. يدفع المرسل الرسوم. يدعم المبلغ ثماني منازل عشرية.\n\nعند استخدام مُدخل واحد بقيمة 1 SMW، تختلف الرسوم بحسب الحاجة إلى إعادة الباقي. إذا كان المُدخل والمخرجات من نوع P2WPKH وكان معدل الرسوم 1 yugeon/vB، فإن إرسال 0.99999890 SMW يكلّف 110 yugeon ولا يتبقّى شيء. أمّا إرسال 0.8 SMW من المُدخل نفسه فيضيف مخرجًا للباقي وتبلغ الرسوم 141 yugeon. تعيد المحفظة الباقي إذا بلغ المبلغ المتبقي بعد خصم الرسوم حدًا أدنى يراعي تكلفة إنفاقه لاحقًا. وإذا كان أقل من هذا الحد، يُضاف إلى الرسوم التي تراها قبل تأكيد التحويل. عند تقدير حجم مُدخل المحفظة بتنسيق SegWit الأصلي (P2WPKH)، يُحسب للتوقيع ما يصل إلى 71 بايت، بما في ذلك نوع التجزئة."
       },
       {
         "id": "balances",
@@ -332,7 +332,7 @@
       {
         "id": "send",
         "title": "发送与接收",
-        "body": "在接收页复制或分享自己的地址。发送时输入地址和金额，核对手续费与总支出后确认。手续费由发送方支付。金额支持八位小数。"
+        "body": "在接收页复制或分享自己的地址。发送时输入地址和金额，核对手续费与总支出后确认。手续费由发送方支付。金额支持八位小数。\n\n使用一笔 1 SMW 的输入时，手续费取决于是否需要找零。假设输入和输出都是 P2WPKH，费率为 1 yugeon/vB，发送 0.99999890 SMW 无需找零，手续费为 110 yugeon。用同一笔输入发送 0.8 SMW 时，会多一个找零输出，手续费为 141 yugeon。扣除手续费后，只有剩余金额达到找零的最低金额，钱包才会找零。这个门槛考虑了以后花费这笔找零的成本。低于门槛的余额会计入发送确认页显示的手续费。估算原生隔离见证（P2WPKH）钱包输入的大小时，签名连同哈希类型最多按 71 字节计算。"
       },
       {
         "id": "balances",
@@ -394,7 +394,7 @@
       {
         "id": "send",
         "title": "Enviar e receber",
-        "body": "Copie ou compartilhe seu endereço na tela Receber. Para enviar, informe endereço e valor, confira a taxa e o débito total e confirme. O remetente paga a taxa. São permitidas até oito casas decimais."
+        "body": "Copie ou compartilhe seu endereço na tela Receber. Para enviar, informe endereço e valor, confira a taxa e o débito total e confirme. O remetente paga a taxa. São permitidas até oito casas decimais.\n\nCom uma entrada de 1 SMW, a taxa depende de ser preciso devolver troco. Se as entradas e saídas forem P2WPKH e a taxa por tamanho for de 1 yugeon/vB, enviar 0.99999890 SMW custa 110 yugeon e não há troco. Enviar 0.8 SMW com a mesma entrada acrescenta uma saída de troco e eleva a taxa para 141 yugeon. A carteira devolve o troco se o valor restante após a taxa atingir um mínimo que tem em conta o custo de gastar esse troco mais tarde. Se ficar abaixo desse mínimo, o valor restante é incluído na taxa apresentada antes da confirmação. Para uma entrada da carteira em SegWit nativo (P2WPKH), a estimativa reserva até 71 bytes para a assinatura, incluindo o tipo de hash."
       },
       {
         "id": "balances",
@@ -456,7 +456,7 @@
       {
         "id": "send",
         "title": "Отправка и получение",
-        "body": "На экране получения скопируйте или передайте адрес. Для отправки введите адрес и сумму, проверьте комиссию и итоговое списание, затем подтвердите. Комиссию платит отправитель. Поддерживаются восемь знаков после запятой."
+        "body": "На экране получения скопируйте или передайте адрес. Для отправки введите адрес и сумму, проверьте комиссию и итоговое списание, затем подтвердите. Комиссию платит отправитель. Поддерживаются восемь знаков после запятой.\n\nПри одном входе на 1 SMW комиссия зависит от того, нужна ли сдача. Если вход и все выходы имеют формат P2WPKH, то при ставке 1 yugeon/vB перевод 0.99999890 SMW обходится в 110 yugeon без сдачи. При переводе 0.8 SMW с того же входа появляется выход для сдачи, и комиссия составляет 141 yugeon. Кошелёк возвращает сдачу, если остаток после вычета комиссии достигает порога, который учитывает расходы на последующую трату сдачи. Если остаток меньше, он входит в комиссию, показанную перед подтверждением. Для входа кошелька в формате SegWit (P2WPKH) при расчёте отводится до 71 байта на подпись, включая тип хеширования."
       },
       {
         "id": "balances",
@@ -518,7 +518,7 @@
       {
         "id": "send",
         "title": "Senden und Empfangen",
-        "body": "Kopieren oder teilen Sie Ihre Adresse unter Empfangen. Zum Senden Adresse und Betrag eingeben, Gebühr und Gesamtabbuchung prüfen und bestätigen. Der Sender zahlt die Gebühr. Acht Nachkommastellen sind möglich."
+        "body": "Kopieren oder teilen Sie Ihre Adresse unter Empfangen. Zum Senden Adresse und Betrag eingeben, Gebühr und Gesamtabbuchung prüfen und bestätigen. Der Sender zahlt die Gebühr. Acht Nachkommastellen sind möglich.\n\nBei einem Eingang von 1 SMW hängt die Gebühr davon ab, ob Wechselgeld zurückgeht. Sind alle Ein- und Ausgänge vom Typ P2WPKH, kostet eine Zahlung von 0.99999890 SMW bei 1 yugeon/vB genau 110 yugeon. Es bleibt kein Wechselgeld. Bei 0.8 SMW aus demselben Eingang kommt ein Wechselgeldausgang hinzu. Die Gebühr beträgt dann 141 yugeon. Die Wallet gibt Wechselgeld zurück, wenn der Rest nach Abzug der Gebühr einen Mindestbetrag erreicht. Dieser berücksichtigt die Kosten, die beim späteren Ausgeben des Wechselgelds anfallen. Kleinere Restbeträge fließen in die vor der Bestätigung angezeigte Gebühr ein. Bei einem nativen SegWit-Eingang (P2WPKH) rechnet die Wallet mit bis zu 71 Byte für die Signatur einschließlich des Hash-Typs."
       },
       {
         "id": "balances",
@@ -580,7 +580,7 @@
       {
         "id": "send",
         "title": "Tuma na pokea",
-        "body": "Nakili au shiriki anwani yako kwenye Pokea. Kutuma, andika anwani na kiasi, kagua ada na jumla itakayokatwa, kisha thibitisha. Mtumaji hulipa ada. Desimali nane zinakubaliwa."
+        "body": "Nakili au shiriki anwani yako kwenye Pokea. Kutuma, andika anwani na kiasi, kagua ada na jumla itakayokatwa, kisha thibitisha. Mtumaji hulipa ada. Desimali nane zinakubaliwa.\n\nUkitumia ingizo moja la 1 SMW, ada hutegemea kama utarudishiwa chenji. Ikiwa ingizo na matokeo yote ni ya aina ya P2WPKH na kiwango cha ada ni 1 yugeon/vB, kutuma 0.99999890 SMW kunagharimu 110 yugeon bila chenji. Ukituma 0.8 SMW kutoka kwenye ingizo hilohilo, muamala unakuwa na tokeo la chenji na ada inakuwa 141 yugeon. Pochi inakurudishia chenji ikiwa kiasi kinachobaki baada ya ada kinafikia kiwango cha chini kinachozingatia gharama ya kuitumia chenji hiyo baadaye. Ikiwa kiasi hicho ni kidogo zaidi, hujumuishwa katika ada inayoonyeshwa kabla ya uthibitisho. Kwa ingizo la pochi la SegWit asilia (P2WPKH), makadirio hutenga hadi baiti 71 kwa sahihi, ikijumuisha aina ya heshi."
       },
       {
         "id": "balances",
@@ -642,7 +642,7 @@
       {
         "id": "send",
         "title": "भेजें और प्राप्त करें",
-        "body": "प्राप्ति स्क्रीन पर अपना पता कॉपी या साझा करें। भेजते समय पता और राशि भरें, शुल्क और कुल कटौती जाँचें, फिर पुष्टि करें। शुल्क भेजने वाला देता है। आठ दशमलव स्थान समर्थित हैं।"
+        "body": "प्राप्ति स्क्रीन पर अपना पता कॉपी या साझा करें। भेजते समय पता और राशि भरें, शुल्क और कुल कटौती जाँचें, फिर पुष्टि करें। शुल्क भेजने वाला देता है। आठ दशमलव स्थान समर्थित हैं।\n\n1 SMW का एक इनपुट इस्तेमाल करने पर शुल्क इस बात पर निर्भर करता है कि बचे हुए सिक्के वॉलेट में लौटाने हैं या नहीं। यदि इनपुट और सभी आउटपुट P2WPKH हैं और दर 1 yugeon/vB है, तो 0.99999890 SMW भेजने पर 110 yugeon शुल्क लगता है और कुछ नहीं बचता। उसी इनपुट से 0.8 SMW भेजने पर बची रकम लौटाने के लिए एक आउटपुट जुड़ता है और शुल्क 141 yugeon हो जाता है। शुल्क घटाने के बाद बची रकम न्यूनतम सीमा तक पहुँचने पर वॉलेट उसे वापस करता है। इस सीमा में उस रकम को बाद में खर्च करने की लागत भी ध्यान में रखी जाती है। इससे कम बचने पर वह रकम पुष्टि से पहले दिखाए गए शुल्क में जुड़ जाती है। नेटिव सेगविट (P2WPKH) वॉलेट इनपुट का आकार आँकते समय हस्ताक्षर के लिए हैश प्रकार सहित अधिकतम 71 बाइट गिने जाते हैं।"
       },
       {
         "id": "balances",
@@ -704,7 +704,7 @@
       {
         "id": "send",
         "title": "送信と受信",
-        "body": "「受信」には、コピーまたは共有するためのアドレスが表示されます。送信するには、SMW アドレスと金額を入力し、計算された手数料と引き落とし総額を確認して、確定します。送信者は手数料を支払います。金額は小数点以下 8 桁までサポートされます。"
+        "body": "「受信」には、コピーまたは共有するためのアドレスが表示されます。送信するには、SMW アドレスと金額を入力し、計算された手数料と引き落とし総額を確認して、確定します。送信者は手数料を支払います。金額は小数点以下 8 桁までサポートされます。\n\n1 SMWの入力を1つ使う場合でも、お釣りの有無で手数料は変わります。入出力がすべてP2WPKHで手数料率が1 yugeon/vBの場合、0.99999890 SMWを送ると、お釣りはなく、手数料は110 yugeonです。同じ入力から0.8 SMWを送ると、お釣り用の出力が加わり、手数料は141 yugeonになります。手数料を差し引いた残額が、お釣りを後で使う費用も考慮した最低額に達すると、ウォレットはお釣りを返します。それ未満の残額は、送金を確定する前に表示される手数料に含まれます。ネイティブSegWit（P2WPKH）のウォレット入力では、ハッシュタイプを含む署名のサイズを最大71バイトとして見積もります。"
       },
       {
         "id": "balances",
@@ -766,7 +766,7 @@
       {
         "id": "send",
         "title": "Kirim dan terima",
-        "body": "Terima menampilkan alamat Anda untuk disalin atau dibagikan. Untuk mengirim, masukkan alamat dan jumlah SMW, tinjau perhitungan biaya dan total debit, lalu konfirmasi. Pengirim membayar biayanya. Jumlah mendukung hingga delapan tempat desimal."
+        "body": "Terima menampilkan alamat Anda untuk disalin atau dibagikan. Untuk mengirim, masukkan alamat dan jumlah SMW, tinjau perhitungan biaya dan total debit, lalu konfirmasi. Pengirim membayar biayanya. Jumlah mendukung hingga delapan tempat desimal.\n\nDengan satu input senilai 1 SMW, biaya bergantung pada ada tidaknya kembalian. Jika input dan semua output berjenis P2WPKH dengan tarif 1 yugeon/vB, pengiriman 0.99999890 SMW dikenai biaya 110 yugeon tanpa kembalian. Pengiriman 0.8 SMW dari input yang sama menambahkan satu output untuk kembalian sehingga biayanya menjadi 141 yugeon. Dompet mengembalikan sisa dana jika jumlah yang tersisa setelah biaya mencapai batas minimum. Batas ini memperhitungkan biaya untuk membelanjakan dana tersebut nanti. Jika jumlahnya lebih kecil, sisanya masuk dalam biaya yang ditampilkan sebelum konfirmasi. Untuk input dompet SegWit asli (P2WPKH), perkiraan ukuran memperhitungkan hingga 71 byte untuk tanda tangan, termasuk jenis hash."
       },
       {
         "id": "balances",
@@ -828,7 +828,7 @@
       {
         "id": "send",
         "title": "Gửi và nhận",
-        "body": "Nhận hiển thị địa chỉ của bạn để sao chép hoặc chia sẻ. Để gửi, hãy nhập địa chỉ và số tiền SMW, xem lại khoản phí đã tính và tổng số tiền ghi nợ, sau đó xác nhận. Người gửi trả phí. Số tiền hỗ trợ lên tới tám chữ số thập phân."
+        "body": "Nhận hiển thị địa chỉ của bạn để sao chép hoặc chia sẻ. Để gửi, hãy nhập địa chỉ và số tiền SMW, xem lại khoản phí đã tính và tổng số tiền ghi nợ, sau đó xác nhận. Người gửi trả phí. Số tiền hỗ trợ lên tới tám chữ số thập phân.\n\nVới một đầu vào trị giá 1 SMW, phí phụ thuộc vào việc có cần trả lại tiền thừa hay không. Nếu đầu vào và các đầu ra đều là P2WPKH và mức phí là 1 yugeon/vB, gửi 0.99999890 SMW sẽ tốn 110 yugeon và không còn tiền thừa. Nếu gửi 0.8 SMW từ cùng đầu vào, giao dịch có thêm một đầu ra để trả tiền thừa và phí là 141 yugeon. Ví trả lại tiền thừa nếu số tiền còn lại sau khi trừ phí đạt mức tối thiểu. Mức này có tính đến chi phí sử dụng số tiền thừa về sau. Nếu thấp hơn mức đó, phần còn lại được cộng vào phí hiển thị trước khi bạn xác nhận. Với đầu vào ví dùng SegWit gốc (P2WPKH), phép ước tính dành tối đa 71 byte cho chữ ký, kể cả loại hàm băm."
       },
       {
         "id": "balances",
@@ -890,7 +890,7 @@
       {
         "id": "send",
         "title": "Gönder ve al",
-        "body": "Al, kopyalamak veya paylaşmak için adresinizi görüntüler. Göndermek için bir SMW adresi ve tutarı girin, hesaplanan ücreti ve toplam kesintiyi inceleyin ve ardından onaylayın. Gönderici ücreti öder. Tutarlar sekiz ondalık basamağa kadar destekler."
+        "body": "Al, kopyalamak veya paylaşmak için adresinizi görüntüler. Göndermek için bir SMW adresi ve tutarı girin, hesaplanan ücreti ve toplam kesintiyi inceleyin ve ardından onaylayın. Gönderici ücreti öder. Tutarlar sekiz ondalık basamağa kadar destekler.\n\n1 SMW değerinde tek bir girdi kullanıldığında ücret, para üstü gerekip gerekmediğine bağlıdır. Girdi ve tüm çıktılar P2WPKH biçimindeyse ve ücret oranı 1 yugeon/vB ise 0.99999890 SMW gönderirken 110 yugeon ücret ödersiniz ve para üstü kalmaz. Aynı girdiden 0.8 SMW gönderirseniz para üstü için bir çıktı eklenir ve ücret 141 yugeon olur. Ücret düşüldükten sonra kalan tutar, para üstünü ileride harcamanın maliyetini de hesaba katan alt sınıra ulaşırsa cüzdan para üstünü iade eder. Daha küçük bir tutar kalırsa bu tutar, onaydan önce gösterilen ücrete eklenir. Yerel SegWit (P2WPKH) cüzdan girdisinin boyutu hesaplanırken imza için, özet türü dâhil, en fazla 71 bayt ayrılır."
       },
       {
         "id": "balances",
@@ -952,7 +952,7 @@
       {
         "id": "send",
         "title": "ส่งและรับ",
-        "body": "รับแสดงที่อยู่ของคุณสำหรับการคัดลอกหรือแชร์ หากต้องการส่ง ให้ป้อนที่อยู่และจำนวนเงินของ SMW ตรวจสอบค่าธรรมเนียมที่คำนวณและเดบิตทั้งหมด จากนั้นยืนยัน ผู้ส่งเป็นผู้ชำระค่าธรรมเนียม จำนวนเงินรองรับทศนิยมสูงสุดแปดตำแหน่ง"
+        "body": "รับแสดงที่อยู่ของคุณสำหรับการคัดลอกหรือแชร์ หากต้องการส่ง ให้ป้อนที่อยู่และจำนวนเงินของ SMW ตรวจสอบค่าธรรมเนียมที่คำนวณและเดบิตทั้งหมด จากนั้นยืนยัน ผู้ส่งเป็นผู้ชำระค่าธรรมเนียม จำนวนเงินรองรับทศนิยมสูงสุดแปดตำแหน่ง\n\nเมื่อใช้อินพุต 1 รายการมูลค่า 1 SMW ค่าธรรมเนียมจะขึ้นอยู่กับว่าต้องทอนเงินหรือไม่ หากอินพุตและเอาต์พุตทั้งหมดเป็น P2WPKH และอัตราค่าธรรมเนียมคือ 1 yugeon/vB การส่ง 0.99999890 SMW จะเสียค่าธรรมเนียม 110 yugeon โดยไม่มีเงินทอน แต่ถ้าส่ง 0.8 SMW จากอินพุตเดียวกัน จะมีเอาต์พุตสำหรับเงินทอนเพิ่มขึ้น และค่าธรรมเนียมจะเป็น 141 yugeon กระเป๋าจะคืนเงินทอนเมื่อยอดที่เหลือหลังหักค่าธรรมเนียมถึงเกณฑ์ขั้นต่ำที่คำนึงถึงค่าใช้จ่ายในการใช้เงินทอนนั้นในภายหลัง หากเหลือน้อยกว่าเกณฑ์ ยอดที่เหลือจะรวมอยู่ในค่าธรรมเนียมที่แสดงก่อนยืนยัน เมื่อประเมินขนาดอินพุตของกระเป๋าแบบ Native SegWit (P2WPKH) ระบบจะคิดขนาดลายเซ็นรวมชนิดแฮชไม่เกิน 71 ไบต์"
       },
       {
         "id": "balances",
@@ -1014,7 +1014,7 @@
       {
         "id": "send",
         "title": "Invia e ricevi",
-        "body": "Ricevi visualizza il tuo indirizzo per la copia o la condivisione. Per inviare, inserisci l'indirizzo e l'importo SMW, controlla la commissione calcolata e l'addebito totale, quindi conferma. Il mittente paga la tariffa. Gli importi supportano fino a otto cifre decimali."
+        "body": "Ricevi visualizza il tuo indirizzo per la copia o la condivisione. Per inviare, inserisci l'indirizzo e l'importo SMW, controlla la commissione calcolata e l'addebito totale, quindi conferma. Il mittente paga la tariffa. Gli importi supportano fino a otto cifre decimali.\n\nCon un input di 1 SMW, la commissione dipende dalla presenza del resto. Se gli input e gli output sono P2WPKH e la tariffa è di 1 yugeon/vB, inviare 0.99999890 SMW costa 110 yugeon e non lascia resto. Inviare 0.8 SMW dallo stesso input aggiunge un output per il resto e porta la commissione a 141 yugeon. Il portafoglio restituisce il resto se l’importo rimasto dopo la commissione raggiunge una soglia che tiene conto del costo per spenderlo in seguito. Sotto questa soglia, il resto viene incluso nella commissione mostrata prima della conferma. Per un input del portafoglio in SegWit nativo (P2WPKH), la stima prevede fino a 71 byte per la firma, incluso il tipo di hash."
       },
       {
         "id": "balances",
@@ -1076,7 +1076,7 @@
       {
         "id": "send",
         "title": "পাঠান এবং গ্রহণ করুন",
-        "body": "গ্রহণ বিভাগে ঠিকানা কপি বা শেয়ার করুন। পাঠাতে SMW ঠিকানা ও পরিমাণ দিন, গণনা করা ফি ও মোট কর্তন দেখে নিশ্চিত করুন। প্রেরক ফি দেন। পরিমাণে আট দশমিক ঘর পর্যন্ত ব্যবহার করা যায়।"
+        "body": "গ্রহণ বিভাগে ঠিকানা কপি বা শেয়ার করুন। পাঠাতে SMW ঠিকানা ও পরিমাণ দিন, গণনা করা ফি ও মোট কর্তন দেখে নিশ্চিত করুন। প্রেরক ফি দেন। পরিমাণে আট দশমিক ঘর পর্যন্ত ব্যবহার করা যায়।\n\n১ SMW মূল্যের একটি ইনপুট ব্যবহার করলে ফি নির্ভর করে ফেরত দেওয়ার মতো টাকা থাকে কি না তার ওপর। ইনপুট ও সব আউটপুট P2WPKH হলে এবং ফি-র হার ১ yugeon/vB হলে, 0.99999890 SMW পাঠাতে ১১০ yugeon ফি লাগে এবং কিছু ফেরত থাকে না। একই ইনপুট থেকে 0.8 SMW পাঠালে বাকি টাকা ফেরত দেওয়ার জন্য একটি আউটপুট যোগ হয় এবং ফি হয় ১৪১ yugeon। ফি দেওয়ার পর অবশিষ্ট অর্থ ন্যূনতম সীমায় পৌঁছালে ওয়ালেট তা ফেরত দেয়। এই সীমা নির্ধারণে পরে ওই অর্থ খরচ করার খরচও ধরা হয়। এর চেয়ে কম থাকলে তা নিশ্চিত করার আগে দেখানো ফি-তে যোগ হয়। নেটিভ সেগউইট (P2WPKH) ওয়ালেট ইনপুটের আকার হিসাব করার সময় হ্যাশের ধরনসহ স্বাক্ষরের জন্য সর্বোচ্চ ৭১ বাইট ধরা হয়।"
       },
       {
         "id": "balances",
@@ -1138,7 +1138,7 @@
       {
         "id": "send",
         "title": "بھیجیں اور وصول کریں۔",
-        "body": "کاپی کرنے یا شیئر کرنے کے لیے موصول آپ کا پتہ دکھاتا ہے۔ بھیجنے کے لیے، ایک SMW پتہ اور رقم درج کریں، حسابی فیس اور کل ڈیبٹ کا جائزہ لیں، پھر تصدیق کریں۔ بھیجنے والا فیس ادا کرتا ہے۔ رقم آٹھ اعشاریہ جگہوں تک سپورٹ کرتی ہے۔"
+        "body": "کاپی کرنے یا شیئر کرنے کے لیے موصول آپ کا پتہ دکھاتا ہے۔ بھیجنے کے لیے، ایک SMW پتہ اور رقم درج کریں، حسابی فیس اور کل ڈیبٹ کا جائزہ لیں، پھر تصدیق کریں۔ بھیجنے والا فیس ادا کرتا ہے۔ رقم آٹھ اعشاریہ جگہوں تک سپورٹ کرتی ہے۔\n\nاگر ایک اِن پٹ کی مالیت 1 SMW ہو تو فیس کا انحصار اس بات پر ہے کہ کچھ رقم واپس بھی کرنی ہے یا نہیں۔ اگر اِن پٹ اور تمام آؤٹ پٹ P2WPKH ہوں اور شرح 1 yugeon/vB ہو، تو 0.99999890 SMW بھیجنے پر 110 yugeon فیس لگتی ہے اور کچھ باقی نہیں بچتا۔ اسی اِن پٹ سے 0.8 SMW بھیجنے پر باقی رقم کے لیے ایک آؤٹ پٹ شامل ہوتا ہے اور فیس 141 yugeon ہو جاتی ہے۔ فیس نکالنے کے بعد بچی ہوئی رقم مقررہ حد تک پہنچے تو والیٹ اسے واپس کرتا ہے۔ اس حد میں وہ خرچ بھی شامل ہے جو اس رقم کو بعد میں استعمال کرنے پر آئے گا۔ حد سے کم رقم تصدیق سے پہلے دکھائی جانے والی فیس میں شامل ہو جاتی ہے۔ نیٹو سیگ وٹ (P2WPKH) والیٹ ان پٹ کا حجم لگاتے وقت دستخط کے لیے ہیش کی قسم سمیت زیادہ سے زیادہ 71 بائٹ شمار کیے جاتے ہیں۔"
       },
       {
         "id": "balances",
@@ -1200,7 +1200,7 @@
       {
         "id": "send",
         "title": "Wysyłaj i odbieraj",
-        "body": "Odbierz wyświetla Twój adres do skopiowania lub udostępnienia. Aby wysłać, wprowadź adres i kwotę SMW, sprawdź obliczoną opłatę i całkowite obciążenie, a następnie potwierdź. Nadawca płaci opłatę. Kwoty obsługują maksymalnie osiem miejsc po przecinku."
+        "body": "Odbierz wyświetla Twój adres do skopiowania lub udostępnienia. Aby wysłać, wprowadź adres i kwotę SMW, sprawdź obliczoną opłatę i całkowite obciążenie, a następnie potwierdź. Nadawca płaci opłatę. Kwoty obsługują maksymalnie osiem miejsc po przecinku.\n\nPrzy jednym wejściu o wartości 1 SMW opłata zależy od tego, czy trzeba wydać resztę. Jeśli wejście i wszystkie wyjścia są typu P2WPKH, przy stawce 1 yugeon/vB wysłanie 0.99999890 SMW kosztuje 110 yugeon i nie pozostawia reszty. Wysłanie 0.8 SMW z tego samego wejścia wymaga dodatkowego wyjścia na resztę i zwiększa opłatę do 141 yugeon. Portfel zwraca resztę, jeśli po odjęciu opłaty pozostała kwota osiąga próg uwzględniający koszt jej późniejszego wydania. Gdy kwota jest mniejsza, wchodzi w skład opłaty wyświetlanej przed zatwierdzeniem. Dla wejścia portfela w formacie natywnego SegWit (P2WPKH) szacunek przewiduje do 71 bajtów na podpis wraz z typem skrótu."
       },
       {
         "id": "balances",
@@ -1262,7 +1262,7 @@
       {
         "id": "send",
         "title": "Verzenden en ontvangen",
-        "body": "Ontvangen toont uw adres zodat u het kunt kopiëren of delen. Om te verzenden voert u een SMW adres en bedrag in, controleert u de berekende kosten en het totale afschrijvingsbedrag en bevestigt u vervolgens. De afzender betaalt de vergoeding. Bedragen ondersteunen maximaal acht decimalen."
+        "body": "Ontvangen toont uw adres zodat u het kunt kopiëren of delen. Om te verzenden voert u een SMW adres en bedrag in, controleert u de berekende kosten en het totale afschrijvingsbedrag en bevestigt u vervolgens. De afzender betaalt de vergoeding. Bedragen ondersteunen maximaal acht decimalen.\n\nBij één invoer van 1 SMW hangen de kosten af van de vraag of je wisselgeld terugkrijgt. Zijn de invoer en alle uitvoeren van het type P2WPKH, dan kost een betaling van 0.99999890 SMW bij een tarief van 1 yugeon/vB precies 110 yugeon en blijft er geen wisselgeld over. Verstuur je vanuit dezelfde invoer 0.8 SMW, dan komt er een uitvoer voor wisselgeld bij en betaal je 141 yugeon. De wallet geeft wisselgeld terug als het bedrag dat na aftrek van de kosten overblijft een minimum bereikt. Dat minimum houdt rekening met de kosten om het wisselgeld later uit te geven. Een kleiner restant wordt opgenomen in de kosten die je vóór de bevestiging ziet. Bij een native SegWit-invoer van de wallet (P2WPKH) rekent de schatting op maximaal 71 bytes voor de handtekening, inclusief het hashtype."
       },
       {
         "id": "balances",
@@ -1324,7 +1324,7 @@
       {
         "id": "send",
         "title": "Magpadala at tumanggap",
-        "body": "Ipinapakita ng Receive ang iyong address para sa pagkopya o pagbabahagi. Upang magpadala, maglagay ng SMW address at halaga, suriin ang kinakalkula na bayad at kabuuang debit, pagkatapos ay kumpirmahin. Ang nagpadala ay nagbabayad ng bayad. Sinusuportahan ng mga halaga ang hanggang walong decimal na lugar."
+        "body": "Ipinapakita ng Receive ang iyong address para sa pagkopya o pagbabahagi. Upang magpadala, maglagay ng SMW address at halaga, suriin ang kinakalkula na bayad at kabuuang debit, pagkatapos ay kumpirmahin. Ang nagpadala ay nagbabayad ng bayad. Sinusuportahan ng mga halaga ang hanggang walong decimal na lugar.\n\nKapag gumamit ka ng isang input na nagkakahalaga ng 1 SMW, nakadepende ang bayad sa kung may isusukli. Kung P2WPKH ang input at lahat ng output at 1 yugeon/vB ang singil, 110 yugeon ang bayad sa pagpapadala ng 0.99999890 SMW at walang sukli. Kung 0.8 SMW ang ipapadala mula sa parehong input, madaragdagan ng isang output para sa sukli at magiging 141 yugeon ang bayad. Ibinabalik ng wallet ang sukli kung ang natitira matapos ibawas ang bayad ay umabot sa minimum na halaga. Isinasaalang-alang sa minimum na ito ang gastos sa paggamit ng sukli sa hinaharap. Kung mas maliit ang natira, isinasama ito sa bayad na makikita mo bago kumpirmahin ang padala. Para sa input ng wallet na gumagamit ng native SegWit (P2WPKH), hanggang 71 byte ang inilalaan sa lagda sa pagtatantiya ng laki, kasama ang uri ng hash."
       },
       {
         "id": "balances",
@@ -1386,7 +1386,7 @@
       {
         "id": "send",
         "title": "அனுப்பவும் பெறவும்",
-        "body": "பெறுதல் நகலெடுக்க அல்லது பகிர்வதற்கான உங்கள் முகவரியைக் காட்டுகிறது. அனுப்ப, SMW முகவரியையும் தொகையையும் உள்ளிடவும், கணக்கிடப்பட்ட கட்டணம் மற்றும் மொத்தப் பற்றுவை மதிப்பாய்வு செய்து, பின்னர் உறுதிப்படுத்தவும். அனுப்புபவர் கட்டணம் செலுத்துகிறார். தொகைகள் எட்டு தசம இடங்கள் வரை ஆதரிக்கின்றன."
+        "body": "பெறுதல் நகலெடுக்க அல்லது பகிர்வதற்கான உங்கள் முகவரியைக் காட்டுகிறது. அனுப்ப, SMW முகவரியையும் தொகையையும் உள்ளிடவும், கணக்கிடப்பட்ட கட்டணம் மற்றும் மொத்தப் பற்றுவை மதிப்பாய்வு செய்து, பின்னர் உறுதிப்படுத்தவும். அனுப்புபவர் கட்டணம் செலுத்துகிறார். தொகைகள் எட்டு தசம இடங்கள் வரை ஆதரிக்கின்றன.\n\n1 SMW மதிப்புள்ள ஓர் உள்ளீட்டைப் பயன்படுத்தும்போது, மீதித் தொகையைத் திருப்பித் தர வேண்டுமா என்பதைப் பொறுத்துக் கட்டணம் மாறும். உள்ளீடும் அனைத்து வெளியீடுகளும் P2WPKH வகையாக இருந்து கட்டண விகிதம் 1 yugeon/vB என்றால், 0.99999890 SMW அனுப்ப 110 yugeon கட்டணம் ஆகும். மீதித் தொகை இருக்காது. அதே உள்ளீட்டிலிருந்து 0.8 SMW அனுப்பினால், மீதித் தொகைக்காக ஒரு வெளியீடு சேர்வதால் கட்டணம் 141 yugeon ஆகும். கட்டணம் கழித்த பிறகு எஞ்சும் தொகை குறைந்தபட்ச அளவை எட்டினால் பணப்பை அதை மீதித் தொகையாகத் திருப்பித் தரும். அந்தத் தொகையைப் பின்னர் செலவிடுவதற்கான கட்டணமும் இந்த அளவை நிர்ணயிக்கும்போது கணக்கில் கொள்ளப்படுகிறது. இதைவிடக் குறைவாக எஞ்சினால், அது உறுதிப்படுத்தும் முன் காட்டப்படும் கட்டணத்தில் சேர்க்கப்படும். நேட்டிவ் செக்விட் (P2WPKH) பணப்பை உள்ளீட்டின் அளவை மதிப்பிடும்போது, ஹாஷ் வகை உட்படக் கையொப்பத்திற்கு அதிகபட்சம் 71 பைட்டுகள் கணக்கிடப்படுகின்றன."
       },
       {
         "id": "balances",
@@ -1448,7 +1448,7 @@
       {
         "id": "send",
         "title": "傳送與接收",
-        "body": "在接收頁複製或分享自己的地址。傳送時輸入地址和金額，核對手續費與總支出後確認。手續費由傳送方支付。金額支援八位小數。"
+        "body": "在接收頁複製或分享自己的地址。傳送時輸入地址和金額，核對手續費與總支出後確認。手續費由傳送方支付。金額支援八位小數。\n\n使用一筆 1 SMW 的輸入時，手續費會隨是否需要找零而改變。假設輸入和輸出都是 P2WPKH，費率為 1 yugeon/vB，傳送 0.99999890 SMW 時不用找零，手續費為 110 yugeon。用同一筆輸入傳送 0.8 SMW 時，會多一個找零輸出，手續費為 141 yugeon。扣除手續費後，餘額達到找零的最低金額，錢包才會找零。這項門檻將日後花用這筆找零的成本也算在內。低於門檻的餘額會計入送出前顯示的手續費。估算原生隔離見證（P2WPKH）錢包輸入的大小時，簽章連同雜湊類型最多以 71 位元組計算。"
       },
       {
         "id": "balances",
@@ -1510,7 +1510,7 @@
       {
         "id": "send",
         "title": "傳送與接收",
-        "body": "在接收頁複製或分享自己的地址。傳送時輸入地址和金額，核對手續費與總支出後確認。手續費由傳送方支付。金額支援八位小數。"
+        "body": "在接收頁複製或分享自己的地址。傳送時輸入地址和金額，核對手續費與總支出後確認。手續費由傳送方支付。金額支援八位小數。\n\n使用一筆 1 SMW 的輸入時，手續費視乎是否需要找續。假設輸入和輸出均為 P2WPKH，費率是 1 yugeon/vB，轉出 0.99999890 SMW 時毋須找續，手續費是 110 yugeon。用同一筆輸入轉出 0.8 SMW 時，交易會多一個找續輸出，手續費是 141 yugeon。扣除手續費後，餘額達到找續的最低金額，錢包才會找續。這個門檻已計及日後動用這筆找續的成本。低於門檻的餘額會計入確認轉帳時顯示的手續費。估算原生隔離見證（P2WPKH）錢包輸入的大小時，簽名連同雜湊類型最多按 71 個位元組計算。"
       },
       {
         "id": "balances",
@@ -1572,7 +1572,7 @@
       {
         "id": "send",
         "title": "Odesílání a příjem",
-        "body": "Příjem zobrazí vaši adresu ke kopírování nebo sdílení. Pro odeslání zadejte adresu SMW a částku, zkontrolujte vypočtený poplatek a celkový odečet a potom potvrďte. Poplatek platí odesílatel. Částky podporují nejvýše osm desetinných míst."
+        "body": "Příjem zobrazí vaši adresu ke kopírování nebo sdílení. Pro odeslání zadejte adresu SMW a částku, zkontrolujte vypočtený poplatek a celkový odečet a potom potvrďte. Poplatek platí odesílatel. Částky podporují nejvýše osm desetinných míst.\n\nU jednoho vstupu v hodnotě 1 SMW závisí poplatek na tom, zda je potřeba vrátit drobné. Pokud jsou vstup i všechny výstupy typu P2WPKH, při sazbě 1 yugeon/vB stojí odeslání 0.99999890 SMW přesně 110 yugeon a nic nezbývá. Při odeslání 0.8 SMW ze stejného vstupu přibude výstup pro vrácení zbytku a poplatek činí 141 yugeon. Peněženka vrátí zbytek, pokud částka po odečtení poplatku dosáhne minima, které zohledňuje náklady na její pozdější utracení. Menší zbytek se započítá do poplatku zobrazeného před potvrzením. Při odhadu velikosti nativního vstupu SegWit (P2WPKH) peněženka počítá s nejvýše 71 bajty na podpis včetně typu hashe."
       },
       {
         "id": "balances",
@@ -1634,7 +1634,7 @@
       {
         "id": "send",
         "title": "Send og modtag",
-        "body": "Modtag viser din adresse, så den kan kopieres eller deles. For at sende skal du indtaste en SMW-adresse og et beløb, gennemgå det beregnede gebyr og den samlede debitering og derefter bekræfte. Afsenderen betaler gebyret. Beløb understøtter op til otte decimaler."
+        "body": "Modtag viser din adresse, så den kan kopieres eller deles. For at sende skal du indtaste en SMW-adresse og et beløb, gennemgå det beregnede gebyr og den samlede debitering og derefter bekræfte. Afsenderen betaler gebyret. Beløb understøtter op til otte decimaler.\n\nMed ét input på 1 SMW afhænger gebyret af, om du skal have penge tilbage. Hvis input og output er af typen P2WPKH, koster det ved en sats på 1 yugeon/vB præcis 110 yugeon at sende 0.99999890 SMW. Der er ingen byttepenge. Sender du 0.8 SMW fra samme input, tilføjes et output til byttepengene, og gebyret bliver 141 yugeon. Tegnebogen sender byttepengene tilbage, hvis beløbet efter gebyret når en minimumsgrænse, der tager højde for, hvad det koster at bruge byttepengene senere. Et mindre restbeløb indgår i det gebyr, der vises før godkendelsen. For et input fra en tegnebog med native SegWit (P2WPKH) regner estimatet med op til 71 byte til signaturen, inklusive hash-typen."
       },
       {
         "id": "balances",
@@ -1696,7 +1696,7 @@
       {
         "id": "send",
         "title": "Lähettäminen ja vastaanottaminen",
-        "body": "Vastaanota näyttää osoitteesi kopioitavaksi tai jaettavaksi. Lähettääksesi kirjoita SMW-osoite ja summa, tarkista laskettu maksu ja kokonaisveloitus ja vahvista. Lähettäjä maksaa maksun. Summat tukevat enintään kahdeksaa desimaalia."
+        "body": "Vastaanota näyttää osoitteesi kopioitavaksi tai jaettavaksi. Lähettääksesi kirjoita SMW-osoite ja summa, tarkista laskettu maksu ja kokonaisveloitus ja vahvista. Lähettäjä maksaa maksun. Summat tukevat enintään kahdeksaa desimaalia.\n\nKun käytät yhtä 1 SMW:n arvoista syötettä, maksu riippuu siitä, palautuuko lompakkoon vaihtorahaa. Jos syöte ja kaikki tulosteet ovat tyyppiä P2WPKH ja maksutaso on 1 yugeon/vB, 0.99999890 SMW:n lähettäminen maksaa 110 yugeon eikä vaihtorahaa jää. Jos lähetät samasta syötteestä 0.8 SMW, vaihtorahaa varten tarvitaan yksi tuloste lisää ja maksu on 141 yugeon. Lompakko palauttaa vaihtorahan, jos maksun vähentämisen jälkeen jäljelle jäävä summa saavuttaa vähimmäisrajan. Rajassa huomioidaan vaihtorahan myöhemmän käytön kustannus. Pienempi jäännös sisältyy ennen vahvistusta näytettävään maksuun. Natiivia SegWitiä (P2WPKH) käyttävän lompakon syötteen kokoarviossa allekirjoitukselle varataan enintään 71 tavua tiivistetyyppi mukaan lukien."
       },
       {
         "id": "balances",
@@ -1758,7 +1758,7 @@
       {
         "id": "send",
         "title": "Αποστολή και λήψη",
-        "body": "Η Λήψη εμφανίζει τη διεύθυνσή σας για αντιγραφή ή κοινοποίηση. Για αποστολή, εισαγάγετε διεύθυνση SMW και ποσό, ελέγξτε το υπολογισμένο τέλος και τη συνολική χρέωση και επιβεβαιώστε. Ο αποστολέας πληρώνει το τέλος. Τα ποσά υποστηρίζουν έως οκτώ δεκαδικά ψηφία."
+        "body": "Η Λήψη εμφανίζει τη διεύθυνσή σας για αντιγραφή ή κοινοποίηση. Για αποστολή, εισαγάγετε διεύθυνση SMW και ποσό, ελέγξτε το υπολογισμένο τέλος και τη συνολική χρέωση και επιβεβαιώστε. Ο αποστολέας πληρώνει το τέλος. Τα ποσά υποστηρίζουν έως οκτώ δεκαδικά ψηφία.\n\nΓια μία είσοδο αξίας 1 SMW, η χρέωση εξαρτάται από το αν χρειάζεται να επιστραφούν ρέστα. Αν η είσοδος και όλες οι έξοδοι είναι τύπου P2WPKH και ο συντελεστής είναι 1 yugeon/vB, η αποστολή 0.99999890 SMW κοστίζει 110 yugeon και δεν περισσεύουν ρέστα. Αν στείλετε 0.8 SMW από την ίδια είσοδο, προστίθεται μια έξοδος για τα ρέστα και η χρέωση φτάνει τα 141 yugeon. Το πορτοφόλι επιστρέφει ρέστα όταν το ποσό που απομένει μετά τη χρέωση φτάνει ένα ελάχιστο όριο, το οποίο λαμβάνει υπόψη το κόστος μελλοντικής χρήσης τους. Αν απομένουν λιγότερα, το ποσό περιλαμβάνεται στη χρέωση που εμφανίζεται πριν από την επιβεβαίωση. Για μια είσοδο του πορτοφολιού με εγγενές SegWit (P2WPKH), ο υπολογισμός προβλέπει έως 71 byte για την υπογραφή, μαζί με τον τύπο κατακερματισμού."
       },
       {
         "id": "balances",
@@ -1820,7 +1820,7 @@
       {
         "id": "send",
         "title": "Sende og motta",
-        "body": "Motta viser adressen din for kopiering eller deling. For å sende skriver du inn en SMW-adresse og et beløp, ser over beregnet gebyr og samlet belastning, og bekrefter. Avsenderen betaler gebyret. Beløp støtter opptil åtte desimaler."
+        "body": "Motta viser adressen din for kopiering eller deling. For å sende skriver du inn en SMW-adresse og et beløp, ser over beregnet gebyr og samlet belastning, og bekrefter. Avsenderen betaler gebyret. Beløp støtter opptil åtte desimaler.\n\nMed én inngang på 1 SMW avhenger gebyret av om du skal ha veksel tilbake. Hvis inngangen og alle utgangene er av typen P2WPKH og satsen er 1 yugeon/vB, koster det 110 yugeon å sende 0.99999890 SMW, og det blir ingen veksel. Sender du 0.8 SMW fra samme inngang, kommer det en ekstra utgang for vekselen, og gebyret blir 141 yugeon. Lommeboken gir veksel tilbake hvis beløpet som gjenstår etter gebyret, når en nedre grense som tar hensyn til hva det koster å bruke vekselen senere. Et mindre restbeløp inngår i gebyret som vises før du bekrefter. For en lommebokinngang med native SegWit (P2WPKH) regner estimatet med opptil 71 byte til signaturen, inkludert hashtypen."
       },
       {
         "id": "balances",
@@ -1882,7 +1882,7 @@
       {
         "id": "send",
         "title": "Skicka och ta emot",
-        "body": "Ta emot visar din adress för kopiering eller delning. För att skicka anger du en SMW-adress och ett belopp, granskar den beräknade avgiften och den totala debiteringen och bekräftar sedan. Avsändaren betalar avgiften. Belopp stöder upp till åtta decimaler."
+        "body": "Ta emot visar din adress för kopiering eller delning. För att skicka anger du en SMW-adress och ett belopp, granskar den beräknade avgiften och den totala debiteringen och bekräftar sedan. Avsändaren betalar avgiften. Belopp stöder upp till åtta decimaler.\n\nMed en ingång på 1 SMW beror avgiften på om du ska få växel tillbaka. Om ingången och alla utgångar är av typen P2WPKH och avgiftssatsen är 1 yugeon/vB kostar det 110 yugeon att skicka 0.99999890 SMW. Då blir det ingen växel. Skickar du 0.8 SMW från samma ingång tillkommer en utgång för växeln och avgiften blir 141 yugeon. Plånboken ger växel tillbaka om beloppet som återstår efter avgiften når en gräns som tar hänsyn till kostnaden för att använda växeln senare. Ett mindre restbelopp ingår i avgiften som visas före bekräftelsen. För en indata från en plånbok med inbyggt SegWit-stöd (P2WPKH) räknar uppskattningen med högst 71 byte för signaturen, inklusive hashtypen."
       },
       {
         "id": "balances",
@@ -1944,7 +1944,7 @@
       {
         "id": "send",
         "title": "Слање и пријем",
-        "body": "Прими приказује вашу адресу за копирање или дељење. За слање унесите SMW адресу и износ, прегледајте израчунату накнаду и укупно задужење, па потврдите. Пошиљалац плаћа накнаду. Износи подржавају до осам децималних места."
+        "body": "Прими приказује вашу адресу за копирање или дељење. За слање унесите SMW адресу и износ, прегледајте израчунату накнаду и укупно задужење, па потврдите. Пошиљалац плаћа накнаду. Износи подржавају до осам децималних места.\n\nКада користите један улаз вредан 1 SMW, накнада зависи од тога да ли треба вратити кусур. Ако су улаз и сви излази типа P2WPKH, при стопи од 1 yugeon/vB слање 0.99999890 SMW кошта 110 yugeon и нема кусура. Ако са истог улаза шаљете 0.8 SMW, додаје се излаз за кусур и накнада износи 141 yugeon. Новчаник враћа кусур ако износ који остане после накнаде достигне праг који узима у обзир трошак каснијег трошења кусура. Ако остане мање, тај износ улази у накнаду приказану пре потврде. При процени величине улаза новчаника у изворном SegWit формату (P2WPKH), за потпис се рачуна до 71 бајт, укључујући тип хеша."
       },
       {
         "id": "balances",
@@ -2006,7 +2006,7 @@
       {
         "id": "send",
         "title": "Илгээх ба хүлээн авах",
-        "body": "Хүлээн авах хэсэгт хуулах эсвэл хуваалцах хаяг харагдана. Илгээхдээ SMW хаяг болон дүн оруулж, тооцоолсон шимтгэл болон нийт суутгалыг хянаад батална уу. Илгээгч шимтгэл төлнө. Дүн таслалаас хойш найм хүртэл оронтой байж болно."
+        "body": "Хүлээн авах хэсэгт хуулах эсвэл хуваалцах хаяг харагдана. Илгээхдээ SMW хаяг болон дүн оруулж, тооцоолсон шимтгэл болон нийт суутгалыг хянаад батална уу. Илгээгч шимтгэл төлнө. Дүн таслалаас хойш найм хүртэл оронтой байж болно.\n\n1 SMW-ийн нэг оролт ашиглахад шимтгэл нь хариулт мөнгө буцаах эсэхээс хамаарна. Оролт болон бүх гаралт P2WPKH төрөлтэй, шимтгэлийн хувь 1 yugeon/vB бол 0.99999890 SMW илгээхэд 110 yugeon шимтгэл төлж, хариулт үлдэхгүй. Харин мөн оролтоос 0.8 SMW илгээвэл хариулт мөнгөний гаралт нэмэгдэж, шимтгэл 141 yugeon болно. Шимтгэлийг хассаны дараах үлдэгдэл доод хэмжээнд хүрвэл хэтэвч хариултыг буцаана. Энэ хэмжээг тогтоохдоо хариултыг дараа нь зарцуулах зардлыг тооцдог. Үлдэгдэл нь түүнээс бага бол баталгаажуулахын өмнө харуулах шимтгэлд орно. SegWit (P2WPKH) түрийвчний оролтын хэмжээг тооцохдоо хэшийн төрлийг оруулаад гарын үсэгт хамгийн ихдээ 71 байт тооцно."
       },
       {
         "id": "balances",
@@ -2068,7 +2068,7 @@
       {
         "id": "send",
         "title": "ᠢᠯᠡᠭᠡᠬᠦ ᠪᠠ ᠬᠦᠯᠢᠶᠡᠨ ᠠᠪᠬᠤ",
-        "body": "ᠬᠦᠯᠢᠶᠡᠨ ᠠᠪᠬᠤ ᠨᠢ ᠬᠠᠶᠢᠭ ᠢ ᠬᠤᠭᠤᠯᠠᠬᠤ ᠪᠤᠶᠤ ᠬᠤᠪᠢᠶᠠᠯᠴᠠᠬᠤ ᠳᠤ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠢᠯᠡᠭᠡᠬᠦ ᠳᠦ SMW ᠬᠠᠶᠢᠭ ᠪᠠ ᠳᠦᠩ ᠣᠷᠣᠭᠤᠯᠵᠤ᠂ ᠪᠣᠳᠣᠭᠰᠠᠨ ᠰᠢᠮᠲᠡᠭᠡᠯ ᠪᠠ ᠨᠡᠶᠢᠲᠡ ᠰᠤᠤᠲᠭᠠᠯ ᠢ ᠬᠢᠨᠠᠭᠠᠳ ᠪᠠᠲᠤᠯᠠᠨ᠎ᠠ᠃ ᠢᠯᠡᠭᠡᠭᠴᠢ ᠰᠢᠮᠲᠡᠭᠡᠯ ᠲᠥᠯᠦᠨ᠎ᠡ᠃ ᠳᠦᠩ ᠠᠷᠪᠠᠲᠤ ᠶᠢᠨ ᠨᠠᠶᠢᠮᠠᠨ ᠣᠷᠣᠨ ᠬᠦᠷᠲᠡᠯ᠎ᠡ ᠳᠡᠮᠵᠢᠨ᠎ᠡ᠃"
+        "body": "ᠬᠦᠯᠢᠶᠡᠨ ᠠᠪᠬᠤ ᠨᠢ ᠬᠠᠶᠢᠭ ᠢ ᠬᠤᠭᠤᠯᠠᠬᠤ ᠪᠤᠶᠤ ᠬᠤᠪᠢᠶᠠᠯᠴᠠᠬᠤ ᠳᠤ ᠬᠠᠷᠠᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠢᠯᠡᠭᠡᠬᠦ ᠳᠦ SMW ᠬᠠᠶᠢᠭ ᠪᠠ ᠳᠦᠩ ᠣᠷᠣᠭᠤᠯᠵᠤ᠂ ᠪᠣᠳᠣᠭᠰᠠᠨ ᠰᠢᠮᠲᠡᠭᠡᠯ ᠪᠠ ᠨᠡᠶᠢᠲᠡ ᠰᠤᠤᠲᠭᠠᠯ ᠢ ᠬᠢᠨᠠᠭᠠᠳ ᠪᠠᠲᠤᠯᠠᠨ᠎ᠠ᠃ ᠢᠯᠡᠭᠡᠭᠴᠢ ᠰᠢᠮᠲᠡᠭᠡᠯ ᠲᠥᠯᠦᠨ᠎ᠡ᠃ ᠳᠦᠩ ᠠᠷᠪᠠᠲᠤ ᠶᠢᠨ ᠨᠠᠶᠢᠮᠠᠨ ᠣᠷᠣᠨ ᠬᠦᠷᠲᠡᠯ᠎ᠡ ᠳᠡᠮᠵᠢᠨ᠎ᠡ᠃\n\n1 SMW ᠶᠢᠨ ᠨᠢᠭᠡ ᠣᠷᠣᠯᠲᠠ ᠶᠢ ᠬᠡᠷᠡᠭᠯᠡᠬᠦ ᠳᠦ ᠰᠢᠮᠳᠭᠡᠯ ᠨᠢ ᠬᠠᠷᠢᠭᠤᠯᠲᠠ ᠮᠥᠩᠭᠦ ᠪᠤᠴᠠᠭᠠᠬᠤ ᠡᠰᠡᠬᠦ ᠡᠴᠡ ᠰᠢᠯᠲᠠᠭᠠᠯᠠᠨ᠎ᠠ᠃ ᠣᠷᠣᠯᠲᠠ ᠪᠣᠯᠣᠨ ᠪᠦᠬᠦ ᠭᠠᠷᠤᠯᠲᠠ P2WPKH ᠪᠠᠶᠢᠵᠤ᠂ ᠰᠢᠮᠳᠭᠡᠯ ᠦᠨ ᠬᠡᠮᠵᠢᠶ᠎ᠡ 1 yugeon/vB ᠪᠠᠶᠢᠪᠠᠯ᠂ 0.99999890 SMW ᠢᠯᠡᠭᠡᠬᠦ ᠳᠦ 110 yugeon ᠲᠥᠯᠥᠨ᠎ᠡ᠂ ᠬᠠᠷᠢᠭᠤᠯᠲᠠ ᠦᠯᠡᠳᠡᠬᠦ ᠦᠭᠡᠢ᠃ ᠮᠥᠨ ᠣᠷᠣᠯᠲᠠ ᠠᠴᠠ 0.8 SMW ᠢᠯᠡᠭᠡᠪᠡᠯ᠂ ᠬᠠᠷᠢᠭᠤᠯᠲᠠ ᠶᠢᠨ ᠭᠠᠷᠤᠯᠲᠠ ᠨᠡᠮᠡᠭᠳᠡᠵᠦ᠂ ᠰᠢᠮᠳᠭᠡᠯ 141 yugeon ᠪᠣᠯᠣᠨ᠎ᠠ᠃ ᠬᠤᠷᠢᠶᠠᠮᠵᠢ ᠶᠢ ᠬᠠᠰᠤᠭᠰᠠᠨ ᠤ ᠳᠠᠷᠠᠭ᠎ᠠ ᠦᠯᠡᠳᠡᠭᠰᠡᠨ ᠮᠥᠩᠭᠦ ᠳᠣᠣᠷ᠎ᠠ ᠬᠡᠮᠵᠢᠶ᠎ᠡ ᠳᠦ ᠬᠦᠷᠪᠡᠯ ᠲᠦᠷᠢᠶᠡᠪᠴᠢ ᠬᠠᠷᠢᠭᠤᠯᠲᠠ ᠶᠢ ᠪᠤᠴᠠᠭᠠᠨ᠎ᠠ᠃ ᠡᠨᠡ ᠬᠡᠮᠵᠢᠶ᠎ᠡ ᠶᠢ ᠲᠣᠭᠲᠠᠭᠠᠬᠤ ᠳᠠᠭᠠᠨ ᠬᠠᠷᠢᠭᠤᠯᠲᠠ ᠶᠢ ᠬᠣᠵᠢᠮ ᠵᠠᠷᠴᠤᠭᠤᠯᠬᠤ ᠵᠠᠷᠤᠳᠠᠯ ᠢ ᠲᠣᠭᠠᠴᠠᠨ᠎ᠠ᠃ ᠲᠡᠭᠦᠨ ᠡᠴᠡ ᠪᠠᠭ᠎ᠠ ᠦᠯᠡᠳᠡᠪᠡᠯ ᠲᠡᠷᠡ ᠮᠥᠩᠭᠦ ᠨᠢ ᠪᠠᠲᠤᠯᠠᠬᠤ ᠠᠴᠠ ᠡᠮᠦᠨ᠎ᠡ ᠬᠠᠷᠠᠭᠳᠠᠬᠤ ᠬᠤᠷᠢᠶᠠᠮᠵᠢ ᠳᠦ ᠣᠷᠣᠨ᠎ᠠ᠃ SegWit (P2WPKH) ᠲᠦᠷᠢᠶᠡᠪᠴᠢ ᠶᠢᠨ ᠣᠷᠣᠯᠲᠠ ᠶᠢᠨ ᠬᠡᠮᠵᠢᠶ᠎ᠡ ᠶᠢ ᠲᠣᠭᠠᠴᠠᠬᠤ ᠳᠠᠭᠠᠨ ᠬᠠᠰᠢ ᠶᠢᠨ ᠲᠥᠷᠥᠯ ᠢ ᠪᠠᠭᠲᠠᠭᠠᠨ ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠲᠦ ᠬᠠᠮᠤᠭ ᠤᠨ ᠶᠡᠬᠡ ᠳᠡᠭᠡᠨ 71 ᠪᠠᠶᠢᠲ ᠲᠣᠭᠠᠴᠠᠨ᠎ᠠ᠃"
       },
       {
         "id": "balances",

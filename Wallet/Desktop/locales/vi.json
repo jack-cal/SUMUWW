@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Giới hạn phát hành của khối",
   "Available fees (block)": "Phí khả dụng của khối",
   "Unclaimed reward": "Phần thưởng chưa nhận",
-  "Reward not fully claimed": "Chỉ nhận một phần thưởng"
+  "Reward not fully claimed": "Chỉ nhận một phần thưởng",
+  "Confirm": "Xác nhận",
+  "Net amount": "Thay đổi số dư"
 }

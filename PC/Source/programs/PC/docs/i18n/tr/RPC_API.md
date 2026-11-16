@@ -83,3 +83,19 @@ Madencilik geçmişi her bloğun yeni ihracını, işlem ücretlerini ve toplam 
 [Belgeler](README.html) · [Düğüm arayüzü](EXCHANGE_INTEGRATION.html) · [Düğüm işletimi](NETWORK_RUNBOOK.html) · [Sürüm notları](RELEASE_NOTES.html) · [Doğrulama](EXCHANGE_EXAMPLES.html)
 
 [Ayrıntılı İngilizce kaynak](../../../../../EXCHANGE_INTEGRATION.html) · [API_CONTRACT.json](../../../../../API_CONTRACT.json) · [vectors.json](../../../../../examples/exchange/vectors.json)
+
+<!-- payment-policy-20261116 -->
+
+## Ücretler, incelenen işlem ve uyumluluk
+
+Ücret, girdilerin toplamından çıktıların toplamı çıkarılarak bulunur. Tahmine para üstü çıktısı yalnızca cüzdan gerçekten eşik değerini karşılayan bir para üstü oluşturduğunda eklenir. Eşiğin altında kalan tutar ücrete katılır; son ücret ve toplam borçlandırma inceleme için gösterilir. Ücret oranı yugeon/vB cinsindendir. Sanal boyut, işlem ağırlığının dörde bölünüp yukarı yuvarlanmasıyla hesaplanır.
+
+Cüzdan girdileri ve çıktıları bir kez seçer, ardından aynı işlem planını imzalar. Onay verildiğinde saklanan imzalı işlem gönderilir; işlem yeniden kurulmaz ve ücret yeniden hesaplanmaz. Teklifin süresi dolmuşsa veya girdiler bu arada harcanmışsa yeniden inceleme gerekir. Yerel kuyruğa kabul edilmek, bir blokta onaylanmak anlamına gelmez.
+
+Normal P2WPKH ödemelerinde cüzdan, SIGHASH_ALL baytı dahil en fazla 71 baytlık low-R ve low-S imzalar üretir. Bu bir imzalama ve boyut tahmini politikasıdır; diğer geçerli imzalara getirilen yeni bir mutabakat sınırı değildir. Daha kısa bir imza gerçek sanal boyutu azaltabilir. Önerilen oranlar hâlâ yerel kuyruğa dayanır; Bitcoin’e benzer boyut hesabı kullanılması Bitcoin ağının ücret oranlarının kullanıldığı anlamına gelmez.
+
+## Windows I2P bileşeni ve güvenlik denetimleri
+
+Windows paketleri, güncel özet değerleri ve ilk bağlantı sertifikalarıyla birlikte resmî i2pd 3.0.0 sürümünü içerir. Kaydedilen denetimde Defender, resmî I2P yürütülebilir dosyasını ve kaynak ZIP’i hâlâ algılamaktadır. Resmî özetin eşleşmesi, güvenliği veya yanlış algılamayı kanıtlamaz. Yerel dosya istisnası yalnızca kaydedildiği bilgisayarda geçerlidir; genel dağıtım paketi bu istisnayı eklemez. Başka bilgisayarlar aynı dosyaları engelleyebilir.
+
+<!-- /payment-policy-20261116 -->

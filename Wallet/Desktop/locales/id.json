@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Batas penerbitan blok",
   "Available fees (block)": "Biaya blok yang tersedia",
   "Unclaimed reward": "Imbalan belum diklaim",
-  "Reward not fully claimed": "Imbalan diklaim sebagian"
+  "Reward not fully claimed": "Imbalan diklaim sebagian",
+  "Confirm": "Konfirmasikan",
+  "Net amount": "Perubahan saldo"
 }

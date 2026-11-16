@@ -27,7 +27,7 @@ class RpcClientDaemonTests(unittest.TestCase):
         source = Path(__file__).resolve().parents[1]
         environment = dict(os.environ, PYTHONPATH=str(source), PYTHONDONTWRITEBYTECODE='1')
         self.process = subprocess.Popen([
-            sys.executable, str(source / 'sumuww_node_entry.py'), 'peer',
+            sys.executable, '-m', 'sumuww.peerd',
             '--network', 'regtest', '--database', str(self.root / 'node.sqlite'),
             '--rpc', '--rpc-port', '0', '--rpc-token-file', str(self.token),
             '--ready-file', str(self.ready), '--stop-file', str(self.stop),
@@ -90,8 +90,7 @@ class RpcClientDaemonTests(unittest.TestCase):
         source = Path(__file__).resolve().parents[1]
         parameters = self.root / 'params.json'
         parameters.write_text('{"height":0}', encoding='utf-8')
-        output = subprocess.run([sys.executable, str(source / 'sumuww_node_entry.py'),
-            'rpc', '--url', self.url, '--token-file', str(self.token),
+        output = subprocess.run([sys.executable, '-m', 'sumuww.rpc_client', '--url', self.url, '--token-file', str(self.token),
             '--params-file', str(parameters), 'getblockhash'], cwd=self.root,
             capture_output=True, text=True, encoding='utf-8', timeout=10,
             env=dict(os.environ, PYTHONPATH=str(source), PYTHONDONTWRITEBYTECODE='1'),

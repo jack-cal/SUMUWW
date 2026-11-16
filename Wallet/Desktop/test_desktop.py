@@ -36,7 +36,7 @@ class DesktopWalletTests(unittest.TestCase):
         self.fail('Wallet did not finish queued work')
 
     def create(self):
-        with patch.object(run.simpledialog, 'askstring', side_effect=[self.password, self.password]), patch.object(self.app, 'show_phrase', side_effect=lambda value: self.app.refresh()):
+        with patch.object(self.app, 'ask_text', side_effect=[self.password, self.password]), patch.object(self.app, 'show_phrase', side_effect=lambda value: self.app.refresh()):
             self.app.buttons['Create a wallet'][0].invoke()
             self.await_idle()
         self.assertTrue(self.app.state['wallet']['unlocked'])
@@ -61,7 +61,7 @@ class DesktopWalletTests(unittest.TestCase):
         self.app.buttons['Lock'][0].invoke()
         self.await_idle()
         self.assertFalse(self.app.state['wallet']['unlocked'])
-        with patch.object(run.simpledialog, 'askstring', return_value=self.password):
+        with patch.object(self.app, 'ask_text', return_value=self.password):
             self.app.buttons['Unlock wallet'][0].invoke()
             self.await_idle()
         self.assertTrue(self.app.state['wallet']['unlocked'])
@@ -75,24 +75,46 @@ class DesktopWalletTests(unittest.TestCase):
             chain.mine(script, 101)
         self.app.refresh()
         self.await_idle()
-        with patch.object(run.simpledialog, 'askstring', side_effect=[key.address, '2.50000000']), patch.object(run, 'FeeDialog', return_value=type('Quote', (), {'result':'0.00001000'})()), patch.object(run.messagebox, 'askokcancel', return_value=False) as review:
+        with patch.object(self.app, 'ask_text', side_effect=[key.address, '2.50000000']), patch.object(run, 'FeeDialog', return_value=type('Quote', (), {'result':'0.00001000'})()), patch.object(self.app, 'confirm', return_value=False) as review:
             self.app.buttons['↑  Send'][0].invoke()
             self.await_idle()
             self.assertIn(key.address, review.call_args.args[1])
             self.assertIn('2.50001000', review.call_args.args[1])
         with Chain(Path(self.temp.name) / 'node.sqlite', network='regtest') as chain:
             self.assertEqual(len(chain.mempool_transactions()), 0)
-        with patch.object(run.simpledialog, 'askstring', side_effect=[key.address, '2.50000000']), patch.object(run, 'FeeDialog', return_value=type('Quote', (), {'result':'0.00001000'})()), patch.object(run.messagebox, 'askokcancel', return_value=True), patch.object(run.messagebox, 'showinfo'):
+        with patch.object(self.app, 'ask_text', side_effect=[key.address, '2.50000000']), patch.object(run, 'FeeDialog', return_value=type('Quote', (), {'result':'0.00001000'})()), patch.object(self.app, 'confirm', return_value=True), patch.object(self.app, 'notice'):
             self.app.buttons['↑  Send'][0].invoke()
             self.await_idle()
         with Chain(Path(self.temp.name) / 'node.sqlite', network='regtest') as chain:
             self.assertEqual(len(chain.mempool_transactions()), 1)
 
+    def test_poll_during_transfer_confirmation_leaves_the_worker_available(self):
+        destination = 'regtest-recipient'
+        self.root.after(100, self.app.poll)
+        def accept():
+            dialog = self.root.grab_current()
+            if dialog is None:
+                self.root.after(20, accept)
+            else:
+                dialog.ok()
+        self.root.after(300, accept)
+        with patch.object(self.app, 'refresh') as refresh, patch.object(self.app, 'call') as call:
+            self.app.review({'quote_id': 'reviewed', 'recipient': destination})
+            refresh.assert_not_called()
+            call.assert_called_once_with('submit', 'reviewed', done=self.app.sent)
+
+    def test_status_poll_does_not_drop_the_next_user_action(self):
+        self.app.poll()
+        self.assertFalse(self.app.busy)
+        self.app.set_timeout(60)
+        self.await_idle()
+        self.assertEqual(self.app.timeout, 60)
+
     def test_backup_cannot_overwrite_existing_wallet(self):
         self.create()
         target = Path(self.temp.name) / 'wallet.json'
         original = target.read_bytes()
-        with patch.object(run.simpledialog, 'askstring', return_value=self.password), patch.object(run.filedialog, 'asksaveasfilename', return_value=str(target)), patch.object(run.messagebox, 'showerror') as error:
+        with patch.object(self.app, 'ask_text', return_value=self.password), patch.object(run.filedialog, 'asksaveasfilename', return_value=str(target)), patch.object(self.app, 'notice') as error:
             self.app.backup()
             self.await_idle()
             error.assert_called_once()

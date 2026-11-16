@@ -58,7 +58,7 @@ class ReleaseRecheck(TestCase):
         self.app.call('lock', done=self.app.update)
         self.await_idle()
         self.app.language='ko';self.app.build()
-        with patch.object(run.messagebox,'showerror') as error:
+        with patch.object(self.app, 'notice') as error:
             self.app.call('unlock','incorrect-test-password')
             self.await_idle()
         error.assert_called_once()
@@ -97,7 +97,7 @@ class ReleaseRecheck(TestCase):
         self.app.refresh();self.await_idle()
         for code in self.app.languages:
             self.app.language=code;self.app.build()
-            with patch.object(run.simpledialog,'askstring',side_effect=[recipient.address,'1.00000001']),patch.object(run,'FeeDialog',return_value=type('Quote',(),{'result':'0.00001000'})()),patch.object(run.messagebox,'askokcancel',return_value=False) as review:
+            with patch.object(self.app, 'ask_text',side_effect=[recipient.address,'1.00000001']),patch.object(run,'FeeDialog',return_value=type('Quote',(),{'result':'0.00001000'})()),patch.object(self.app, 'confirm',return_value=False) as review:
                 self.app.buttons['↑  Send'][0].invoke();self.await_idle()
             self.assertEqual(review.call_args.args[0],self.app.t('Confirm transfer'),code)
             self.assertIn(recipient.address,review.call_args.args[1],code)

@@ -40,10 +40,12 @@ class MobileDiscoveryRecoveryTest {
                        test_android_dht_ipv6, test_handshake_progress_deadline)
             suite = unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromModule(m) for m in modules)
             stream = io.StringIO()
+            expected = suite.countTestCases()
+            assert all(unittest.defaultTestLoader.loadTestsFromModule(m).countTestCases() > 0 for m in modules)
             result = unittest.TextTestRunner(stream=stream, verbosity=2).run(suite)
             print(stream.getvalue(), flush=True)
             if not result.wasSuccessful(): raise AssertionError(stream.getvalue())
-            assert result.testsRun == 25, result.testsRun
+            assert result.testsRun == expected and not result.skipped, stream.getvalue()
         """.trimIndent(), globals)
     }
 }

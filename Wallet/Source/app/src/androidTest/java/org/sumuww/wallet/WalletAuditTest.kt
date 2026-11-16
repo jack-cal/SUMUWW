@@ -144,6 +144,11 @@ with Chain(service.database,network='regtest') as chain:
         }
         click("송금 내용 확인")
         waitFor("Confirmation not shown") { dialog()?.getButton(AlertDialog.BUTTON_POSITIVE)?.text.toString() == "전송" }
+        ui {
+            val values = views(dialog()!!.window!!.decorView).filterIsInstance<TextView>().map { it.text.toString() }
+            assertTrue(values.any { it == destination })
+            assertTrue(values.any { "0.00000141 SMW" in it })
+        }
         click("전송")
         waitFor("Submission result not shown") { dialog()?.window?.decorView?.let { views(it).filterIsInstance<TextView>().any { v -> v.text.contains("거래를 제출했습니다") } } == true }
         click("닫기")

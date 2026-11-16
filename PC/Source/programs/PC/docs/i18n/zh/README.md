@@ -25,3 +25,19 @@ P2P magic: d052470c
 [节点接口](EXCHANGE_INTEGRATION.html) · [RPC 与 HTTP API](RPC_API.html) · [节点运行](NETWORK_RUNBOOK.html) · [版本说明](RELEASE_NOTES.html) · [验证](EXCHANGE_EXAMPLES.html)
 
 [英文详细参考](../../../../../EXCHANGE_INTEGRATION.html) · [API_CONTRACT.json](../../../../../API_CONTRACT.json) · [vectors.json](../../../../../examples/exchange/vectors.json)
+
+<!-- payment-policy-20261116 -->
+
+## 交易手续费、确认内容与兼容性
+
+手续费等于输入金额总和减去输出金额总和。只有钱包实际创建符合要求的找零时，估算才计入找零输出。低于钱包找零门槛的余额会计入手续费，确认前会显示最终手续费和总扣款。费率单位为 yugeon/vB；虚拟大小等于交易权重除以四后向上取整。
+
+钱包只选择一次输入和输出，并按同一交易方案生成签名。确认后提交的是已保存的签名交易，不会重新构造交易或重算手续费。报价过期或输入已被花费时，必须重新核对。进入本地待处理队列并不代表已获得区块确认。
+
+普通 P2WPKH 转账使用 low-R、low-S 签名，连同 SIGHASH_ALL 字节在内最多为 71 字节。这是钱包的签名和大小估算策略，并不是对其他有效签名新增的共识限制。签名较短时，实际虚拟大小可能小于估算值。建议费率仍依据本节点的待处理队列；采用与 Bitcoin 相近的大小计算方式，不表示沿用 Bitcoin 网络的费率。
+
+## Windows I2P 组件与安全检查
+
+Windows 安装包包含官方 i2pd 3.0.0，并同步更新校验值和引导连接所需的证书。在已记录的检查中，Defender 仍会检测到官方 I2P 可执行文件及原始 ZIP。哈希与官方一致，只能核对文件来源，不能证明安全或确定是误报。本地文件排除项只对设置它的电脑生效，公开安装包不会自动添加排除项，其他电脑仍可能拦截这些文件。
+
+<!-- /payment-policy-20261116 -->

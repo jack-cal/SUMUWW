@@ -68,7 +68,7 @@ class ShortSyncedReconnectTests(unittest.IsolatedAsyncioTestCase):
             node._peer_clock = lambda: 100
             node._send = AsyncMock()
             def session(target):
-                return SimpleNamespace(outgoing=target, protocol=3,
+                return SimpleNamespace(outgoing=target, protocol=3, block_relay_only=False,
                     address_response_count=0, diagnostic_started_at=99,
                     initial_discovery_deferred=False, discovery_requested=False,
                     last_discovery_request=0, ready=True, header_requested=False,

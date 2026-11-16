@@ -101,6 +101,7 @@ async def check():
         for mode in ('tor','i2p'):
             router=ManagedRouter(mode,folder)
             transport=None
+            child=None
             try:
                 port=await router.ensure_running()
                 child=router.process
@@ -118,8 +119,9 @@ async def check():
             finally:
                 if transport is not None:await transport.stop()
                 await router.stop()
-                assert child.poll() is not None
-                results[mode]['owned_child_stopped']=True
+                if child is not None:
+                    assert child.poll() is not None
+            results[mode]['owned_child_stopped']=True
     return results
 result=asyncio.run(check())
 """.trimIndent(),globals)

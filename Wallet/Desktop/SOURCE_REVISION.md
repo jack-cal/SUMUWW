@@ -1,3 +1,3 @@
-# SUMUWW Wallet 1.0.10
+# SUMUWW 1.0.14 source update
 
-This edition includes the full-node peer connection policy. SOURCE_COMMIT.txt and SOURCE_FILES.json identify the source in this archive.
+Based on the released 1.0.10 source archive. See SOURCE_BASE.txt for its source reference. SOURCE_FILES.json lists the SHA-256 checksums of this revised source tree.

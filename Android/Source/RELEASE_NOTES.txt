@@ -1,3 +1,10 @@
+SUMUWW 0.6.103 - source update
+P2WPKH payments now sign with low R and use the matching witness size for the fee estimate.
+
+The wallet plans the recipient output and any viable change before signing. It uses Bitcoin Core’s P2WPKH change test, including the cost of spending change later. The confirmation and signature use the same selected inputs and outputs.
+The recipient amount and the signed transaction fee are shown before submission.
+Localized fee examples are included in the wallet documentation for all 34 interface languages.
+
 SUMUWW Android 0.6.99 (162)
 The full node resumes from its last locally verified block after a restart. On upgrade from a database without a verification record it first checks the existing local history. The Android service waits for this check to finish. The update checker recognizes the four-part local build numbers.
 
@@ -10,3 +17,19 @@ SUMUWW Android provides an independently validating full node, a personal wallet
 Install over the existing org.sumuww.miner app with the same signing certificate. Wallet formats, stored chain history and public-network consensus rules are preserved. The node core supports signed transaction validation/submission, block/transaction/UTXO queries and reorganization state. The Android app has no RPC configuration screen. See [Android node interface](docs/integration/docs/i18n/en/ANDROID.html).
 
 Tests run in the separate .audit package on disposable regtest data. The test fixture is included only in the instrumentation APK. The production APK contains the application modules and offline documents.
+
+<!-- payment-policy-20261116 -->
+
+## Payment fees, reviewed transactions and compatibility
+
+The fee is the sum of inputs minus the sum of outputs. A payment quote includes a change output only when the wallet will actually create viable change. A remainder below the wallet's change threshold is added to the fee, and the resulting fee and total debit are shown for review. Rates are expressed in yugeon/vB; virtual size is transaction weight divided by four, rounded up.
+
+The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
+
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
+
+## Android signing compatibility
+
+Wallet file formats, addresses and existing coins are unchanged. The existing encrypted wallet backup can be restored in the new app to use the same wallet. Android node 0.6.103 and wallet 1.1.14 use a newly generated release signing key. They cannot replace an installation signed with a different key. Keep the existing app and its data until an encrypted wallet backup and a working recovery method are available. Do not uninstall an old app merely to make an update install.
+
+<!-- /payment-policy-20261116 -->

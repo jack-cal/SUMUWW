@@ -1,5 +1,8 @@
 # SUMUWW · Documentación
 
+Con una entrada de 1 SMW, la comisión depende de si hay que devolver cambio. Si todas las entradas y salidas son P2WPKH y la tarifa es de 1 yugeon/vB, enviar 0.99999890 SMW cuesta 110 yugeon y no queda cambio. Si envías 0.8 SMW con la misma entrada, se añade una salida de cambio y la comisión asciende a 141 yugeon. La cartera devuelve el cambio si lo que queda después de pagar la comisión alcanza un mínimo que tiene en cuenta el coste de gastar ese cambio más adelante. Si queda menos, el resto se incluye en la comisión que ves antes de confirmar. Para una entrada de la cartera que usa SegWit nativo (P2WPKH), el cálculo reserva hasta 71 bytes para la firma, incluido el tipo de hash.
+
+
 SUMUWW PC 0.57.51 · El nodo valida, guarda, retransmite y permite consultar la cadena.
 
 ## Formato de firma
@@ -25,3 +28,19 @@ P2P magic: d052470c
 [Interfaz del nodo](EXCHANGE_INTEGRATION.html) · [API RPC y HTTP](RPC_API.html) · [Operación del nodo](NETWORK_RUNBOOK.html) · [Notas de versión](RELEASE_NOTES.html) · [Verificación](EXCHANGE_EXAMPLES.html)
 
 [Referencia ampliada en inglés](../../../EXCHANGE_INTEGRATION.html) · [API_CONTRACT.json](../../../API_CONTRACT.json) · [vectors.json](../../../examples/exchange/vectors.json)
+
+<!-- payment-policy-20261116 -->
+
+## Comisiones, transacción revisada y compatibilidad
+
+La comisión es la suma de las entradas menos la suma de las salidas. La estimación solo incluye una salida de cambio cuando el monedero realmente va a crear un cambio suficiente. Si el sobrante no alcanza el umbral del monedero, se añade a la comisión; antes de confirmar se muestran la comisión resultante y el débito total. La tarifa se expresa en yugeon/vB. El tamaño virtual es el peso de la transacción dividido entre cuatro, redondeado hacia arriba.
+
+El monedero selecciona las entradas y las salidas una sola vez y firma ese mismo plan. Al confirmar, envía la transacción firmada que conserva, sin reconstruirla ni recalcular la comisión. Si la estimación caduca o alguna entrada ya se ha gastado, hay que revisarla de nuevo. La aceptación en la cola local no equivale a una confirmación en un bloque.
+
+En pagos P2WPKH normales, el monedero genera firmas low-R y low-S de hasta 71 bytes, incluido el byte SIGHASH_ALL. Es una política de firma y estimación, no un nuevo límite de consenso para otras firmas válidas. Una firma más corta puede reducir el tamaño virtual real. Las tarifas sugeridas siguen dependiendo de la cola local; adoptar el cálculo de tamaño de Bitcoin no significa aplicar sus tarifas.
+
+## Componente I2P de Windows y comprobaciones de seguridad
+
+Los paquetes de Windows incluyen i2pd 3.0.0 oficial, con sus hashes y certificados de arranque actualizados. En la comprobación registrada, Defender sigue detectando el ejecutable I2P y el ZIP originales. Que el hash coincida con el oficial no demuestra que el archivo sea seguro ni que se trate de un falso positivo. Una exclusión local solo afecta al PC donde se registra; el paquete público no la instala. Otros equipos pueden bloquear los mismos archivos.
+
+<!-- /payment-policy-20261116 -->

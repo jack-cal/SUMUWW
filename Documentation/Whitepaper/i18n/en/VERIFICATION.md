@@ -1,6 +1,6 @@
-# SUMUWW Whitepaper · edition 2.3
+# SUMUWW Whitepaper · edition 2.4
 
-26 October 2026. This edition documents source-block 9,600 selection certification, renewed witness rounds, retry progress, fee estimation and reward components. Download the matching edition from https://github.com/jack-cal/SUMUWW/releases/tag/whitepaper-v2.3-en.
+16 November 2026. This edition clarifies actual change-output pricing, retained reviewed transactions and the wallet-only 71-byte P2WPKH signature bound. The source-block 9,600 consensus and issuance rules are unchanged.
 
 - [Whitepaper](WHITEPAPER.md)
 - [Connection-proof specification](CONNECTION_PROOFS_9000.md)

@@ -7,7 +7,7 @@ import pc_runtime
 keystore._publish_no_replace=pc_runtime._publish_android
 config=json.loads(Path(config_path).read_text())
 async def exercise():
-    report={'scope':'Android 0.6.26 emulator and eight actual frozen Windows PC 0.51 daemons; isolated regtest; ADB TCP tunnels','cases':[]}
+    report={'scope':'Installed Android node and eight frozen Windows node daemons; isolated regtest; ADB TCP tunnels','cases':[]}
     async def control(op,**args):
         reader,writer=await asyncio.open_connection('127.0.0.1',config['control'])
         writer.write((json.dumps({'op':op,**args})+'\n').encode());await writer.drain()

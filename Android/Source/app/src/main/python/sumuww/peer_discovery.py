@@ -101,14 +101,15 @@ class PeerAddressBook:
         entry.retry_at = entry.attempted_at + 10
         self._save()
 
-    def attempted(self, endpoint, *, success=False):
+    def attempted(self, endpoint, *, success=False, admission_retry=False):
         entry = self._entries.get(endpoint)
         if entry is not None:
             if success:
                 entry.failures = 0
             else:
                 entry.failures = min(entry.failures + 1, 10)
-            if not success and (not entry.verified_at or self.clock()-entry.verified_at>CACHE_MAX_AGE):
+            fresh_hint_retry = admission_retry and not entry.verified_at and entry.failures <= 3
+            if not success and not fresh_hint_retry and (not entry.verified_at or self.clock()-entry.verified_at>CACHE_MAX_AGE):
                 self._entries.pop(endpoint, None)
                 self.prune()
                 self._suppressed[endpoint] = self.retry_clock() + STALE_RETRY_SUPPRESSION

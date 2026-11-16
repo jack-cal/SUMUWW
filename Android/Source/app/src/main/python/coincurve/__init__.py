@@ -72,9 +72,16 @@ class PrivateKey:
         if serialize(context,out,C.byref(length),raw,258)!=1: raise ValueError('Public key failure')
         return PublicKey(out.raw)
     def sign(self,message,hasher=hashlib.sha256):
-        raw=C.create_string_buffer(64)
+        return self._sign_hash(digest(message,hasher), None)
+    def sign_with_extra_entropy(self, message_hash, entropy):
+        if not isinstance(entropy, bytes) or len(entropy) != 32:
+            raise ValueError('Expected 32 bytes of signing entropy')
+        return self._sign_hash(digest(message_hash, None), buf(entropy))
+    def _sign_hash(self, message_hash, entropy):
+        raw = C.create_string_buffer(64)
         with lock:
-            if sign(context,raw,digest(message,hasher),self.secret,None,None)!=1: raise ValueError('Signature failed')
+            if sign(context, raw, message_hash, self.secret, None, entropy) != 1:
+                raise ValueError('Signature failed')
         return sig_to_der(raw)
     def add(self,tweak,update=False):
         if type(tweak)!=bytes or len(tweak)!=32: raise ValueError('Invalid tweak')

@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Uitgiftelimiet van het blok",
   "Available fees (block)": "Beschikbare blokkosten",
   "Unclaimed reward": "Niet opgeëiste beloning",
-  "Reward not fully claimed": "Beloning gedeeltelijk opgeëist"
+  "Reward not fully claimed": "Beloning gedeeltelijk opgeëist",
+  "Confirm": "Bevestig",
+  "Net amount": "Saldowijziging"
 }

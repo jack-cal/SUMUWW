@@ -70,7 +70,8 @@ class PeerShutdownTests(unittest.IsolatedAsyncioTestCase):
         self.assertFalse(node._sessions)
         self.assertFalse(node._tasks)
         self.assertIsNone(node._server)
-        self.assertEqual(0,server._active_count)
+        self.assertFalse(server.is_serving())
+        await asyncio.wait_for(server.wait_closed(), seconds)
         return time.monotonic()-began
 
     async def test_active_synchronized_inbound_stops_without_remote_peer_io(self):
@@ -79,7 +80,8 @@ class PeerShutdownTests(unittest.IsolatedAsyncioTestCase):
         await eventually(lambda:source.synchronization_info()['mining_ready'] and
                          other.synchronization_info()['mining_ready'])
         await asyncio.sleep(.1)
-        self.assertEqual(1,source._server._active_count)
+        self.assertTrue(source._server.is_serving())
+        self.assertEqual(1, len(source._sessions))
         await self.stop_within(source,.8)
 
     async def test_pre_handshake_connection_is_cancelled_before_server_wait(self):

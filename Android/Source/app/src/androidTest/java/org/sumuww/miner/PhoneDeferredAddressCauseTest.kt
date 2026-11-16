@@ -15,6 +15,9 @@ class PhoneDeferredAddressCauseTest {
         val globals=Python.getInstance().getModule("builtins").callAttr("dict")
         globals.callAttr("__setitem__","output_path",File(app.getExternalFilesDir(null),"phone-deferred-address-cause.json").absolutePath)
         globals.callAttr("__setitem__","fixture_parent",app.cacheDir.absolutePath)
+        val fixtureCode = InstrumentationRegistry.getInstrumentation().context.assets.open("public_chain_fixture.py").bufferedReader().use { it.readText() }
+        Python.getInstance().getModule("builtins").callAttr("exec", fixtureCode, globals)
+        globals.callAttr("__setitem__","owned_peer_arg",InstrumentationRegistry.getArguments().getString("ownedPeer") ?: "")
         globals.callAttr("__setitem__","chain_path",File(app.filesDir,"sumuww/node.sqlite").absolutePath)
         Python.getInstance().getModule("builtins").callAttr("exec","""
             import asyncio, ipaddress, itertools, json, socket, sqlite3, tempfile, time
@@ -24,8 +27,11 @@ class PhoneDeferredAddressCauseTest {
             from sumuww.dht_discovery import DhtDiscovery
             from sumuww.peer import PeerNode
             from sumuww.wire import decode_version
-            report={'scope':'physical mobile; fresh DHT; temporary copy of public chain only; no wallet/mining; v3 requests with controlled getaddr timing; diagnostic not production', 'phases':[], 'events':[], 'complete':False}
+            report={'scope':'Android device; fresh DHT; temporary copy of public chain only; no wallet/mining; v3 requests with controlled getaddr timing; diagnostic not production', 'phases':[], 'events':[], 'complete':False}
             excluded={'61.108.95.185','2406:5900:2:fd9::627'}
+            owned_peer = ('127.0.0.1',18445) if owned_peer_arg == '127.0.0.1:18445' else None
+            if owned_peer:
+                report['scope']='Android device and an explicitly supplied loopback peer; public blocks only'
             def save():Path(output_path).write_text(json.dumps(report),encoding='utf-8')
             def event(kind,**values):
                 if len(report['events'])<10000:report['events'].append({'t':time.monotonic(),'kind':kind,**values})
@@ -63,6 +69,8 @@ class PhoneDeferredAddressCauseTest {
                         event('received',phase=self.phase,sid=session.test_sid,target=session.outgoing,command=frame.command,**extra)
                     return frame
             async def search(family,v6):
+                if owned_peer:
+                    return {'family':family,'hints':[owned_peer] if family==socket.AF_INET else [],'source':'instrumentation'}
                 hints=[]
                 d=DhtDiscovery('dora',lambda values:hints.extend(values),family=family,source_provider=lambda:v6,network_provider=network_identity,
                                self_endpoints=lambda:tuple((i.host,18444) for i in _read_android()))
@@ -87,14 +95,9 @@ class PhoneDeferredAddressCauseTest {
                     with tempfile.TemporaryDirectory(prefix='smw-address-close-',dir=fixture_parent) as folder:
                         database=Path(folder)/'public-chain.sqlite'
                         # Read only the public chain DB. Never open a wallet file.
-                        source=sqlite3.connect(Path(chain_path).as_uri()+'?mode=ro',uri=True)
-                        dest=sqlite3.connect(database)
-                        try:
-                            tables={r[0] for r in source.execute("SELECT name FROM sqlite_master WHERE type='table'")}
-                            assert tables<= {'metadata','blocks','utxos','mempool','sqlite_sequence'},tables
-                            source.backup(dest)
-                        finally:dest.close();source.close()
+                        public_chain_fixture(chain_path, database)
                         node=TrialNode(database,network='dora',host='127.0.0.1',port=0,allow_internet=True,allow_lan=False,
+                                       peers=[owned_peer] if owned_peer else (),discovery_scope='loopback' if owned_peer else 'public',
                                        discover_peers=True,dht_enabled=False,auto_address=False,bootstrap_seeds=(),bootstrap_peers=(),
                                        max_peers=2,outgoing_target=2,timeout=5,poll_interval=.5,network_provider=network_identity)
                         node.phase=phase;node.address_delay=delay
@@ -137,6 +140,10 @@ class PhoneDeferredAddressCauseTest {
                                 refresh.cancel()
                                 await asyncio.gather(refresh,return_exceptions=True)
                             await node.stop();save()
+                if owned_peer:
+                    for phase in report['phases']:
+                        assert any(s['sync'] for sample in phase['samples'] for s in sample['sessions']), phase
+                        assert any(e.get('phase')==phase['phase'] and e.get('command')=='getaddr' and e['kind']=='sent' for e in report['events']), phase
                 report['complete']=True;save()
             try:asyncio.run(run())
             except BaseException as exc:

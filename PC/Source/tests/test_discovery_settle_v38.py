@@ -164,7 +164,7 @@ class DiscoverySettleTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual('No DHT response', result.info()['last_error'])
         result.round_timeout = .01
         async def blocked():
-            await asyncio.sleep(1)
+            await asyncio.Event().wait()
         result._lookup = blocked
         self.assertEqual((), await result.lookup_once())
         self.assertEqual('deadline', result.info()['last_lookup_result'])

@@ -894,10 +894,12 @@ class SumuwwApp:
         peers_card.grid(row=0, column=1, sticky='nsew', padx=(5, 0))
         peer_heading = ttk.Frame(peers_card, style='Card.TFrame')
         peer_heading.pack(fill='x')
-        _label(peer_heading, text=tr('Node connections'), style='CardTitle.TLabel', wraplength=200).pack(side='left')
-        self.settings_button = _button(peer_heading, text=tr('Connection settings'), command=self._configure_network)
-        _button(peer_heading, text=tr('IP protection'), command=self._configure_privacy).pack(side='right', padx=4)
-        self.settings_button.pack(side='right')
+        _label(peer_heading, text=tr('Node connections'), style='CardTitle.TLabel', wraplength=200).pack(anchor='w')
+        peer_actions = ttk.Frame(peer_heading, style='Card.TFrame')
+        peer_actions.pack(fill='x', pady=(3, 0))
+        self.settings_button = _button(peer_actions, text=tr('Connection settings'), command=self._configure_network)
+        self.settings_button.pack(side='left')
+        _button(peer_actions, text=tr('IP protection'), command=self._configure_privacy).pack(side='left', padx=(8, 0))
         peer_row = ttk.Frame(peers_card, style='Card.TFrame')
         peer_row.pack(fill='x', pady=(6, 6))
         self.peer_endpoint = LocalizedStringVar()
@@ -1771,15 +1773,15 @@ class SumuwwApp:
             return
         address = self.send_address.get().strip()
         amount = self.send_amount.get().strip()
-        fee = self.send_fee.get().strip() if self.manual_fee.get() else None
+        fee = 'rate:' + self.send_fee.get().strip() if self.manual_fee.get() else 'auto:normal'
         try:
             from .address import decode_address
             from .primitives import parse_amount
             decode_address(address, network=getattr(self.service, 'network', self.network_name))
             if parse_amount(amount) <= 0:
                 raise ValueError('Payment amount must be positive')
-            if fee is not None:
-                parse_amount(fee)
+            if self.manual_fee.get() and not self.send_fee.get().strip():
+                raise ValueError('Enter a fee rate in yugeon/vB with at most three decimals')
         except (ValueError, TypeError) as error:
             messagebox.showerror(tr('Confirm transfer'), _error_message(error), parent=self.root)
             return

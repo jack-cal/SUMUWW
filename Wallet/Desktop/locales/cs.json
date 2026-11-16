@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Emisní limit bloku",
   "Available fees (block)": "Dostupné poplatky bloku",
   "Unclaimed reward": "Nevyzvednutá odměna",
-  "Reward not fully claimed": "Odměna vyzvednuta částečně"
+  "Reward not fully claimed": "Odměna vyzvednuta částečně",
+  "Confirm": "Potvrdit",
+  "Net amount": "Změna zůstatku"
 }

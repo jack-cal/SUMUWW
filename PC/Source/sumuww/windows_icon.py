@@ -4,6 +4,11 @@ from ctypes import wintypes
 import sys
 
 
+# A window class can outlive any one Tk window. Keep one pair per artwork
+# and Windows icon size for the lifetime of this process.
+_icon_pairs = {}
+
+
 def install_taskbar_icon(root, path):
     if sys.platform != 'win32':
         return
@@ -27,6 +32,9 @@ def install_taskbar_icon(root, path):
     user32.SendMessageW.restype = wintypes.LPARAM
     user32.DestroyIcon.argtypes = [wintypes.HANDLE]
     hwnd = user32.GetAncestor(root.winfo_id(), 2) or root.winfo_id()
+    user32.GetClassNameW.argtypes = [wintypes.HWND, wintypes.LPWSTR, ctypes.c_int]
+    class_name = ctypes.create_unicode_buffer(64)
+    user32.GetClassNameW(hwnd, class_name, len(class_name))
     dpi = 96
     if hasattr(user32, 'GetDpiForWindow'):
         user32.GetDpiForWindow.argtypes = [wintypes.HWND]
@@ -52,35 +60,32 @@ def install_taskbar_icon(root, path):
         else:
             size = user32.GetSystemMetrics(metric)
         sizes.append(size)
-    identity = (str(path.resolve()), hwnd, tuple(sizes))
-    if getattr(root, '_sumuww_native_icon_identity', None) == identity:
-        return
-    previous = getattr(root, '_sumuww_native_icon_handles', [])
-    previous_identity = getattr(root, '_sumuww_native_icon_identity', None)
-    handles = []
-    for slot, size in zip((1, 0), sizes):
-        handle = user32.LoadImageW(None, str(path), 1, size, size, 0x10)
-        if handle:
-            handles.append(handle)
-    if len(handles) != 2:
-        for handle in handles:
-            user32.DestroyIcon(handle)
-        return
+    key = (str(path.resolve()), tuple(sizes))
+    handles = _icon_pairs.get(key)
+    if handles is None:
+        handles = [user32.LoadImageW(None, str(path), 1, size, size, 0x10) for size in sizes]
+        if not all(handles):
+            for handle in handles:
+                if handle:
+                    user32.DestroyIcon(handle)
+            return
+        _icon_pairs[key] = handles
+
+    # Explorer can use the class icons for the taskbar and the window icons
+    # for its preview. Assign both, including the small class icon.
+    set_class_icon = (user32.SetClassLongPtrW if ctypes.sizeof(ctypes.c_void_p) == 8
+                      else user32.SetClassLongW)
+    set_class_icon.argtypes = [wintypes.HWND, ctypes.c_int, wintypes.HANDLE]
+    set_class_icon.restype = ctypes.c_size_t
+    if class_name.value == 'TkTopLevel':
+        for index, handle in zip((-14, -34), handles):  # GCLP_HICON, GCLP_HICONSM.
+            ctypes.set_last_error(0)
+            if not set_class_icon(hwnd, index, handle) and ctypes.get_last_error():
+                raise ctypes.WinError(ctypes.get_last_error())
     for slot, handle in zip((1, 0), handles):
         user32.SendMessageW(hwnd, 0x80, slot, handle)  # WM_SETICON.
-    root._sumuww_native_icon_handles = handles
-    root._sumuww_native_icon_identity = identity
-    if previous_identity is not None and previous_identity[1] != hwnd:
-        for slot in (1, 0):
-            user32.SendMessageW(previous_identity[1], 0x80, slot, 0)
-    for handle in previous:
-        user32.DestroyIcon(handle)
-    if not getattr(root, '_sumuww_native_icon_cleanup', False):
-        def release(event):
-            if event.widget is root:
-                for handle in getattr(root, '_sumuww_native_icon_handles', []):
-                    user32.DestroyIcon(handle)
-                root._sumuww_native_icon_handles = []
-        root.bind('<Destroy>', release, add='+')
-        root._sumuww_native_icon_cleanup = True
+    root._sumuww_native_icon_identity = (key[0], hwnd, key[1])
     root._sumuww_taskbar_icon_sizes = tuple(sizes)
+    if class_name.value == 'TkTopLevel' and getattr(root, '_sumuww_full_node_taskbar', False):
+        from .taskbar_identity import set_full_node_identity
+        set_full_node_identity(root, hwnd, path)

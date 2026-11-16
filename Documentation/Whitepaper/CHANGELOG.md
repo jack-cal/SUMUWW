@@ -1,12 +1,5 @@
-# SUMUWW Whitepaper · edition 2.3
+# Whitepaper 2.4 — 16 November 2026
 
-26 October 2026. This edition documents source-block 9,600 selection certification, renewed witness rounds, retry progress, fee estimation and reward components. Download the matching edition from https://github.com/jack-cal/SUMUWW/releases/tag/whitepaper-v2.3-en.
+Clarifies conditional change-output sizing, the actual fee when small change is omitted, one retained signed transaction per review, low-R/low-S signing and the 71-byte wallet signature bound. The changed explanations are directly authored in 34 languages. Existing consensus, issuance and source-block 9,600 proof rules are preserved.
 
-- [Whitepaper](WHITEPAPER.md)
-- [Connection-proof specification](CONNECTION_PROOFS_9000.md)
-- [Beacon recovery](BEACON_RECOVERY.md)
-- [Fees and node features](NODE_FEATURES.md)
-- [HTLC](HTLC_9100.md)
-- [34-language reading editions](i18n/index.html)
-
-The earlier published 2.2 archive is historical. Its fixed-witness wording does not describe certified renewal after 9,600. Tests use isolated data; no live quorum availability or completed public-network jobs are implied.
+Edition 2.3 (26 October 2026) documented certified witness renewal and reward components. Older editions retain their historical scope.

@@ -20,7 +20,7 @@ android {
 
         applicationId="org.sumuww.miner"; minSdk=26; targetSdk=35
 
-        versionCode=162; versionName="0.6.99"
+        versionCode=166; versionName="0.6.103"
 
         ndk { abiFilters += listOf("arm64-v8a","x86_64") }
 
@@ -44,7 +44,7 @@ android {
 
     }
 
-    testBuildType="compatible"
+    testBuildType = if (providers.gradleProperty("releaseAudit").isPresent) "release" else "compatible"
     testOptions { unitTests.isIncludeAndroidResources = true }
 
 }

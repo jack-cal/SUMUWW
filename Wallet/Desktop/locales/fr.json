@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Plafond d’émission du bloc",
   "Available fees (block)": "Frais disponibles du bloc",
   "Unclaimed reward": "Récompense non réclamée",
-  "Reward not fully claimed": "Récompense partiellement réclamée"
+  "Reward not fully claimed": "Récompense partiellement réclamée",
+  "Confirm": "Confirmer",
+  "Net amount": "Variation du solde"
 }

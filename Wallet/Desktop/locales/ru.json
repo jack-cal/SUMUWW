@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Лимит эмиссии блока",
   "Available fees (block)": "Доступные комиссии блока",
   "Unclaimed reward": "Невостребованная награда",
-  "Reward not fully claimed": "Награда востребована частично"
+  "Reward not fully claimed": "Награда востребована частично",
+  "Confirm": "Подтвердить",
+  "Net amount": "Изменение баланса"
 }

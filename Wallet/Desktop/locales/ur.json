@@ -134,5 +134,7 @@
   "Issuance limit (block)": "بلاک کے اجرا کی حد",
   "Available fees (block)": "بلاک کی دستیاب فیس",
   "Unclaimed reward": "غیر وصول شدہ انعام",
-  "Reward not fully claimed": "انعام جزوی طور پر وصول ہوا"
+  "Reward not fully claimed": "انعام جزوی طور پر وصول ہوا",
+  "Confirm": "تصدیق کریں۔",
+  "Net amount": "بیلنس میں تبدیلی"
 }

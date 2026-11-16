@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Kikomo cha sarafu mpya za bloku",
   "Available fees (block)": "Ada zinazopatikana za bloku",
   "Unclaimed reward": "Zawadi ambayo haijadaiwa",
-  "Reward not fully claimed": "Sehemu tu ya zawadi imedaiwa"
+  "Reward not fully claimed": "Sehemu tu ya zawadi imedaiwa",
+  "Confirm": "Thibitisha",
+  "Net amount": "Mabadiliko ya salio"
 }

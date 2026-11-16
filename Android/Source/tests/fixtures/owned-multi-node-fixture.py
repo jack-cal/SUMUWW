@@ -7,7 +7,7 @@ import unittest
 from unittest.mock import patch
 
 from sumuww.peer import PeerNode, _endpoint
-from sumuww.peer_discovery import PeerAddressBook, discovery_endpoint, STALE_FAILURES
+from sumuww.peer_discovery import PeerAddressBook, discovery_endpoint, CACHE_MAX_AGE
 from sumuww.self_address import InterfaceAddress, resolve_self_address
 from sumuww.peerd import endpoint
 from sumuww.wire import (PeerAddress, encode_addresses, decode_addresses, Version,
@@ -48,7 +48,11 @@ class AddressTests(unittest.TestCase):
             book.attempted(old)
             self.assertIn(old,book.known())  # One interruption must not forget a good contact.
             book.attempted(old,success=True)
-            for _ in range(STALE_FAILURES):book.attempted(old)
+            for _ in range(12):book.attempted(old)
+            self.assertIn(old,book.known())
+            now[0]+=CACHE_MAX_AGE+1
+            book.verified(good)
+            book.attempted(old)
             self.assertNotIn(old,book.known())
             self.assertIn(good,book.known())
             self.assertFalse(book.add_hint(old))
@@ -144,7 +148,7 @@ class SocketTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_incremental_discovery_fills_eight_slots_and_replaces_only_lost_peer(self):
         seeds=[await self.node('eight-seed-'+str(i),discover_peers=False) for i in range(9)]
-        client=await self.node('eight-client',allow_internet=True)
+        client=await self.node('eight-client',allow_internet=True,outgoing_target=8,max_peers=8)
         original=()
         for count in (2,4,8):
             for seed in seeds[:count]:client._addresses.add_hint(seed.address)

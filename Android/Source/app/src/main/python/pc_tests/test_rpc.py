@@ -276,7 +276,10 @@ class RpcHttpTests(unittest.IsolatedAsyncioTestCase):
         writer.write(b'GET /api/v1/info HTTP/1.1\r\n')
         await writer.drain()
         await self.server.stop()
-        self.assertEqual(b'', await asyncio.wait_for(reader.read(), 2))
+        try:
+            self.assertEqual(b'', await asyncio.wait_for(reader.read(), 2))
+        except ConnectionResetError:
+            pass  # A listener may reset an incomplete request on shutdown.
         self.assertFalse(self.server.info()['enabled'])
 
     async def test_connection_limit_closes_excess(self):

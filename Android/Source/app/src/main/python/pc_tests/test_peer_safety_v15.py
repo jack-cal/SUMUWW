@@ -132,10 +132,17 @@ class PeerSafetyTests(unittest.IsolatedAsyncioTestCase):
         reader, writer = await self.raw_peer(node, blocks[-1].block_hash())
         for batch in (blocks[:128], blocks[128:]):
             await self.send(writer, node, 'headers', encode_headers(tuple(block.header for block in batch)))
-            for block in batch:
+            remaining = {block.block_hash(): block for block in batch}
+            while remaining:
                 request = await self.command(reader, node, 'getdata')
-                self.assertEqual(decode_inventory(request.payload), (Inventory(INV_BLOCK, block.block_hash()),))
-                await self.send(writer, node, 'block', block.serialize())
+                inventory = decode_inventory(request.payload)
+                self.assertTrue(inventory)
+                self.assertLessEqual(len(inventory), 16)
+                for item in inventory:
+                    self.assertEqual(INV_BLOCK, item.kind)
+                    self.assertIn(item.digest, remaining)
+                    block = remaining.pop(item.digest)
+                    await self.send(writer, node, 'block', block.serialize())
             await self.command(reader, node, 'getheaders')
             self.assertFalse(node.info()['mining_ready'])
         self.assertEqual(node.chain.tip_hash, blocks[-1].block_hash())

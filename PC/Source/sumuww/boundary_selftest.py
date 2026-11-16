@@ -8,59 +8,98 @@ from .peer import PeerNode
 from .wallet import RegtestKey
 from .boundary_crypto import NodeKeys,BLS,split_signature,verify_split,vrf_verify,canonical
 
-class _LoopbackPeer(PeerNode):
-    async def _open_target(self,target):
-        return await asyncio.open_connection(*target,local_addr=(self.address[0],0))
+def _selected_pair(chain, pay, keys, setup):
+    from . import link_beacon as beacon
+    from .link_crypto import proof_selected, slot
 
-async def _until(predicate):
-    async with asyncio.timeout(180):
-        while not predicate():await asyncio.sleep(.03)
+    for _ in range(256):
+        parent = chain.tip_hash
+        height = chain.summary()['height'] + 1
+        event = slot(chain.boundary.network, height, parent.hex())
+        partials = [beacon.partial(key, setup, event) for key in keys[:2]]
+        signature = beacon.combine(setup, event, partials)
+        if proof_selected(beacon.verify_beacon(setup, event, signature)):
+            first, second = chain.mine(pay, 2)
+            assert not chain.boundary.required(height, parent)
+            assert not chain.boundary.all_proofs()
+            return first, second, height, signature
+        chain.mine(pay)
+    raise AssertionError('No selected connection-proof event in the regtest sample')
+
+
+def _seed_with_proof(database, keys):
+    from . import link_beacon as beacon
+    from .link_crypto import compress, digest, message
+
+    pay = RegtestKey.from_int(1).script_pubkey
+    with Chain(database, boundary_activation=3) as chain:
+        chain.mine(pay, 2)
+        network = chain.boundary.network
+        contacts = [key.signed({'domain':'sumuww-link-contact-v1', 'network':network,
+                                'nodeId':key.node_id, 'encryption':key.encryption_key}) for key in keys]
+        context = beacon.context(network, chain.tip_hash.hex(), contacts)
+        manifest = beacon.manifest(context, [beacon.make_deal(key, context) for key in keys])
+        ready = sorted((beacon.recover(key, manifest) for key in keys), key=lambda row: row['payload']['nodeId'])
+        setup = {'manifest':manifest, 'ready':ready}
+        beacon.verify_setup(setup)
+        chain.boundary.set_local('ready_setup', setup)
+        chain.mine(pay)
+        first, second, height, signature = _selected_pair(chain, pay, keys, setup)
+        source, target = first.block_hash(), second.block_hash()
+        event = message(network, source.hex(), target.hex(), height, first.header.previous_hash.hex(),
+                        [key.node_id for key in keys[:3]], signature)
+        signatures = [bytes.fromhex(key.sign_once(event['slot'], event)) for key in keys[:3]]
+        proof = {'message':event, 'left':compress(b''.join(s[:32] for s in signatures)),
+                 'right':compress(b''.join(s[32:] for s in signatures))}
+        attachment = {'domain':'sumuww-source-attachment-v1', **proof}
+        owner = chain.boundary.identity()
+        try:
+            proof['source_receipt'] = owner.sign(attachment)
+            proof['target_receipt'] = owner.sign({'domain':'sumuww-target-attachment-v1',
+                'source_attachment':digest(attachment), 'source_receipt':proof['source_receipt']})
+        finally:
+            owner.close()
+        chain.boundary.add_proof(proof)
+        assert chain.boundary.all_proofs() == [proof]
+        return target, proof
+
 
 async def _network(root):
-    pay=RegtestKey.from_int(1).script_pubkey;seed=[];nodes=[]
-    with Chain(root/'seed.sqlite') as chain:
-        for _ in range(2):
-            block=chain.make_block(pay);chain.accept_block(block);seed.append(block)
+    from contextlib import ExitStack
+    from .link_crypto import Identity
+
+    source = root / 'source.sqlite'
+    with ExitStack() as stack:
+        keys = []
+        for i in range(4):
+            key = Identity(root / f'witness-{i}.sqlite')
+            stack.callback(key.close)
+            keys.append(key)
+        tip, proof = _seed_with_proof(source, keys)
+
+    nodes = []
+    files = [source, root / 'relay.sqlite', root / 'late.sqlite']
     try:
-        for i in range(3):
-            database=root/str(i)/'node.sqlite'
-            with Chain(database) as chain:
-                for block in seed:chain.accept_block(block)
-            node=_LoopbackPeer(database,network='regtest',boundary_activation=3,host=f'127.0.0.{i+1}',port=0,
-                discover_peers=False,dht_enabled=False,poll_interval=.1,timeout=30)
-            await node.start();nodes.append(node)
-        # A path, not a full mesh: the first node must receive the third
-        # responder and signature through an actual relay.
-        for i in range(2):await nodes[i].add_peer(*nodes[i+1].address)
-        await _until(lambda:sum(len(n.boundary_runtime.sessions()) for n in nodes)==4)
-        signed=0;ordinary=0
-        for attempt in range(200):
-            node=nodes[signed%3];block=node.chain.make_block(pay)
-            height=node.chain._row(block.header.previous_hash)[2]+1
-            required=node.chain.boundary.required(height,block.header.previous_hash)
-            before=node.chain.tip_hash
-            if required:
-                try:node.chain.accept_block(block)
-                except ValueError:pass
-                else:raise AssertionError('Unsigned selected block accepted')
-                assert node.chain.tip_hash==before
-                proof=await asyncio.wait_for(node.boundary_runtime.complete(block),180)
-                signed+=1
-            else:proof=None;ordinary+=1
-            assert node.chain.accept_block(block,boundary_envelope=proof)
-            await _until(lambda:all(n.chain.tip_hash==block.block_hash() for n in nodes))
-            assert all(n.chain.boundary.proof(block.block_hash())==proof for n in nodes)
-            if signed>=2 and ordinary:break
-        assert signed>=2 and ordinary
-        final_height=height
-        assert all(n._stats['internal_errors']==0 for n in nodes)
-    finally:await asyncio.gather(*(n.stop() for n in nodes))
-    for i in range(3):
-        with Chain(root/str(i)/'node.sqlite',boundary_activation=3) as chain:
-            assert chain.info()['height']==final_height
-    return ['real_tcp_relay_discovery_three_distinct_socket_ips','unsigned_selected_block_rejected',
-            'ordinary_unselected_pow_blocks_accepted',
-            'three_real_signatures_and_binary_block_sync','completed_aggregate_split_and_next_block_sync','persisted_proof_restart']
+        for db in files:
+            node = PeerNode(db, boundary_activation=3, peers=[nodes[-1].address] if nodes else [],
+                            discover_peers=False, dht_enabled=False, poll_interval=0.1, timeout=15)
+            nodes.append(node)
+            await node.start()
+        async with asyncio.timeout(120):
+            while not all(n.chain.tip_hash == tip and n.chain.boundary.all_proofs() == [proof] for n in nodes):
+                await asyncio.sleep(0.1)
+        for node in nodes:
+            node.chain.boundary.verify_proof(proof)
+            assert node._stats['internal_errors'] == 0
+    finally:
+        for node in reversed(nodes):
+            await node.stop()
+    for db in files:
+        with Chain(db, boundary_activation=3) as reopened:
+            assert reopened.tip_hash == tip and reopened.boundary.all_proofs() == [proof]
+    return ['valid_selected_block_accepted_without_connection_proof', 'three_witness_signatures',
+            'connection_proof_relayed_to_late_peer_over_tcp', 'persisted_proof_restart']
+
 
 def run():
     checks=[]

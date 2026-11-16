@@ -1,4 +1,4 @@
-> Document edition 2.3, 26 October 2026. Source-block 9,600 activation.
+> Document edition 2.4, 16 November 2026. Source-block 9,600 activation.
 
 # SUMUWW Whitepaper
 
@@ -85,6 +85,26 @@ The chain uses SHA-256d PoW with a 600-second target interval. Before height 806
 One SMW equals 100,000,000 yugeon; one yugeon is 0.00000001 SMW. The ledger records unspent transaction outputs, or UTXOs. Transactions consume existing outputs and create new ones. Nodes check input existence, duplicates, maturity, owner signatures and amount totals to reject double spending and overspending. The basic spending format is native P2WPKH with `SIGHASH_ALL`.
 
 ## Fees and protocol upgrades
+
+<!-- payment-policy-20261116 -->
+
+## Payment fees, reviewed transactions and compatibility
+
+The fee is the sum of inputs minus the sum of outputs. A payment quote includes a change output only when the wallet will actually create viable change. A remainder below the wallet's change threshold is added to the fee, and the resulting fee and total debit are shown for review. Rates are expressed in yugeon/vB; virtual size is transaction weight divided by four, rounded up.
+
+The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
+
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
+
+<!-- /payment-policy-20261116 -->
+
+
+
+
+
+
+
+
 
 Automatic slow, normal and fast suggestions use the node’s current accepted transaction queue and ancestor packages. They do not use recent-block fee samples. Manual rates use yugeon/vB: vB measures data size, not currency. The final confirmation fixes the exact fee and total. The public default relay floor is 1 yugeon/vB; this is local policy, not a consensus ban on zero-fee blocks. A rejected transaction does not debit confirmed coins, although pending wallet inputs may remain reserved.
 

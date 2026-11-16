@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Ограничење издавања блока",
   "Available fees (block)": "Доступне накнаде блока",
   "Unclaimed reward": "Непреузета награда",
-  "Reward not fully claimed": "Награда је делимично преузета"
+  "Reward not fully claimed": "Награда је делимично преузета",
+  "Confirm": "Потврди",
+  "Net amount": "Промена стања"
 }

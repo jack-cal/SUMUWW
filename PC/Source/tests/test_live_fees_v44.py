@@ -96,7 +96,7 @@ class LiveChainTests(FeeEstimationTests):
 class LiveServiceTests(PaymentQuoteTests):
     def test_readonly_status_cannot_invalidate_or_resign_confirmation(self):
         quote=self.prepare()
-        with patch('sumuww.app_service.create_payment',side_effect=AssertionError('signed')):
+        with patch('sumuww.fees.PaymentPlan.sign',side_effect=AssertionError('signed')):
             for _ in range(3):status=self.service.status().result(timeout=5)
             result=self.submit(quote)
         self.assertIn('rates',status['fees'])

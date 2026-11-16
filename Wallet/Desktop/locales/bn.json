@@ -134,5 +134,7 @@
   "Issuance limit (block)": "ব্লকের ইস্যু সীমা",
   "Available fees (block)": "ব্লকের উপলব্ধ ফি",
   "Unclaimed reward": "দাবি না করা পুরস্কার",
-  "Reward not fully claimed": "পুরস্কারের আংশিক দাবি"
+  "Reward not fully claimed": "পুরস্কারের আংশিক দাবি",
+  "Confirm": "নিশ্চিত করুন",
+  "Net amount": "ব্যালেন্সের পরিবর্তন"
 }

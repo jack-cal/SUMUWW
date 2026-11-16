@@ -5,7 +5,7 @@ The node normally opens 10 outbound connections, mostly to relay blocks and tran
 On restart, the node resumes from its last locally verified block and checks new blocks. If the saved verification record is missing or inconsistent, it checks the stored history again.
 
 
-SUMUWW PC 0.57.54 · The node validates, stores, relays and exposes chain data.
+SUMUWW PC 0.57.61 · The node validates, stores, relays and exposes chain data.
 
 ## Network and addresses
 
@@ -34,3 +34,21 @@ P2P magic: d052470c
 [Documentation](README.html) · [Node interface](EXCHANGE_INTEGRATION.html) · [RPC and HTTP API](RPC_API.html) · [Release notes](RELEASE_NOTES.html) · [Verification](EXCHANGE_EXAMPLES.html)
 
 [Extended English reference](../../../../../EXCHANGE_INTEGRATION.html) · [API_CONTRACT.json](../../../../../API_CONTRACT.json) · [vectors.json](../../../../../examples/exchange/vectors.json)
+
+<!-- payment-policy-20261116 -->
+
+## Payment fees, reviewed transactions and compatibility
+
+The fee is the sum of inputs minus the sum of outputs. A payment quote includes a change output only when the wallet will actually create viable change. A remainder below the wallet's change threshold is added to the fee, and the resulting fee and total debit are shown for review. Rates are expressed in yugeon/vB; virtual size is transaction weight divided by four, rounded up.
+
+The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
+
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
+
+## Windows I2P component and security checks
+
+Windows packages include official i2pd 3.0.0 with matching hashes and reseed certificates. Defender still detects the upstream I2P executable and ZIP in the recorded test. A matching upstream hash does not prove safety or establish a false positive. Any local file exception applies only to the computer where it is registered and is not installed by the public package. Other computers may block the same files.
+
+<!-- /payment-policy-20261116 -->
+
+After a valid version reply, the node gives its peer time to acknowledge it. If two outgoing connections reach the same node, it keeps an available route until one has synchronized. The built-in diagnostic accepts a valid proof-of-work block before a connection proof is available, then checks the proof's three witness signatures, relay and persistence after restart.

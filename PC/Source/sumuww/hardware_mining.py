@@ -6,11 +6,11 @@ from .network_settings import _atomic_json
 from .wallet_paths import reject_wallet_overwrite
 
 SETTINGS_NAME = 'mining-hardware.json'
-UNLOCK_HEIGHTS = {'cpu': 0, 'gpu': 12_000, 'asic': 12_000}
+UNLOCK_HEIGHTS = {'cpu': 0, 'gpu': 12_000}
 
 def validate_settings(mode='cpu', host='127.0.0.1', port=3333, password=''):
     if mode not in UNLOCK_HEIGHTS:
-        raise ValueError('Select CPU, GPU or ASIC')
+        raise ValueError('Select CPU or GPU')
     address = ipaddress.IPv4Address(host)
     if not (address.is_loopback or address.is_private or address.is_unspecified):
         raise ValueError('ASIC listener must use a local or LAN address')
@@ -18,8 +18,6 @@ def validate_settings(mode='cpu', host='127.0.0.1', port=3333, password=''):
         raise ValueError('ASIC port must be between 1024 and 65535')
     if type(password) is not str or len(password) > 128:
         raise ValueError('Invalid ASIC connection password')
-    if mode == 'asic' and len(password) < 16:
-        raise ValueError('ASIC connection password must have at least 16 characters')
     return {'schema_version': 1, 'mode': mode, 'host': str(address), 'port': port, 'password': password}
 
 def require_unlocked(mode, height):
@@ -57,5 +55,4 @@ def create_backend(settings):
     if settings['mode'] == 'gpu':
         from .opencl_mining import OpenCLMiner
         return OpenCLMiner()
-    from .stratum_mining import StratumMiner
-    return StratumMiner(settings['host'], settings['port'], settings['password'])
+    raise ValueError('Select CPU or GPU')

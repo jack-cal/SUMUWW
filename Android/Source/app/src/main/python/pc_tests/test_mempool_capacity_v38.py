@@ -1,5 +1,6 @@
 """Local overload is temporary, observable and does not debit a failed transfer."""
 import asyncio
+from importlib.util import find_spec
 import json
 from pathlib import Path
 import shutil
@@ -142,6 +143,14 @@ class MempoolCapacityTests(unittest.IsolatedAsyncioTestCase):
         _, invalid = await self.http('POST', '/rpc', request)
         self.assertNotEqual(-32005, invalid['error']['code'])
 
+    async def test_capacity_message_is_available_in_all_supported_languages(self):
+        for code in LANGUAGE_CODES:
+            text = Translator(code).render(MESSAGE)
+            self.assertTrue(text.strip())
+            if code != 'en':
+                self.assertNotEqual(MESSAGE, text)
+
+    @unittest.skipUnless(find_spec('tkinter') is not None, 'Desktop Tk error dialog')
     async def test_capacity_error_is_localized_for_all_eleven_languages(self):
         from sumuww.app import _error_message
         try:

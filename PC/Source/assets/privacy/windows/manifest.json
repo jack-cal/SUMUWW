@@ -9,7 +9,7 @@
   "i2p": {
     "file": "i2pd.exe",
     "kind": "i2pd",
-    "version": "2.61.0",
-    "sha256": "3bfac576443ea76586c2ab3d688cba98edaaacaaaabd72308c058249f10c493e"
+    "version": "3.0.0",
+    "sha256": "6f501e1f4625ad5f3f1075e2fd4f4096aaf664386b04c526cee9b05a7301c2a2"
   }
 }

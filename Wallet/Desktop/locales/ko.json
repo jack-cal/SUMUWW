@@ -134,5 +134,7 @@
   "Issuance limit (block)": "블록 신규 발행 한도",
   "Available fees (block)": "블록 수수료 합계",
   "Unclaimed reward": "미청구 보상",
-  "Reward not fully claimed": "보상 일부만 청구됨"
+  "Reward not fully claimed": "보상 일부만 청구됨",
+  "Confirm": "확인",
+  "Net amount": "잔액 변동액"
 }

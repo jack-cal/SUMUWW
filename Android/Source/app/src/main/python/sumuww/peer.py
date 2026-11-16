@@ -197,7 +197,12 @@ class _Session:
     protocol: int = PROTOCOL_VERSION
     attempted_protocol: int = PROTOCOL_VERSION
     handshake_stage: str = "not_started"
+    handshake_deadline: asyncio.Timeout | None = None
     local_close_reason: str | None = None
+    diagnostic_started_at: float = 0
+    last_received: str | None = None
+    last_address_reply_at: float | None = None
+    initial_discovery_deferred: bool = False
     version_rejected: bool = False
     legacy_candidate: bool = False
     discovery_requested: bool = False
@@ -404,6 +409,8 @@ class PeerNode:
         )}
         self._last_error = None
         self._recent_peer_attempts = deque(maxlen=16)
+        self._connected_peer_events = deque(maxlen=16)
+        self._short_session_grace = {}
         # Opt-in local execution trace for diagnosing real sessions. It is
         # disabled in ordinary use and never transmitted to another node.
         self._trace_file = os.environ.get('SUMUWW_PEER_TRACE_FILE')
@@ -435,6 +442,11 @@ class PeerNode:
             row['attempted_protocol'] = session.attempted_protocol
             row['handshake_stage'] = session.handshake_stage
             row['local_close_reason'] = session.local_close_reason
+            if session.ready:
+                row.update(reader_eof=session.reader.at_eof(), local_writer_closing=session.writer.is_closing(),
+                           last_received=session.last_received, peer_id=session.nonce,
+                           duration_seconds=max(0, self._peer_clock() - session.diagnostic_started_at))
+                self._connected_peer_events.append(row)
         if error is not None:
             row['error'] = type(error).__name__ + (': ' + str(error)[:160] if str(error) else '')
         self._recent_peer_attempts.append(row)
@@ -1041,6 +1053,7 @@ class PeerNode:
                             'transaction_hints': MAX_PENDING_TRANSACTIONS},
             'last_peer_error': self._last_error,
             'recent_peer_attempts': [dict(row) for row in self._recent_peer_attempts],
+            'recent_connected_peer_events': [dict(row) for row in self._connected_peer_events],
             'peer_enforcement': {
                 'threshold': INVALID_PEER_THRESHOLD,
                 'window_seconds': INVALID_PEER_WINDOW,
@@ -1177,6 +1190,7 @@ class PeerNode:
             writer.close()
             return None
         session = _Session(reader, writer, outgoing)
+        session.diagnostic_started_at = self._peer_clock()
         session.remote_ip = remote_ip
         self._sessions[id(writer)] = session
         if probing_incoming:
@@ -1645,10 +1659,13 @@ class PeerNode:
                       and not session.local_close_reason):
                     self._addresses.attempted(target,success=True)
 
-    def _forget_failed_contact(self,target):
+    def _forget_failed_contact(self,target, *, admission_retry=False):
         # Do not erase a healthy alternate transport to the same endpoint.
         if target in self._connected_endpoints():return
-        self._addresses.attempted(target,success=False)
+        if admission_retry:
+            self._addresses.attempted(target, admission_retry=True)
+        else:
+            self._addresses.attempted(target, success=False)
         self._v3_targets.discard(target)
         self._v2_targets.discard(target)
         self._legacy_targets.discard(target)
@@ -1687,9 +1704,28 @@ class PeerNode:
                 self._last_error = 'I2P router unavailable; no direct fallback'
                 await asyncio.sleep(5)
 
+    def _remember_short_synced_close(self, session, transport_error=None):
+        now = self._peer_clock()
+        if (session.outgoing is None or not session.ready or not session.verified_once or not session.synchronized
+                or session.local_close_reason or session.last_address_reply_at is None
+                or not 0 <= now - session.last_address_reply_at <= 5
+                or (now - session.diagnostic_started_at > 30 and not session.initial_discovery_deferred)
+                or (session.writer.is_closing() and not isinstance(transport_error, ConnectionResetError))):
+            return
+        # Bounded in-memory hints only. Admission can take longer than the quiet window.
+        self._short_session_grace.pop(session.outgoing, None)
+        if len(self._short_session_grace) >= 128:
+            del self._short_session_grace[next(iter(self._short_session_grace))]
+        self._short_session_grace[session.outgoing] = now
+
     async def _request_addresses(self, session, now=None):
         if not self.discover_peers or session.protocol < DISCOVERY_PROTOCOL_VERSION:
             return
+        if session.outgoing in self._short_session_grace and not session.address_response_count:
+            session.initial_discovery_deferred = True
+            if self._peer_clock() - session.diagnostic_started_at < 30:
+                return
+            self._short_session_grace.pop(session.outgoing, None)
         if (self._discovery_settled()
                 and self._peer_clock() < self._next_exploration - self.discovery_interval):
             return
@@ -1751,6 +1787,7 @@ class PeerNode:
         values = ((listener,) if listener is not None else ()) + peers
         response = []
         session.address_response_count += 1
+        session.last_address_reply_at = self._peer_clock()
         for item in values:
             row = {'host': item.host, 'port': item.port, 'listener': item is listener}
             response.append(row)
@@ -1903,6 +1940,7 @@ class PeerNode:
         frame = await read_frame(reader, timeout=self.timeout, magic=self.network.message_magic,
                                  idle_timeout=idle)
         self._stats['frames_received'] += 1
+        session.last_received = frame.command
         return frame
 
     async def _handshake(self, session):
@@ -1928,6 +1966,9 @@ class PeerNode:
             raise ProtocolError('Boundary protocol is not enabled on this node')
         if remote.nonce == self.nonce:
             raise ProtocolError('Self connection nonce')
+        # Only a complete, validated version grants time for the next phase.
+        if session.handshake_deadline is not None:
+            session.handshake_deadline.reschedule(asyncio.get_running_loop().time() + self._handshake_timeout(session))
         session.nonce = remote.nonce
         session.legacy_candidate = (requested >= DISCOVERY_PROTOCOL_VERSION and
                                     remote.protocol == PROTOCOL_VERSION)
@@ -1943,7 +1984,12 @@ class PeerNode:
         duplicates = [other for other in self._sessions.values()
                       if other is not session and other.ready and other.nonce == remote.nonce
                       and not other.writer.is_closing()]
-        if duplicates:
+        # Two automatically discovered outgoing aliases can receive their
+        # acknowledgements in opposite order on the two hosts. Keep both
+        # until one validates; _retire_duplicate_transports then keeps it.
+        if duplicates and not (session.outgoing is not None and session.outgoing not in self._configured
+                               and all(other.outgoing is not None and not other.verified_once
+                                       and other.outgoing not in self._configured for other in duplicates)):
             existing = duplicates[0]
             preferred_outgoing = self.nonce < remote.nonce
             if (not existing.synchronized and
@@ -1994,7 +2040,10 @@ class PeerNode:
 
     async def _run_session(self, session):
         try:
-            await asyncio.wait_for(self._handshake(session), timeout=self._handshake_timeout(session))
+            async with asyncio.timeout(self._handshake_timeout(session)) as deadline:
+                session.handshake_deadline = deadline
+                await self._handshake(session)
+            session.handshake_deadline = None
             if not session.ready:
                 return
             while self._running:
@@ -2015,6 +2064,7 @@ class PeerNode:
             if isinstance(exc, InvalidBlock):
                 self._record_invalid_peer(session)
         except PeerDisconnected:
+            self._remember_short_synced_close(session)
             session.failed=not session.writer.is_closing()
             self._stats['disconnects'] += 1
             self._record_peer_attempt(session.outgoing, 'disconnected' if session.ready else 'handshake_closed', session=session)
@@ -2027,6 +2077,8 @@ class PeerNode:
                 session.version_rejected = True
         except (ProtocolError, TimeoutError) as exc:
             session.failed=True
+            if not session.ready and (isinstance(exc, TimeoutError) or isinstance(exc.__cause__, TimeoutError)):
+                session.local_close_reason = 'handshake_phase_timeout: ' + session.handshake_stage
             self._stats['protocol_errors'] += 1
             self._last_error = f'{type(exc).__name__}: {exc}'
             self._record_peer_attempt(session.outgoing, 'session_rejected' if session.ready
@@ -2034,6 +2086,7 @@ class PeerNode:
             if isinstance(exc, MalformedWireData):
                 self._record_invalid_peer(session)
         except OSError as exc:
+            self._remember_short_synced_close(session, transport_error=exc)
             session.failed=True
             self._stats['connection_errors'] += 1
             if (not session.ready and session.outgoing is not None
@@ -2053,7 +2106,10 @@ class PeerNode:
             if self._running and (session.failed or session.local_close_reason) and not session.version_rejected:
                 targets=session.outgoing_aliases | ({session.outgoing} if session.outgoing else set())
                 if session.outgoing is not None:targets.add((session.remote_ip,session.outgoing[1]))
-                for target in targets:self._forget_failed_contact(target)
+                for target in targets:
+                    self._forget_failed_contact(target, admission_retry=(
+                        target == session.outgoing and target in self._legacy_targets
+                        and session.handshake_stage in ('sending_version', 'waiting_version')))
             if self.boundary_runtime is not None:
                 self.boundary_runtime.parts.discard(session)
             if self._incoming_probe is session:

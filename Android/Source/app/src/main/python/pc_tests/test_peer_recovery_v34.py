@@ -133,8 +133,11 @@ class PeerRecoveryTests(unittest.IsolatedAsyncioTestCase):
         now[0] += 15
         await asyncio.sleep(.15)
         self.assertFalse(any(session.outgoing == target for session in client._sessions.values()))
-        self.assertEqual(1040., client._addresses._entries[target].retry_at)
+        self.assertNotIn(target,client._addresses._entries)
         await standby.stop()
+        # Deletion ends automatic retries until a fresh, unsuppressed hint arrives.
+        now[0]+=46
+        self.assertTrue(client._addresses.add_hint(target))
         await eventually(lambda: client.synchronization_info()['mining_ready'] and
                          any(session.ready and session.outgoing == target for session in client._sessions.values()))
         self.assertEqual(0, client._addresses._entries[target].failures)

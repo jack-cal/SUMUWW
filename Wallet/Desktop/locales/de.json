@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Ausgabelimit des Blocks",
   "Available fees (block)": "Verfügbare Blockgebühren",
   "Unclaimed reward": "Nicht beanspruchte Belohnung",
-  "Reward not fully claimed": "Belohnung teilweise beansprucht"
+  "Reward not fully claimed": "Belohnung teilweise beansprucht",
+  "Confirm": "Bestätigen",
+  "Net amount": "Saldoänderung"
 }

@@ -25,7 +25,7 @@ internal object LocaleBrand {
         val manager = context.packageManager
         val selected = launcherName(language)
         val changes = launcherNames.mapNotNull { name ->
-            val component = ComponentName(context.packageName, "${context.packageName}.$name")
+            val component = ComponentName(context.packageName, "${MainActivity::class.java.name.substringBeforeLast('.')}.$name")
             val state = manager.getComponentEnabledSetting(component)
             val enabled = state == PackageManager.COMPONENT_ENABLED_STATE_ENABLED ||
                 (state == PackageManager.COMPONENT_ENABLED_STATE_DEFAULT && name == "LauncherDefault")

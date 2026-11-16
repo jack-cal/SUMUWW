@@ -111,3 +111,15 @@ SUMUWW addresses use Bech32 with HRP `sumuww`, witness version 0 and a 20-byte w
 ## Implementation addendum: PC 0.57.47 / Android 0.6.96
 
 [Current fee, yugeon, replacement and script activation specification](NODE_FEATURES.md).
+
+<!-- payment-policy-20261116 -->
+
+## Payment fees, reviewed transactions and compatibility
+
+The fee is the sum of inputs minus the sum of outputs. A payment quote includes a change output only when the wallet will actually create viable change. A remainder below the wallet's change threshold is added to the fee, and the resulting fee and total debit are shown for review. Rates are expressed in yugeon/vB; virtual size is transaction weight divided by four, rounded up.
+
+The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
+
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
+
+<!-- /payment-policy-20261116 -->

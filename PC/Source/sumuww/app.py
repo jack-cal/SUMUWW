@@ -227,6 +227,27 @@ class _RecoveryPhraseDialog(simpledialog.Dialog):
         super().cancel(event)
 
 
+def _settings_form(master):
+    if get_translator().language != 'mn-Mong':
+        return master
+
+    # Vertical captions can make a form taller than the screen. Keep the
+    # dialog's action buttons outside the scrollable fields.
+    canvas = tk.Canvas(master, highlightthickness=0,
+                       width=min(640, master.winfo_screenwidth() - 100),
+                       height=min(500, max(200, master.winfo_screenheight() - 320)))
+    vertical = ttk.Scrollbar(master, orient='vertical', command=canvas.yview)
+    horizontal = ttk.Scrollbar(master, orient='horizontal', command=canvas.xview)
+    canvas.configure(yscrollcommand=vertical.set, xscrollcommand=horizontal.set)
+    canvas.grid(row=0, column=0, sticky='nsew')
+    vertical.grid(row=0, column=1, sticky='ns')
+    horizontal.grid(row=1, column=0, sticky='ew')
+    form = ttk.Frame(canvas)
+    canvas.create_window(0, 0, anchor='nw', window=form)
+    form.bind('<Configure>', lambda event: canvas.configure(scrollregion=canvas.bbox('all')))
+    return form
+
+
 class _ConnectionDialog(simpledialog.Dialog):
     """Edit a snapshot; status polling never changes inputs during editing."""
 
@@ -235,6 +256,7 @@ class _ConnectionDialog(simpledialog.Dialog):
         super().__init__(parent, tr('Connection settings'))
 
     def body(self, master):
+        master = _settings_form(master)
         master.columnconfigure(0, weight=1)
         self.allow_internet = tk.BooleanVar(master, value=bool(self.connection.get('allow_internet')))
         self.allow_lan = tk.BooleanVar(master, value=bool(self.connection.get('allow_lan')))
@@ -295,6 +317,7 @@ class _PrivacyDialog(simpledialog.Dialog):
         super().__init__(parent, tr('IP protection'))
 
     def body(self, master):
+        master = _settings_form(master)
         self.mode = tk.StringVar(master, value=self.options.get('mode', 'direct'))
         picker = ttk.Combobox(master, textvariable=self.mode, values=('direct', 'tor', 'i2p'), state='readonly')
         picker.pack(fill='x')
@@ -362,6 +385,7 @@ class _RpcDialog(simpledialog.Dialog):
         super().__init__(parent, tr('RPC/API settings'))
 
     def body(self, master):
+        master = _settings_form(master)
         master.columnconfigure(0, weight=1)
         self.enabled = tk.BooleanVar(master, value=bool(self.settings.get('configured_enabled')))
         _checkbutton(master, text=tr('Enable local RPC/API'), variable=self.enabled).grid(row=0, column=0, sticky='w')
@@ -909,10 +933,12 @@ class SumuwwApp:
         peers_card.grid(row=0, column=1, sticky='nsew', padx=(5, 0))
         peer_heading = ttk.Frame(peers_card, style='Card.TFrame')
         peer_heading.pack(fill='x')
-        _label(peer_heading, text=tr('Node connections'), style='CardTitle.TLabel', wraplength=200).pack(side='left')
-        self.settings_button = _button(peer_heading, text=tr('Connection settings'), command=self._configure_network)
-        _button(peer_heading, text=tr('IP protection'), command=self._configure_privacy).pack(side='right', padx=4)
-        self.settings_button.pack(side='right')
+        _label(peer_heading, text=tr('Node connections'), style='CardTitle.TLabel', wraplength=200).pack(anchor='w')
+        peer_actions = ttk.Frame(peer_heading, style='Card.TFrame')
+        peer_actions.pack(fill='x', pady=(3, 0))
+        self.settings_button = _button(peer_actions, text=tr('Connection settings'), command=self._configure_network)
+        self.settings_button.pack(side='left')
+        _button(peer_actions, text=tr('IP protection'), command=self._configure_privacy).pack(side='left', padx=(8, 0))
         peer_row = ttk.Frame(peers_card, style='Card.TFrame')
         peer_row.pack(fill='x', pady=(6, 6))
         self.peer_endpoint = LocalizedStringVar()
@@ -1571,32 +1597,22 @@ class SumuwwApp:
             dialog.title(tr('Mining device'))
             dialog.transient(self.root)
             dialog.grab_set()
-            _label(dialog, text=tr('CPU always · GPU from 12,000 · ASIC from 12,000'), wraplength=440).pack(padx=18,pady=12)
+
             current = getattr(self, '_hardware_mode', 'cpu')
             selected = tk.StringVar(master=dialog, value=current if current in modes else 'cpu')
-            for mode in ('cpu', 'gpu', 'asic'):
+            for mode in UNLOCK_HEIGHTS:
                 ttk.Radiobutton(dialog, text=mode.upper(), value=mode, variable=selected,
                                 state='normal' if mode in modes else 'disabled').pack(anchor='w',padx=18,pady=5)
             def apply():
                 mode = selected.get()
                 dialog.destroy()
-                args = [mode]
-                if mode == 'asic':
-                    host = simpledialog.askstring(tr('ASIC listener'),tr('Local/LAN listening IP'),initialvalue='0.0.0.0',parent=self.root)
-                    if host is None:return
-                    port = simpledialog.askinteger(tr('ASIC listener'),tr('Port'),initialvalue=3333,minvalue=1024,maxvalue=65535,parent=self.root)
-                    if port is None:return
-                    password = simpledialog.askstring(tr('ASIC connection'),tr('Connection password (16+ characters)'),show='*',parent=self.root)
-                    if password is None:return
-                    args += [host,port,password]
-                self._run_action(self.service.configure_mining_hardware, *args,
+                self._run_action(self.service.configure_mining_hardware, mode,
                                  message=tr('Mining device settings saved.'))
             controls = ttk.Frame(dialog)
             controls.pack(padx=18,pady=15)
             _button(controls,text=tr('Apply'),command=apply).pack(side='left',padx=5)
             _button(controls,text=tr('Cancel'),command=dialog.destroy).pack(side='left',padx=5)
             dialog.bind('<Escape>',lambda event: dialog.destroy())
-            _label(dialog,text=tr('ASIC: stratum+tcp://this-node:3333 · worker sumuww · your connection password'),wraplength=440).pack(padx=18,pady=8)
             dialog.update_idletasks()
             width, height = dialog.winfo_reqwidth(), dialog.winfo_reqheight()
             x = max(0, min(self.root.winfo_rootx() + (self.root.winfo_width() - width) // 2,
@@ -2165,6 +2181,8 @@ def main(argv=None):
     if options.network == 'sumuww':
         options.network = 'dora'
     root = tk.Tk()
+    if sys.platform == 'win32' and getattr(sys, 'frozen', False):
+        root._sumuww_full_node_taskbar = True
     try:
         directory = options.directory if options.directory is not None else default_directory()
         service = AppService(directory, network=options.network, listen=options.listen, allow_lan=options.allow_lan, allow_internet=options.allow_internet, peers=options.peer, bootstrap=options.network == 'dora', advertise=options.advertise)

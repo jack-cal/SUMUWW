@@ -122,10 +122,12 @@ class PeerStabilityTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(responses, remote._stats['address_responses_sent'])
         self.assertEqual(10, remote._stats['address_rate_rejections'])
         self.assertFalse(session.writer.is_closing())
-        with self.assertRaises(ProtocolError):
-            remote._received_addresses(session, encode_addresses(None))
+        candidates=remote._addresses.info()['candidates']
+        remote._received_addresses(session, encode_addresses(None))
+        self.assertEqual(candidates,remote._addresses.info()['candidates'])
+        self.assertFalse(session.writer.is_closing())
         OWNED_EVIDENCE['early_optional_requests'] = {'ignored': 10, 'additional_responses': 0,
-                                                    'session_preserved': True, 'unsolicited_addr_rejected': True}
+                                                    'session_preserved': True, 'late_duplicate_addr_ignored': True}
 
     async def test_one_peer_and_normal_5_point_5_second_reply_keep_connection(self):
         target = remote = None

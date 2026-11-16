@@ -134,5 +134,7 @@
   "Issuance limit (block)": "區塊發行上限",
   "Available fees (block)": "區塊可領取手續費",
   "Unclaimed reward": "未領取獎勵",
-  "Reward not fully claimed": "只領取了部分獎勵"
+  "Reward not fully claimed": "只領取了部分獎勵",
+  "Confirm": "確認",
+  "Net amount": "結餘變動"
 }

@@ -17,7 +17,6 @@ import time
 import sqlite3
 import tempfile
 
-from .__main__ import create_payment
 from .address import AddressError, decode_address
 from .chain import Chain
 from .errors import StorageError, UnsupportedFeature, ValidationError
@@ -34,7 +33,7 @@ from .network_settings import (SETTINGS_NAME, OWN_ADDRESS_SETTINGS_NAME, load_se
                                load_auto_address, normalize_settings, save_settings)
 from .network_settings import _atomic_json
 from .rpc import RpcServer, load_or_create_token, validate_rpc_endpoint
-from .fees import estimate_payment_fee, fee_overview
+from .fees import plan_payment, fee_overview
 from .bootstrap import load_bootstrap
 from .wallet_history import WalletHistory
 from . import hardware_mining
@@ -125,6 +124,30 @@ def _load_rpc_settings(directory):
 
 class AppServiceError(RuntimeError):
     """A safe UI error without a traceback containing unlocked key material."""
+
+
+
+def _new_service_loop():
+    if os.name != 'nt':
+        return asyncio.new_event_loop()
+    # The service only needs inter-thread notification here. A native pipe avoids
+    # the loopback TCP handshake used by CPython's Windows socketpair fallback.
+    from asyncio import windows_utils
+    import _winapi
+
+    class WakeWriter(windows_utils.PipeHandle):
+        def send(self, data):
+            written, _ = _winapi.WriteFile(self.fileno(), data)
+            return written
+
+    class ServiceEventLoop(asyncio.ProactorEventLoop):
+        def _make_self_pipe(self):
+            reader, writer = windows_utils.pipe(overlapped=(True, False))
+            self._ssock = windows_utils.PipeHandle(reader)
+            self._csock = WakeWriter(writer)
+            self._internal_fds += 1
+
+    return ServiceEventLoop()
 
 
 def _safe_error(error):
@@ -559,7 +582,7 @@ class AppService:
         loop = None
         failure = None
         try:
-            loop = asyncio.new_event_loop()
+            loop = _new_service_loop()
             asyncio.set_event_loop(loop)
             with self._control:
                 self._loop = loop
@@ -942,18 +965,14 @@ class AppService:
                 mode, fee_string = fee_string[5:], None
             elif isinstance(fee_string, str) and fee_string.startswith('rate:'):
                 rate, fee_string = fee_string[5:], None
-            if fee_string is None:
-                estimate = estimate_payment_fee(self._node.chain, self._script, script, amount, mode=mode, rate=rate)
-                fee = estimate['fee_units']
-                source, capped = estimate['source'], estimate['capped']
-                estimated_vsize = estimate['estimated_vsize']
-            else:
-                from .fees import MAX_MANUAL_FEE_UNITS
-                fee = parse_amount(fee_string)
-                if fee > MAX_MANUAL_FEE_UNITS:
-                    raise ValueError('Manual fee exceeds the wallet fee limit')
-                source, capped, estimated_vsize = 'manual', False, None
-            transaction = create_payment(self._node.chain, self._key, script, amount, fee)
+            fixed_fee = None if fee_string is None else parse_amount(fee_string)
+            plan = plan_payment(self._node.chain, self._script, script, amount,
+                                mode=mode, rate=rate, fixed_fee=fixed_fee)
+            estimate = plan.quote
+            fee = estimate['fee_units']
+            source, capped = estimate['source'], estimate['capped']
+            estimated_vsize = estimate['estimated_vsize']
+            transaction = plan.sign(self._key)
             self._node.chain.mempool_policy.check_fee(transaction, fee)
         quote_id = secrets.token_hex(16)
         self._payment_quote = {'id': quote_id, 'transaction': transaction,

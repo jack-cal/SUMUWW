@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Limitasyon ng paglabas sa block",
   "Available fees (block)": "Makukuhang bayarin ng block",
   "Unclaimed reward": "Hindi nakuhang gantimpala",
-  "Reward not fully claimed": "Bahagi lamang ng gantimpala ang kinuha"
+  "Reward not fully claimed": "Bahagi lamang ng gantimpala ang kinuha",
+  "Confirm": "Kumpirmahin",
+  "Net amount": "Pagbabago sa balanse"
 }

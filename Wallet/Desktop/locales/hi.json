@@ -134,5 +134,7 @@
   "Issuance limit (block)": "ब्लॉक की निर्गम सीमा",
   "Available fees (block)": "ब्लॉक के उपलब्ध शुल्क",
   "Unclaimed reward": "दावा न किया गया पुरस्कार",
-  "Reward not fully claimed": "पुरस्कार का आंशिक दावा"
+  "Reward not fully claimed": "पुरस्कार का आंशिक दावा",
+  "Confirm": "पुष्टि करें",
+  "Net amount": "शेष राशि में बदलाव"
 }

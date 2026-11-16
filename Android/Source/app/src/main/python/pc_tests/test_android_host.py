@@ -109,6 +109,7 @@ class HostLifecycleTests(unittest.TestCase):
             with self.assertRaises(ValueError):host.mine_blocks(value)
         self.assertFalse(service.pending)
         self.assertFalse(json.loads(host.status())['mobile_batch']['running'])
+    @unittest.skipUnless(__import__('sys').platform == 'android' or 'ANDROID_ROOT' in __import__('os').environ, 'Requires Android native publication library')
     def test_publication_never_overwrites_existing_file(self):
         import tempfile
         from pathlib import Path

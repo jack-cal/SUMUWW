@@ -134,5 +134,7 @@
   "Issuance limit (block)": "Lohkon liikkeeseenlaskuraja",
   "Available fees (block)": "Lohkon saatavilla olevat maksut",
   "Unclaimed reward": "Lunastamaton palkkio",
-  "Reward not fully claimed": "Palkkio lunastettu osittain"
+  "Reward not fully claimed": "Palkkio lunastettu osittain",
+  "Confirm": "Vahvista",
+  "Net amount": "Saldon muutos"
 }

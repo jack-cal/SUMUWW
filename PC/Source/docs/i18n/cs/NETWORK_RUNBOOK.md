@@ -5,7 +5,7 @@ Uzel běžně otevírá 10 odchozích spojení. Většina přenáší bloky i tr
 Po restartu uzel naváže na poslední blok, který sám ověřil, a ověřuje nové bloky. Pokud uložený záznam o ověření chybí nebo nesouhlasí, znovu ověří uloženou historii.
 
 
-SUMUWW PC 0.57.54 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
+SUMUWW PC 0.57.61 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
 
 ## Síť a adresy
 
@@ -34,3 +34,21 @@ P2P magic: d052470c
 [Dokumentace](README.html) · [Rozhraní uzlu](EXCHANGE_INTEGRATION.html) · [RPC a HTTP API](RPC_API.html) · [Poznámky k vydání](RELEASE_NOTES.html) · [Ověření](EXCHANGE_EXAMPLES.html)
 
 [Podrobná anglická reference](../../../EXCHANGE_INTEGRATION.html) · [API_CONTRACT.json](../../../API_CONTRACT.json) · [vectors.json](../../../examples/exchange/vectors.json)
+
+<!-- payment-policy-20261116 -->
+
+## Poplatky, zkontrolovaná transakce a kompatibilita
+
+Poplatek je součet vstupů minus součet výstupů. Odhad zahrnuje výstup vrácené částky jen tehdy, když peněženka skutečně vytvoří dostatečnou vratku. Zbytek pod prahem peněženky se připočte k poplatku; výsledný poplatek a celková odepsaná částka se zobrazí ke kontrole. Sazba se udává v yugeon/vB. Virtuální velikost je váha transakce dělená čtyřmi, zaokrouhlená nahoru.
+
+Peněženka vybere vstupy a výstupy jednou a podepíše stejný plán transakce. Po potvrzení odešle uloženou podepsanou transakci, aniž ji sestavuje znovu nebo přepočítává poplatek. Vypršelý odhad nebo mezitím utracené vstupy vyžadují novou kontrolu. Přijetí do místní fronty není potvrzením v bloku.
+
+Pro běžné platby P2WPKH vytváří peněženka podpisy low-R a low-S dlouhé nejvýše 71 bajtů včetně bajtu SIGHASH_ALL. Jde o pravidlo podepisování a odhadu velikosti, nikoli nový limit konsensu pro jiné platné podpisy. Kratší podpis může snížit skutečnou virtuální velikost. Navrhované sazby stále vycházejí z místní fronty; podobný výpočet velikosti jako u Bitcoin neznamená převzetí sazeb jeho sítě.
+
+## Komponenta I2P pro Windows a bezpečnostní kontrola
+
+Balíčky Windows obsahují oficiální i2pd 3.0.0 s aktuálními kontrolními součty a certifikáty pro počáteční připojení. Při zaznamenané kontrole Defender stále detekuje oficiální spustitelný soubor I2P i původní ZIP. Shoda s oficiálním hashem nedokazuje bezpečnost ani falešný poplach. Místní výjimka pro soubor platí jen na počítači, kde byla nastavena; veřejný balíček ji nepřidává. Jiné počítače mohou stejné soubory blokovat.
+
+<!-- /payment-policy-20261116 -->
+
+Po přijetí platné odpovědi s verzí dá uzel protistraně čas na odeslání potvrzení. Pokud dvě odchozí spojení vedou ke stejnému uzlu, zůstane dostupná cesta otevřená, dokud přes jedno z nich neskončí synchronizace. Vestavěná diagnostika přijme blok s platným důkazem práce ještě před doručením důkazu o spojení. Poté ověří podpisy tří svědků, předání důkazu dalšímu uzlu a jeho zachování po restartu.

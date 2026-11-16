@@ -8,39 +8,27 @@ SUMUWW is an independent SHA-256d proof-of-work coin with asynchronous connectio
 
 [Support SUMUWW’s exchange listing](Donations/README.md)
 
-## Current downloads — 9 November 2026
+## Current downloads — 16 November 2026
 
 | Component | Version | Download | Source |
 |---|---|---|---|
-| Windows full node, wallet and miner | 0.57.54 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.54) | [Source](PC/Source) |
-| Android full node, wallet and miner | 0.6.99 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/android-v0.6.99) | [Source](Android/Source) |
-| Windows ordinary wallet | 1.0.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-pc-v1.0.10) | [Source](Wallet/Desktop) |
-| Android ordinary wallet | 1.1.10 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.10) | [Source](Wallet/Source) |
+| Windows full node, wallet and miner | 0.57.61 | [Download](https://github.com/jack-cal/SUMUWW/releases/download/updates-20261116/SUMUWW-PC-0.57.61.zip) | [Source](PC/Source) |
+| Android full node, wallet and miner — new signing identity | 0.6.103 | [Download](https://github.com/jack-cal/SUMUWW/releases/download/updates-20261116/SUMUWW-Android-0.6.103.apk) | [Source](Android/Source) |
+| Windows ordinary wallet | 1.0.15 | [Download](https://github.com/jack-cal/SUMUWW/releases/download/updates-20261116/SUMUWW-Wallet-PC-1.0.15-Windows.zip) | [Source](Wallet/Desktop) |
+| Android ordinary wallet — new signing identity | 1.1.14 | [Download](https://github.com/jack-cal/SUMUWW/releases/download/updates-20261116/SUMUWW-Wallet-Android-1.1.14.apk) | [Source](Wallet/Source) |
 | Local block explorer | 0.4.11 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/explorer-v0.4.11) | [Source](Explorer/Source) |
 | P2P Full — SMW/BTC trading | 0.3.6 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-full-v0.3.6) | [Source](P2P/Source) |
 | P2P Light — SMW/BTC trading | 0.3.6 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-light-v0.3.6) | [Source](P2P/Source) |
 
-[Current node documentation in 34 languages](PC/Source/docs) · [English whitepaper 2.3](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.54/SUMUWW-Whitepaper-2.3-docs-r2.zip) · [Component installation guide](Documentation/COMPONENT_SUITE.md)
+[Release notes](Documentation/RELEASE_NOTES_20261116.md) · [Payment policy](Documentation/PAYMENT_POLICY.md) · [Whitepaper 2.4](Documentation/Whitepaper/WHITEPAPER.md) · [34-language reading editions](Documentation/Whitepaper/i18n/index.html) · [Installation and compatibility](Documentation/COMPONENT_SUITE.md)
 
-The Windows full node and both ordinary wallets aim for 10 outbound peers. Most connections relay blocks and transactions. A verified backup can relay blocks, and a spare slot can briefly check an 11th peer. Up to 117 inbound connections are possible, or 115 with 10 outbound. The default limit is 125 in total.
+Ordinary wallet quotes include a change output only when viable change is created. The same selected inputs, outputs and fee are signed and retained for confirmation. Ordinary P2WPKH signatures have a maximum of 71 bytes including the hash-type byte. These are wallet policies; existing consensus signature validity, issuance and valid chain history are preserved. Fee-rate suggestions still use the local queue rather than Bitcoin's fee market or past-block fee samples.
 
-## Changes in these versions
+**Android signing compatibility:** the node 0.6.103 and wallet 1.1.14 APKs use a new release key. They cannot update installations signed with a different certificate. Preserve the installed app and its data until an encrypted wallet backup and a working recovery method are secured. The previous Android signing lineage is not offered this package as an automatic in-place update. Both release APKs were installed over the previous same-certificate builds and launched on an Android 11 x86-64 emulator. Their packaged Python payment, signing and peer-recovery tests ran on that emulator. Physical phones and cellular carriers were outside this run.
 
-Android 0.6.99 starts its own validating node and CPU miner. After the first local verification it resumes at the last verified block. It rechecks the stored history if the record is missing or inconsistent. The first check can take several minutes.
+Windows includes official i2pd 3.0.0. The recorded Defender diagnostic scan still detects the upstream I2P executable and ZIP; the three SUMUWW application executables were not detected in that scan. Local exceptions are not part of the public package and do not apply to another computer. Artifact provenance is not an independent security verdict.
 
-On restart, the Windows node resumes from the last locally verified block and validates new blocks. The first upgrade from an older database performs a full local check. The node also checks the stored history if its verification record is missing or inconsistent. The Windows node mines locally, validates completed blocks received from peers and relays them. It rejects mobile mining work requests and solution submissions.
-
-P2P Full and Light 0.3.6 require confirmed paying funds before posting, add a Trade button beside each order and connect trading peers automatically over TLS 1.3. Both trading participants need 0.3.6. See [the P2P guide](P2P/README.md) and [verification limits](P2P/Source/VERIFICATION.txt).
-
-Mining history and block APIs separate new issuance, transaction fees and total block rewards. Wallet-specific received amounts remain separate. Automatic fee previews use the connected node's current pending queue, block capacity and transaction priority; they do not sample past block fees or claim a view of every node. Manual rates and the final fee review remain available. One yugeon is 0.00000001 SMW.
-
-The node exposes address validation, transaction decoding, signed-transaction checking and submission, UTXOs, confirmations, replacement status, reorganization state and ordered OP_RETURN data. The source examples cover disposable regtest submission and reorganization. Multisig and output-lock templates remain limited to explicitly activated isolated tests; public activation is not scheduled.
-
-English is the default; all 34 existing UI languages and saved preferences are retained. Current program documentation is included in the matching packages. Read the [node specification](PC/Source/NODE_FEATURES.md), [current release status](Documentation/CURRENT_STATUS.md) and [verification record](Documentation/RELEASE_VERIFICATION_20261109.md).
-
-Extract the complete Windows archive. Install each Android APK over the matching package signed with the same certificate; retain encrypted backups and application data. P2P Full requires synchronized unpruned Bitcoin Core with txindex; Light uses Bitcoin SPV and has different availability and trust limits. Both require the current SUMUWW node and the height-9100 HTLC rule.
-
-The Windows and Android full-node releases include the application, matching source and SHA-256 checksums. Earlier release posts and attachments are preserved. Whitepaper 2.3 documents the source-block 9,600 rules. Earlier editions remain available as history.
+The Windows full node and ordinary wallets retain local full validation, encrypted wallet backup and recovery, saved language preferences and all 34 UI languages. The desktop test record covers synchronization, transactions, reorganizations, mining controls and wallet behavior within its documented scope. P2P and Explorer retain their separate prerequisites and verification limits. An accepted pending transaction is not a block confirmation, and a short test does not establish uninterrupted public connectivity.
 
 ## Earlier node update: Windows 0.57.40 / Android 0.6.89
 
@@ -94,3 +82,19 @@ Previously withdrawn node releases remain withdrawn; the [withdrawal record](Arc
 [Automatic beacon recovery](Documentation/BEACON_RECOVERY.md) is included in this release.
 
 [Wallet, P2P and explorer fixes: UI, language and physical-device verification](Documentation/UI_LANGUAGE_VERIFICATION.md).
+
+<!-- payment-policy-20261116 -->
+
+## Payment fees, reviewed transactions and compatibility
+
+The fee is the sum of inputs minus the sum of outputs. A payment quote includes a change output only when the wallet will actually create viable change. A remainder below the wallet's change threshold is added to the fee, and the resulting fee and total debit are shown for review. Rates are expressed in yugeon/vB; virtual size is transaction weight divided by four, rounded up.
+
+The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
+
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
+
+## Windows I2P component and security checks
+
+Windows packages include official i2pd 3.0.0 with matching hashes and reseed certificates. Defender still detects the upstream I2P executable and ZIP in the recorded test. A matching upstream hash does not prove safety or establish a false positive. Any local file exception applies only to the computer where it is registered and is not installed by the public package. Other computers may block the same files.
+
+<!-- /payment-policy-20261116 -->

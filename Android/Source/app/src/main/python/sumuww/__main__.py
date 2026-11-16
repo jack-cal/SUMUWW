@@ -21,7 +21,7 @@ from .errors import StorageError, UnsupportedFeature, ValidationError
 from .primitives import format_amount, hash_to_display, parse_amount
 from .transaction import Transaction, TxInput, TxOutput
 from .wallet import RegtestKey, p2wpkh_script, sign_p2wpkh
-from .fees import estimate_payment_fee
+from .fees import plan_payment
 from .wallet_paths import reserved_node_paths, same_path, is_managed_privacy_path
 
 
@@ -300,10 +300,12 @@ def main(argv=None):
                     result = _balance(chain, script)
                 elif args.command == 'wallet-send':
                     with chain.read_snapshot():
-                        suggestion = estimate_payment_fee(chain, key.script_pubkey, script, amount, mode=args.fee_mode, rate=args.fee_rate) if fee is None else None
-                        fee = suggestion['fee_units'] if suggestion else fee
-                        tx = create_payment(chain, key, script, amount, fee)
-                    result = {'txid': hash_to_display(chain.submit_transaction(tx, allow_replacement=False)), 'transaction_hex': tx.serialize().hex(), 'fee_smw': format_amount(fee), 'total_smw': format_amount(amount + fee), 'fee_mode': 'automatic' if suggestion else 'manual', 'fee_source': suggestion['source'] if suggestion else 'manual', 'status': 'local mempool', 'from_address': key.address, 'to_address': args.to_address}
+                        is_auto = fee is None
+                        plan = plan_payment(chain, key.script_pubkey, script, amount,
+                                            mode=args.fee_mode, rate=args.fee_rate, fixed_fee=fee)
+                        fee = plan.quote['fee_units']
+                        tx = plan.sign(key)
+                    result = {'txid': hash_to_display(chain.submit_transaction(tx, allow_replacement=False)), 'transaction_hex': tx.serialize().hex(), 'fee_smw': format_amount(fee), 'total_smw': format_amount(amount + fee), 'fee_mode': 'automatic' if is_auto else 'manual', 'fee_source': plan.quote['source'], 'status': 'local mempool', 'from_address': key.address, 'to_address': args.to_address}
                 elif args.command == 'send-test':
                     tx = create_test_payment(chain, args.from_key_id, bytes.fromhex(args.to_pubkey), parse_amount(args.amount), parse_amount(args.fee))
                     result = {'txid': hash_to_display(chain.submit_transaction(tx)), 'transaction_hex': tx.serialize().hex(), 'fee_smw': args.fee, 'status': 'local mempool'}

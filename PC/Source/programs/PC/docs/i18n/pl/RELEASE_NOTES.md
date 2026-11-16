@@ -1,11 +1,16 @@
 # SUMUWW · Informacje o wersji
 
+Przy jednym wejściu o wartości 1 SMW opłata zależy od tego, czy trzeba wydać resztę. Jeśli wejście i wszystkie wyjścia są typu P2WPKH, przy stawce 1 yugeon/vB wysłanie 0.99999890 SMW kosztuje 110 yugeon i nie pozostawia reszty. Wysłanie 0.8 SMW z tego samego wejścia wymaga dodatkowego wyjścia na resztę i zwiększa opłatę do 141 yugeon. Portfel zwraca resztę, jeśli po odjęciu opłaty pozostała kwota osiąga próg uwzględniający koszt jej późniejszego wydania. Gdy kwota jest mniejsza, wchodzi w skład opłaty wyświetlanej przed zatwierdzeniem. Dla wejścia portfela w formacie natywnego SegWit (P2WPKH) szacunek przewiduje do 71 bajtów na podpis wraz z typem skrótu.
+
+
+0.57.61 · Po zmianie języka w uruchomionej aplikacji zmienia się również jej ikona na pasku zadań Windows.
+
 Węzeł zwykle otwiera 10 połączeń wychodzących. Większość przekazuje bloki i transakcje. Sprawdzone połączenie zapasowe może przekazywać bloki. Węzeł może też na krótko otworzyć jedenaste połączenie, aby znaleźć inne węzły. Łączny limit wynosi 125. Połączeń przychodzących może być do 117, a przy 10 wychodzących do 115. Aplikacja komputerowa pokazuje teraz tylko łączną liczbę połączonych węzłów. Każde urządzenie wydobywcze tworzy własne bloki. Węzeł na komputerze rozsyła gotowe bloki i odrzuca prośby telefonu o zadania wydobywcze oraz przesyłane rozwiązania.
 
 Po ponownym uruchomieniu węzeł wznawia pracę od ostatniego bloku, który sam zweryfikował, i sprawdza nowe bloki. Jeśli zapis weryfikacji zaginął lub jest niespójny, węzeł ponownie sprawdza zapisaną historię.
 
 
-SUMUWW PC 0.57.54 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+SUMUWW PC 0.57.61 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 ## Format podpisu
 
@@ -22,3 +27,19 @@ Po instalacji zależności uruchom python examples/node_contract.py ze źródeł
 [Dokumentacja](README.html) · [Interfejs węzła](EXCHANGE_INTEGRATION.html) · [API RPC i HTTP](RPC_API.html) · [Obsługa węzła](NETWORK_RUNBOOK.html) · [Weryfikacja](EXCHANGE_EXAMPLES.html)
 
 [Rozszerzona dokumentacja angielska](../../../../../EXCHANGE_INTEGRATION.html) · [API_CONTRACT.json](../../../../../API_CONTRACT.json) · [vectors.json](../../../../../examples/exchange/vectors.json)
+
+<!-- payment-policy-20261116 -->
+
+## Opłaty, sprawdzona transakcja i zgodność
+
+Opłata to suma wejść pomniejszona o sumę wyjść. Oszacowanie uwzględnia wyjście reszty tylko wtedy, gdy portfel rzeczywiście tworzy resztę spełniającą jego próg. Pozostała kwota poniżej tego progu jest doliczana do opłaty; wynikowa opłata i łączne obciążenie są wyświetlane do sprawdzenia. Stawkę podaje się w yugeon/vB. Rozmiar wirtualny to waga transakcji podzielona przez cztery i zaokrąglona w górę.
+
+Portfel wybiera wejścia i wyjścia jeden raz, a następnie podpisuje ten sam plan transakcji. Potwierdzenie wysyła zapisaną podpisaną transakcję, bez jej ponownego tworzenia i przeliczania opłaty. Wygaśnięcie wyceny lub wcześniejsze wydanie wejścia wymaga ponownego sprawdzenia. Przyjęcie do lokalnej kolejki nie oznacza potwierdzenia w bloku.
+
+Przy zwykłych płatnościach P2WPKH portfel tworzy podpisy low-R i low-S o długości do 71 bajtów, łącznie z bajtem SIGHASH_ALL. Jest to polityka podpisywania i szacowania rozmiaru, a nie nowy limit konsensusu dla pozostałych prawidłowych podpisów. Krótszy podpis może zmniejszyć rzeczywisty rozmiar wirtualny. Sugerowane stawki nadal wynikają z lokalnej kolejki; podobny do Bitcoin sposób liczenia rozmiaru nie oznacza stosowania stawek sieci Bitcoin.
+
+## Składnik I2P dla Windows i kontrola bezpieczeństwa
+
+Pakiety Windows zawierają oficjalny i2pd 3.0.0 z aktualnymi sumami kontrolnymi i certyfikatami połączenia początkowego. W zapisanej kontroli Defender nadal wykrywa oficjalny plik wykonywalny I2P i oryginalny ZIP. Zgodność oficjalnego skrótu nie dowodzi bezpieczeństwa ani fałszywego alarmu. Lokalne wykluczenie pliku działa tylko na komputerze, na którym je ustawiono; pakiet publiczny go nie dodaje. Inne komputery mogą zablokować te same pliki.
+
+<!-- /payment-policy-20261116 -->

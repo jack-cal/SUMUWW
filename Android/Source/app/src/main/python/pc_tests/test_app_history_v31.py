@@ -87,10 +87,9 @@ class HistoryUiTests(unittest.TestCase):
         self.service = HistoryFixtureService(self.directory / 'unused')
         self.app = SumuwwApp(self.root, self.service, language='en',
                            language_path=self.directory / 'owned-language.json')
-        self.app._started = True
-        self.app._apply_status(copy.deepcopy(self.service.status_value))
         self.callback_errors = []
         self.root.report_callback_exception = lambda *error: self.callback_errors.append(error)
+        self.pump(lambda: self.app._started and not self.app._status_inflight)
 
     def tearDown(self):
         self.app._finish_close()
