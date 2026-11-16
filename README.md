@@ -4,6 +4,10 @@ Validating full nodes and ordinary wallets enforce the connection-proof candidat
 
 SUMUWW is an independent SHA-256d proof-of-work coin with asynchronous connection proofs. Valid cumulative work remains the primary chain-selection rule. Existing wallets, valid chain history, issuance and halvings are preserved.
 
+## Donations
+
+[Support SUMUWW’s exchange listing](Donations/README.md)
+
 ## Current downloads — 9 November 2026
 
 | Component | Version | Download | Source |
