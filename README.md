@@ -6,7 +6,7 @@ SUMUWW is an independent SHA-256d proof-of-work coin with asynchronous connectio
 
 ## Donations
 
-[Support SUMUWW’s exchange listing](Donations/README.md)
+[Support SUMUWW development](Donations/README.md)
 
 ## Current downloads — 16 November 2026
 
