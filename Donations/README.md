@@ -1,6 +1,6 @@
 # Donations
 
-Please support SUMUWW’s exchange listing by donating to one of the addresses below.
+You can support the development of SUMUWW by donating to one of the addresses below.
 
 | Network | Donation address |
 | --- | --- |
