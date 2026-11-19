@@ -14,5 +14,4 @@ Historia ya miamala iliyobadilishwa ambayo nodi hii imerekodi huhifadhiwa baada 
 
 Kichunguzi huonyesha masharti yaliyofichuliwa ya sahihi nyingi na kufunga matokeo ya muamala. Tarehe ya kuwezesha kwenye mtandao wa umma bado haijapangwa.
 
-
 Historia ya uchimbaji hutenganisha sarafu mpya, ada za miamala na jumla ya zawadi kwa kila bloku. Kiasi kilichopokelewa na pochi yako huonyeshwa kando. Zawadi ikidaiwa kwa sehemu, mgawanyo wa vipengele hivyo haukadiriwi. Nodi ina mbinu 28 za RPC, zikiwemo makadirio ya ada, na huthibitisha na kusambaza miamala iliyosainiwa.

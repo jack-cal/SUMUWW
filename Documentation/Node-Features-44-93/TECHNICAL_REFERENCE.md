@@ -41,4 +41,3 @@ python -m sumuww --network regtest --database isolated.sqlite wallet-send --wall
 # Alternatively choose --fee-rate 2.5 (yugeon/vB). Legacy --fee is a total in SMW.
 ```
 
-The tests use public fixture keys and disposable databases. They cover replacement descendants, rollback, concurrent writers, reorganization, signature thresholds, activation boundaries and output locks. No production wallet or funds are used.

@@ -2,13 +2,11 @@
 
 Con un input di 1 SMW, la commissione dipende dalla presenza del resto. Se gli input e gli output sono P2WPKH e la tariffa è di 1 yugeon/vB, inviare 0.99999890 SMW costa 110 yugeon e non lascia resto. Inviare 0.8 SMW dallo stesso input aggiunge un output per il resto e porta la commissione a 141 yugeon. Il portafoglio restituisce il resto se l’importo rimasto dopo la commissione raggiunge una soglia che tiene conto del costo per spenderlo in seguito. Sotto questa soglia, il resto viene incluso nella commissione mostrata prima della conferma. Per un input del portafoglio in SegWit nativo (P2WPKH), la stima prevede fino a 71 byte per la firma, incluso il tipo di hash.
 
-
 0.57.61 · Cambiando lingua mentre l’app è aperta, cambia anche l’icona nella barra delle applicazioni di Windows.
 
 Il nodo apre normalmente 10 connessioni in uscita. La maggior parte inoltra blocchi e transazioni. Può usare una connessione di riserva verificata per i blocchi e aprirne brevemente un’undicesima per cercare altri nodi. Il limite complessivo è 125. Sono ammesse fino a 117 connessioni in ingresso, o 115 con 10 in uscita. L’app per computer ora mostra solo il numero totale di nodi connessi. Ogni dispositivo di mining costruisce i propri blocchi. Il nodo su PC inoltra i blocchi completi e rifiuta le richieste di lavoro e le soluzioni di mining inviate dal telefono.
 
 Al riavvio il nodo riparte dall’ultimo blocco verificato localmente e controlla i nuovi blocchi. Se la verifica salvata manca o i dati non corrispondono, ricontrolla la cronologia archiviata.
-
 
 SUMUWW PC 0.57.61 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
 
@@ -36,10 +34,6 @@ La commissione è la somma degli input meno la somma degli output. La stima incl
 
 Il portafoglio sceglie input e output una sola volta e firma quello stesso piano di transazione. La conferma invia la transazione firmata conservata, senza ricostruirla né ricalcolare la commissione. Una stima scaduta o input già spesi richiedono una nuova verifica. L’accettazione nella coda locale non equivale alla conferma in un blocco.
 
-Per i normali pagamenti P2WPKH, il portafoglio genera firme low-R e low-S lunghe al massimo 71 byte, incluso il byte SIGHASH_ALL. È una politica di firma e di stima delle dimensioni, non un nuovo limite di consenso per altre firme valide. Una firma più corta può ridurre la dimensione virtuale effettiva. Le tariffe suggerite dipendono ancora dalla coda locale: seguire un calcolo delle dimensioni simile a Bitcoin non significa adottare le tariffe della rete Bitcoin.
-
-## Componente I2P di Windows e controlli di sicurezza
-
-I pacchetti Windows includono i2pd 3.0.0 ufficiale con hash e certificati per il collegamento iniziale aggiornati. Nel controllo registrato, Defender continua a rilevare l’eseguibile I2P e lo ZIP ufficiali. La corrispondenza con l’hash ufficiale non dimostra la sicurezza né conferma un falso positivo. Un’esclusione locale riguarda solo il PC su cui viene impostata; il pacchetto pubblico non la configura. Altri computer possono bloccare gli stessi file.
+Per i normali pagamenti P2WPKH, il portafoglio genera firme low-R e low-S lunghe al massimo 71 byte, incluso il byte SIGHASH_ALL. È una politica di firma e di stima delle dimensioni, non un nuovo limite di consenso per altre firme valide. Una firma più corta può ridurre la dimensione virtuale effettiva. 
 
 <!-- /payment-policy-20261116 -->

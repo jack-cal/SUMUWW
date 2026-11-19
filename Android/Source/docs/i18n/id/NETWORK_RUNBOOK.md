@@ -14,7 +14,7 @@ Biaya adalah jumlah nilai input dikurangi jumlah nilai output. Perkiraan hanya m
 
 Dompet memilih input dan output sekali saja, lalu menandatangani rencana transaksi yang sama. Saat dikonfirmasi, transaksi bertanda tangan yang tersimpan dikirim tanpa disusun ulang atau dihitung ulang biayanya. Perkiraan yang kedaluwarsa atau input yang sudah dibelanjakan memerlukan peninjauan baru. Diterima dalam antrean lokal bukan berarti sudah dikonfirmasi di dalam blok.
 
-Untuk pembayaran P2WPKH biasa, dompet menghasilkan tanda tangan low-R dan low-S berukuran paling besar 71 bita, termasuk bita SIGHASH_ALL. Ini adalah kebijakan penandatanganan dan perkiraan ukuran, bukan batas konsensus baru bagi tanda tangan sah lainnya. Tanda tangan yang lebih pendek dapat memperkecil ukuran virtual sebenarnya. Saran tarif tetap memakai antrean lokal; mengikuti perhitungan ukuran Bitcoin tidak berarti memakai tarif jaringan Bitcoin.
+Untuk pembayaran P2WPKH biasa, dompet menghasilkan tanda tangan low-R dan low-S berukuran paling besar 71 bita, termasuk bita SIGHASH_ALL. Ini adalah kebijakan penandatanganan dan perkiraan ukuran, bukan batas konsensus baru bagi tanda tangan sah lainnya. Tanda tangan yang lebih pendek dapat memperkecil ukuran virtual sebenarnya. 
 
 ## Kompatibilitas tanda tangan Android
 
@@ -22,4 +22,4 @@ Format berkas dompet, alamat, dan koin yang sudah ada tidak berubah. Cadangan do
 
 <!-- /payment-policy-20261116 -->
 
-Setelah menerima respons versi yang sah, simpul memberi simpul lain waktu untuk mengirim konfirmasi. Jika dua koneksi keluar menuju simpul yang sama, jalur yang tersedia tetap terbuka sampai salah satunya selesai disinkronkan. Diagnostik bawaan menerima blok dengan bukti kerja yang sah sebelum bukti koneksi tersedia. Kemudian, diagnostik memeriksa tanda tangan tiga saksi, penerusan bukti koneksi, dan apakah bukti itu tetap tersimpan setelah mulai ulang.
+Setelah menerima respons versi yang sah, simpul memberi simpul lain waktu untuk mengirim konfirmasi. Jika dua koneksi keluar menuju simpul yang sama, jalur yang tersedia tetap terbuka sampai salah satunya selesai disinkronkan. 

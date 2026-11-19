@@ -8,5 +8,4 @@ El explorador muestra las tarifas en yugeon/vB. Si el nodo local ha registrado u
 
 El explorador muestra las condiciones reveladas de multifirma y bloqueo de salidas. La activación en la red pública aún no tiene fecha.
 
-
 El historial de minería separa la nueva emisión, las comisiones y la recompensa total de cada bloque. El importe recibido por tu cartera se muestra por separado. Si la recompensa se reclama parcialmente, no se inventa un reparto entre sus componentes. El nodo ofrece 28 métodos RPC, incluida la estimación de comisiones, y valida y retransmite transacciones firmadas.

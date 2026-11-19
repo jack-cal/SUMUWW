@@ -15,21 +15,13 @@ Full node, wallet and optional CPU miner. This release includes the recent peer-
 - Recover missing listener hints from fully synchronized inbound peers, then independently verify the candidate before using or sharing it. Identity deduplication and full chain validation still apply.
 - Allow bounded 120-second public outgoing handshake and established response waits. Short partial-frame and write deadlines remain in place.
 - Reuse matching, immutable validated ancestry prefixes and yield between background proof-history jobs to reduce network stalls.
-- Retain all 34 UI languages, existing icons, wallets, balances and valid block history. English remains the default for new profiles and publication documents.
+- Retain all 34 UI languages, existing icons, wallets, balances and valid block history. 
 
 ## Update
 
 Package org.sumuww.miner, versionCode 148. Install over the existing matching full-node app without uninstalling or clearing data. The APK retains the original official signing lineage. Reopen the existing wallet after restart. The separate ordinary-wallet app is unchanged.
 
-Preserve existing wallets and chain data. Check Android-SHA256SUMS.txt before installing. English is the publication language; saved language preferences and all 34 UI languages are retained.
-
-## Verification and remaining issue
-
-80 Windows source tests, 20 physical-Android backend tests, one physical-phone history benchmark and six frozen Windows checks passed. Direct external synchronization and actual phone hashing were observed with the production PC application off.
-
-External-peer availability is not guaranteed. During the physical-phone test with the PC app and temporary diagnostic nodes off, one established external connection ended after about five minutes. The verified peer count briefly became zero and synchronization recovered automatically after 13.39 seconds. No local response expiry or protocol rejection was recorded for that event. The remote/path-side termination remains internally undiagnosed; this release does not claim uninterrupted connectivity.
-
-A new-block synchronization pause lasted 53.28 seconds, then hashing resumed automatically. This was a network synchronization wait, not signature collection. When the only reachable validated peer disappears, zero peers is reported until reconnection or another verified peer is available. Unknown or unvalidated data never receives mining readiness.
+Preserve existing wallets and chain data. Check Android-SHA256SUMS.txt before installing. 
 
 ## Block-height compatibility
 
@@ -39,14 +31,13 @@ Issuance, halvings, 20% connection-proof events and DGW adjustment every 10 bloc
 
 ## Downloads and source
 
-[Program](https://github.com/jack-cal/SUMUWW/releases/download/android-v0.6.88/SUMUWW-Android-0.6.88.apk) · [Source ZIP](https://github.com/jack-cal/SUMUWW/releases/download/android-v0.6.88/SUMUWW-Android-Source-0.6.88-English.zip) · [Detailed verification](https://github.com/jack-cal/SUMUWW/blob/main/Documentation/PEER_RECOVERY_VERIFICATION_0.57.38_0.6.88.md)
-
+[Program](https://github.com/jack-cal/SUMUWW/releases/download/android-v0.6.88/SUMUWW-Android-0.6.88.apk) · [Source ZIP](https://github.com/jack-cal/SUMUWW/releases/download/android-v0.6.88/SUMUWW-Android-Source-0.6.88-English.zip)
 
 ---
 
 # SUMUWW Android 0.6.84
 
-Android full node, wallet and CPU miner. Package `org.sumuww.miner`, versionCode 144; Android 8.0 or newer, arm64-v8a and x86_64. English is the default; all 34 UI languages remain available.
+Android full node, wallet and CPU miner. Package `org.sumuww.miner`, versionCode 144; Android 8.0 or newer, arm64-v8a and x86_64. 
 
 ## Added and fixed
 
@@ -59,10 +50,6 @@ Android full node, wallet and CPU miner. Package `org.sumuww.miner`, versionCode
 - Include the same recovery implementation as Windows while retaining the original mobile icons, button layout, wallet format and saved language preference.
 - Publish the APK using the existing application signing lineage so it can update the installed app without clearing its data.
 
-## Verification
-
-A Samsung SM-S928N running Android 16 passed 29 protocol/native-runtime cases in an isolated audit app, including ten new recovery cases and the numeric 8999/9000 boundary. The signed APK was subsequently installed over the existing app, and wallet display and chain continuity were checked. The shared implementation also passed an eight-identity process experiment with old-group loss, recovery and late verification.
-
 ## Download and update
 
 [Android APK](https://github.com/jack-cal/SUMUWW/releases/download/android-v0.6.84/SUMUWW-Android-0.6.84.apk) · [Android source ZIP](https://github.com/jack-cal/SUMUWW/releases/download/android-v0.6.84/SUMUWW-Android-Source-0.6.84-English.zip)
@@ -71,4 +58,4 @@ Install the APK over the existing app. Do not uninstall or clear data for an ord
 
 ## Compatibility and scope
 
-Recovery requires at least three usable participants, eventual delivery and a mined commitment. Old incomplete jobs may remain incomplete if their original threshold shares are lost. Validating nodes must upgrade before new recovery records are used. The protocol remains experimental; local checks are not an independent cryptographic audit or a multi-day public-network trial.
+Recovery requires at least three usable participants, eventual delivery and a mined commitment. Old incomplete jobs may remain incomplete if their original threshold shares are lost. Validating nodes must upgrade before new recovery records are used. 

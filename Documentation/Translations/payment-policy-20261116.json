@@ -4,10 +4,10 @@
     "fees": [
       "The fee is the sum of inputs minus the sum of outputs. A payment quote includes a change output only when the wallet will actually create viable change. A remainder below the wallet's change threshold is added to the fee, and the resulting fee and total debit are shown for review. Rates are expressed in yugeon/vB; virtual size is transaction weight divided by four, rounded up.",
       "The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.",
-      "For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates."
+      "For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. "
     ],
-    "operations_title": "Windows I2P component and security checks",
-    "operations": "Windows packages include official i2pd 3.0.0 with matching hashes and reseed certificates. Defender still detects the upstream I2P executable and ZIP in the recorded test. A matching upstream hash does not prove safety or establish a false positive. Any local file exception applies only to the computer where it is registered and is not installed by the public package. Other computers may block the same files.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android signing compatibility",
     "android": "Wallet file formats, addresses and existing coins are unchanged. The existing encrypted wallet backup can be restored in the new app to use the same wallet. Android node 0.6.102 and wallet 1.1.13 use a newly generated release signing key. They cannot replace an installation signed with a different key. Keep the existing app and its data until an encrypted wallet backup and a working recovery method are available. Do not uninstall an old app merely to make an update install."
   },
@@ -16,10 +16,10 @@
     "fees": [
       "Les frais correspondent à la somme des entrées moins celle des sorties. L’estimation ne compte une sortie de monnaie rendue que si le portefeuille crée effectivement une monnaie rendue suffisante. Un reliquat inférieur au seuil du portefeuille est ajouté aux frais ; les frais réels et le débit total sont présentés pour vérification. Le tarif s’exprime en yugeon/vB. La taille virtuelle est le poids de la transaction divisé par quatre, arrondi à l’entier supérieur.",
       "Le portefeuille choisit les entrées et les sorties une seule fois, puis signe cette même transaction. La confirmation transmet la transaction signée conservée, sans la reconstruire ni recalculer ses frais. Une estimation expirée ou des entrées déjà dépensées imposent une nouvelle vérification. L’acceptation dans la file locale ne signifie pas une confirmation dans un bloc.",
-      "Pour un paiement P2WPKH ordinaire, le portefeuille produit des signatures low-R et low-S de 71 octets au maximum, octet SIGHASH_ALL compris. Il s’agit d’une politique de signature et d’estimation, pas d’une nouvelle limite de consensus pour les autres signatures valides. Une signature plus courte peut réduire la taille virtuelle réelle. Les tarifs restent calculés à partir de la file locale : la méthode de dimensionnement ne reprend pas les tarifs du réseau Bitcoin."
+      "Pour un paiement P2WPKH ordinaire, le portefeuille produit des signatures low-R et low-S de 71 octets au maximum, octet SIGHASH_ALL compris. Il s’agit d’une politique de signature et d’estimation, pas d’une nouvelle limite de consensus pour les autres signatures valides. Une signature plus courte peut réduire la taille virtuelle réelle. "
     ],
-    "operations_title": "Composant I2P de Windows et contrôles de sécurité",
-    "operations": "Les paquets Windows contiennent i2pd 3.0.0 officiel, avec ses empreintes et certificats d’amorçage à jour. Dans le contrôle consigné, Defender détecte encore l’exécutable I2P et le ZIP officiels. Une empreinte identique à celle de l’éditeur ne prouve ni l’innocuité ni un faux positif. Une éventuelle exclusion locale ne concerne que le PC où elle est enregistrée ; le paquet public ne la configure pas. D’autres PC peuvent bloquer ces fichiers.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Compatibilité de la signature Android",
     "android": "Le format des fichiers du portefeuille, les adresses et les pièces existantes ne changent pas. La sauvegarde chiffrée existante peut être restaurée dans la nouvelle application pour retrouver le même portefeuille. Le nœud Android 0.6.102 et le portefeuille 1.1.13 utilisent une nouvelle clé de signature de publication. Ils ne peuvent pas remplacer une installation signée avec une autre clé. Conservez l’ancienne application et ses données jusqu’à disposer d’une sauvegarde chiffrée du portefeuille et d’un moyen de restauration fonctionnel. Ne désinstallez pas l’ancienne application uniquement pour forcer l’installation."
   },
@@ -28,10 +28,10 @@
     "fees": [
       "La comisión es la suma de las entradas menos la suma de las salidas. La estimación solo incluye una salida de cambio cuando el monedero realmente va a crear un cambio suficiente. Si el sobrante no alcanza el umbral del monedero, se añade a la comisión; antes de confirmar se muestran la comisión resultante y el débito total. La tarifa se expresa en yugeon/vB. El tamaño virtual es el peso de la transacción dividido entre cuatro, redondeado hacia arriba.",
       "El monedero selecciona las entradas y las salidas una sola vez y firma ese mismo plan. Al confirmar, envía la transacción firmada que conserva, sin reconstruirla ni recalcular la comisión. Si la estimación caduca o alguna entrada ya se ha gastado, hay que revisarla de nuevo. La aceptación en la cola local no equivale a una confirmación en un bloque.",
-      "En pagos P2WPKH normales, el monedero genera firmas low-R y low-S de hasta 71 bytes, incluido el byte SIGHASH_ALL. Es una política de firma y estimación, no un nuevo límite de consenso para otras firmas válidas. Una firma más corta puede reducir el tamaño virtual real. Las tarifas sugeridas siguen dependiendo de la cola local; adoptar el cálculo de tamaño de Bitcoin no significa aplicar sus tarifas."
+      "En pagos P2WPKH normales, el monedero genera firmas low-R y low-S de hasta 71 bytes, incluido el byte SIGHASH_ALL. Es una política de firma y estimación, no un nuevo límite de consenso para otras firmas válidas. Una firma más corta puede reducir el tamaño virtual real. "
     ],
-    "operations_title": "Componente I2P de Windows y comprobaciones de seguridad",
-    "operations": "Los paquetes de Windows incluyen i2pd 3.0.0 oficial, con sus hashes y certificados de arranque actualizados. En la comprobación registrada, Defender sigue detectando el ejecutable I2P y el ZIP originales. Que el hash coincida con el oficial no demuestra que el archivo sea seguro ni que se trate de un falso positivo. Una exclusión local solo afecta al PC donde se registra; el paquete público no la instala. Otros equipos pueden bloquear los mismos archivos.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Compatibilidad de firmas en Android",
     "android": "El formato de los archivos del monedero, las direcciones y las monedas existentes no cambian. Puede restaurar la copia cifrada anterior en la nueva aplicación y seguir usando el mismo monedero. El nodo Android 0.6.102 y el monedero 1.1.13 usan una nueva clave de firma de publicación. No pueden sustituir una instalación firmada con otra clave. Conserve la aplicación anterior y sus datos hasta disponer de una copia cifrada del monedero y de un método de recuperación que funcione. No desinstale la aplicación antigua solo para forzar la instalación."
   },
@@ -40,10 +40,10 @@
     "fees": [
       "الرسوم هي مجموع المدخلات ناقص مجموع المخرجات. لا يتضمن التقدير مخرجًا لإعادة الباقي إلا إذا كانت المحفظة ستنشئ فعليًا باقيًا يبلغ الحد المناسب. إذا كان المتبقي أقل من حد المحفظة، يُضاف إلى الرسوم، وتُعرض الرسوم الناتجة وإجمالي الخصم للمراجعة. يُعبَّر عن المعدل بوحدة yugeon/vB. والحجم الافتراضي هو وزن المعاملة مقسومًا على أربعة مع التقريب إلى الأعلى.",
       "تختار المحفظة المدخلات والمخرجات مرة واحدة ثم توقّع الخطة نفسها. عند التأكيد، ترسل المعاملة الموقعة المحفوظة دون إعادة بنائها أو حساب رسومها من جديد. إذا انتهت صلاحية العرض أو أُنفقت إحدى المدخلات، يجب إجراء مراجعة جديدة. قبول المعاملة في قائمة الانتظار المحلية لا يعني تأكيدها داخل كتلة.",
-      "في تحويلات P2WPKH العادية، تنتج المحفظة توقيعات low-R وlow-S بطول أقصاه 71 بايت، بما في ذلك بايت SIGHASH_ALL. هذه سياسة للتوقيع وتقدير الحجم، وليست قيد إجماع جديدًا على التوقيعات الصحيحة الأخرى. وقد يقل الحجم الافتراضي الفعلي عندما يكون التوقيع أقصر. تظل المعدلات المقترحة مستمدة من قائمة الانتظار المحلية؛ اتباع أسلوب Bitcoin في حساب الحجم لا يعني استخدام معدلات رسوم شبكته."
+      "في تحويلات P2WPKH العادية، تنتج المحفظة توقيعات low-R وlow-S بطول أقصاه 71 بايت، بما في ذلك بايت SIGHASH_ALL. هذه سياسة للتوقيع وتقدير الحجم، وليست قيد إجماع جديدًا على التوقيعات الصحيحة الأخرى. وقد يقل الحجم الافتراضي الفعلي عندما يكون التوقيع أقصر. "
     ],
-    "operations_title": "مكوّن I2P في Windows وفحوص الأمان",
-    "operations": "تتضمن حزم Windows الإصدار الرسمي i2pd 3.0.0 مع قيم التجزئة وشهادات التهيئة المحدثة. ما زال Defender يرصد ملف I2P التنفيذي وملف ZIP الرسميين في الفحص المسجل. تطابق التجزئة مع المصدر الرسمي لا يثبت الأمان ولا يؤكد أن الرصد إنذار خاطئ. أي استثناء محلي يخص الجهاز الذي سُجّل عليه فقط، ولا تضيفه الحزمة العامة. قد تحظر أجهزة أخرى الملفات نفسها.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "توافق توقيع Android",
     "android": "لم تتغير صيغة ملفات المحفظة ولا العناوين أو العملات الموجودة. يمكن استعادة النسخة الاحتياطية المشفرة الحالية داخل التطبيق الجديد لاستخدام المحفظة نفسها. تستخدم عقدة Android 0.6.102 والمحفظة 1.1.13 مفتاح إصدار جديدًا للتوقيع. لا يمكنهما استبدال تطبيق مثبت وموقّع بمفتاح مختلف. احتفظ بالتطبيق القديم وبياناته حتى تتوفر نسخة احتياطية مشفرة للمحفظة وطريقة استعادة تعمل. لا تُزل التطبيق القديم لمجرد إجبار التحديث على التثبيت."
   },
@@ -52,10 +52,10 @@
     "fees": [
       "手续费等于输入金额总和减去输出金额总和。只有钱包实际创建符合要求的找零时，估算才计入找零输出。低于钱包找零门槛的余额会计入手续费，确认前会显示最终手续费和总扣款。费率单位为 yugeon/vB；虚拟大小等于交易权重除以四后向上取整。",
       "钱包只选择一次输入和输出，并按同一交易方案生成签名。确认后提交的是已保存的签名交易，不会重新构造交易或重算手续费。报价过期或输入已被花费时，必须重新核对。进入本地待处理队列并不代表已获得区块确认。",
-      "普通 P2WPKH 转账使用 low-R、low-S 签名，连同 SIGHASH_ALL 字节在内最多为 71 字节。这是钱包的签名和大小估算策略，并不是对其他有效签名新增的共识限制。签名较短时，实际虚拟大小可能小于估算值。建议费率仍依据本节点的待处理队列；采用与 Bitcoin 相近的大小计算方式，不表示沿用 Bitcoin 网络的费率。"
+      "普通 P2WPKH 转账使用 low-R、low-S 签名，连同 SIGHASH_ALL 字节在内最多为 71 字节。这是钱包的签名和大小估算策略，并不是对其他有效签名新增的共识限制。签名较短时，实际虚拟大小可能小于估算值。"
     ],
-    "operations_title": "Windows I2P 组件与安全检查",
-    "operations": "Windows 安装包包含官方 i2pd 3.0.0，并同步更新校验值和引导连接所需的证书。在已记录的检查中，Defender 仍会检测到官方 I2P 可执行文件及原始 ZIP。哈希与官方一致，只能核对文件来源，不能证明安全或确定是误报。本地文件排除项只对设置它的电脑生效，公开安装包不会自动添加排除项，其他电脑仍可能拦截这些文件。",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android 签名兼容性",
     "android": "钱包文件格式、地址和已有币都没有改变。可在新应用中恢复原有的加密钱包备份，继续使用同一个钱包。 Android 节点 0.6.102 和钱包 1.1.13 使用新生成的发行签名密钥，无法覆盖安装到使用不同密钥签名的旧版本上。请先保留旧应用和数据，确认已取得钱包的加密备份及有效的恢复方式。不要仅为强行安装更新而卸载旧应用。"
   },
@@ -64,10 +64,10 @@
     "fees": [
       "A taxa corresponde à soma das entradas menos a soma das saídas. A estimativa só inclui uma saída de troco quando a carteira realmente cria um troco acima do limite definido. Um valor restante abaixo desse limite é incorporado à taxa; a taxa resultante e o débito total são exibidos para conferência. A tarifa é expressa em yugeon/vB. O tamanho virtual é o peso da transação dividido por quatro, arredondado para cima.",
       "A carteira seleciona as entradas e as saídas uma única vez e assina esse mesmo plano. A confirmação envia a transação assinada que foi armazenada, sem reconstruí-la nem recalcular a taxa. Uma estimativa vencida ou entradas já gastas exigem nova conferência. A aceitação na fila local não equivale à confirmação em um bloco.",
-      "Nos pagamentos P2WPKH comuns, a carteira gera assinaturas low-R e low-S de até 71 bytes, incluindo o byte SIGHASH_ALL. Essa é uma política de assinatura e estimativa, não um novo limite de consenso para outras assinaturas válidas. Assinaturas menores podem reduzir o tamanho virtual real. As tarifas sugeridas continuam usando a fila local; seguir o cálculo de tamanho do Bitcoin não significa adotar as tarifas daquela rede."
+      "Nos pagamentos P2WPKH comuns, a carteira gera assinaturas low-R e low-S de até 71 bytes, incluindo o byte SIGHASH_ALL. Essa é uma política de assinatura e estimativa, não um novo limite de consenso para outras assinaturas válidas. Assinaturas menores podem reduzir o tamanho virtual real. "
     ],
-    "operations_title": "Componente I2P do Windows e verificações de segurança",
-    "operations": "Os pacotes Windows incluem o i2pd 3.0.0 oficial, com hashes e certificados de inicialização atualizados. Na verificação registrada, o Defender ainda detecta o executável I2P e o ZIP originais. A correspondência com o hash oficial não comprova segurança nem confirma um falso positivo. Uma exclusão local só vale no computador em que foi registrada; o pacote público não a configura. Outros computadores podem bloquear os mesmos arquivos.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Compatibilidade da assinatura no Android",
     "android": "O formato dos arquivos da carteira, os endereços e as moedas existentes não mudaram. O backup criptografado anterior pode ser restaurado no novo aplicativo para continuar usando a mesma carteira. O nó Android 0.6.102 e a carteira 1.1.13 usam uma nova chave de assinatura de distribuição. Não podem substituir uma instalação assinada com outra chave. Mantenha o aplicativo antigo e seus dados até obter um backup criptografado da carteira e um método de recuperação funcional. Não desinstale o aplicativo antigo apenas para forçar a instalação da atualização."
   },
@@ -76,10 +76,10 @@
     "fees": [
       "Комиссия равна сумме входов за вычетом суммы выходов. Выход сдачи учитывается в оценке только тогда, когда кошелёк действительно создаёт сдачу достаточного размера. Остаток ниже порога кошелька добавляется к комиссии; итоговая комиссия и полная сумма списания показываются перед подтверждением. Ставка задаётся в yugeon/vB. Виртуальный размер — это вес транзакции, делённый на четыре с округлением вверх.",
       "Кошелёк один раз выбирает входы и выходы и подписывает этот же план транзакции. При подтверждении отправляется сохранённая подписанная транзакция: она не собирается заново, а комиссия не пересчитывается. Если срок расчёта истёк или вход уже потрачен, нужна новая проверка. Приём в локальную очередь не означает подтверждения в блоке.",
-      "Для обычных переводов P2WPKH кошелёк создаёт подписи low-R и low-S длиной не более 71 байта вместе с байтом SIGHASH_ALL. Это политика подписи и оценки размера, а не новое правило консенсуса для остальных действительных подписей. Более короткая подпись может уменьшить фактический виртуальный размер. Рекомендуемые ставки по-прежнему зависят от локальной очереди; сходный с Bitcoin расчёт размера не означает применение ставок сети Bitcoin."
+      "Для обычных переводов P2WPKH кошелёк создаёт подписи low-R и low-S длиной не более 71 байта вместе с байтом SIGHASH_ALL. Это политика подписи и оценки размера, а не новое правило консенсуса для остальных действительных подписей. Более короткая подпись может уменьшить фактический виртуальный размер. "
     ],
-    "operations_title": "Компонент I2P для Windows и проверка безопасности",
-    "operations": "В пакеты Windows включён официальный i2pd 3.0.0 с обновлёнными контрольными суммами и сертификатами начального подключения. В зафиксированной проверке Defender по-прежнему обнаруживает угрозу в официальном исполняемом файле I2P и исходном ZIP. Совпадение с официальным хешем не доказывает безопасность и не подтверждает ложное срабатывание. Локальное исключение действует только на том ПК, где оно задано; публичный пакет его не устанавливает. Другие компьютеры могут заблокировать те же файлы.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Совместимость подписей Android",
     "android": "Формат файлов кошелька, адреса и имеющиеся монеты не изменились. Существующую зашифрованную резервную копию можно восстановить в новом приложении и пользоваться тем же кошельком. Узел Android 0.6.102 и кошелёк 1.1.13 используют новый ключ подписи выпуска. Они не могут заменить приложение, подписанное другим ключом. Сохраните старое приложение и его данные, пока не получите зашифрованную резервную копию кошелька и рабочий способ восстановления. Не удаляйте старое приложение лишь ради принудительной установки обновления."
   },
@@ -88,10 +88,10 @@
     "fees": [
       "Die Gebühr ist die Summe der Eingänge abzüglich der Summe der Ausgänge. Ein Wechselgeldausgang wird nur dann geschätzt, wenn die Wallet tatsächlich ausreichend Wechselgeld erzeugt. Ein Rest unterhalb der Wallet-Schwelle wird der Gebühr zugeschlagen; die resultierende Gebühr und die gesamte Belastung erscheinen zur Prüfung. Der Gebührensatz wird in yugeon/vB angegeben. Die virtuelle Größe entspricht dem Transaktionsgewicht geteilt durch vier, aufgerundet auf eine ganze Zahl.",
       "Die Wallet wählt Eingänge und Ausgänge genau einmal und signiert diesen Transaktionsplan. Beim Bestätigen wird die gespeicherte signierte Transaktion eingereicht, ohne sie neu aufzubauen oder die Gebühr neu zu berechnen. Ein abgelaufenes Angebot oder inzwischen ausgegebene Eingänge erfordern eine erneute Prüfung. Die Aufnahme in die lokale Warteschlange ist noch keine Bestätigung in einem Block.",
-      "Bei gewöhnlichen P2WPKH-Zahlungen erzeugt die Wallet Low-R-/Low-S-Signaturen mit höchstens 71 Byte einschließlich des SIGHASH_ALL-Bytes. Das ist eine Signatur- und Schätzrichtlinie, keine neue Konsensgrenze für andere gültige Signaturen. Kürzere Signaturen können die tatsächliche virtuelle Größe verringern. Die vorgeschlagenen Sätze beruhen weiterhin auf der lokalen Warteschlange; eine ähnliche Größenberechnung wie bei Bitcoin übernimmt nicht dessen Netzwerkgebühren."
+      "Bei gewöhnlichen P2WPKH-Zahlungen erzeugt die Wallet Low-R-/Low-S-Signaturen mit höchstens 71 Byte einschließlich des SIGHASH_ALL-Bytes. Das ist eine Signatur- und Schätzrichtlinie, keine neue Konsensgrenze für andere gültige Signaturen. Kürzere Signaturen können die tatsächliche virtuelle Größe verringern. "
     ],
-    "operations_title": "Windows-I2P-Komponente und Sicherheitsprüfung",
-    "operations": "Die Windows-Pakete enthalten das offizielle i2pd 3.0.0 samt aktualisierten Prüfsummen und Reseed-Zertifikaten. Im protokollierten Test erkennt Defender die offizielle I2P-Programmdatei und das Original-ZIP weiterhin als Bedrohung. Ein passender offizieller Hash beweist weder Unbedenklichkeit noch einen Fehlalarm. Eine lokale Dateiausnahme gilt nur auf dem PC, auf dem sie eingerichtet wurde; das öffentliche Paket richtet sie nicht ein. Andere Rechner können dieselben Dateien blockieren.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Kompatibilität der Android-Signatur",
     "android": "Wallet-Dateiformate, Adressen und vorhandene Coins bleiben unverändert. Die vorhandene verschlüsselte Sicherung lässt sich in der neuen App wiederherstellen, um dieselbe Wallet weiterzuverwenden. Der Android-Knoten 0.6.102 und die Wallet 1.1.13 verwenden einen neu erzeugten Veröffentlichungsschlüssel. Sie können keine mit einem anderen Schlüssel signierte Installation ersetzen. Bewahren Sie die alte App und ihre Daten auf, bis eine verschlüsselte Wallet-Sicherung und ein funktionierender Wiederherstellungsweg vorliegen. Deinstallieren Sie die alte App nicht nur, um die Installation eines Updates zu erzwingen."
   },
@@ -100,10 +100,10 @@
     "fees": [
       "Ada ni jumla ya ingizo ukiondoa jumla ya matokeo. Makadirio yanahesabu tokeo la chenji tu ikiwa pochi itaunda chenji inayofikia kiwango chake cha chini. Salio dogo kuliko kiwango hicho huongezwa kwenye ada; ada inayotokana na hesabu hiyo na jumla itakayokatwa huonyeshwa ili vikaguliwe. Kiwango cha ada huandikwa kwa yugeon/vB. Ukubwa pepe ni uzito wa muamala uliogawanywa kwa nne na kuzungushwa kwenda juu.",
       "Pochi huchagua ingizo na matokeo mara moja tu, kisha hutia sahihi mpango huohuo wa muamala. Unapothibitisha, hutuma muamala wenye sahihi uliohifadhiwa bila kuujenga upya au kukokotoa tena ada. Makadirio yakiisha muda au ingizo likiwa limetumika, ukaguzi mpya unahitajika. Kukubaliwa katika foleni ya ndani si uthibitisho ndani ya bloku.",
-      "Kwa malipo ya kawaida ya P2WPKH, pochi hutengeneza sahihi za low-R na low-S zenye hadi baiti 71, ikijumuisha baiti ya SIGHASH_ALL. Hii ni sera ya utiaji sahihi na makadirio ya ukubwa, wala si kikomo kipya cha makubaliano kwa sahihi nyingine halali. Sahihi fupi inaweza kupunguza ukubwa pepe halisi. Mapendekezo ya viwango bado hutumia foleni ya ndani; kutumia hesabu ya ukubwa inayofanana na Bitcoin hakumaanishi kutumia viwango vya ada vya mtandao wa Bitcoin."
+      "Kwa malipo ya kawaida ya P2WPKH, pochi hutengeneza sahihi za low-R na low-S zenye hadi baiti 71, ikijumuisha baiti ya SIGHASH_ALL. Hii ni sera ya utiaji sahihi na makadirio ya ukubwa, wala si kikomo kipya cha makubaliano kwa sahihi nyingine halali. Sahihi fupi inaweza kupunguza ukubwa pepe halisi. "
     ],
-    "operations_title": "Kijenzi cha I2P cha Windows na ukaguzi wa usalama",
-    "operations": "Vifurushi vya Windows vina i2pd 3.0.0 rasmi pamoja na hashi na vyeti vya kuanzisha muunganisho vilivyosasishwa. Katika ukaguzi uliorekodiwa, Defender bado hutambua faili rasmi ya I2P na ZIP yake kama tishio. Hashi inayolingana na chanzo rasmi haithibitishi usalama wala tahadhari ya kimakosa. Ruhusa ya kutokagua faili kwenye kompyuta moja hutumika hapo tu; kifurushi cha umma hakiiongezi. Kompyuta nyingine zinaweza kuzuia faili hizo.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Uoanifu wa sahihi za Android",
     "android": "Muundo wa faili za pochi, anwani na sarafu zilizopo havijabadilika. Nakala fiche ya pochi iliyopo inaweza kurejeshwa katika programu mpya ili kuendelea kutumia pochi hiyohiyo. Nodi ya Android 0.6.102 na pochi 1.1.13 hutumia ufunguo mpya wa kusaini matoleo. Haziwezi kuchukua nafasi ya programu iliyosainiwa kwa ufunguo tofauti. Hifadhi programu ya zamani na data yake mpaka uwe na nakala fiche ya pochi na njia inayofanya kazi ya kuirejesha. Usiondoe programu ya zamani kwa lengo la kulazimisha usakinishaji wa sasisho."
   },
@@ -112,10 +112,10 @@
     "fees": [
       "शुल्क इनपुट की कुल राशि में से आउटपुट की कुल राशि घटाने पर मिलता है। अनुमान में चेंज आउटपुट तभी गिना जाता है जब वॉलेट वास्तव में पर्याप्त चेंज बनाता है। वॉलेट की सीमा से कम बची राशि शुल्क में जुड़ जाती है; पुष्टि से पहले अंतिम शुल्क और कुल कटौती दिखाई जाती है। दर की इकाई yugeon/vB है। वर्चुअल आकार, लेन-देन के भार को चार से भाग देकर ऊपर की पूर्ण संख्या तक गोल करने पर मिलता है।",
       "वॉलेट इनपुट और आउटपुट एक ही बार चुनता है और उसी योजना पर हस्ताक्षर करता है। पुष्टि करने पर सुरक्षित रखा गया वही हस्ताक्षरित लेन-देन भेजा जाता है; उसे दोबारा बनाया नहीं जाता और शुल्क फिर नहीं निकाला जाता। अनुमान की अवधि समाप्त होने या किसी इनपुट के खर्च हो जाने पर दोबारा समीक्षा करनी होती है। स्थानीय कतार में स्वीकार होना, ब्लॉक में पुष्टि होना नहीं है।",
-      "सामान्य P2WPKH भुगतान में वॉलेट low-R और low-S हस्ताक्षर बनाता है, जिनकी लंबाई SIGHASH_ALL बाइट सहित अधिकतम 71 बाइट होती है। यह हस्ताक्षर और आकार-अनुमान की नीति है, अन्य वैध हस्ताक्षरों पर नया सहमति नियम नहीं। छोटा हस्ताक्षर वास्तविक वर्चुअल आकार घटा सकता है। सुझाई गई दरें अब भी स्थानीय लंबित कतार पर आधारित हैं; Bitcoin जैसी आकार-गणना का अर्थ उसके नेटवर्क की शुल्क दरें अपनाना नहीं है।"
+      "सामान्य P2WPKH भुगतान में वॉलेट low-R और low-S हस्ताक्षर बनाता है, जिनकी लंबाई SIGHASH_ALL बाइट सहित अधिकतम 71 बाइट होती है। यह हस्ताक्षर और आकार-अनुमान की नीति है, अन्य वैध हस्ताक्षरों पर नया सहमति नियम नहीं। छोटा हस्ताक्षर वास्तविक वर्चुअल आकार घटा सकता है। "
     ],
-    "operations_title": "Windows का I2P घटक और सुरक्षा जाँच",
-    "operations": "Windows पैकेज में आधिकारिक i2pd 3.0.0, अद्यतन हैश और शुरुआती कनेक्शन के प्रमाणपत्र शामिल हैं। दर्ज जाँच में Defender अभी भी आधिकारिक I2P निष्पादन योग्य फ़ाइल और मूल ZIP को पहचानता है। आधिकारिक हैश से मेल होना सुरक्षा या गलत चेतावनी की पुष्टि नहीं करता। किसी फ़ाइल को स्थानीय जाँच से छूट केवल उसी कंप्यूटर पर मिलती है जहाँ उसे दर्ज किया गया हो; सार्वजनिक पैकेज यह छूट नहीं जोड़ता। दूसरे कंप्यूटर इन फ़ाइलों को रोक सकते हैं।",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android हस्ताक्षर की संगतता",
     "android": "वॉलेट फ़ाइल का प्रारूप, पते और मौजूदा कॉइन नहीं बदले हैं। पुराने एन्क्रिप्टेड बैकअप को नए ऐप में बहाल करके वही वॉलेट इस्तेमाल किया जा सकता है। Android नोड 0.6.102 और वॉलेट 1.1.13 नई रिलीज़ हस्ताक्षर कुंजी इस्तेमाल करते हैं। वे अलग कुंजी से हस्ताक्षरित पुराने इंस्टॉलेशन को बदल नहीं सकते। एन्क्रिप्टेड वॉलेट बैकअप और काम करने वाला पुनर्प्राप्ति तरीका मिलने तक पुराना ऐप और उसका डेटा सुरक्षित रखें। केवल अपडेट इंस्टॉल कराने के लिए पुराना ऐप न हटाएँ।"
   },
@@ -124,10 +124,10 @@
     "fees": [
       "수수료는 입력 금액 합계에서 출력 금액 합계를 뺀 값입니다. 지갑이 실제로 유효한 거스름돈을 만들 때만 견적에 거스름돈 출력의 크기를 포함합니다. 지갑의 거스름돈 기준에 못 미치는 잔액은 수수료에 합산되며, 최종 수수료와 총 출금액을 확인할 수 있습니다. 수수료율 단위는 yugeon/vB이며, 가상 크기는 거래 가중치를 4로 나눈 뒤 올림한 값입니다.",
       "지갑은 입력과 출력을 한 번 선택한 뒤 그 거래 계획 그대로 서명합니다. 사용자가 확인하면 저장된 동일 서명 거래를 제출하며, 거래를 다시 구성하거나 수수료를 재계산하지 않습니다. 견적이 만료되거나 입력이 먼저 사용됐다면 새로 확인해야 합니다. 로컬 대기열에 접수됐다고 블록에서 확인된 것은 아닙니다.",
-      "일반 P2WPKH 송금은 low-R·low-S 서명을 사용하며 SIGHASH_ALL 바이트를 포함해 최대 71바이트입니다. 이는 지갑의 서명 생성·크기 추정 정책으로, 다른 유효 서명에 새 합의 제한을 적용하는 규칙이 아닙니다. 서명이 더 짧으면 실제 가상 크기는 추정치보다 작을 수 있습니다. 수수료율은 계속 내 노드의 대기열을 기준으로 제안하므로, 비트코인과 크기 계산 방식을 맞췄다고 비트코인 네트워크의 수수료율을 사용하는 것은 아닙니다."
+      "일반 P2WPKH 송금은 low-R·low-S 서명을 사용하며 SIGHASH_ALL 바이트를 포함해 최대 71바이트입니다. 이는 지갑의 서명 생성·크기 추정 정책으로, 다른 유효 서명에 새 합의 제한을 적용하는 규칙이 아닙니다. 서명이 더 짧으면 실제 가상 크기는 추정치보다 작을 수 있습니다. "
     ],
-    "operations_title": "Windows I2P 구성요소와 보안 검사",
-    "operations": "Windows 배포본에는 공식 i2pd 3.0.0과 갱신한 체크섬·초기 연결용 인증서를 포함합니다. 기록된 검사에서 Defender는 공식 I2P 실행 파일과 원본 ZIP을 여전히 탐지했습니다. 공식 해시와 일치한다는 사실만으로 안전하거나 오탐이라고 확정할 수는 없습니다. 파일별 보안 예외는 등록한 PC에만 적용되며, 공개 배포본이 자동으로 등록하지 않습니다. 다른 PC에서는 같은 파일이 차단될 수 있습니다.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android 앱 서명 호환성",
     "android": "지갑 파일 형식·주소·기존 코인은 바뀌지 않았습니다. 기존 암호화 지갑 백업을 새 앱에서 복원해 같은 지갑을 계속 사용할 수 있습니다. Android 노드 0.6.102와 지갑 1.1.13은 새로 생성한 배포 서명키를 사용합니다. 다른 키로 서명된 기존 앱 위에는 덮어쓰기 설치할 수 없습니다. 지갑의 암호화 백업과 정상적으로 작동하는 복구 수단을 확보할 때까지 기존 앱과 데이터를 보관하세요. 업데이트를 강제로 설치하려는 목적으로 기존 앱부터 삭제하지 마세요."
   },
@@ -136,10 +136,10 @@
     "fees": [
       "手数料は入力金額の合計から出力金額の合計を引いた値です。ウォレットが実際に有効なお釣りを作る場合だけ、見積もりにお釣り出力のサイズを含めます。ウォレットの基準に満たない残額は手数料に加えられ、最終手数料と総引落額が確認画面に表示されます。料率の単位は yugeon/vB です。仮想サイズは取引のウェイトを4で割り、切り上げた値です。",
       "ウォレットは入力と出力を一度だけ選び、その同じ取引プランに署名します。確認後は保存済みの署名付き取引を送信し、取引の再構成や手数料の再計算は行いません。見積もりが期限切れになった場合や入力が先に使用された場合は、再確認が必要です。ローカルの待機キューへの受理は、ブロックでの承認とは異なります。",
-      "通常の P2WPKH 送金では low-R・low-S 署名を生成し、SIGHASH_ALL バイトを含めて最大71バイトとします。これはウォレットの署名・サイズ見積もりの方針であり、ほかの有効な署名に新たなコンセンサス制限を設けるものではありません。署名が短ければ実際の仮想サイズは見積もりより小さくなることがあります。推奨料率は引き続き自ノードの待機キューに基づきます。Bitcoin と同様のサイズ計算を採用しても、Bitcoin ネットワークの料率を使うわけではありません。"
+      "通常の P2WPKH 送金では low-R・low-S 署名を生成し、SIGHASH_ALL バイトを含めて最大71バイトとします。これはウォレットの署名・サイズ見積もりの方針であり、ほかの有効な署名に新たなコンセンサス制限を設けるものではありません。署名が短ければ実際の仮想サイズは見積もりより小さくなることがあります。推奨料率は引き続き自ノードの待機キューに基づきます。"
     ],
-    "operations_title": "Windows の I2P コンポーネントとセキュリティ検査",
-    "operations": "Windows 配布物には公式 i2pd 3.0.0 と更新済みのハッシュ値・初期接続用証明書を含めています。記録した検査では、Defender は公式の I2P 実行ファイルと元の ZIP を引き続き検出しました。公式ハッシュとの一致だけでは、安全性や誤検出を確定できません。ファイル単位の除外設定は登録した PC にだけ有効で、公開パッケージから自動設定されることはありません。ほかの PC では同じファイルがブロックされる場合があります。",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android の署名互換性",
     "android": "ウォレットファイルの形式、アドレス、既存のコインは変更していません。従来の暗号化バックアップを新アプリで復元し、同じウォレットを引き続き使えます。 Android ノード 0.6.102 とウォレット 1.1.13 は、新しく生成したリリース署名鍵を使います。別の鍵で署名された既存アプリには上書きインストールできません。暗号化したウォレットのバックアップと動作する復元方法を確保するまで、旧アプリとそのデータを保管してください。更新を無理にインストールするために、先に旧アプリを削除しないでください。"
   },
@@ -148,10 +148,10 @@
     "fees": [
       "Biaya adalah jumlah nilai input dikurangi jumlah nilai output. Perkiraan hanya menghitung output kembalian jika dompet benar-benar membuat kembalian yang memenuhi ambangnya. Sisa di bawah ambang tersebut ditambahkan ke biaya; biaya akhir dan total saldo yang dipotong ditampilkan untuk diperiksa. Tarif dinyatakan dalam yugeon/vB. Ukuran virtual adalah bobot transaksi dibagi empat, lalu dibulatkan ke atas.",
       "Dompet memilih input dan output sekali saja, lalu menandatangani rencana transaksi yang sama. Saat dikonfirmasi, transaksi bertanda tangan yang tersimpan dikirim tanpa disusun ulang atau dihitung ulang biayanya. Perkiraan yang kedaluwarsa atau input yang sudah dibelanjakan memerlukan peninjauan baru. Diterima dalam antrean lokal bukan berarti sudah dikonfirmasi di dalam blok.",
-      "Untuk pembayaran P2WPKH biasa, dompet menghasilkan tanda tangan low-R dan low-S berukuran paling besar 71 bita, termasuk bita SIGHASH_ALL. Ini adalah kebijakan penandatanganan dan perkiraan ukuran, bukan batas konsensus baru bagi tanda tangan sah lainnya. Tanda tangan yang lebih pendek dapat memperkecil ukuran virtual sebenarnya. Saran tarif tetap memakai antrean lokal; mengikuti perhitungan ukuran Bitcoin tidak berarti memakai tarif jaringan Bitcoin."
+      "Untuk pembayaran P2WPKH biasa, dompet menghasilkan tanda tangan low-R dan low-S berukuran paling besar 71 bita, termasuk bita SIGHASH_ALL. Ini adalah kebijakan penandatanganan dan perkiraan ukuran, bukan batas konsensus baru bagi tanda tangan sah lainnya. Tanda tangan yang lebih pendek dapat memperkecil ukuran virtual sebenarnya. "
     ],
-    "operations_title": "Komponen I2P Windows dan pemeriksaan keamanan",
-    "operations": "Paket Windows menyertakan i2pd 3.0.0 resmi dengan hash dan sertifikat koneksi awal yang diperbarui. Dalam pemeriksaan yang dicatat, Defender masih mendeteksi berkas I2P dan ZIP resmi tersebut. Kecocokan hash dengan sumber resmi tidak membuktikan keamanan atau memastikan deteksi keliru. Pengecualian berkas lokal hanya berlaku di komputer tempat pengecualian itu didaftarkan; paket publik tidak memasangnya. Komputer lain masih dapat memblokir berkas yang sama.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Kompatibilitas tanda tangan Android",
     "android": "Format berkas dompet, alamat, dan koin yang sudah ada tidak berubah. Cadangan dompet terenkripsi yang lama dapat dipulihkan di aplikasi baru untuk terus memakai dompet yang sama. Node Android 0.6.102 dan dompet 1.1.13 memakai kunci penandatanganan rilis yang baru. Keduanya tidak dapat menggantikan aplikasi yang ditandatangani dengan kunci berbeda. Simpan aplikasi lama dan datanya sampai tersedia cadangan dompet terenkripsi serta cara pemulihan yang berfungsi. Jangan menghapus aplikasi lama hanya untuk memaksa pemasangan pembaruan."
   },
@@ -160,10 +160,10 @@
     "fees": [
       "Phí bằng tổng giá trị đầu vào trừ tổng giá trị đầu ra. Ước tính chỉ tính đầu ra tiền thừa khi ví thực sự tạo khoản tiền thừa đạt ngưỡng quy định. Phần còn lại dưới ngưỡng được cộng vào phí; phí cuối cùng và tổng số tiền trừ khỏi ví được hiển thị để kiểm tra. Đơn vị mức phí là yugeon/vB. Kích thước ảo bằng trọng số giao dịch chia bốn rồi làm tròn lên.",
       "Ví chỉ chọn đầu vào và đầu ra một lần, sau đó ký đúng phương án giao dịch đó. Khi bạn xác nhận, ví gửi giao dịch đã ký được lưu sẵn, không dựng lại giao dịch hay tính lại phí. Nếu báo phí hết hạn hoặc đầu vào đã được chi tiêu, bạn cần kiểm tra lại. Được chấp nhận vào hàng đợi cục bộ không có nghĩa là đã được xác nhận trong khối.",
-      "Với thanh toán P2WPKH thông thường, ví tạo chữ ký low-R và low-S dài tối đa 71 byte, bao gồm byte SIGHASH_ALL. Đây là chính sách ký và ước tính kích thước, không phải giới hạn đồng thuận mới đối với những chữ ký hợp lệ khác. Chữ ký ngắn hơn có thể làm kích thước ảo thực tế nhỏ hơn ước tính. Mức phí đề xuất vẫn dựa trên hàng đợi cục bộ; dùng cách tính kích thước tương tự Bitcoin không đồng nghĩa với dùng mức phí của mạng Bitcoin."
+      "Với thanh toán P2WPKH thông thường, ví tạo chữ ký low-R và low-S dài tối đa 71 byte, bao gồm byte SIGHASH_ALL. Đây là chính sách ký và ước tính kích thước, không phải giới hạn đồng thuận mới đối với những chữ ký hợp lệ khác. Chữ ký ngắn hơn có thể làm kích thước ảo thực tế nhỏ hơn ước tính. "
     ],
-    "operations_title": "Thành phần I2P trên Windows và kiểm tra bảo mật",
-    "operations": "Gói Windows chứa i2pd 3.0.0 chính thức cùng giá trị băm và chứng chỉ kết nối ban đầu đã cập nhật. Trong lần kiểm tra được ghi nhận, Defender vẫn phát hiện tệp thực thi I2P và ZIP gốc chính thức. Giá trị băm trùng với nguồn chính thức không chứng minh tệp an toàn hay chắc chắn là nhận diện nhầm. Ngoại lệ tệp cục bộ chỉ có hiệu lực trên máy đã đăng ký; gói công khai không tự thêm ngoại lệ. Máy khác vẫn có thể chặn các tệp này.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Tương thích chữ ký Android",
     "android": "Định dạng tệp ví, địa chỉ và số coin hiện có không thay đổi. Có thể khôi phục bản sao lưu ví được mã hóa cũ trong ứng dụng mới để tiếp tục dùng cùng một ví. Nút Android 0.6.102 và ví 1.1.13 dùng khóa ký phát hành mới. Chúng không thể thay thế bản cài đặt được ký bằng khóa khác. Hãy giữ ứng dụng cũ và dữ liệu cho đến khi có bản sao lưu ví được mã hóa và cách khôi phục hoạt động được. Đừng gỡ ứng dụng cũ chỉ để ép cài bản cập nhật."
   },
@@ -172,10 +172,10 @@
     "fees": [
       "Ücret, girdilerin toplamından çıktıların toplamı çıkarılarak bulunur. Tahmine para üstü çıktısı yalnızca cüzdan gerçekten eşik değerini karşılayan bir para üstü oluşturduğunda eklenir. Eşiğin altında kalan tutar ücrete katılır; son ücret ve toplam borçlandırma inceleme için gösterilir. Ücret oranı yugeon/vB cinsindendir. Sanal boyut, işlem ağırlığının dörde bölünüp yukarı yuvarlanmasıyla hesaplanır.",
       "Cüzdan girdileri ve çıktıları bir kez seçer, ardından aynı işlem planını imzalar. Onay verildiğinde saklanan imzalı işlem gönderilir; işlem yeniden kurulmaz ve ücret yeniden hesaplanmaz. Teklifin süresi dolmuşsa veya girdiler bu arada harcanmışsa yeniden inceleme gerekir. Yerel kuyruğa kabul edilmek, bir blokta onaylanmak anlamına gelmez.",
-      "Normal P2WPKH ödemelerinde cüzdan, SIGHASH_ALL baytı dahil en fazla 71 baytlık low-R ve low-S imzalar üretir. Bu bir imzalama ve boyut tahmini politikasıdır; diğer geçerli imzalara getirilen yeni bir mutabakat sınırı değildir. Daha kısa bir imza gerçek sanal boyutu azaltabilir. Önerilen oranlar hâlâ yerel kuyruğa dayanır; Bitcoin’e benzer boyut hesabı kullanılması Bitcoin ağının ücret oranlarının kullanıldığı anlamına gelmez."
+      "Normal P2WPKH ödemelerinde cüzdan, SIGHASH_ALL baytı dahil en fazla 71 baytlık low-R ve low-S imzalar üretir. Bu bir imzalama ve boyut tahmini politikasıdır; diğer geçerli imzalara getirilen yeni bir mutabakat sınırı değildir. Daha kısa bir imza gerçek sanal boyutu azaltabilir. "
     ],
-    "operations_title": "Windows I2P bileşeni ve güvenlik denetimleri",
-    "operations": "Windows paketleri, güncel özet değerleri ve ilk bağlantı sertifikalarıyla birlikte resmî i2pd 3.0.0 sürümünü içerir. Kaydedilen denetimde Defender, resmî I2P yürütülebilir dosyasını ve kaynak ZIP’i hâlâ algılamaktadır. Resmî özetin eşleşmesi, güvenliği veya yanlış algılamayı kanıtlamaz. Yerel dosya istisnası yalnızca kaydedildiği bilgisayarda geçerlidir; genel dağıtım paketi bu istisnayı eklemez. Başka bilgisayarlar aynı dosyaları engelleyebilir.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android imza uyumluluğu",
     "android": "Cüzdan dosya biçimleri, adresler ve mevcut coinler değişmedi. Eski şifrelenmiş cüzdan yedeği yeni uygulamada geri yüklenerek aynı cüzdan kullanılabilir. Android düğümü 0.6.102 ve cüzdan 1.1.13 yeni bir sürüm imzalama anahtarı kullanır. Başka anahtarla imzalanmış bir kurulumun yerine yüklenemezler. Şifrelenmiş cüzdan yedeği ve çalışan bir kurtarma yöntemi edinene kadar eski uygulamayı ve verilerini saklayın. Güncellemeyi zorla yüklemek için eski uygulamayı kaldırmayın."
   },
@@ -184,10 +184,10 @@
     "fees": [
       "ค่าธรรมเนียมคือยอดรวมอินพุตลบด้วยยอดรวมเอาต์พุต การประมาณขนาดจะนับเอาต์พุตเงินทอนเฉพาะเมื่อกระเป๋าสร้างเงินทอนที่ผ่านเกณฑ์จริงเท่านั้น หากยอดที่เหลือต่ำกว่าเกณฑ์ของกระเป๋า ยอดนั้นจะรวมเป็นค่าธรรมเนียม โดยแสดงค่าธรรมเนียมสุดท้ายและยอดหักรวมให้ตรวจสอบ อัตราค่าธรรมเนียมใช้หน่วย yugeon/vB ส่วนขนาดเสมือนคือน้ำหนักธุรกรรมหารด้วยสี่แล้วปัดขึ้น",
       "กระเป๋าเลือกอินพุตและเอาต์พุตเพียงครั้งเดียว แล้วลงนามตามแผนธุรกรรมเดียวกัน เมื่อยืนยันจะส่งธุรกรรมที่ลงนามและเก็บไว้ โดยไม่สร้างธุรกรรมใหม่หรือคำนวณค่าธรรมเนียมซ้ำ หากรายการประมาณการหมดอายุหรืออินพุตถูกใช้ไปแล้ว ต้องตรวจสอบใหม่ การรับเข้าคิวภายในเครื่องยังไม่ใช่การยืนยันในบล็อก",
-      "การชำระเงิน P2WPKH ทั่วไปใช้ลายเซ็น low-R และ low-S ที่ยาวไม่เกิน 71 ไบต์รวมไบต์ SIGHASH_ALL นี่คือนโยบายการลงนามและการประมาณขนาดของกระเป๋า ไม่ใช่ข้อจำกัดฉันทามติใหม่สำหรับลายเซ็นที่ถูกต้องอื่น ๆ ลายเซ็นที่สั้นกว่าอาจทำให้ขนาดเสมือนจริงเล็กกว่าค่าประมาณ อัตราที่แนะนำยังคงอ้างอิงคิวภายในโหนด การคำนวณขนาดในแนวทางเดียวกับ Bitcoin ไม่ได้หมายความว่าใช้อัตราค่าธรรมเนียมของเครือข่าย Bitcoin"
+      "การชำระเงิน P2WPKH ทั่วไปใช้ลายเซ็น low-R และ low-S ที่ยาวไม่เกิน 71 ไบต์รวมไบต์ SIGHASH_ALL นี่คือนโยบายการลงนามและการประมาณขนาดของกระเป๋า ไม่ใช่ข้อจำกัดฉันทามติใหม่สำหรับลายเซ็นที่ถูกต้องอื่น ๆ ลายเซ็นที่สั้นกว่าอาจทำให้ขนาดเสมือนจริงเล็กกว่าค่าประมาณ อัตราที่แนะนำยังคงอ้างอิงคิวภายในโหนด "
     ],
-    "operations_title": "ส่วนประกอบ I2P ของ Windows และการตรวจสอบความปลอดภัย",
-    "operations": "แพ็กเกจ Windows มี i2pd 3.0.0 อย่างเป็นทางการ พร้อมแฮชและใบรับรองสำหรับการเชื่อมต่อเริ่มต้นที่อัปเดตแล้ว ในผลตรวจที่บันทึกไว้ Defender ยังตรวจพบไฟล์โปรแกรม I2P และ ZIP ต้นฉบับอย่างเป็นทางการ แฮชที่ตรงกับต้นทางไม่ใช่หลักฐานยืนยันความปลอดภัยหรือยืนยันว่าเป็นการตรวจผิด ข้อยกเว้นไฟล์ในเครื่องมีผลเฉพาะคอมพิวเตอร์ที่ตั้งค่าไว้ แพ็กเกจสาธารณะจะไม่เพิ่มข้อยกเว้นนี้ให้ เครื่องอื่นยังอาจบล็อกไฟล์เดียวกันได้",
+    "operations_title": "",
+    "operations": "",
     "android_title": "ความเข้ากันได้ของลายเซ็น Android",
     "android": "รูปแบบไฟล์กระเป๋า ที่อยู่ และเหรียญเดิมไม่เปลี่ยนแปลง สามารถกู้คืนข้อมูลสำรองกระเป๋าแบบเข้ารหัสเดิมในแอปใหม่เพื่อใช้กระเป๋าใบเดิมต่อได้ โหนด Android 0.6.102 และกระเป๋า 1.1.13 ใช้กุญแจลงนามรุ่นเผยแพร่ที่สร้างใหม่ จึงติดตั้งทับแอปเดิมที่ลงนามด้วยกุญแจต่างกันไม่ได้ โปรดเก็บแอปเดิมและข้อมูลไว้จนกว่าจะมีข้อมูลสำรองกระเป๋าแบบเข้ารหัสและวิธีกู้คืนที่ใช้งานได้ อย่าถอนการติดตั้งแอปเดิมเพียงเพื่อบังคับติดตั้งรุ่นอัปเดต"
   },
@@ -196,10 +196,10 @@
     "fees": [
       "La commissione è la somma degli input meno la somma degli output. La stima include un output di resto soltanto se il portafoglio crea effettivamente un resto sufficiente. Un residuo inferiore alla soglia del portafoglio viene aggiunto alla commissione; la commissione risultante e l’addebito totale sono mostrati per la verifica. La tariffa è espressa in yugeon/vB. La dimensione virtuale è il peso della transazione diviso per quattro e arrotondato per eccesso.",
       "Il portafoglio sceglie input e output una sola volta e firma quello stesso piano di transazione. La conferma invia la transazione firmata conservata, senza ricostruirla né ricalcolare la commissione. Una stima scaduta o input già spesi richiedono una nuova verifica. L’accettazione nella coda locale non equivale alla conferma in un blocco.",
-      "Per i normali pagamenti P2WPKH, il portafoglio genera firme low-R e low-S lunghe al massimo 71 byte, incluso il byte SIGHASH_ALL. È una politica di firma e di stima delle dimensioni, non un nuovo limite di consenso per altre firme valide. Una firma più corta può ridurre la dimensione virtuale effettiva. Le tariffe suggerite dipendono ancora dalla coda locale: seguire un calcolo delle dimensioni simile a Bitcoin non significa adottare le tariffe della rete Bitcoin."
+      "Per i normali pagamenti P2WPKH, il portafoglio genera firme low-R e low-S lunghe al massimo 71 byte, incluso il byte SIGHASH_ALL. È una politica di firma e di stima delle dimensioni, non un nuovo limite di consenso per altre firme valide. Una firma più corta può ridurre la dimensione virtuale effettiva. "
     ],
-    "operations_title": "Componente I2P di Windows e controlli di sicurezza",
-    "operations": "I pacchetti Windows includono i2pd 3.0.0 ufficiale con hash e certificati per il collegamento iniziale aggiornati. Nel controllo registrato, Defender continua a rilevare l’eseguibile I2P e lo ZIP ufficiali. La corrispondenza con l’hash ufficiale non dimostra la sicurezza né conferma un falso positivo. Un’esclusione locale riguarda solo il PC su cui viene impostata; il pacchetto pubblico non la configura. Altri computer possono bloccare gli stessi file.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Compatibilità della firma Android",
     "android": "Il formato dei file del portafoglio, gli indirizzi e le monete esistenti non sono cambiati. Il precedente backup cifrato può essere ripristinato nella nuova app per continuare a usare lo stesso portafoglio. Il nodo Android 0.6.102 e il portafoglio 1.1.13 utilizzano una nuova chiave di firma delle versioni. Non possono sostituire un’installazione firmata con una chiave diversa. Conservate la vecchia app e i suoi dati finché non disponete di un backup cifrato del portafoglio e di un metodo di ripristino funzionante. Non disinstallate la vecchia app soltanto per forzare l’aggiornamento."
   },
@@ -208,10 +208,10 @@
     "fees": [
       "فیس، تمام ان پٹس کی رقم میں سے تمام آؤٹ پٹس کی رقم نکالنے سے حاصل ہوتی ہے۔ اندازے میں بقایا رقم کا آؤٹ پٹ صرف اسی وقت شامل ہوتا ہے جب والیٹ واقعی مقررہ حد کے مطابق بقایا واپس بناتا ہے۔ حد سے کم بچی ہوئی رقم فیس میں شامل ہو جاتی ہے؛ تصدیق سے پہلے حتمی فیس اور کل کٹوتی دکھائی جاتی ہے۔ شرح کی اکائی yugeon/vB ہے۔ مجازی حجم، لین دین کے وزن کو چار سے تقسیم کرکے اوپر کے صحیح عدد تک گول کرنے سے بنتا ہے۔",
       "والیٹ ان پٹس اور آؤٹ پٹس ایک ہی بار منتخب کرکے اسی منصوبے پر دستخط کرتا ہے۔ تصدیق کے بعد محفوظ شدہ دستخط شدہ لین دین بھیجی جاتی ہے؛ اسے دوبارہ بنایا یا فیس کا دوبارہ حساب نہیں کیا جاتا۔ تخمینہ ختم ہو جائے یا کوئی ان پٹ پہلے خرچ ہو چکا ہو تو نیا جائزہ ضروری ہے۔ مقامی قطار میں قبول ہونا، بلاک میں تصدیق ہونے کے برابر نہیں۔",
-      "عام P2WPKH ادائیگی میں والیٹ low-R اور low-S دستخط بناتا ہے، جن کی لمبائی SIGHASH_ALL بائٹ سمیت زیادہ سے زیادہ 71 بائٹس ہے۔ یہ دستخط اور حجم کے اندازے کی پالیسی ہے، دیگر درست دستخطوں پر اتفاق رائے کی نئی پابندی نہیں۔ مختصر دستخط سے اصل مجازی حجم کم ہو سکتا ہے۔ تجویز کردہ شرحیں اب بھی مقامی قطار پر مبنی ہیں؛ Bitcoin جیسا حجم کا حساب، Bitcoin نیٹ ورک کی فیس کی شرحیں استعمال کرنے کا مطلب نہیں۔"
+      "عام P2WPKH ادائیگی میں والیٹ low-R اور low-S دستخط بناتا ہے، جن کی لمبائی SIGHASH_ALL بائٹ سمیت زیادہ سے زیادہ 71 بائٹس ہے۔ یہ دستخط اور حجم کے اندازے کی پالیسی ہے، دیگر درست دستخطوں پر اتفاق رائے کی نئی پابندی نہیں۔ مختصر دستخط سے اصل مجازی حجم کم ہو سکتا ہے۔ "
     ],
-    "operations_title": "Windows کا I2P جزو اور حفاظتی جانچ",
-    "operations": "Windows پیکیج میں تازہ ہیش اور ابتدائی رابطے کے سرٹیفکیٹس کے ساتھ سرکاری i2pd 3.0.0 شامل ہے۔ ریکارڈ شدہ جانچ میں Defender اب بھی سرکاری I2P پروگرام اور اصل ZIP کو شناخت کرتا ہے۔ سرکاری ہیش سے مطابقت، تحفظ یا غلط شناخت کی تصدیق نہیں کرتی۔ مقامی فائل کی استثنا صرف اسی کمپیوٹر پر لاگو ہوتی ہے جہاں اسے درج کیا جائے؛ عوامی پیکیج اسے خود شامل نہیں کرتا۔ دوسرے کمپیوٹر انہی فائلوں کو روک سکتے ہیں۔",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android دستخط کی مطابقت",
     "android": "والیٹ فائل کی ساخت، پتے اور موجودہ سکے تبدیل نہیں ہوئے۔ پرانا خفیہ کردہ بیک اپ نئی ایپ میں بحال کرکے وہی والیٹ استعمال کیا جا سکتا ہے۔ Android نوڈ 0.6.102 اور والیٹ 1.1.13 نئی ریلیز دستخطی کلید استعمال کرتے ہیں۔ وہ مختلف کلید سے دستخط شدہ موجودہ ایپ کی جگہ نصب نہیں ہو سکتے۔ والیٹ کا خفیہ کردہ بیک اپ اور کام کرنے والا بحالی کا طریقہ ملنے تک پرانی ایپ اور اس کا ڈیٹا محفوظ رکھیں۔ صرف اپ ڈیٹ زبردستی نصب کرنے کے لیے پرانی ایپ حذف نہ کریں۔"
   },
@@ -220,10 +220,10 @@
     "fees": [
       "Opłata to suma wejść pomniejszona o sumę wyjść. Oszacowanie uwzględnia wyjście reszty tylko wtedy, gdy portfel rzeczywiście tworzy resztę spełniającą jego próg. Pozostała kwota poniżej tego progu jest doliczana do opłaty; wynikowa opłata i łączne obciążenie są wyświetlane do sprawdzenia. Stawkę podaje się w yugeon/vB. Rozmiar wirtualny to waga transakcji podzielona przez cztery i zaokrąglona w górę.",
       "Portfel wybiera wejścia i wyjścia jeden raz, a następnie podpisuje ten sam plan transakcji. Potwierdzenie wysyła zapisaną podpisaną transakcję, bez jej ponownego tworzenia i przeliczania opłaty. Wygaśnięcie wyceny lub wcześniejsze wydanie wejścia wymaga ponownego sprawdzenia. Przyjęcie do lokalnej kolejki nie oznacza potwierdzenia w bloku.",
-      "Przy zwykłych płatnościach P2WPKH portfel tworzy podpisy low-R i low-S o długości do 71 bajtów, łącznie z bajtem SIGHASH_ALL. Jest to polityka podpisywania i szacowania rozmiaru, a nie nowy limit konsensusu dla pozostałych prawidłowych podpisów. Krótszy podpis może zmniejszyć rzeczywisty rozmiar wirtualny. Sugerowane stawki nadal wynikają z lokalnej kolejki; podobny do Bitcoin sposób liczenia rozmiaru nie oznacza stosowania stawek sieci Bitcoin."
+      "Przy zwykłych płatnościach P2WPKH portfel tworzy podpisy low-R i low-S o długości do 71 bajtów, łącznie z bajtem SIGHASH_ALL. Jest to polityka podpisywania i szacowania rozmiaru, a nie nowy limit konsensusu dla pozostałych prawidłowych podpisów. Krótszy podpis może zmniejszyć rzeczywisty rozmiar wirtualny. "
     ],
-    "operations_title": "Składnik I2P dla Windows i kontrola bezpieczeństwa",
-    "operations": "Pakiety Windows zawierają oficjalny i2pd 3.0.0 z aktualnymi sumami kontrolnymi i certyfikatami połączenia początkowego. W zapisanej kontroli Defender nadal wykrywa oficjalny plik wykonywalny I2P i oryginalny ZIP. Zgodność oficjalnego skrótu nie dowodzi bezpieczeństwa ani fałszywego alarmu. Lokalne wykluczenie pliku działa tylko na komputerze, na którym je ustawiono; pakiet publiczny go nie dodaje. Inne komputery mogą zablokować te same pliki.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Zgodność podpisów Android",
     "android": "Format plików portfela, adresy i istniejące monety nie zmieniły się. Dotychczasową zaszyfrowaną kopię można przywrócić w nowej aplikacji i nadal używać tego samego portfela. Węzeł Android 0.6.102 i portfel 1.1.13 korzystają z nowego klucza podpisywania wydań. Nie zastąpią instalacji podpisanej innym kluczem. Zachowaj starą aplikację i jej dane do czasu uzyskania zaszyfrowanej kopii portfela i działającego sposobu odzyskiwania. Nie odinstalowuj starej aplikacji tylko po to, by wymusić instalację aktualizacji."
   },
@@ -232,10 +232,10 @@
     "fees": [
       "De transactiekosten zijn de som van de inputs min de som van de outputs. De schatting telt een wisselgelduitgang alleen mee wanneer de wallet daadwerkelijk voldoende wisselgeld aanmaakt. Een restbedrag onder de walletdrempel wordt bij de kosten opgeteld; de uiteindelijke kosten en de totale afschrijving worden ter controle getoond. Het tarief wordt uitgedrukt in yugeon/vB. De virtuele grootte is het transactiegewicht gedeeld door vier, naar boven afgerond.",
       "De wallet kiest de inputs en outputs één keer en ondertekent datzelfde transactieplan. Na bevestiging wordt de opgeslagen ondertekende transactie ingediend, zonder deze opnieuw op te bouwen of de kosten opnieuw te berekenen. Een verlopen prijsopgave of inmiddels uitgegeven inputs vereisen een nieuwe controle. Opname in de lokale wachtrij betekent nog geen bevestiging in een blok.",
-      "Voor gewone P2WPKH-betalingen maakt de wallet low-R- en low-S-handtekeningen van maximaal 71 bytes, inclusief de SIGHASH_ALL-byte. Dit is beleid voor ondertekening en grootteschatting, geen nieuwe consensuslimiet voor andere geldige handtekeningen. Een kortere handtekening kan de werkelijke virtuele grootte verkleinen. Voorgestelde tarieven blijven gebaseerd op de lokale wachtrij; een vergelijkbare grootteberekening als bij Bitcoin neemt niet de tarieven van het Bitcoin-netwerk over."
+      "Voor gewone P2WPKH-betalingen maakt de wallet low-R- en low-S-handtekeningen van maximaal 71 bytes, inclusief de SIGHASH_ALL-byte. Dit is beleid voor ondertekening en grootteschatting, geen nieuwe consensuslimiet voor andere geldige handtekeningen. Een kortere handtekening kan de werkelijke virtuele grootte verkleinen. "
     ],
-    "operations_title": "Windows-I2P-component en beveiligingscontrole",
-    "operations": "De Windows-pakketten bevatten de officiële i2pd 3.0.0 met bijgewerkte hashes en certificaten voor de eerste verbinding. In de vastgelegde controle detecteert Defender het officiële I2P-programmabestand en oorspronkelijke ZIP nog steeds. Een overeenkomende officiële hash bewijst geen veiligheid en bevestigt geen foutpositieve melding. Een lokale bestandsuitsluiting geldt uitsluitend op de pc waarop deze is ingesteld; het openbare pakket voegt die niet toe. Andere computers kunnen dezelfde bestanden blokkeren.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Compatibiliteit van Android-handtekeningen",
     "android": "Wallet-bestandsformaten, adressen en bestaande coins zijn niet gewijzigd. De bestaande versleutelde back-up kan in de nieuwe app worden hersteld om dezelfde wallet te blijven gebruiken. De Android-node 0.6.102 en wallet 1.1.13 gebruiken een nieuwe releasesleutel voor ondertekening. Ze kunnen een installatie die met een andere sleutel is ondertekend niet vervangen. Bewaar de oude app en gegevens totdat een versleutelde walletback-up en een werkende herstelmethode beschikbaar zijn. Verwijder de oude app niet alleen om een update te kunnen forceren."
   },
@@ -244,10 +244,10 @@
     "fees": [
       "Ang bayarin ay kabuuan ng mga input na binawasan ng kabuuan ng mga output. Isinasama lang sa tantiya ang output ng sukli kapag talagang gagawa ang wallet ng sukleng pasok sa itinakdang hangganan. Ang sobrang halagang mas mababa rito ay idinaragdag sa bayarin; ipinapakita ang huling bayarin at kabuuang ibabawas upang masuri. Yugeon/vB ang yunit ng rate. Ang virtual na laki ay bigat ng transaksiyon na hinati sa apat at ini-round up.",
       "Minsan lang pinipili ng wallet ang mga input at output, at ang mismong planong iyon ang nilalagdaan. Sa pagkumpirma, ipinapadala ang nakaimbak na pirmadong transaksiyon nang hindi muling binubuo o kinakalkula ang bayarin. Kapag paso na ang tantiya o nagastos na ang isang input, kailangan ng panibagong pagsusuri. Ang pagtanggap sa lokal na pila ay hindi pa kumpirmasyon sa isang block.",
-      "Sa karaniwang P2WPKH na bayad, gumagawa ang wallet ng low-R at low-S na pirmang hindi hihigit sa 71 byte, kasama ang SIGHASH_ALL byte. Patakaran ito sa pagpirma at pagtantiya ng laki, hindi bagong limitasyon ng consensus para sa ibang wastong pirma. Maaaring mas maliit ang aktuwal na virtual na laki kapag mas maikli ang pirma. Lokal na pila pa rin ang batayan ng mga mungkahing rate; ang pagkakatulad sa pagkalkula ng laki ng Bitcoin ay hindi nangangahulugang rate ng Bitcoin network ang ginagamit."
+      "Sa karaniwang P2WPKH na bayad, gumagawa ang wallet ng low-R at low-S na pirmang hindi hihigit sa 71 byte, kasama ang SIGHASH_ALL byte. Patakaran ito sa pagpirma at pagtantiya ng laki, hindi bagong limitasyon ng consensus para sa ibang wastong pirma. Maaaring mas maliit ang aktuwal na virtual na laki kapag mas maikli ang pirma. "
     ],
-    "operations_title": "I2P na bahagi sa Windows at pagsusuring panseguridad",
-    "operations": "Kasama sa Windows package ang opisyal na i2pd 3.0.0, mga bagong hash, at mga sertipiko para sa unang koneksiyon. Sa naitalang pagsusuri, natutukoy pa rin ng Defender ang opisyal na I2P executable at orihinal na ZIP. Hindi patunay ng kaligtasan o tiyak na maling pagtukoy ang pagtugma sa opisyal na hash. Ang lokal na pagbubukod sa isang file ay para lamang sa PC kung saan ito itinakda; hindi ito awtomatikong idinaragdag ng pampublikong package. Maaaring harangin ng ibang PC ang parehong mga file.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Pagiging tugma ng pirma sa Android",
     "android": "Hindi nagbago ang format ng wallet file, mga address, at umiiral na mga coin. Maibabalik ang dating naka-encrypt na backup sa bagong app upang magamit pa rin ang parehong wallet. Bagong release signing key ang ginagamit ng Android node 0.6.102 at wallet 1.1.13. Hindi nila mapapalitan ang naka-install na app na nilagdaan gamit ang ibang key. Panatilihin ang lumang app at datos nito hangga’t walang naka-encrypt na backup ng wallet at gumaganang paraan ng pagbawi. Huwag alisin ang lumang app para lamang piliting mai-install ang update."
   },
@@ -256,10 +256,10 @@
     "fees": [
       "உள்ளீடுகளின் மொத்தத்திலிருந்து வெளியீடுகளின் மொத்தத்தைக் கழித்தால் கட்டணம் கிடைக்கும். பணப்பை தனது வரம்பைப் பூர்த்தி செய்யும் மீதித்தொகையை உண்மையில் உருவாக்கும்போதுதான் அதன் வெளியீடு அளவு மதிப்பீட்டில் சேர்க்கப்படும். வரம்புக்குக் குறைவான மீதித்தொகை கட்டணத்தில் சேர்க்கப்படும்; இறுதிக் கட்டணமும் மொத்தப் பிடித்தமும் சரிபார்ப்பதற்குக் காட்டப்படும். கட்டண விகிதத்தின் அலகு yugeon/vB. பரிவர்த்தனை எடையை நான்கால் வகுத்து மேல்நோக்கி முழு எண்ணாக்கினால் மெய்நிகர் அளவு கிடைக்கும்.",
       "பணப்பை உள்ளீடுகளையும் வெளியீடுகளையும் ஒருமுறை தேர்ந்தெடுத்து அதே பரிவர்த்தனைத் திட்டத்தில் கையொப்பமிடுகிறது. உறுதிசெய்யும்போது சேமித்த கையொப்பமிட்ட பரிவர்த்தனையே அனுப்பப்படும்; அது மீண்டும் அமைக்கப்படாது, கட்டணமும் மறுகணக்கிடப்படாது. மதிப்பீட்டின் காலம் முடிந்தாலோ ஓர் உள்ளீடு ஏற்கெனவே செலவிடப்பட்டாலோ மீண்டும் சரிபார்க்க வேண்டும். உள்ளூர் வரிசையில் ஏற்கப்பட்டதையே தொகுதியில் உறுதியானதாகக் கருதக்கூடாது.",
-      "வழக்கமான P2WPKH பணப்பரிமாற்றத்தில், SIGHASH_ALL பைட் உட்பட அதிகபட்சம் 71 பைட்கள் கொண்ட low-R, low-S கையொப்பங்களைப் பணப்பை உருவாக்குகிறது. இது கையொப்பம் மற்றும் அளவு மதிப்பீட்டுக் கொள்கை; பிற செல்லுபடியான கையொப்பங்களுக்கான புதிய ஒருமித்த விதி அல்ல. குறுகிய கையொப்பத்தால் உண்மையான மெய்நிகர் அளவு குறையலாம். பரிந்துரைக்கப்படும் விகிதங்கள் இன்னும் உள்ளூர் வரிசையைச் சார்ந்தவை; Bitcoin போல அளவைக் கணக்கிடுவது அதன் வலையமைப்பின் கட்டண விகிதங்களைப் பயன்படுத்துவதாகாது."
+      "வழக்கமான P2WPKH பணப்பரிமாற்றத்தில், SIGHASH_ALL பைட் உட்பட அதிகபட்சம் 71 பைட்கள் கொண்ட low-R, low-S கையொப்பங்களைப் பணப்பை உருவாக்குகிறது. இது கையொப்பம் மற்றும் அளவு மதிப்பீட்டுக் கொள்கை; பிற செல்லுபடியான கையொப்பங்களுக்கான புதிய ஒருமித்த விதி அல்ல. குறுகிய கையொப்பத்தால் உண்மையான மெய்நிகர் அளவு குறையலாம். "
     ],
-    "operations_title": "Windows I2P கூறும் பாதுகாப்புச் சோதனையும்",
-    "operations": "Windows தொகுப்பில் அதிகாரப்பூர்வ i2pd 3.0.0, புதுப்பித்த ஹாஷ்கள் மற்றும் தொடக்க இணைப்புச் சான்றிதழ்கள் உள்ளன. பதிவுசெய்த சோதனையில் அதிகாரப்பூர்வ I2P இயக்கக் கோப்பையும் அசல் ZIP-ஐயும் Defender இன்னும் கண்டறிகிறது. அதிகாரப்பூர்வ ஹாஷ் பொருந்துவது பாதுகாப்பையோ தவறான கண்டறிதலையோ நிரூபிக்காது. உள்ளூர் கோப்பு விலக்கு பதிவு செய்த கணினியில் மட்டுமே செயல்படும்; பொதுத் தொகுப்பு அதைத் தானாகச் சேர்க்காது. பிற கணினிகள் இதே கோப்புகளைத் தடுக்கலாம்.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android கையொப்ப இணக்கத்தன்மை",
     "android": "பணப்பைக் கோப்பு வடிவம், முகவரிகள் மற்றும் ஏற்கெனவே உள்ள நாணயங்கள் மாறவில்லை. பழைய மறையாக்கப்பட்ட காப்புப்பிரதியைப் புதிய செயலியில் மீட்டமைத்து அதே பணப்பையைத் தொடர்ந்து பயன்படுத்தலாம். Android முனை 0.6.102 மற்றும் பணப்பை 1.1.13 புதிய வெளியீட்டுக் கையொப்ப விசையைப் பயன்படுத்துகின்றன. வேறு விசையால் கையொப்பமிட்ட பழைய நிறுவலை இவற்றால் மாற்ற முடியாது. மறையாக்கப்பட்ட பணப்பைக் காப்புப்பிரதியும் செயல்படும் மீட்பு முறையும் கிடைக்கும் வரை பழைய செயலியையும் அதன் தரவையும் வைத்திருங்கள். புதுப்பிப்பை வலுக்கட்டாயமாக நிறுவுவதற்காகப் பழைய செயலியை நீக்காதீர்கள்."
   },
@@ -268,10 +268,10 @@
     "fees": [
       "手續費等於輸入金額總和減去輸出金額總和。只有錢包實際建立符合門檻的找零時，估算才會計入找零輸出的大小。低於錢包找零門檻的餘額會併入手續費，確認前會顯示最終手續費與總扣款。費率單位為 yugeon/vB；虛擬大小等於交易權重除以四後無條件進位。",
       "錢包只選擇一次輸入與輸出，並依同一筆交易計畫產生簽章。確認後提交的是已儲存的簽署交易，不會重新組合交易或重算手續費。報價逾期或輸入已被花費時，必須重新核對。進入本機待處理佇列，並不代表已獲得區塊確認。",
-      "一般 P2WPKH 轉帳使用 low-R、low-S 簽章，連同 SIGHASH_ALL 位元組在內最多 71 位元組。這是錢包的簽章與大小估算政策，並非對其他有效簽章新增的共識限制。簽章較短時，實際虛擬大小可能小於估算值。建議費率仍依本機節點的待處理佇列計算；採用與 Bitcoin 相近的大小計算方式，不表示沿用 Bitcoin 網路的費率。"
+      "一般 P2WPKH 轉帳使用 low-R、low-S 簽章，連同 SIGHASH_ALL 位元組在內最多 71 位元組。這是錢包的簽章與大小估算政策，並非對其他有效簽章新增的共識限制。簽章較短時，實際虛擬大小可能小於估算值。"
     ],
-    "operations_title": "Windows I2P 元件與安全性檢查",
-    "operations": "Windows 套件包含官方 i2pd 3.0.0，並同步更新雜湊值與初始連線所需的憑證。在已記錄的檢查中，Defender 仍會偵測到官方 I2P 執行檔及原始 ZIP。雜湊值與官方相符，不能證明安全或確定為誤判。本機檔案排除設定只對登錄設定的電腦生效，公開套件不會自動加入排除設定；其他電腦仍可能封鎖相同檔案。",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android 簽章相容性",
     "android": "錢包檔案格式、地址及既有代幣均未變更。可以在新應用程式中還原原有的加密錢包備份，繼續使用同一個錢包。 Android 節點 0.6.102 與錢包 1.1.13 使用新產生的發行簽章金鑰，無法覆蓋安裝至使用不同金鑰簽署的舊版本。請先保留舊應用程式及資料，確認已取得錢包的加密備份與有效的復原方式。不要只為強行安裝更新而解除安裝舊應用程式。"
   },
@@ -280,10 +280,10 @@
     "fees": [
       "手續費等於輸入金額總和減去輸出金額總和。只有錢包實際建立符合要求的找贖時，估算才計入找贖輸出的大小。低於錢包找贖門檻的餘額會計入手續費，確認前會顯示最終手續費與總扣款。費率單位為 yugeon/vB；虛擬大小是交易權重除以四後向上取整的數值。",
       "錢包只選取一次輸入及輸出，並按同一交易方案產生簽署。確認後提交的是已儲存的簽署交易，不會重新組合交易或重算手續費。報價到期或輸入已被花費時，必須重新核對。進入本機待處理佇列，不代表已獲區塊確認。",
-      "一般 P2WPKH 轉賬使用 low-R、low-S 簽署，連同 SIGHASH_ALL 位元組在內最多為 71 位元組。這是錢包的簽署及大小估算政策，並非對其他有效簽署新增的共識限制。簽署較短時，實際虛擬大小可能小於估算值。建議費率仍按本機節點的待處理佇列計算；採用與 Bitcoin 相近的大小計算方式，不表示使用 Bitcoin 網絡的費率。"
+      "一般 P2WPKH 轉賬使用 low-R、low-S 簽署，連同 SIGHASH_ALL 位元組在內最多為 71 位元組。這是錢包的簽署及大小估算政策，並非對其他有效簽署新增的共識限制。簽署較短時，實際虛擬大小可能小於估算值。"
     ],
-    "operations_title": "Windows I2P 組件及安全檢查",
-    "operations": "Windows 套件包含官方 i2pd 3.0.0，並更新雜湊值及初始連線所需的憑證。在已記錄的檢查中，Defender 仍會偵測官方 I2P 執行檔及原始 ZIP。雜湊值與官方相符，並不能證明安全或確定是誤報。本機檔案排除設定只適用於登記設定的電腦，公開套件不會自動加入排除設定；其他電腦仍可能封鎖同一批檔案。",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android 簽署兼容性",
     "android": "錢包檔案格式、地址及現有代幣均沒有改變。可以在新應用程式還原原有的加密錢包備份，繼續使用同一個錢包。 Android 節點 0.6.102 及錢包 1.1.13 使用新產生的發佈簽署金鑰，無法覆蓋安裝到以不同金鑰簽署的舊版本。請先保留舊應用程式及資料，確保已取得錢包的加密備份及可用的復原方法。不要只為強行安裝更新而解除安裝舊應用程式。"
   },
@@ -292,10 +292,10 @@
     "fees": [
       "Poplatek je součet vstupů minus součet výstupů. Odhad zahrnuje výstup vrácené částky jen tehdy, když peněženka skutečně vytvoří dostatečnou vratku. Zbytek pod prahem peněženky se připočte k poplatku; výsledný poplatek a celková odepsaná částka se zobrazí ke kontrole. Sazba se udává v yugeon/vB. Virtuální velikost je váha transakce dělená čtyřmi, zaokrouhlená nahoru.",
       "Peněženka vybere vstupy a výstupy jednou a podepíše stejný plán transakce. Po potvrzení odešle uloženou podepsanou transakci, aniž ji sestavuje znovu nebo přepočítává poplatek. Vypršelý odhad nebo mezitím utracené vstupy vyžadují novou kontrolu. Přijetí do místní fronty není potvrzením v bloku.",
-      "Pro běžné platby P2WPKH vytváří peněženka podpisy low-R a low-S dlouhé nejvýše 71 bajtů včetně bajtu SIGHASH_ALL. Jde o pravidlo podepisování a odhadu velikosti, nikoli nový limit konsensu pro jiné platné podpisy. Kratší podpis může snížit skutečnou virtuální velikost. Navrhované sazby stále vycházejí z místní fronty; podobný výpočet velikosti jako u Bitcoin neznamená převzetí sazeb jeho sítě."
+      "Pro běžné platby P2WPKH vytváří peněženka podpisy low-R a low-S dlouhé nejvýše 71 bajtů včetně bajtu SIGHASH_ALL. Jde o pravidlo podepisování a odhadu velikosti, nikoli nový limit konsensu pro jiné platné podpisy. Kratší podpis může snížit skutečnou virtuální velikost. "
     ],
-    "operations_title": "Komponenta I2P pro Windows a bezpečnostní kontrola",
-    "operations": "Balíčky Windows obsahují oficiální i2pd 3.0.0 s aktuálními kontrolními součty a certifikáty pro počáteční připojení. Při zaznamenané kontrole Defender stále detekuje oficiální spustitelný soubor I2P i původní ZIP. Shoda s oficiálním hashem nedokazuje bezpečnost ani falešný poplach. Místní výjimka pro soubor platí jen na počítači, kde byla nastavena; veřejný balíček ji nepřidává. Jiné počítače mohou stejné soubory blokovat.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Kompatibilita podpisu Android",
     "android": "Formát souborů peněženky, adresy ani stávající mince se nezměnily. Dosavadní zašifrovanou zálohu lze obnovit v nové aplikaci a dál používat stejnou peněženku. Uzel Android 0.6.102 a peněženka 1.1.13 používají nový klíč pro podepisování vydání. Nemohou nahradit instalaci podepsanou jiným klíčem. Původní aplikaci a její data uchovejte, dokud nemáte zašifrovanou zálohu peněženky a funkční způsob obnovy. Původní aplikaci neodinstalovávejte jen kvůli vynucení instalace aktualizace."
   },
@@ -304,10 +304,10 @@
     "fees": [
       "Gebyret er summen af inputs minus summen af outputs. Estimatet medregner kun et tilbagebetalingsoutput, når tegnebogen faktisk opretter en tilstrækkelig restbetaling. Et restbeløb under tegnebogens grænse lægges til gebyret; det endelige gebyr og det samlede træk vises til gennemgang. Satsen angives i yugeon/vB. Den virtuelle størrelse er transaktionens vægt divideret med fire og rundet op.",
       "Tegnebogen vælger inputs og outputs én gang og signerer den samme transaktionsplan. Ved bekræftelse indsendes den gemte signerede transaktion uden at blive genopbygget eller få genberegnet gebyret. Et udløbet tilbud eller inputs, der allerede er brugt, kræver en ny gennemgang. Optagelse i den lokale kø er ikke en bekræftelse i en blok.",
-      "Ved almindelige P2WPKH-betalinger laver tegnebogen low-R- og low-S-signaturer på højst 71 byte inklusive SIGHASH_ALL-byten. Dette er en politik for signering og størrelsesestimering, ikke en ny konsensusgrænse for andre gyldige signaturer. Kortere signaturer kan mindske den faktiske virtuelle størrelse. De foreslåede satser bygger stadig på den lokale kø; en størrelsesberegning som i Bitcoin overtager ikke Bitcoin-netværkets gebyrsatser."
+      "Ved almindelige P2WPKH-betalinger laver tegnebogen low-R- og low-S-signaturer på højst 71 byte inklusive SIGHASH_ALL-byten. Dette er en politik for signering og størrelsesestimering, ikke en ny konsensusgrænse for andre gyldige signaturer. Kortere signaturer kan mindske den faktiske virtuelle størrelse. "
     ],
-    "operations_title": "Windows-I2P-komponent og sikkerhedskontrol",
-    "operations": "Windows-pakkerne indeholder officiel i2pd 3.0.0 med opdaterede kontrolsummer og certifikater til den første forbindelse. I den registrerede kontrol registrerer Defender stadig det officielle I2P-program og det oprindelige ZIP-arkiv som trusler. Et match med den officielle hash beviser hverken sikkerhed eller en falsk alarm. En lokal filundtagelse gælder kun på den computer, hvor den er oprettet; den offentlige pakke tilføjer den ikke. Andre computere kan blokere de samme filer.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Kompatibilitet for Android-signering",
     "android": "Tegnebogens filformat, adresser og eksisterende mønter er uændrede. Den eksisterende krypterede sikkerhedskopi kan gendannes i den nye app, så den samme tegnebog fortsat kan bruges. Android-noden 0.6.102 og tegnebogen 1.1.13 bruger en ny signeringsnøgle til udgivelsen. De kan ikke erstatte en installation signeret med en anden nøgle. Behold den gamle app og dens data, indtil du har en krypteret sikkerhedskopi af tegnebogen og en fungerende gendannelsesmetode. Afinstaller ikke den gamle app blot for at tvinge en opdatering igennem."
   },
@@ -316,10 +316,10 @@
     "fees": [
       "Siirtomaksu on syötteiden summa vähennettynä tulosteiden summalla. Arvioon lasketaan vaihtorahatuloste vain, jos lompakko todella luo kynnysarvon täyttävän vaihtorahan. Kynnystä pienempi jäännös lisätään maksuun; lopullinen maksu ja kokonaisveloitus näytetään tarkistettaviksi. Maksutaso ilmoitetaan yksikössä yugeon/vB. Virtuaalikoko saadaan jakamalla tapahtuman paino neljällä ja pyöristämällä ylöspäin.",
       "Lompakko valitsee syötteet ja tulosteet vain kerran ja allekirjoittaa saman tapahtumasuunnitelman. Vahvistettaessa lähetetään tallennettu allekirjoitettu tapahtuma rakentamatta sitä tai laskematta maksua uudelleen. Vanhentunut arvio tai jo käytetyt syötteet edellyttävät uutta tarkistusta. Paikalliseen jonoon hyväksyminen ei tarkoita vahvistusta lohkossa.",
-      "Tavallisissa P2WPKH-maksuissa lompakko luo low-R- ja low-S-allekirjoitukset, joiden enimmäispituus on 71 tavua SIGHASH_ALL-tavu mukaan lukien. Tämä on allekirjoitus- ja kokoarviokäytäntö, ei uusi konsensusraja muille kelvollisille allekirjoituksille. Lyhyempi allekirjoitus voi pienentää todellista virtuaalikokoa. Suositellut maksutasot perustuvat edelleen paikalliseen jonoon; Bitcoinin kaltainen kokolaskenta ei tarkoita Bitcoin-verkon maksutasojen käyttöä."
+      "Tavallisissa P2WPKH-maksuissa lompakko luo low-R- ja low-S-allekirjoitukset, joiden enimmäispituus on 71 tavua SIGHASH_ALL-tavu mukaan lukien. Tämä on allekirjoitus- ja kokoarviokäytäntö, ei uusi konsensusraja muille kelvollisille allekirjoituksille. Lyhyempi allekirjoitus voi pienentää todellista virtuaalikokoa. "
     ],
-    "operations_title": "Windowsin I2P-osa ja tietoturvatarkistus",
-    "operations": "Windows-paketeissa on virallinen i2pd 3.0.0 sekä päivitetyt tarkistussummat ja alkuyhteyden varmenteet. Tallennetussa tarkistuksessa Defender tunnistaa edelleen virallisen I2P-ohjelmatiedoston ja alkuperäisen ZIP-paketin uhkiksi. Virallisen tiivisteen täsmääminen ei osoita turvallisuutta eikä vahvista väärää hälytystä. Paikallinen tiedostopoikkeus koskee vain tietokonetta, jossa se on määritetty; julkinen paketti ei lisää sitä. Muut tietokoneet voivat estää samat tiedostot.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android-allekirjoituksen yhteensopivuus",
     "android": "Lompakon tiedostomuodot, osoitteet ja nykyiset kolikot eivät ole muuttuneet. Aiemman salatun varmuuskopion voi palauttaa uuteen sovellukseen ja jatkaa saman lompakon käyttöä. Android-solmu 0.6.102 ja lompakko 1.1.13 käyttävät uutta julkaisun allekirjoitusavainta. Ne eivät voi korvata eri avaimella allekirjoitettua asennusta. Säilytä vanha sovellus ja sen tiedot, kunnes lompakosta on salattu varmuuskopio ja toimiva palautustapa. Älä poista vanhaa sovellusta vain pakottaaksesi päivityksen asentumaan."
   },
@@ -328,10 +328,10 @@
     "fees": [
       "Η χρέωση ισούται με το άθροισμα των εισόδων μείον το άθροισμα των εξόδων. Η εκτίμηση περιλαμβάνει έξοδο ρέστων μόνο όταν το πορτοφόλι δημιουργεί πράγματι επαρκή ρέστα. Υπόλοιπο κάτω από το όριο του πορτοφολιού προστίθεται στη χρέωση· η τελική χρέωση και η συνολική αφαίρεση εμφανίζονται για έλεγχο. Ο συντελεστής εκφράζεται σε yugeon/vB. Το εικονικό μέγεθος είναι το βάρος της συναλλαγής διαιρεμένο με τέσσερα, με στρογγυλοποίηση προς τα πάνω.",
       "Το πορτοφόλι επιλέγει εισόδους και εξόδους μία φορά και υπογράφει το ίδιο σχέδιο συναλλαγής. Με την επιβεβαίωση υποβάλλει την αποθηκευμένη υπογεγραμμένη συναλλαγή, χωρίς να την ξαναδημιουργεί ή να υπολογίζει εκ νέου τη χρέωση. Αν η εκτίμηση έχει λήξει ή μια είσοδος έχει ήδη δαπανηθεί, απαιτείται νέος έλεγχος. Η αποδοχή στην τοπική ουρά δεν ισοδυναμεί με επιβεβαίωση σε μπλοκ.",
-      "Για τις συνήθεις πληρωμές P2WPKH, το πορτοφόλι δημιουργεί υπογραφές low-R και low-S έως 71 byte μαζί με το byte SIGHASH_ALL. Πρόκειται για πολιτική υπογραφής και εκτίμησης μεγέθους, όχι για νέο όριο συναίνεσης σε άλλες έγκυρες υπογραφές. Μια μικρότερη υπογραφή μπορεί να μειώσει το πραγματικό εικονικό μέγεθος. Οι προτεινόμενοι συντελεστές εξακολουθούν να βασίζονται στην τοπική ουρά· παρόμοιος υπολογισμός μεγέθους με το Bitcoin δεν σημαίνει χρήση των χρεώσεων του δικτύου Bitcoin."
+      "Για τις συνήθεις πληρωμές P2WPKH, το πορτοφόλι δημιουργεί υπογραφές low-R και low-S έως 71 byte μαζί με το byte SIGHASH_ALL. Πρόκειται για πολιτική υπογραφής και εκτίμησης μεγέθους, όχι για νέο όριο συναίνεσης σε άλλες έγκυρες υπογραφές. Μια μικρότερη υπογραφή μπορεί να μειώσει το πραγματικό εικονικό μέγεθος. "
     ],
-    "operations_title": "Στοιχείο I2P των Windows και έλεγχος ασφαλείας",
-    "operations": "Τα πακέτα Windows περιλαμβάνουν το επίσημο i2pd 3.0.0 με ενημερωμένα αποτυπώματα και πιστοποιητικά αρχικής σύνδεσης. Στον καταγεγραμμένο έλεγχο, το Defender εξακολουθεί να εντοπίζει το επίσημο εκτελέσιμο I2P και το αρχικό ZIP. Η ταύτιση με το επίσημο αποτύπωμα δεν αποδεικνύει ασφάλεια ούτε επιβεβαιώνει ψευδή συναγερμό. Μια τοπική εξαίρεση αρχείου ισχύει μόνο στον υπολογιστή όπου ορίστηκε· το δημόσιο πακέτο δεν την προσθέτει. Άλλοι υπολογιστές μπορεί να αποκλείσουν τα ίδια αρχεία.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Συμβατότητα υπογραφής Android",
     "android": "Οι μορφές αρχείων του πορτοφολιού, οι διευθύνσεις και τα υπάρχοντα νομίσματα δεν άλλαξαν. Το υπάρχον κρυπτογραφημένο αντίγραφο μπορεί να αποκατασταθεί στη νέα εφαρμογή για χρήση του ίδιου πορτοφολιού. Ο κόμβος Android 0.6.102 και το πορτοφόλι 1.1.13 χρησιμοποιούν νέο κλειδί υπογραφής έκδοσης. Δεν μπορούν να αντικαταστήσουν εγκατάσταση υπογεγραμμένη με διαφορετικό κλειδί. Διατηρήστε την παλιά εφαρμογή και τα δεδομένα της μέχρι να έχετε κρυπτογραφημένο αντίγραφο του πορτοφολιού και λειτουργικό τρόπο ανάκτησης. Μην απεγκαταστήσετε την παλιά εφαρμογή απλώς για να επιβάλετε την εγκατάσταση της ενημέρωσης."
   },
@@ -340,10 +340,10 @@
     "fees": [
       "Gebyret er summen av inngangene minus summen av utgangene. Anslaget tar bare med en vekselutgang når lommeboken faktisk oppretter tilstrekkelig veksel. Et restbeløp under lommebokens grense legges til gebyret; det endelige gebyret og samlet belastning vises til kontroll. Satsen oppgis i yugeon/vB. Virtuell størrelse er transaksjonsvekten delt på fire, avrundet oppover.",
       "Lommeboken velger innganger og utganger én gang og signerer den samme transaksjonsplanen. Ved bekreftelse sendes den lagrede, signerte transaksjonen uten å bygges opp på nytt eller få gebyret beregnet om. Et utløpt tilbud eller innganger som allerede er brukt, krever en ny gjennomgang. At transaksjonen er akseptert i den lokale køen, betyr ikke at den er bekreftet i en blokk.",
-      "For vanlige P2WPKH-betalinger lager lommeboken low-R- og low-S-signaturer på høyst 71 byte, inkludert SIGHASH_ALL-byten. Dette er en regel for signering og størrelsesanslag, ikke en ny konsensusgrense for andre gyldige signaturer. Kortere signaturer kan gi mindre faktisk virtuell størrelse. Foreslåtte satser bygger fortsatt på den lokale køen; en størrelsesberegning som i Bitcoin innebærer ikke bruk av Bitcoin-nettverkets gebyrsatser."
+      "For vanlige P2WPKH-betalinger lager lommeboken low-R- og low-S-signaturer på høyst 71 byte, inkludert SIGHASH_ALL-byten. Dette er en regel for signering og størrelsesanslag, ikke en ny konsensusgrense for andre gyldige signaturer. Kortere signaturer kan gi mindre faktisk virtuell størrelse. "
     ],
-    "operations_title": "Windows-I2P-komponent og sikkerhetskontroll",
-    "operations": "Windows-pakkene inneholder offisiell i2pd 3.0.0 med oppdaterte kontrollsummer og sertifikater for den første tilkoblingen. I den registrerte kontrollen oppdager Defender fortsatt den offisielle I2P-programfilen og det opprinnelige ZIP-arkivet som trusler. En samsvarende offisiell hash beviser verken sikkerhet eller et falskt utslag. Et lokalt filunntak gjelder bare på PC-en der det er registrert; den offentlige pakken legger det ikke til. Andre datamaskiner kan blokkere de samme filene.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Kompatibilitet for Android-signering",
     "android": "Lommebokens filformat, adresser og eksisterende mynter er uendret. Den eksisterende krypterte sikkerhetskopien kan gjenopprettes i den nye appen, slik at samme lommebok fortsatt kan brukes. Android-noden 0.6.102 og lommeboken 1.1.13 bruker en ny signeringsnøkkel for utgivelsen. De kan ikke erstatte en installasjon signert med en annen nøkkel. Behold den gamle appen og dataene til du har en kryptert sikkerhetskopi av lommeboken og en fungerende gjenopprettingsmetode. Ikke avinstaller den gamle appen bare for å tvinge gjennom en oppdatering."
   },
@@ -352,10 +352,10 @@
     "fees": [
       "Avgiften är summan av ingångarna minus summan av utgångarna. Uppskattningen räknar bara med en växelutgång när plånboken faktiskt skapar tillräcklig växel. Ett restbelopp under plånbokens gräns läggs till avgiften; den slutliga avgiften och hela debiteringen visas för granskning. Avgiftssatsen anges i yugeon/vB. Virtuell storlek är transaktionens vikt delad med fyra, avrundad uppåt.",
       "Plånboken väljer ingångar och utgångar en gång och signerar samma transaktionsplan. Vid bekräftelse skickas den sparade signerade transaktionen utan att byggas om eller få avgiften omräknad. Ett utgånget förslag eller redan förbrukade ingångar kräver en ny granskning. Att tas emot i den lokala kön betyder inte att transaktionen är bekräftad i ett block.",
-      "För vanliga P2WPKH-betalningar skapar plånboken low-R- och low-S-signaturer på högst 71 byte, inklusive SIGHASH_ALL-byten. Det är en policy för signering och storleksuppskattning, inte en ny konsensusgräns för andra giltiga signaturer. En kortare signatur kan minska den verkliga virtuella storleken. Föreslagna satser grundas fortfarande på den lokala kön; en storleksberäkning som liknar Bitcoins innebär inte att Bitcoin-nätverkets avgiftssatser används."
+      "För vanliga P2WPKH-betalningar skapar plånboken low-R- och low-S-signaturer på högst 71 byte, inklusive SIGHASH_ALL-byten. Det är en policy för signering och storleksuppskattning, inte en ny konsensusgräns för andra giltiga signaturer. En kortare signatur kan minska den verkliga virtuella storleken. "
     ],
-    "operations_title": "Windows I2P-komponent och säkerhetskontroll",
-    "operations": "Windows-paketen innehåller officiella i2pd 3.0.0 med uppdaterade kontrollsummor och certifikat för första anslutningen. I den dokumenterade kontrollen upptäcker Defender fortfarande den officiella I2P-programfilen och den ursprungliga ZIP-filen som hot. En matchande officiell hash bevisar varken säkerhet eller en falsk varning. Ett lokalt filundantag gäller bara på datorn där det har lagts till; det offentliga paketet lägger inte till det. Andra datorer kan blockera samma filer.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Kompatibilitet för Android-signaturer",
     "android": "Plånbokens filformat, adresser och befintliga mynt har inte ändrats. Den tidigare krypterade säkerhetskopian kan återställas i den nya appen för att fortsätta använda samma plånbok. Android-noden 0.6.102 och plånboken 1.1.13 använder en ny nyckel för utgivningssignering. De kan inte ersätta en installation som signerats med en annan nyckel. Behåll den gamla appen och dess data tills du har en krypterad säkerhetskopia av plånboken och en fungerande återställningsmetod. Avinstallera inte den gamla appen bara för att tvinga fram installationen av en uppdatering."
   },
@@ -364,10 +364,10 @@
     "fees": [
       "Накнада је збир улаза умањен за збир излаза. Процена рачуна излаз за кусур само када новчаник заиста ствара кусур који достиже његов праг. Остатак испод тог прага додаје се накнади; коначна накнада и укупан износ задужења приказују се за проверу. Стопа се изражава у yugeon/vB. Виртуелна величина је тежина трансакције подељена са четири и заокружена навише.",
       "Новчаник једном бира улазе и излазе, па потписује исти план трансакције. Након потврде шаље се сачувана потписана трансакција, без поновног састављања или прерачунавања накнаде. Ако процена истекне или је неки улаз већ потрошен, потребан је нови преглед. Прихватање у локални ред није потврда у блоку.",
-      "За уобичајена P2WPKH плаћања новчаник ствара low-R и low-S потписе од највише 71 бајта, укључујући бајт SIGHASH_ALL. То је политика потписивања и процене величине, а не ново ограничење консензуса за друге важеће потписе. Краћи потпис може смањити стварну виртуелну величину. Предложене стопе и даље зависе од локалног реда; обрачун величине сличан Bitcoin-у не значи примену стопа Bitcoin мреже."
+      "За уобичајена P2WPKH плаћања новчаник ствара low-R и low-S потписе од највише 71 бајта, укључујући бајт SIGHASH_ALL. То је политика потписивања и процене величине, а не ново ограничење консензуса за друге важеће потписе. Краћи потпис може смањити стварну виртуелну величину. "
     ],
-    "operations_title": "I2P компонента за Windows и безбедносна провера",
-    "operations": "Windows пакети садрже званични i2pd 3.0.0 са ажурираним хеш вредностима и сертификатима за почетно повезивање. У забележеној провери Defender и даље открива званични I2P извршни фајл и изворни ZIP као претње. Поклапање са званичним хешом не доказује безбедност нити потврђује лажну узбуну. Локални изузетак за фајл важи само на рачунару где је подешен; јавни пакет га не додаје. Други рачунари могу блокирати исте фајлове.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Компатибилност Android потписа",
     "android": "Формат фајлова новчаника, адресе и постојећи новчићи нису промењени. Досадашња шифрована резервна копија може се вратити у новој апликацији и наставити коришћење истог новчаника. Android чвор 0.6.102 и новчаник 1.1.13 користе нови кључ за потписивање издања. Не могу заменити инсталацију потписану другим кључем. Сачувајте стару апликацију и њене податке док не обезбедите шифровану резервну копију новчаника и исправан начин опоравка. Не уклањајте стару апликацију само да бисте на силу инсталирали ажурирање."
   },
@@ -376,10 +376,10 @@
     "fees": [
       "Шимтгэл нь оролтуудын нийт дүнгээс гаралтуудын нийт дүнг хассан хэмжээ юм. Түрийвч тогтоосон босгыг хангах хариулт мөнгийг бодитоор үүсгэх үед л түүний гаралтын хэмжээг тооцоонд оруулна. Босгоос бага үлдэгдлийг шимтгэлд нэмэх бөгөөд эцсийн шимтгэл, нийт суутгах дүнг батлахын өмнө харуулна. Шимтгэлийн тарифын нэгж нь yugeon/vB. Виртуал хэмжээ нь гүйлгээний жинг дөрөвт хуваагаад дээш бүхэлчилсэн утга юм.",
       "Түрийвч оролт, гаралтыг нэг удаа сонгож, яг тэр гүйлгээний төлөвлөгөөнд гарын үсэг зурна. Батлах үед хадгалсан гарын үсэгтэй гүйлгээг илгээх бөгөөд гүйлгээг дахин бүтээхгүй, шимтгэлийг дахин бодохгүй. Тооцооны хугацаа дууссан эсвэл оролт аль хэдийн зарцуулагдсан бол дахин хянах шаардлагатай. Орон нутгийн хүлээлгийн дараалалд орсон нь блокт баталгаажсан гэсэн үг биш.",
-      "Ердийн P2WPKH төлбөрт түрийвч low-R, low-S гарын үсэг үүсгэдэг бөгөөд SIGHASH_ALL байттайгаа нийлээд хамгийн ихдээ 71 байт байна. Энэ нь гарын үсэг болон хэмжээний тооцооны бодлого болохоос бусад хүчинтэй гарын үсэгт тавьсан шинэ зөвшилцлийн хязгаар биш. Богино гарын үсэг бодит виртуал хэмжээг багасгаж болно. Санал болгох тариф нь орон нутгийн дараалалд тулгуурласан хэвээр; Bitcoin-той төстэй хэмжээгээр тооцох нь Bitcoin сүлжээний тарифыг хэрэглэнэ гэсэн үг биш."
+      "Ердийн P2WPKH төлбөрт түрийвч low-R, low-S гарын үсэг үүсгэдэг бөгөөд SIGHASH_ALL байттайгаа нийлээд хамгийн ихдээ 71 байт байна. Энэ нь гарын үсэг болон хэмжээний тооцооны бодлого болохоос бусад хүчинтэй гарын үсэгт тавьсан шинэ зөвшилцлийн хязгаар биш. Богино гарын үсэг бодит виртуал хэмжээг багасгаж болно. "
     ],
-    "operations_title": "Windows-ийн I2P бүрэлдэхүүн ба аюулгүй байдлын шалгалт",
-    "operations": "Windows багцад албан ёсны i2pd 3.0.0, шинэчилсэн хэш болон анхны холболтын гэрчилгээнүүд орсон. Бүртгэсэн шалгалтаар Defender албан ёсны I2P ажиллах файл болон эх ZIP-ийг аюул гэж илрүүлсэн хэвээр байна. Албан ёсны хэш таарсан нь аюулгүй эсвэл буруу илрүүлэлт гэдгийг нотлохгүй. Файлыг шалгалтаас хасах тохиргоо зөвхөн бүртгэсэн компьютерт үйлчилнэ; нийтийн багц үүнийг автоматаар нэмэхгүй. Бусад компьютер мөн эдгээр файлыг хориглож болно.",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android гарын үсгийн нийцтэй байдал",
     "android": "Түрийвчийн файлын формат, хаяг болон байгаа зоос өөрчлөгдөөгүй. Өмнөх шифрлэсэн нөөц хуулбарыг шинэ аппад сэргээж, ижил түрийвчээ үргэлжлүүлэн ашиглаж болно. Android зангилаа 0.6.102 болон түрийвч 1.1.13 нь шинээр үүсгэсэн хувилбарын гарын үсгийн түлхүүр хэрэглэнэ. Өөр түлхүүрээр гарын үсэг зурсан хуучин суулгацыг дарж суух боломжгүй. Түрийвчийн шифрлэсэн нөөц хуулбар болон ажилладаг сэргээх аргатай болох хүртлээ хуучин апп, өгөгдлөө хадгална уу. Зөвхөн шинэчлэлтийг хүчээр суулгахын тулд хуучин аппыг бүү устгаарай."
   },
@@ -388,10 +388,10 @@
     "fees": [
       "ᠰᠢᠮᠡᠳᠬᠡᠯ ᠪᠣᠯ ᠣᠷᠣᠯᠲᠠ ᠶᠢᠨ ᠨᠡᠶᠢᠲᠡ ᠳᠦᠩ ᠡᠴᠡ ᠭᠠᠷᠣᠯᠲᠠ ᠶᠢᠨ ᠨᠡᠶᠢᠲᠡ ᠳᠦᠩ ᠢ ᠬᠠᠰᠤᠭᠰᠠᠨ ᠬᠡᠮᠵᠢᠶ᠎ᠡ ᠶᠤᠮ᠃ ᠲᠦᠷᠢᠶᠢᠪᠴᠢ ᠬᠠᠷᠢᠭᠤᠯᠲᠠ ᠮᠥᠩᠭᠥ ᠪᠣᠳᠠᠲᠠᠢ ᠦᠭᠦᠰᠭᠡᠬᠦ ᠦᠶ᠎ᠡ ᠳᠦ ᠯᠡ ᠲᠡᠭᠦᠨ ᠦ ᠭᠠᠷᠣᠯᠲᠠ ᠶᠢ ᠲᠣᠭᠠᠴᠠᠭᠠᠨ ᠳᠤ ᠣᠷᠣᠭᠤᠯᠤᠨ᠎ᠠ᠃ ᠪᠣᠰᠤᠭ᠎ᠠ ᠡᠴᠡ ᠪᠠᠭ᠎ᠠ ᠦᠯᠡᠳᠡᠭᠳᠡᠯ ᠢ ᠰᠢᠮᠡᠳᠬᠡᠯ ᠳᠦ ᠨᠡᠮᠡᠨ᠎ᠡ᠃ ᠡᠴᠦᠰ ᠦᠨ ᠰᠢᠮᠡᠳᠬᠡᠯ ᠪᠠ ᠨᠡᠶᠢᠲᠡ ᠰᠤᠤᠳᠬᠠᠬᠤ ᠳᠦᠩ ᠢ ᠪᠠᠲᠤᠯᠠᠬᠤ ᠠᠴᠠ ᠡᠮᠦᠨ᠎ᠡ ᠦᠵᠡᠭᠦᠯᠦᠨ᠎ᠡ᠃ ᠲᠠᠷᠢᠹ ᠤᠨ ᠨᠢᠭᠡᠴᠢ ᠨᠢ yugeon/vB᠃ ᠬᠡᠶᠢᠰᠪᠦᠷᠢ ᠬᠡᠮᠵᠢᠶ᠎ᠡ ᠨᠢ ᠭᠦᠶᠦᠯᠭᠡ ᠶᠢᠨ ᠵᠢᠩ ᠢ 4 ᠲᠦ ᠬᠤᠪᠢᠶᠠᠵᠤ ᠳᠡᠭᠡᠭᠰᠢ ᠪᠦᠬᠦᠯᠴᠢᠯᠡᠭᠰᠡᠨ ᠤᠲᠭ᠎ᠠ ᠶᠤᠮ᠃",
       "ᠲᠦᠷᠢᠶᠢᠪᠴᠢ ᠣᠷᠣᠯᠲᠠ᠂ ᠭᠠᠷᠣᠯᠲᠠ ᠶᠢ ᠨᠢᠭᠡ ᠤᠳᠠᠭ᠎ᠠ ᠰᠣᠩᠭᠣᠵᠤ᠂ ᠲᠡᠷᠡ ᠭᠦᠶᠦᠯᠭᠡ ᠳᠦ ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠵᠢᠷᠤᠨ᠎ᠠ᠃ ᠪᠠᠲᠤᠯᠠᠭᠰᠠᠨ ᠤ ᠳᠠᠷᠠᠭ᠎ᠠ ᠬᠠᠳᠠᠭᠠᠯᠠᠭᠰᠠᠨ ᠲᠡᠷᠡ ᠭᠦᠶᠦᠯᠭᠡ ᠶᠢ ᠢᠯᠡᠭᠡᠨ᠎ᠡ᠃ ᠭᠦᠶᠦᠯᠭᠡ ᠪᠣᠯᠣᠨ ᠰᠢᠮᠡᠳᠬᠡᠯ ᠢ ᠳᠠᠬᠢᠨ ᠲᠣᠭᠠᠴᠠᠭᠠᠯᠠᠬᠤ ᠦᠭᠡᠶ᠃ ᠬᠤᠭᠤᠴᠠᠭ᠎ᠠ ᠳᠠᠭᠤᠰᠤᠭᠰᠠᠨ ᠪᠤᠶᠤ ᠣᠷᠣᠯᠲᠠ ᠵᠠᠷᠴᠤᠭᠤᠯᠤᠭᠳᠠᠭᠰᠠᠨ ᠪᠣᠯ ᠳᠠᠬᠢᠨ ᠬᠢᠨᠠᠬᠤ ᠬᠡᠷᠡᠭᠲᠡᠢ᠃ ᠣᠷᠣᠨ ᠨᠤᠲᠤᠭ ᠤᠨ ᠳᠠᠷᠠᠭᠠᠯᠠᠯ ᠳᠤ ᠣᠷᠣᠭᠰᠠᠨ ᠨᠢ ᠪᠯᠣᠺ ᠳᠤ ᠪᠠᠲᠤᠯᠠᠭᠳᠠᠭᠰᠠᠨ ᠭᠡᠰᠡᠨ ᠦᠭᠡ ᠪᠢᠰᠢ᠃",
-      "ᠡᠩ ᠦᠨ P2WPKH ᠲᠥᠯᠦᠪᠦᠷᠢ ᠳᠦ low-R᠂ low-S ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠬᠡᠷᠡᠭᠯᠡᠨ᠎ᠡ᠃ SIGHASH_ALL ᠪᠠᠶᠢᠲ ᠢ ᠣᠷᠣᠭᠤᠯᠤᠭᠠᠳ 71 ᠪᠠᠶᠢᠲ ᠡᠴᠡ ᠬᠡᠲᠦᠷᠡᠬᠦ ᠦᠭᠡᠶ᠃ ᠡᠨᠡ ᠪᠣᠯ ᠲᠦᠷᠢᠶᠢᠪᠴᠢ ᠶᠢᠨ ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠪᠠ ᠬᠡᠮᠵᠢᠶ᠎ᠡ ᠲᠣᠭᠠᠴᠠᠭᠠᠯᠠᠬᠤ ᠪᠣᠳᠣᠯᠭ᠎ᠠ᠃ ᠪᠤᠰᠤᠳ ᠬᠦᠴᠦᠨᠲᠡᠢ ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠲᠦ ᠰᠢᠨ᠎ᠡ ᠵᠥᠪᠰᠢᠯᠴᠡᠯ ᠦᠨ ᠬᠢᠵᠠᠭᠠᠷ ᠲᠠᠪᠢᠬᠤ ᠦᠭᠡᠶ᠃ ᠪᠣᠭᠣᠨᠢ ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠬᠡᠶᠢᠰᠪᠦᠷᠢ ᠬᠡᠮᠵᠢᠶ᠎ᠡ ᠶᠢ ᠪᠠᠭᠠᠰᠬᠠᠵᠤ ᠪᠣᠯᠣᠨ᠎ᠠ᠃ ᠲᠠᠷᠢᠹ ᠨᠢ ᠣᠷᠣᠨ ᠨᠤᠲᠤᠭ ᠤᠨ ᠳᠠᠷᠠᠭᠠᠯᠠᠯ ᠳᠤ ᠲᠦᠰᠢᠭᠯᠡᠨ᠎ᠡ᠃ Bitcoin ᠤ ᠲᠠᠷᠢᠹ ᠢ ᠬᠤᠭᠤᠯᠠᠨ ᠬᠡᠷᠡᠭᠯᠡᠬᠦ ᠦᠭᠡᠶ᠃"
+      "ᠡᠩ ᠦᠨ P2WPKH ᠲᠥᠯᠦᠪᠦᠷᠢ ᠳᠦ low-R᠂ low-S ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠬᠡᠷᠡᠭᠯᠡᠨ᠎ᠡ᠃ SIGHASH_ALL ᠪᠠᠶᠢᠲ ᠢ ᠣᠷᠣᠭᠤᠯᠤᠭᠠᠳ 71 ᠪᠠᠶᠢᠲ ᠡᠴᠡ ᠬᠡᠲᠦᠷᠡᠬᠦ ᠦᠭᠡᠶ᠃ ᠡᠨᠡ ᠪᠣᠯ ᠲᠦᠷᠢᠶᠢᠪᠴᠢ ᠶᠢᠨ ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠪᠠ ᠬᠡᠮᠵᠢᠶ᠎ᠡ ᠲᠣᠭᠠᠴᠠᠭᠠᠯᠠᠬᠤ ᠪᠣᠳᠣᠯᠭ᠎ᠠ᠃ ᠪᠤᠰᠤᠳ ᠬᠦᠴᠦᠨᠲᠡᠢ ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠲᠦ ᠰᠢᠨ᠎ᠡ ᠵᠥᠪᠰᠢᠯᠴᠡᠯ ᠦᠨ ᠬᠢᠵᠠᠭᠠᠷ ᠲᠠᠪᠢᠬᠤ ᠦᠭᠡᠶ᠃ ᠪᠣᠭᠣᠨᠢ ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠬᠡᠶᠢᠰᠪᠦᠷᠢ ᠬᠡᠮᠵᠢᠶ᠎ᠡ ᠶᠢ ᠪᠠᠭᠠᠰᠬᠠᠵᠤ ᠪᠣᠯᠣᠨ᠎ᠠ᠃ ᠲᠠᠷᠢᠹ ᠨᠢ ᠣᠷᠣᠨ ᠨᠤᠲᠤᠭ ᠤᠨ ᠳᠠᠷᠠᠭᠠᠯᠠᠯ ᠳᠤ ᠲᠦᠰᠢᠭᠯᠡᠨ᠎ᠡ᠃ "
     ],
-    "operations_title": "Windows ᠤᠨ I2P ᠪᠠ ᠠᠶᠤᠯ ᠦᠭᠡᠶ ᠪᠠᠶᠢᠳᠠᠯ ᠤᠨ ᠰᠢᠯᠭᠠᠯᠲᠠ",
-    "operations": "Windows ᠪᠠᠭᠴᠠ ᠳᠤ ᠠᠯᠪᠠᠨ ᠶᠣᠰᠤᠨ ᠤ i2pd 3.0.0᠂ ᠰᠢᠨᠡᠴᠢᠯᠡᠭᠰᠡᠨ ᠬᠡᠱ ᠪᠠ ᠠᠩᠬ᠎ᠠ ᠶᠢᠨ ᠬᠣᠯᠪᠣᠭ᠎ᠠ ᠶᠢᠨ ᠭᠡᠷᠡᠴᠢ ᠪᠢᠴᠢᠭ ᠪᠤᠶ᠃ Defender ᠲᠤᠰ I2P ᠹᠠᠶᠢᠯ ᠪᠠ ZIP ᠢ ᠠᠶᠤᠯ ᠭᠡᠵᠦ ᠢᠯᠡᠷᠡᠭᠦᠯᠦᠭᠰᠡᠨ᠃ ᠠᠯᠪᠠᠨ ᠬᠡᠱ ᠲᠠᠭᠠᠷᠠᠭᠰᠠᠨ ᠨᠢ ᠠᠶᠤᠯ ᠦᠭᠡᠶ ᠭᠡᠳᠡᠭ ᠢ ᠨᠣᠲᠠᠯᠠᠬᠤ ᠦᠭᠡᠶ᠃ ᠹᠠᠶᠢᠯ ᠤᠨ ᠬᠠᠰᠤᠯᠲᠠ ᠶᠢᠨ ᠲᠣᠬᠢᠷᠠᠭᠤᠯᠭ᠎ᠠ ᠨᠢ ᠵᠥᠪᠬᠡᠨ ᠲᠡᠭᠦᠨ ᠢ ᠪᠦᠷᠢᠳᠬᠡᠭᠰᠡᠨ ᠺᠣᠮᠫᠢᠦ᠋ᠲ᠋ᠧᠷ ᠲᠦ ᠦᠶᠢᠯᠡᠳᠦᠨ᠎ᠡ᠃ ᠨᠡᠶᠢᠲᠡ ᠶᠢᠨ ᠪᠠᠭᠴᠠ ᠦᠭᠡᠷ᠎ᠡ ᠺᠣᠮᠫᠢᠦ᠋ᠲ᠋ᠧᠷ ᠲᠦ ᠲᠡᠷᠡ ᠲᠣᠬᠢᠷᠠᠭᠤᠯᠭ᠎ᠠ ᠶᠢ ᠨᠡᠮᠡᠬᠦ ᠦᠭᠡᠶ᠃",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠦᠨ ᠨᠡᠶᠢᠴᠡᠯ",
     "android": "ᠲᠦᠷᠢᠶᠢᠪᠴᠢ ᠶᠢᠨ ᠹᠠᠶᠢᠯ ᠤᠨ ᠵᠠᠭᠪᠤᠷ᠂ ᠬᠠᠶᠢᠭ ᠪᠠ ᠪᠠᠶᠢᠭ᠎ᠠ ᠵᠣᠭᠣᠰ ᠥᠭᠡᠷᠴᠢᠯᠡᠭᠳᠡᠭᠡᠳᠦᠶ᠃ ᠬᠠᠭᠤᠴᠢᠨ ᠨᠢᠭᠤᠴᠠᠯᠠᠭᠰᠠᠨ ᠨᠥᠭᠡᠴᠡ ᠬᠤᠭᠤᠯᠪᠤᠷᠢ ᠶᠢ ᠰᠢᠨ᠎ᠡ ᠠᠫᠫ ᠳᠤ ᠰᠡᠷᠭᠦᠭᠡᠵᠦ᠂ ᠠᠳᠠᠯᠢ ᠲᠦᠷᠢᠶᠢᠪᠴᠢ ᠪᠡᠨ ᠦᠷᠭᠦᠯᠵᠢᠯᠡᠭᠦᠯᠦᠨ ᠬᠡᠷᠡᠭᠯᠡᠵᠦ ᠪᠣᠯᠣᠨ᠎ᠠ᠃ Android 0.6.102 ᠵᠠᠩᠭᠢᠯᠠᠭ᠎ᠠ ᠪᠠ 1.1.13 ᠲᠦᠷᠢᠶᠢᠪᠴᠢ ᠰᠢᠨ᠎ᠡ ᠭᠠᠷ ᠤᠨ ᠦᠰᠦᠭ ᠦᠨ ᠲᠦᠯᠬᠢᠭᠦᠷ ᠬᠡᠷᠡᠭᠯᠡᠨ᠎ᠡ᠃ ᠦᠭᠡᠷ᠎ᠡ ᠲᠦᠯᠬᠢᠭᠦᠷ ᠲᠡᠢ ᠬᠠᠭᠤᠴᠢᠨ ᠠᠫᠫ ᠢ ᠳᠠᠷᠤᠵᠤ ᠰᠠᠭᠤᠯᠭᠠᠬᠤ ᠪᠣᠯᠣᠮᠵᠢ ᠦᠭᠡᠶ᠃ ᠲᠦᠷᠢᠶᠢᠪᠴᠢ ᠶᠢᠨ ᠨᠢᠭᠤᠴᠠᠯᠠᠭᠰᠠᠨ ᠨᠥᠭᠡᠴᠡ ᠬᠤᠭᠤᠯᠪᠤᠷᠢ ᠪᠠ ᠰᠡᠷᠭᠦᠭᠡᠬᠦ ᠠᠷᠭ᠎ᠠ ᠲᠠᠢ ᠪᠣᠯᠲᠠᠯ᠎ᠠ ᠬᠠᠭᠤᠴᠢᠨ ᠠᠫᠫ ᠪᠠ ᠥᠭᠡᠭᠳᠡᠯ ᠢ ᠬᠠᠳᠠᠭᠠᠯᠠᠭᠠᠷᠠᠢ᠃ ᠰᠢᠨᠡᠴᠢᠯᠡᠯ ᠰᠠᠭᠤᠯᠭᠠᠬᠤ ᠶᠢᠨ ᠲᠥᠯᠥᠭᠡ ᠯᠡ ᠬᠠᠭᠤᠴᠢᠨ ᠠᠫᠫ ᠢ ᠪᠦᠦ ᠤᠰᠠᠳᠬᠠᠭᠠᠷᠠᠢ᠃"
   },
@@ -400,10 +400,10 @@
     "fees": [
       "ইনপুটের মোট অর্থ থেকে আউটপুটের মোট অর্থ বাদ দিলে ফি পাওয়া যায়। ওয়ালেট সত্যিই নির্ধারিত সীমা পূরণ করে এমন ফেরত অর্থ তৈরি করলেই অনুমানে সেই চেঞ্জ আউটপুট ধরা হয়। সীমার নিচে থাকা অবশিষ্ট অর্থ ফিতে যোগ হয়; নিশ্চিত করার আগে চূড়ান্ত ফি ও মোট কত অর্থ কাটা হবে তা দেখানো হয়। ফি হারের একক yugeon/vB। লেনদেনের ওজনকে চার দিয়ে ভাগ করে ওপরের পূর্ণসংখ্যায় নিলে ভার্চুয়াল আকার পাওয়া যায়।",
       "ওয়ালেট ইনপুট ও আউটপুট একবারই বেছে নিয়ে একই লেনদেন পরিকল্পনায় স্বাক্ষর করে। নিশ্চিত করলে সংরক্ষিত সেই স্বাক্ষর করা লেনদেন পাঠানো হয়; নতুন করে লেনদেন তৈরি বা ফি হিসাব করা হয় না। অনুমানের মেয়াদ শেষ হলে বা ইনপুট ইতিমধ্যে খরচ হয়ে গেলে আবার পর্যালোচনা করতে হবে। স্থানীয় সারিতে গ্রহণ করা মানে ব্লকে নিশ্চিত হওয়া নয়।",
-      "সাধারণ P2WPKH পেমেন্টে ওয়ালেট low-R ও low-S স্বাক্ষর তৈরি করে, যার দৈর্ঘ্য SIGHASH_ALL বাইটসহ সর্বোচ্চ 71 বাইট। এটি স্বাক্ষর ও আকার অনুমানের নীতি, অন্য বৈধ স্বাক্ষরের ওপর নতুন ঐকমত্যসীমা নয়। ছোট স্বাক্ষরে প্রকৃত ভার্চুয়াল আকার কম হতে পারে। প্রস্তাবিত হার এখনও স্থানীয় অপেক্ষমাণ সারির ওপর নির্ভর করে; Bitcoin-এর মতো আকার গণনার অর্থ Bitcoin নেটওয়ার্কের ফি হার ব্যবহার করা নয়।"
+      "সাধারণ P2WPKH পেমেন্টে ওয়ালেট low-R ও low-S স্বাক্ষর তৈরি করে, যার দৈর্ঘ্য SIGHASH_ALL বাইটসহ সর্বোচ্চ 71 বাইট। এটি স্বাক্ষর ও আকার অনুমানের নীতি, অন্য বৈধ স্বাক্ষরের ওপর নতুন ঐকমত্যসীমা নয়। ছোট স্বাক্ষরে প্রকৃত ভার্চুয়াল আকার কম হতে পারে। "
     ],
-    "operations_title": "Windows-এর I2P উপাদান ও নিরাপত্তা পরীক্ষা",
-    "operations": "Windows প্যাকেজে হালনাগাদ হ্যাশ ও প্রাথমিক সংযোগের সার্টিফিকেটসহ আনুষ্ঠানিক i2pd 3.0.0 রয়েছে। নথিভুক্ত পরীক্ষায় Defender এখনও আনুষ্ঠানিক I2P প্রোগ্রাম ও মূল ZIP শনাক্ত করে। আনুষ্ঠানিক হ্যাশের সঙ্গে মিল থাকা নিরাপত্তা প্রমাণ করে না, ভুল শনাক্তকরণও নিশ্চিত করে না। স্থানীয় ফাইল ব্যতিক্রম শুধু যে কম্পিউটারে যোগ করা হয় সেখানেই কার্যকর; প্রকাশ্য প্যাকেজ এটি যোগ করে না। অন্য কম্পিউটার একই ফাইল আটকাতে পারে।",
+    "operations_title": "",
+    "operations": "",
     "android_title": "Android স্বাক্ষরের সামঞ্জস্য",
     "android": "ওয়ালেট ফাইলের ধরন, ঠিকানা ও বিদ্যমান কয়েন বদলায়নি। পুরোনো এনক্রিপ্ট করা ব্যাকআপ নতুন অ্যাপে ফিরিয়ে এনে একই ওয়ালেট ব্যবহার করা যায়। Android নোড 0.6.102 ও ওয়ালেট 1.1.13 নতুন রিলিজ স্বাক্ষর কী ব্যবহার করে। ভিন্ন কী দিয়ে স্বাক্ষর করা পুরোনো অ্যাপের ওপর এগুলো বসানো যাবে না। এনক্রিপ্ট করা ওয়ালেট ব্যাকআপ ও কার্যকর পুনরুদ্ধারের ব্যবস্থা না হওয়া পর্যন্ত পুরোনো অ্যাপ এবং তার ডেটা রাখুন। শুধু আপডেট বসানোর জন্য পুরোনো অ্যাপ সরাবেন না।"
   }

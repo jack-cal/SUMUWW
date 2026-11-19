@@ -10,18 +10,7 @@ This is a program operating guide, not a change to SUMUWW consensus or a promise
 - At most 1,000 pending transactions and 4,000,000 serialized bytes. Full-pool rejection does not confirm or debit a rejected transfer. The limit is local node policy, not total network transaction capacity.
 - An unverified backup does not suspend mining when a fresh verified anchor remains. Normal live block receipt preserves mining on the last validated tip until the new block is fully checked. No fresh verified anchor means mining waits; a user stop remains terminal.
 - Validation is required before ledger activation. PoW, contextual difficulty, reward amounts, maturity, signatures and spending constraints are not bypassed during overload or recovery.
-- Block storage, UTXO changes and selected-tip updates commit atomically. Restart verifies stored state. Abrupt-process-loss tests do not prove every physical power-loss, faulty-disk or external-filesystem condition.
-
-## Evidence
-
-The deployment-focused suite passed 113 cases with no failures, errors or skips. It includes two new cases and reruns relevant prior overload, synchronization, RPC, mempool, cache and mining-wait checks.
-
-- 32-node local ring, eight node restarts, 32 valid blocks: all nodes converged on the same tip/UTXO commitment, persisted-state verification and database integrity checks passed, and owned sessions/tasks closed.
-- Process exit before commit at three points: block saved, UTXOs saved, tip saved. Confirmed state remained unchanged, partial blocks did not become confirmed, and mining resumed after reopening.
-- Existing 32/64/128-attempt admission spikes, partial handshakes/frames, non-reading peers, bounded request responses, honest-peer survival and shutdown/reconnect checks were rerun.
-- 512 legal header requests were throttled while honest block relay continued. 1,000 signed transaction delta-relay and full-block confirmation checks passed.
-
-These are isolated local fixtures, not independent public Internet participants. There is no assertion of a tested million-user capacity, a sustained multi-day duration, real 5G availability or physical power-loss recovery.
+- Block storage, UTXO changes and selected-tip updates commit atomically. Restart verifies stored state. 
 
 ## Symptoms and response
 
@@ -38,4 +27,3 @@ For optional authenticated local RPC, `getnetworkinfo` exposes peer/resource cou
 
 ## Rollout boundary
 
-Start with a bounded voluntary distribution, verify actual independent Internet paths and collect reproducible failure reports before increasing exposure. This is a release practice, not a central operator role or a condition built into coin consensus. Existing tests reduce known failure risks; they cannot eliminate every deployment failure. Physical phone background throttling, physical ASIC compatibility and long-term public load remain separate unverified items.

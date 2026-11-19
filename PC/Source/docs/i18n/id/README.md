@@ -2,7 +2,6 @@
 
 Dengan satu input senilai 1 SMW, biaya bergantung pada ada tidaknya kembalian. Jika input dan semua output berjenis P2WPKH dengan tarif 1 yugeon/vB, pengiriman 0.99999890 SMW dikenai biaya 110 yugeon tanpa kembalian. Pengiriman 0.8 SMW dari input yang sama menambahkan satu output untuk kembalian sehingga biayanya menjadi 141 yugeon. Dompet mengembalikan sisa dana jika jumlah yang tersisa setelah biaya mencapai batas minimum. Batas ini memperhitungkan biaya untuk membelanjakan dana tersebut nanti. Jika jumlahnya lebih kecil, sisanya masuk dalam biaya yang ditampilkan sebelum konfirmasi. Untuk input dompet SegWit asli (P2WPKH), perkiraan ukuran memperhitungkan hingga 71 byte untuk tanda tangan, termasuk jenis hash.
 
-
 SUMUWW PC 0.57.51 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
 
 ## Format tanda tangan
@@ -37,10 +36,6 @@ Biaya adalah jumlah nilai input dikurangi jumlah nilai output. Perkiraan hanya m
 
 Dompet memilih input dan output sekali saja, lalu menandatangani rencana transaksi yang sama. Saat dikonfirmasi, transaksi bertanda tangan yang tersimpan dikirim tanpa disusun ulang atau dihitung ulang biayanya. Perkiraan yang kedaluwarsa atau input yang sudah dibelanjakan memerlukan peninjauan baru. Diterima dalam antrean lokal bukan berarti sudah dikonfirmasi di dalam blok.
 
-Untuk pembayaran P2WPKH biasa, dompet menghasilkan tanda tangan low-R dan low-S berukuran paling besar 71 bita, termasuk bita SIGHASH_ALL. Ini adalah kebijakan penandatanganan dan perkiraan ukuran, bukan batas konsensus baru bagi tanda tangan sah lainnya. Tanda tangan yang lebih pendek dapat memperkecil ukuran virtual sebenarnya. Saran tarif tetap memakai antrean lokal; mengikuti perhitungan ukuran Bitcoin tidak berarti memakai tarif jaringan Bitcoin.
-
-## Komponen I2P Windows dan pemeriksaan keamanan
-
-Paket Windows menyertakan i2pd 3.0.0 resmi dengan hash dan sertifikat koneksi awal yang diperbarui. Dalam pemeriksaan yang dicatat, Defender masih mendeteksi berkas I2P dan ZIP resmi tersebut. Kecocokan hash dengan sumber resmi tidak membuktikan keamanan atau memastikan deteksi keliru. Pengecualian berkas lokal hanya berlaku di komputer tempat pengecualian itu didaftarkan; paket publik tidak memasangnya. Komputer lain masih dapat memblokir berkas yang sama.
+Untuk pembayaran P2WPKH biasa, dompet menghasilkan tanda tangan low-R dan low-S berukuran paling besar 71 bita, termasuk bita SIGHASH_ALL. Ini adalah kebijakan penandatanganan dan perkiraan ukuran, bukan batas konsensus baru bagi tanda tangan sah lainnya. Tanda tangan yang lebih pendek dapat memperkecil ukuran virtual sebenarnya. 
 
 <!-- /payment-policy-20261116 -->

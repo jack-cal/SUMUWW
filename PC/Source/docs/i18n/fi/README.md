@@ -2,7 +2,6 @@
 
 Kun käytät yhtä 1 SMW:n arvoista syötettä, maksu riippuu siitä, palautuuko lompakkoon vaihtorahaa. Jos syöte ja kaikki tulosteet ovat tyyppiä P2WPKH ja maksutaso on 1 yugeon/vB, 0.99999890 SMW:n lähettäminen maksaa 110 yugeon eikä vaihtorahaa jää. Jos lähetät samasta syötteestä 0.8 SMW, vaihtorahaa varten tarvitaan yksi tuloste lisää ja maksu on 141 yugeon. Lompakko palauttaa vaihtorahan, jos maksun vähentämisen jälkeen jäljelle jäävä summa saavuttaa vähimmäisrajan. Rajassa huomioidaan vaihtorahan myöhemmän käytön kustannus. Pienempi jäännös sisältyy ennen vahvistusta näytettävään maksuun. Natiivia SegWitiä (P2WPKH) käyttävän lompakon syötteen kokoarviossa allekirjoitukselle varataan enintään 71 tavua tiivistetyyppi mukaan lukien.
 
-
 SUMUWW PC 0.57.51 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
 
 ## Allekirjoitusmuoto
@@ -37,10 +36,6 @@ Siirtomaksu on syötteiden summa vähennettynä tulosteiden summalla. Arvioon la
 
 Lompakko valitsee syötteet ja tulosteet vain kerran ja allekirjoittaa saman tapahtumasuunnitelman. Vahvistettaessa lähetetään tallennettu allekirjoitettu tapahtuma rakentamatta sitä tai laskematta maksua uudelleen. Vanhentunut arvio tai jo käytetyt syötteet edellyttävät uutta tarkistusta. Paikalliseen jonoon hyväksyminen ei tarkoita vahvistusta lohkossa.
 
-Tavallisissa P2WPKH-maksuissa lompakko luo low-R- ja low-S-allekirjoitukset, joiden enimmäispituus on 71 tavua SIGHASH_ALL-tavu mukaan lukien. Tämä on allekirjoitus- ja kokoarviokäytäntö, ei uusi konsensusraja muille kelvollisille allekirjoituksille. Lyhyempi allekirjoitus voi pienentää todellista virtuaalikokoa. Suositellut maksutasot perustuvat edelleen paikalliseen jonoon; Bitcoinin kaltainen kokolaskenta ei tarkoita Bitcoin-verkon maksutasojen käyttöä.
-
-## Windowsin I2P-osa ja tietoturvatarkistus
-
-Windows-paketeissa on virallinen i2pd 3.0.0 sekä päivitetyt tarkistussummat ja alkuyhteyden varmenteet. Tallennetussa tarkistuksessa Defender tunnistaa edelleen virallisen I2P-ohjelmatiedoston ja alkuperäisen ZIP-paketin uhkiksi. Virallisen tiivisteen täsmääminen ei osoita turvallisuutta eikä vahvista väärää hälytystä. Paikallinen tiedostopoikkeus koskee vain tietokonetta, jossa se on määritetty; julkinen paketti ei lisää sitä. Muut tietokoneet voivat estää samat tiedostot.
+Tavallisissa P2WPKH-maksuissa lompakko luo low-R- ja low-S-allekirjoitukset, joiden enimmäispituus on 71 tavua SIGHASH_ALL-tavu mukaan lukien. Tämä on allekirjoitus- ja kokoarviokäytäntö, ei uusi konsensusraja muille kelvollisille allekirjoituksille. Lyhyempi allekirjoitus voi pienentää todellista virtuaalikokoa. 
 
 <!-- /payment-policy-20261116 -->

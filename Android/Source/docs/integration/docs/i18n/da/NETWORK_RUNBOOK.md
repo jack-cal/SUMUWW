@@ -22,7 +22,7 @@ Gebyret er summen af inputs minus summen af outputs. Estimatet medregner kun et 
 
 Tegnebogen vælger inputs og outputs én gang og signerer den samme transaktionsplan. Ved bekræftelse indsendes den gemte signerede transaktion uden at blive genopbygget eller få genberegnet gebyret. Et udløbet tilbud eller inputs, der allerede er brugt, kræver en ny gennemgang. Optagelse i den lokale kø er ikke en bekræftelse i en blok.
 
-Ved almindelige P2WPKH-betalinger laver tegnebogen low-R- og low-S-signaturer på højst 71 byte inklusive SIGHASH_ALL-byten. Dette er en politik for signering og størrelsesestimering, ikke en ny konsensusgrænse for andre gyldige signaturer. Kortere signaturer kan mindske den faktiske virtuelle størrelse. De foreslåede satser bygger stadig på den lokale kø; en størrelsesberegning som i Bitcoin overtager ikke Bitcoin-netværkets gebyrsatser.
+Ved almindelige P2WPKH-betalinger laver tegnebogen low-R- og low-S-signaturer på højst 71 byte inklusive SIGHASH_ALL-byten. Dette er en politik for signering og størrelsesestimering, ikke en ny konsensusgrænse for andre gyldige signaturer. Kortere signaturer kan mindske den faktiske virtuelle størrelse. 
 
 ## Kompatibilitet for Android-signering
 
@@ -30,4 +30,4 @@ Tegnebogens filformat, adresser og eksisterende mønter er uændrede. Den eksist
 
 <!-- /payment-policy-20261116 -->
 
-Når noden har modtaget et gyldigt versionssvar, får modparten tid til at sende sin bekræftelse. Hvis to udgående forbindelser fører til samme node, holdes en tilgængelig vej åben, indtil synkroniseringen er fuldført via en af dem. Den indbyggede selvtest accepterer en blok med gyldigt arbejdsbevis, før forbindelsesbeviset foreligger. Derefter kontrollerer den de tre vidners underskrifter, videresendelsen af beviset og at det er bevaret efter genstart.
+Når noden har modtaget et gyldigt versionssvar, får modparten tid til at sende sin bekræftelse. Hvis to udgående forbindelser fører til samme node, holdes en tilgængelig vej åben, indtil synkroniseringen er fuldført via en af dem. 

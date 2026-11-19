@@ -22,7 +22,7 @@ Gebyret er summen av inngangene minus summen av utgangene. Anslaget tar bare med
 
 Lommeboken velger innganger og utganger én gang og signerer den samme transaksjonsplanen. Ved bekreftelse sendes den lagrede, signerte transaksjonen uten å bygges opp på nytt eller få gebyret beregnet om. Et utløpt tilbud eller innganger som allerede er brukt, krever en ny gjennomgang. At transaksjonen er akseptert i den lokale køen, betyr ikke at den er bekreftet i en blokk.
 
-For vanlige P2WPKH-betalinger lager lommeboken low-R- og low-S-signaturer på høyst 71 byte, inkludert SIGHASH_ALL-byten. Dette er en regel for signering og størrelsesanslag, ikke en ny konsensusgrense for andre gyldige signaturer. Kortere signaturer kan gi mindre faktisk virtuell størrelse. Foreslåtte satser bygger fortsatt på den lokale køen; en størrelsesberegning som i Bitcoin innebærer ikke bruk av Bitcoin-nettverkets gebyrsatser.
+For vanlige P2WPKH-betalinger lager lommeboken low-R- og low-S-signaturer på høyst 71 byte, inkludert SIGHASH_ALL-byten. Dette er en regel for signering og størrelsesanslag, ikke en ny konsensusgrense for andre gyldige signaturer. Kortere signaturer kan gi mindre faktisk virtuell størrelse. 
 
 ## Kompatibilitet for Android-signering
 
@@ -30,4 +30,4 @@ Lommebokens filformat, adresser og eksisterende mynter er uendret. Den eksistere
 
 <!-- /payment-policy-20261116 -->
 
-Når noden har mottatt et gyldig versjonssvar, får motparten tid til å sende en bekreftelse. Hvis to utgående forbindelser går til samme node, holdes en tilgjengelig rute åpen til synkroniseringen er ferdig over en av dem. Den innebygde selvtesten godtar en blokk med gyldig arbeidsbevis før forbindelsesbeviset er tilgjengelig. Deretter kontrollerer den de tre vitnenes signaturer, videresendingen av beviset og at det er bevart etter omstart.
+Når noden har mottatt et gyldig versjonssvar, får motparten tid til å sende en bekreftelse. Hvis to utgående forbindelser går til samme node, holdes en tilgjengelig rute åpen til synkroniseringen er ferdig over en av dem. 

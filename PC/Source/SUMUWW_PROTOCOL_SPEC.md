@@ -2,7 +2,6 @@
 
 For a 1 SMW input, the fee depends on whether the transaction needs change. With P2WPKH inputs and outputs at 1 yugeon/vB, sending 0.99999890 SMW costs 110 yugeon and leaves no change. Sending 0.8 SMW from the same input creates a change output and costs 141 yugeon. The wallet creates change only if the amount left after paying the fee meets the minimum for a change output. This minimum accounts for the cost of spending the change later. A smaller remainder goes into the fee shown before you confirm. For a native SegWit wallet input (P2WPKH), the estimate allows up to 71 bytes for the signature, including its hash type.
 
-
 <!-- current-links-9000 -->
 ## 2026-10-22 · 9000 · 20% · DGW/10
 
@@ -10,7 +9,6 @@ Valid blocks through 8999 remain usable, including those sent together with an i
 
 [Current protocol / exact format / limitations](CONNECTION_PROOFS_9000.html)
 <!-- /current-links-9000 -->
-
 
 ## Source-block 9,600 update
 
@@ -110,7 +108,6 @@ Nodes exchange version/verack, locator/headers, inventory/getdata and block/tran
 
 SUMUWW addresses use Bech32 with HRP `sumuww`, witness version 0 and a 20-byte witness program for native P2WPKH. Validation checks the network prefix, checksum and padding. Other-network addresses, mixed case and invalid padding are rejected.
 
-
 ## Implementation addendum: PC 0.57.47 / Android 0.6.96
 
 [Current fee, yugeon, replacement and script activation specification](NODE_FEATURES.md).
@@ -123,6 +120,6 @@ The fee is the sum of inputs minus the sum of outputs. A payment quote includes 
 
 The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
 
-For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. 
 
 <!-- /payment-policy-20261116 -->

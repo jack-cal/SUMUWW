@@ -109,10 +109,6 @@ preactivation v1 database marker may migrate without rewriting blocks or UTXOs.
 A database already containing incompatible post-activation history is refused
 for explicit review. Do not delete it or reset a wallet to bypass this check.
 
-The shipped implementation and isolated test evidence are not an independent
-security audit or proof of worldwide decentralization. Initial public-network
-activation at height 9000 has not occurred in these laboratory tests.
-
 ## Source map
 
 `sumuww/link_crypto.py`: format, splitting, sampling and producer outputs.

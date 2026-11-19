@@ -14,7 +14,6 @@ La rete pubblica è `sumuww`, con alias interno `dora`. Verificare l’hash di g
 
 Con un input di 1 SMW, la commissione dipende dalla presenza del resto. Se gli input e gli output sono P2WPKH e la tariffa è di 1 yugeon/vB, inviare 0.99999890 SMW costa 110 yugeon e non lascia resto. Inviare 0.8 SMW dallo stesso input aggiunge un output per il resto e porta la commissione a 141 yugeon. Il portafoglio restituisce il resto se l’importo rimasto dopo la commissione raggiunge una soglia che tiene conto del costo per spenderlo in seguito. Sotto questa soglia, il resto viene incluso nella commissione mostrata prima della conferma. Per un input del portafoglio in SegWit nativo (P2WPKH), la stima prevede fino a 71 byte per la firma, incluso il tipo di hash.
 
-
 `1 yugeon = 0.00000001 SMW` · `1 SMW = 100000000 yugeon`
 
 | API / wallet | yugeon / SMW |
@@ -44,7 +43,7 @@ La commissione è la somma degli input meno la somma degli output. La stima incl
 
 Il portafoglio sceglie input e output una sola volta e firma quello stesso piano di transazione. La conferma invia la transazione firmata conservata, senza ricostruirla né ricalcolare la commissione. Una stima scaduta o input già spesi richiedono una nuova verifica. L’accettazione nella coda locale non equivale alla conferma in un blocco.
 
-Per i normali pagamenti P2WPKH, il portafoglio genera firme low-R e low-S lunghe al massimo 71 byte, incluso il byte SIGHASH_ALL. È una politica di firma e di stima delle dimensioni, non un nuovo limite di consenso per altre firme valide. Una firma più corta può ridurre la dimensione virtuale effettiva. Le tariffe suggerite dipendono ancora dalla coda locale: seguire un calcolo delle dimensioni simile a Bitcoin non significa adottare le tariffe della rete Bitcoin.
+Per i normali pagamenti P2WPKH, il portafoglio genera firme low-R e low-S lunghe al massimo 71 byte, incluso il byte SIGHASH_ALL. È una politica di firma e di stima delle dimensioni, non un nuovo limite di consenso per altre firme valide. Una firma più corta può ridurre la dimensione virtuale effettiva. 
 
 ## Compatibilità della firma Android
 
@@ -52,4 +51,4 @@ Il formato dei file del portafoglio, gli indirizzi e le monete esistenti non son
 
 <!-- /payment-policy-20261116 -->
 
-Dopo una risposta di versione valida, il nodo lascia al suo interlocutore il tempo di inviare la conferma. Se due connessioni in uscita raggiungono lo stesso nodo, un percorso disponibile resta aperto finché una delle due completa la sincronizzazione. La diagnostica integrata accetta un blocco con prova di lavoro valida prima di ricevere la prova di connessione. Verifica poi le firme dei tre testimoni, la propagazione della prova e la sua conservazione dopo il riavvio.
+Dopo una risposta di versione valida, il nodo lascia al suo interlocutore il tempo di inviare la conferma. Se due connessioni in uscita raggiungono lo stesso nodo, un percorso disponibile resta aperto finché una delle due completa la sincronizzazione. 

@@ -8,5 +8,4 @@ Penjelajah menampilkan tarif biaya dalam yugeon/vB. Jika node lokal mencatat pen
 
 Penjelajah menampilkan syarat multisignatur dan penguncian output yang telah diungkapkan. Aktivasi pada jaringan publik belum dijadwalkan.
 
-
 Riwayat penambangan memisahkan penerbitan baru, biaya transaksi, dan total imbalan setiap blok. Jumlah yang diterima dompet Anda ditampilkan terpisah. Klaim sebagian tidak menentukan pembagian kedua komponen. Node menyediakan 28 metode RPC, termasuk perkiraan biaya, serta memvalidasi dan meneruskan transaksi bertanda tangan.

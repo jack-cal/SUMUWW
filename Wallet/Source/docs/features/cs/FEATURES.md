@@ -2,11 +2,9 @@
 
 Uzel běžně otevírá 10 odchozích spojení. Většina přenáší bloky i transakce. Ověřené záložní spojení může přenášet bloky a k hledání dalších uzlů lze krátce otevřít jedenácté spojení. Celkový limit je 125 spojení. Příchozích může být až 117, při 10 odchozích nejvýše 115. Byla opravena chyba při spouštění peněženky na Androidu. Peněženka rozpozná změny síťového připojení telefonu.
 
-
 1 SMW = 100 000 000 yugeon. Automatické poplatky nabízejí tři úrovně podle místních pozorování, bez záruky času potvrzení. Sazbu v yugeon/vB lze zadat ručně. Před odesláním ověřte konečný poplatek a součet v SMW. Odmítnutá transakce nesníží zůstatek.
 
 U jednoho vstupu v hodnotě 1 SMW závisí poplatek na tom, zda je potřeba vrátit drobné. Pokud jsou vstup i všechny výstupy typu P2WPKH, při sazbě 1 yugeon/vB stojí odeslání 0.99999890 SMW přesně 110 yugeon a nic nezbývá. Při odeslání 0.8 SMW ze stejného vstupu přibude výstup pro vrácení zbytku a poplatek činí 141 yugeon. Peněženka vrátí zbytek, pokud částka po odečtení poplatku dosáhne minima, které zohledňuje náklady na její pozdější utracení. Menší zbytek se započítá do poplatku zobrazeného před potvrzením. Při odhadu velikosti nativního vstupu SegWit (P2WPKH) peněženka počítá s nejvýše 71 bajty na podpis včetně typu hashe.
-
 
 `1 yugeon = 0.00000001 SMW`
 
@@ -15,7 +13,6 @@ U jednoho vstupu v hodnotě 1 SMW závisí poplatek na tom, zda je potřeba vrá
 Automatický poplatek zohledňuje objem čekajících dat, kapacitu bloků a prioritu transakcí. Poplatky z minulých bloků nepoužívá. Při malé frontě platí minimální sazba. Náhled se aktualizuje; konečné potvrzení poplatek zafixuje. Pozorování se týká připojeného místního uzlu, nikoli všech uzlů.
 
 Historie nahrazení zaznamenaná tímto uzlem zůstává zachována po restartu peněženky. Odstraněné transakce nemění zůstatek.
-
 
 Historie těžby zobrazuje zvlášť novou emisi, poplatky a celkovou odměnu každého bloku. Částka přijatá vaší peněženkou je uvedena samostatně. Při částečném vyzvednutí se rozdělení mezi složkami nepředpokládá. Uzel poskytuje 28 metod RPC včetně odhadu poplatků a ověřuje a předává podepsané transakce.
 
@@ -27,7 +24,7 @@ Poplatek je součet vstupů minus součet výstupů. Odhad zahrnuje výstup vrá
 
 Peněženka vybere vstupy a výstupy jednou a podepíše stejný plán transakce. Po potvrzení odešle uloženou podepsanou transakci, aniž ji sestavuje znovu nebo přepočítává poplatek. Vypršelý odhad nebo mezitím utracené vstupy vyžadují novou kontrolu. Přijetí do místní fronty není potvrzením v bloku.
 
-Pro běžné platby P2WPKH vytváří peněženka podpisy low-R a low-S dlouhé nejvýše 71 bajtů včetně bajtu SIGHASH_ALL. Jde o pravidlo podepisování a odhadu velikosti, nikoli nový limit konsensu pro jiné platné podpisy. Kratší podpis může snížit skutečnou virtuální velikost. Navrhované sazby stále vycházejí z místní fronty; podobný výpočet velikosti jako u Bitcoin neznamená převzetí sazeb jeho sítě.
+Pro běžné platby P2WPKH vytváří peněženka podpisy low-R a low-S dlouhé nejvýše 71 bajtů včetně bajtu SIGHASH_ALL. Jde o pravidlo podepisování a odhadu velikosti, nikoli nový limit konsensu pro jiné platné podpisy. Kratší podpis může snížit skutečnou virtuální velikost. 
 
 ## Kompatibilita podpisu Android
 
@@ -35,4 +32,4 @@ Formát souborů peněženky, adresy ani stávající mince se nezměnily. Dosav
 
 <!-- /payment-policy-20261116 -->
 
-Po přijetí platné odpovědi s verzí dá uzel protistraně čas na odeslání potvrzení. Pokud dvě odchozí spojení vedou ke stejnému uzlu, zůstane dostupná cesta otevřená, dokud přes jedno z nich neskončí synchronizace. Vestavěná diagnostika přijme blok s platným důkazem práce ještě před doručením důkazu o spojení. Poté ověří podpisy tří svědků, předání důkazu dalšímu uzlu a jeho zachování po restartu.
+Po přijetí platné odpovědi s verzí dá uzel protistraně čas na odeslání potvrzení. Pokud dvě odchozí spojení vedou ke stejnému uzlu, zůstane dostupná cesta otevřená, dokud přes jedno z nich neskončí synchronizace. 

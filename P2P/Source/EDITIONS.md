@@ -2,7 +2,7 @@
 
 Both Windows editions share a signed SMW/BTC buy/sell board, exact prices and
 quantities, local signing, encrypted recovery records and deadline refunds.
-Full and Light participants can trade with each other. English is the default;
+Full and Light participants can trade with each other. 
 the same 34 offline interface languages and branding remain available.
 
 | | Full edition | Light edition |
@@ -20,7 +20,6 @@ the same 34 offline interface languages and branding remain available.
 The Full trading application is a client of your full nodes, not a bundled
 mainnet Bitcoin full node. The included Bitcoin binaries in the Full package
 are used only by the optional disposable regtest laboratory.
-
 
 [Detailed Bitcoin full-node setup and block-9100 activation guide](BITCOIN_SETUP.md).
 
@@ -63,22 +62,13 @@ locked and preserve working node access and recovery backups.
 
 ## Data size and observed public-network check
 
-On 2026-10-23 the client checked all headers through height 972,639 against three
-public TLS servers. Header storage was 77,811,200 bytes (about 77.8 MB decimal).
-The initial wire transfer was 155,659,439 bytes because Electrum sends headers as
-hexadecimal text. That download took 205.34 seconds on the test connection; it is
-not a speed guarantee. A subsequent run checked height 972,640 and a confirmed
-public transaction's raw bytes and Merkle proof without creating a wallet or
-moving money. Header storage then measured 77,811,280 bytes.
-
 Application files, wallet/trade records, memory and temporary replacement-cache
 space are additional. A header-cache replacement may temporarily need a second
 copy. The cache is checked again from genesis after restart. Other transaction
 data is fetched as needed; it is not the entire Bitcoin transaction history.
 Growth is about 4.2 MB of raw headers per year at target spacing. Old or very busy
 scripts may take longer to query or exceed a server's history limit. SUMUWW's
-local chain storage remains separate. These measurements do not imply that the
-entire application needs only 77.8 MB of disk or RAM.
+local chain storage remains separate. 
 
 ## Wallets, profiles and moving between editions
 
@@ -125,8 +115,7 @@ Posting checks confirmed paying funds and fees, and allocates inputs locally;
 both parties are rechecked before reservation. A received advertisement alone
 is not an independently verified proof of funds. Orders fill as a whole. There is no separately deployed exchange contract
 or application operator fee; blockchain transaction fees and operating resources
-still apply. Mainnet funds were not transferred in verification. Test success
-does not establish an independent security audit or guaranteed settlement.
+still apply. 
 
 ## References
 
@@ -135,7 +124,7 @@ does not establish an independent security audit or guaranteed settlement.
 - [Bitcoin Core v31.0 chain parameters](https://github.com/bitcoin/bitcoin/blob/v31.0/src/kernel/chainparams.cpp)
 - [Bitcoin Core proof-of-work rules](https://github.com/bitcoin/bitcoin/blob/v31.0/src/pow.cpp)
 - [Electrum public server directory](https://github.com/spesmilo/electrum/blob/master/electrum/chains/mainnet/servers.json)
-- [User instructions](README.txt), [changes](RELEASE_NOTES.txt), [verification](VERIFICATION.txt)
+- [User instructions](README.txt), [changes](RELEASE_NOTES.txt)
 
 ## 0.3.6
 

@@ -65,8 +65,6 @@ remain in release history. They are not the current Full/Light trading board.
 
 ## Version history
 
-All published historical assets remain available. Older combined PC/Android releases are listed under both matching components; current platform releases are separate.
-
 | Published (UTC) | Release | Application | Source |
 |---|---|---|---|
 | 2026-10-20 | [SUMUWW P2P 0.1.7 — Windows](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-v0.1.7) | [Windows ZIP](https://github.com/jack-cal/SUMUWW/releases/download/p2p-v0.1.7/SUMUWW-P2P-0.1.7-Windows.zip) | [Source ZIP](https://github.com/jack-cal/SUMUWW/releases/download/p2p-v0.1.7/SUMUWW-P2P-0.1.7-Source.zip) |

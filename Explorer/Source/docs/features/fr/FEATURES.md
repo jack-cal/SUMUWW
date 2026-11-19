@@ -8,5 +8,4 @@ L’explorateur affiche les taux de frais en yugeon/vB. Si le nœud local a enre
 
 L’explorateur affiche les conditions révélées de multisignature et de verrouillage des sorties. L’activation sur le réseau public n’est pas programmée.
 
-
 L’historique de minage distingue l’émission nouvelle, les frais et la récompense totale de chaque bloc. Le montant reçu par votre portefeuille apparaît séparément. Une récompense partiellement réclamée ne permet pas d’attribuer les deux composantes. Le nœud fournit 28 méthodes RPC, dont l’estimation des frais, et valide et relaie les transactions signées.

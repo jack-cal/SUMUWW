@@ -2,7 +2,6 @@
 
 Com uma entrada de 1 SMW, a taxa depende de ser preciso devolver troco. Se as entradas e saídas forem P2WPKH e a taxa por tamanho for de 1 yugeon/vB, enviar 0.99999890 SMW custa 110 yugeon e não há troco. Enviar 0.8 SMW com a mesma entrada acrescenta uma saída de troco e eleva a taxa para 141 yugeon. A carteira devolve o troco se o valor restante após a taxa atingir um mínimo que tem em conta o custo de gastar esse troco mais tarde. Se ficar abaixo desse mínimo, o valor restante é incluído na taxa apresentada antes da confirmação. Para uma entrada da carteira em SegWit nativo (P2WPKH), a estimativa reserva até 71 bytes para a assinatura, incluindo o tipo de hash.
 
-
 SUMUWW PC 0.57.51 · O nó valida, guarda, retransmite e permite consultar a cadeia.
 
 ## Formato de assinatura
@@ -37,10 +36,6 @@ A taxa corresponde à soma das entradas menos a soma das saídas. A estimativa s
 
 A carteira seleciona as entradas e as saídas uma única vez e assina esse mesmo plano. A confirmação envia a transação assinada que foi armazenada, sem reconstruí-la nem recalcular a taxa. Uma estimativa vencida ou entradas já gastas exigem nova conferência. A aceitação na fila local não equivale à confirmação em um bloco.
 
-Nos pagamentos P2WPKH comuns, a carteira gera assinaturas low-R e low-S de até 71 bytes, incluindo o byte SIGHASH_ALL. Essa é uma política de assinatura e estimativa, não um novo limite de consenso para outras assinaturas válidas. Assinaturas menores podem reduzir o tamanho virtual real. As tarifas sugeridas continuam usando a fila local; seguir o cálculo de tamanho do Bitcoin não significa adotar as tarifas daquela rede.
-
-## Componente I2P do Windows e verificações de segurança
-
-Os pacotes Windows incluem o i2pd 3.0.0 oficial, com hashes e certificados de inicialização atualizados. Na verificação registrada, o Defender ainda detecta o executável I2P e o ZIP originais. A correspondência com o hash oficial não comprova segurança nem confirma um falso positivo. Uma exclusão local só vale no computador em que foi registrada; o pacote público não a configura. Outros computadores podem bloquear os mesmos arquivos.
+Nos pagamentos P2WPKH comuns, a carteira gera assinaturas low-R e low-S de até 71 bytes, incluindo o byte SIGHASH_ALL. Essa é uma política de assinatura e estimativa, não um novo limite de consenso para outras assinaturas válidas. Assinaturas menores podem reduzir o tamanho virtual real. 
 
 <!-- /payment-policy-20261116 -->

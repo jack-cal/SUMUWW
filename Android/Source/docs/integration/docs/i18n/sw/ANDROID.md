@@ -14,7 +14,6 @@ Mtandao wa umma ni `sumuww`, jina la ndani ni `dora`. Hakiki hash ya kitalu cha 
 
 Ukitumia ingizo moja la 1 SMW, ada hutegemea kama utarudishiwa chenji. Ikiwa ingizo na matokeo yote ni ya aina ya P2WPKH na kiwango cha ada ni 1 yugeon/vB, kutuma 0.99999890 SMW kunagharimu 110 yugeon bila chenji. Ukituma 0.8 SMW kutoka kwenye ingizo hilohilo, muamala unakuwa na tokeo la chenji na ada inakuwa 141 yugeon. Pochi inakurudishia chenji ikiwa kiasi kinachobaki baada ya ada kinafikia kiwango cha chini kinachozingatia gharama ya kuitumia chenji hiyo baadaye. Ikiwa kiasi hicho ni kidogo zaidi, hujumuishwa katika ada inayoonyeshwa kabla ya uthibitisho. Kwa ingizo la pochi la SegWit asilia (P2WPKH), makadirio hutenga hadi baiti 71 kwa sahihi, ikijumuisha aina ya heshi.
 
-
 `1 yugeon = 0.00000001 SMW` · `1 SMW = 100000000 yugeon`
 
 | API / wallet | yugeon / SMW |
@@ -44,7 +43,7 @@ Ada ni jumla ya ingizo ukiondoa jumla ya matokeo. Makadirio yanahesabu tokeo la 
 
 Pochi huchagua ingizo na matokeo mara moja tu, kisha hutia sahihi mpango huohuo wa muamala. Unapothibitisha, hutuma muamala wenye sahihi uliohifadhiwa bila kuujenga upya au kukokotoa tena ada. Makadirio yakiisha muda au ingizo likiwa limetumika, ukaguzi mpya unahitajika. Kukubaliwa katika foleni ya ndani si uthibitisho ndani ya bloku.
 
-Kwa malipo ya kawaida ya P2WPKH, pochi hutengeneza sahihi za low-R na low-S zenye hadi baiti 71, ikijumuisha baiti ya SIGHASH_ALL. Hii ni sera ya utiaji sahihi na makadirio ya ukubwa, wala si kikomo kipya cha makubaliano kwa sahihi nyingine halali. Sahihi fupi inaweza kupunguza ukubwa pepe halisi. Mapendekezo ya viwango bado hutumia foleni ya ndani; kutumia hesabu ya ukubwa inayofanana na Bitcoin hakumaanishi kutumia viwango vya ada vya mtandao wa Bitcoin.
+Kwa malipo ya kawaida ya P2WPKH, pochi hutengeneza sahihi za low-R na low-S zenye hadi baiti 71, ikijumuisha baiti ya SIGHASH_ALL. Hii ni sera ya utiaji sahihi na makadirio ya ukubwa, wala si kikomo kipya cha makubaliano kwa sahihi nyingine halali. Sahihi fupi inaweza kupunguza ukubwa pepe halisi. 
 
 ## Uoanifu wa sahihi za Android
 
@@ -52,4 +51,4 @@ Muundo wa faili za pochi, anwani na sarafu zilizopo havijabadilika. Nakala fiche
 
 <!-- /payment-policy-20261116 -->
 
-Baada ya kupokea jibu halali la toleo, nodi huipa nodi nyingine muda wa kutuma uthibitisho. Ikiwa miunganisho miwili inayotoka inafika kwenye nodi ileile, njia inayopatikana hubaki wazi hadi usawazishaji ukamilike kupitia mojawapo. Ukaguzi wa ndani hukubali bloku yenye uthibitisho halali wa kazi kabla ya kupokea uthibitisho wa muunganisho. Kisha hukagua saini za mashahidi watatu, usambazaji wa uthibitisho huo na kama bado unapatikana baada ya kuwasha upya.
+Baada ya kupokea jibu halali la toleo, nodi huipa nodi nyingine muda wa kutuma uthibitisho. Ikiwa miunganisho miwili inayotoka inafika kwenye nodi ileile, njia inayopatikana hubaki wazi hadi usawazishaji ukamilike kupitia mojawapo. 

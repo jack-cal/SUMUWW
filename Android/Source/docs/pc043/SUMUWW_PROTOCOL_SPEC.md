@@ -8,7 +8,6 @@ Valid blocks through 8999 remain usable, including those sent together with an i
 [Current protocol / exact format / limitations](CONNECTION_PROOFS_9000.html)
 <!-- /current-links-9000 -->
 
-
 ## Source-block 9,600 update
 
 From source block 9,600, connection proofs require certified active-candidate selection. More than two thirds of the anchored generation attest the activity round; validators recompute the three witnesses. After activation, unfinished jobs can renew the activity round while preserving the A/B pair and event beacon. Archived responses from different rounds cannot be combined. Earlier valid proofs remain valid. The exact rules and quorum assumptions are in [CONNECTION_PROOFS_9000.md](CONNECTION_PROOFS_9000.md).
@@ -107,7 +106,6 @@ Nodes exchange version/verack, locator/headers, inventory/getdata and block/tran
 
 SUMUWW addresses use Bech32 with HRP `sumuww`, witness version 0 and a 20-byte witness program for native P2WPKH. Validation checks the network prefix, checksum and padding. Other-network addresses, mixed case and invalid padding are rejected.
 
-
 ## Implementation addendum: PC 0.57.47 / Android 0.6.96
 
 [Current fee, yugeon, replacement and script activation specification](NODE_FEATURES.md).
@@ -120,6 +118,6 @@ The fee is the sum of inputs minus the sum of outputs. A payment quote includes 
 
 The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
 
-For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. 
 
 <!-- /payment-policy-20261116 -->

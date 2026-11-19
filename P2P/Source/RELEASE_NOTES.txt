@@ -13,5 +13,5 @@ SUMUWW P2P Full / Light 0.3.6 — release, 26 October 2026
 - General wallet withdrawals are not included. Internet connectivity depends
   on reachable updated peers; no universal NAT traversal is claimed.
 
-See VERIFICATION.txt for the actual test scope. Full and Light have separate
+ Full and Light have separate
 release downloads, with the same matching source and SHA-256 checksum files.

@@ -14,5 +14,4 @@ Riwayat penggantian yang dicatat node ini tetap tersimpan setelah dompet dimulai
 
 Penjelajah menampilkan syarat multisignatur dan penguncian output yang telah diungkapkan. Aktivasi pada jaringan publik belum dijadwalkan.
 
-
 Riwayat penambangan memisahkan penerbitan baru, biaya transaksi, dan total imbalan setiap blok. Jumlah yang diterima dompet Anda ditampilkan terpisah. Klaim sebagian tidak menentukan pembagian kedua komponen. Node menyediakan 28 metode RPC, termasuk perkiraan biaya, serta memvalidasi dan meneruskan transaksi bertanda tangan.

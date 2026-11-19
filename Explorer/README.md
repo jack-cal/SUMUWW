@@ -12,8 +12,6 @@ Extract the complete ZIP and run start-explorer.cmd. The app supports 34 offline
 
 ## Version history
 
-All published historical assets remain available. Older combined PC/Android releases are listed under both matching components; current platform releases are separate.
-
 | Published (UTC) | Release | Application | Source |
 |---|---|---|---|
 | 2026-10-20 | [SUMUWW Explorer 0.4.4 — Windows](https://github.com/jack-cal/SUMUWW/releases/tag/explorer-v0.4.4) | [Windows ZIP](https://github.com/jack-cal/SUMUWW/releases/download/explorer-v0.4.4/SUMUWW-Explorer-v0.4.4-Windows.zip) · [Windows EXE](https://github.com/jack-cal/SUMUWW/releases/download/explorer-v0.4.4/SUMUWW-Explorer.exe) | [Source ZIP](https://github.com/jack-cal/SUMUWW/releases/download/explorer-v0.4.4/SUMUWW-Explorer-v0.4.4-Source.zip) |

@@ -55,6 +55,4 @@
 <h2>Fee-rate suggestions remain SUMUWW-specific</h2>
 <p>Slow, normal and fast suggestions use this node's accepted pending transactions and ancestor packages. Their capacity budgets are six, three and one blocks respectively, not confirmation deadlines. The estimator does not sample recent confirmed block fees and does not observe every node's mempool. Manual rate entry remains available.</p>
 <p>The change-output and signature-sizing approach follows the same principles used by Bitcoin wallets. SUMUWW does not inherit Bitcoin's network congestion, fee rates, complete coin-selection algorithm or confirmation guarantees merely by using those principles.</p>
-<h2>Source and translation scope</h2>
-<p>The implementation is in <code>fees.py</code>, <code>wallet.py</code>, <code>keystore.py</code> and the quote preparation/submission methods of <code>app_service.py</code>. Regression checks cover change boundaries, multiple inputs, signature bounds, exact quote reuse, expiry, conflicts and reorganizations.</p>
-<p>The affected explanations and migration notices are directly authored in all 34 supported languages. The existing non-English whitepaper pages remain identified as reading summaries; this revision does not relabel them as full translations of the English technical specification. No external automatic translation service was used. Native-speaker review of every language has not been independently completed.</p></body></html>
+</body></html>

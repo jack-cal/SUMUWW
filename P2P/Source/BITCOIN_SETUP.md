@@ -1,7 +1,7 @@
 # SUMUWW P2P: activation and Bitcoin setup
 
 Applies to **Full 0.3.0** and **Light 0.3.0** for Windows. The only trading pair is
-**SUMUWW (SMW) / Bitcoin (BTC)**. English is the default; all 34 interface
+**SUMUWW (SMW) / Bitcoin (BTC)**.  all 34 interface
 languages remain available.
 
 ## Trading activates at SUMUWW block 9100
@@ -50,9 +50,7 @@ a server from SUMUWW. You can operate the required nodes on your own PC.
 ## Full: prepare Bitcoin Core
 
 1. Obtain Bitcoin Core from its [official download page](https://bitcoincore.org/en/download/)
-   and follow its release-verification instructions. The regression environment
-   used Bitcoin Core 31.1; this is a test record, not a claim that any other
-   version is compatible.
+   and follow its release-verification instructions. 
 2. Choose a Bitcoin data directory with sufficient free disk space and keep
    Bitcoin on **mainnet**. This release requires the complete history and
    `txindex`; a pruned node is not supported by this trading adapter.
@@ -183,7 +181,4 @@ data are not automatically imported or replaced.
 
 The order board discovers peers automatically and routes signed trade messages
 over bidirectional TLS 1.3 sessions. It has no hosted public marketplace or
-universal NAT traversal. Internet discovery requires reachable updated peers. Test-chain trades, mixed-edition trades,
-cancellation and refunds passed the checks in [VERIFICATION.txt](VERIFICATION.txt).
-Public Bitcoin checks were read-only; no mainnet funds were transferred in those
-tests. The results do not constitute an independent security audit.
+universal NAT traversal. Internet discovery requires reachable updated peers. 

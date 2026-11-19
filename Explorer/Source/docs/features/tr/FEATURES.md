@@ -8,5 +8,4 @@ Gezgin, ücret oranlarını yugeon/vB cinsinden gösterir. Yerel düğüm bir de
 
 Gezgin, açıklanmış çoklu imza ve çıktı kilidi koşullarını gösterir. Genel ağda etkinleştirme tarihi henüz belirlenmedi.
 
-
 Madencilik geçmişi her bloğun yeni ihracını, işlem ücretlerini ve toplam ödülünü ayrı gösterir. Cüzdanınıza gelen tutar ayrıca gösterilir. Ödül kısmen talep edilmişse iki bileşenin dağılımı varsayılmaz. Düğüm, ücret tahmini dahil 28 RPC yöntemi sunar; imzalı işlemleri doğrular ve iletir.

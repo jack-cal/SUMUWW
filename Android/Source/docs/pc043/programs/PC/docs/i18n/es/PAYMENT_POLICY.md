@@ -10,11 +10,7 @@ La comisión es la suma de las entradas menos la suma de las salidas. La estimac
 
 El monedero selecciona las entradas y las salidas una sola vez y firma ese mismo plan. Al confirmar, envía la transacción firmada que conserva, sin reconstruirla ni recalcular la comisión. Si la estimación caduca o alguna entrada ya se ha gastado, hay que revisarla de nuevo. La aceptación en la cola local no equivale a una confirmación en un bloque.
 
-En pagos P2WPKH normales, el monedero genera firmas low-R y low-S de hasta 71 bytes, incluido el byte SIGHASH_ALL. Es una política de firma y estimación, no un nuevo límite de consenso para otras firmas válidas. Una firma más corta puede reducir el tamaño virtual real. Las tarifas sugeridas siguen dependiendo de la cola local; adoptar el cálculo de tamaño de Bitcoin no significa aplicar sus tarifas.
-
-## Componente I2P de Windows y comprobaciones de seguridad
-
-Los paquetes de Windows incluyen i2pd 3.0.0 oficial, con sus hashes y certificados de arranque actualizados. En la comprobación registrada, Defender sigue detectando el ejecutable I2P y el ZIP originales. Que el hash coincida con el oficial no demuestra que el archivo sea seguro ni que se trate de un falso positivo. Una exclusión local solo afecta al PC donde se registra; el paquete público no la instala. Otros equipos pueden bloquear los mismos archivos.
+En pagos P2WPKH normales, el monedero genera firmas low-R y low-S de hasta 71 bytes, incluido el byte SIGHASH_ALL. Es una política de firma y estimación, no un nuevo límite de consenso para otras firmas válidas. Una firma más corta puede reducir el tamaño virtual real. 
 
 ## Compatibilidad de firmas en Android
 

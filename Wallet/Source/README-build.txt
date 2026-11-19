@@ -9,11 +9,9 @@ recovery words, automatic lock, and 34 offline interface languages. English is
 the first-launch default. Existing artwork and wallet UI are retained.
 
 This is a separate application, org.sumuww.wallet.current. It does not overwrite
-or uninstall the withdrawn org.sumuww.wallet application. The old application's
-signing key was not found in this workspace, so an in-place update cannot be
-claimed. Keep the old application and its data. Import an encrypted backup or
+or uninstall the withdrawn org.sumuww.wallet application.  Keep the old application and its data. Import an encrypted backup or
 restore the recovery words in the new app to retain the same address and keys.
-Never share a password or recovery phrase. The original wallet is not modified.
+Never share a password or recovery phrase. 
 
 The new wallet uses SUMUWW 0.57.38 / Android 0.6.88 validation code. Valid legacy
 blocks through 8999 are retained; old-rule blocks at 9000 and later are rejected.
@@ -38,13 +36,3 @@ Current updates must retain this key. Private signing material stays outside
 source and releases. Set SUMUWW_WALLET_SIGNING_DIR and ANDROID_SDK_ROOT, then
 use tools/sign_release.py to sign a prepared release APK.
 
-Host tests: tools/check_wallet_host.py, plus the current pc_tests protocol suite.
-Android instrumentation: CurrentLinksTest uses disposable files in the cache.
-Older V4 tests are historical fixtures and are not the current activation design.
-Do not treat a successful build or host test as physical Android verification.
-
-Version 1.1.2 (versionCode 13) updates Wallet Current 1.1.0 in place with the
-same application ID and certificate. See the repository UI_LANGUAGE_VERIFICATION
-report for historical physical-device and multilingual caption checks.
-Those earlier device results are not a physical-device test of version 1.1.2.
-See RELEASE_NOTES.txt for the current build and verification scope.

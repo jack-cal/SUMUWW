@@ -2,7 +2,6 @@
 
 1 SMW değerinde tek bir girdi kullanıldığında ücret, para üstü gerekip gerekmediğine bağlıdır. Girdi ve tüm çıktılar P2WPKH biçimindeyse ve ücret oranı 1 yugeon/vB ise 0.99999890 SMW gönderirken 110 yugeon ücret ödersiniz ve para üstü kalmaz. Aynı girdiden 0.8 SMW gönderirseniz para üstü için bir çıktı eklenir ve ücret 141 yugeon olur. Ücret düşüldükten sonra kalan tutar, para üstünü ileride harcamanın maliyetini de hesaba katan alt sınıra ulaşırsa cüzdan para üstünü iade eder. Daha küçük bir tutar kalırsa bu tutar, onaydan önce gösterilen ücrete eklenir. Yerel SegWit (P2WPKH) cüzdan girdisinin boyutu hesaplanırken imza için, özet türü dâhil, en fazla 71 bayt ayrılır.
 
-
 SUMUWW Android 0.6.103 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
 
 [Belgeler](../../integration/docs/i18n/tr/ANDROID.html)
@@ -15,7 +14,7 @@ SUMUWW Android 0.6.103 · Düğüm zincir verilerini doğrular, saklar, iletir v
 
 Cüzdan girdileri ve çıktıları bir kez seçer, ardından aynı işlem planını imzalar. Onay verildiğinde saklanan imzalı işlem gönderilir; işlem yeniden kurulmaz ve ücret yeniden hesaplanmaz. Teklifin süresi dolmuşsa veya girdiler bu arada harcanmışsa yeniden inceleme gerekir. Yerel kuyruğa kabul edilmek, bir blokta onaylanmak anlamına gelmez.
 
-Normal P2WPKH ödemelerinde cüzdan, SIGHASH_ALL baytı dahil en fazla 71 baytlık low-R ve low-S imzalar üretir. Bu bir imzalama ve boyut tahmini politikasıdır; diğer geçerli imzalara getirilen yeni bir mutabakat sınırı değildir. Daha kısa bir imza gerçek sanal boyutu azaltabilir. Önerilen oranlar hâlâ yerel kuyruğa dayanır; Bitcoin’e benzer boyut hesabı kullanılması Bitcoin ağının ücret oranlarının kullanıldığı anlamına gelmez.
+Normal P2WPKH ödemelerinde cüzdan, SIGHASH_ALL baytı dahil en fazla 71 baytlık low-R ve low-S imzalar üretir. Bu bir imzalama ve boyut tahmini politikasıdır; diğer geçerli imzalara getirilen yeni bir mutabakat sınırı değildir. Daha kısa bir imza gerçek sanal boyutu azaltabilir. 
 
 ## Android imza uyumluluğu
 
@@ -23,4 +22,4 @@ Cüzdan dosya biçimleri, adresler ve mevcut coinler değişmedi. Eski şifrelen
 
 <!-- /payment-policy-20261116 -->
 
-Düğüm, geçerli bir sürüm yanıtı aldıktan sonra karşı düğüme onay göndermesi için süre tanır. İki giden bağlantı aynı düğüme ulaşıyorsa bunlardan biri eşitlemeyi tamamlayana kadar kullanılabilir bir yol açık kalır. Yerleşik tanılama, bağlantı kanıtı gelmeden önce geçerli iş kanıtı taşıyan bir bloğu kabul eder. Ardından üç tanığın imzasını, bağlantı kanıtının diğer düğümlere iletilmesini ve yeniden başlatmadan sonra korunmasını denetler.
+Düğüm, geçerli bir sürüm yanıtı aldıktan sonra karşı düğüme onay göndermesi için süre tanır. İki giden bağlantı aynı düğüme ulaşıyorsa bunlardan biri eşitlemeyi tamamlayana kadar kullanılabilir bir yol açık kalır. 

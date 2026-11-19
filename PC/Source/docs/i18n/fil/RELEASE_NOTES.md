@@ -2,13 +2,11 @@
 
 Kapag gumamit ka ng isang input na nagkakahalaga ng 1 SMW, nakadepende ang bayad sa kung may isusukli. Kung P2WPKH ang input at lahat ng output at 1 yugeon/vB ang singil, 110 yugeon ang bayad sa pagpapadala ng 0.99999890 SMW at walang sukli. Kung 0.8 SMW ang ipapadala mula sa parehong input, madaragdagan ng isang output para sa sukli at magiging 141 yugeon ang bayad. Ibinabalik ng wallet ang sukli kung ang natitira matapos ibawas ang bayad ay umabot sa minimum na halaga. Isinasaalang-alang sa minimum na ito ang gastos sa paggamit ng sukli sa hinaharap. Kung mas maliit ang natira, isinasama ito sa bayad na makikita mo bago kumpirmahin ang padala. Para sa input ng wallet na gumagamit ng native SegWit (P2WPKH), hanggang 71 byte ang inilalaan sa lagda sa pagtatantiya ng laki, kasama ang uri ng hash.
 
-
 0.57.61 · Kapag nagpalit ka ng wika habang bukas ang app, magbabago rin ang icon nito sa taskbar ng Windows.
 
 Karaniwang nagbubukas ang node ng 10 papalabas na koneksyon. Karamihan ay nagpapasa ng mga bloke at transaksyon. Maaari itong gumamit ng nasubukang reserbang koneksyon para sa mga bloke at pansamantalang magbukas ng ika-11 koneksyon para maghanap ng ibang node. Hanggang 125 ang kabuuan. Tumatanggap ito ng hanggang 117 papasok na koneksyon, o 115 kapag may 10 papalabas. Kabuuang bilang na lang ng mga nakakonektang node ang makikita sa desktop app. Bawat minero ang bumubuo ng sarili nitong mga block. Ipinapasa ng PC node ang mga natapos na block at tinatanggihan ang mga hiling na trabaho sa pagmimina at mga solusyong galing sa telepono.
 
 Kapag muling binuksan, magpapatuloy ang node mula sa huling block na sinuri nito sa device at susuriin ang mga bagong block. Kung wala o hindi tugma ang nakaimbak na tala ng pagsusuri, susuriin nitong muli ang nakaimbak na kasaysayan.
-
 
 SUMUWW PC 0.57.61 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
 
@@ -36,10 +34,6 @@ Ang bayarin ay kabuuan ng mga input na binawasan ng kabuuan ng mga output. Isina
 
 Minsan lang pinipili ng wallet ang mga input at output, at ang mismong planong iyon ang nilalagdaan. Sa pagkumpirma, ipinapadala ang nakaimbak na pirmadong transaksiyon nang hindi muling binubuo o kinakalkula ang bayarin. Kapag paso na ang tantiya o nagastos na ang isang input, kailangan ng panibagong pagsusuri. Ang pagtanggap sa lokal na pila ay hindi pa kumpirmasyon sa isang block.
 
-Sa karaniwang P2WPKH na bayad, gumagawa ang wallet ng low-R at low-S na pirmang hindi hihigit sa 71 byte, kasama ang SIGHASH_ALL byte. Patakaran ito sa pagpirma at pagtantiya ng laki, hindi bagong limitasyon ng consensus para sa ibang wastong pirma. Maaaring mas maliit ang aktuwal na virtual na laki kapag mas maikli ang pirma. Lokal na pila pa rin ang batayan ng mga mungkahing rate; ang pagkakatulad sa pagkalkula ng laki ng Bitcoin ay hindi nangangahulugang rate ng Bitcoin network ang ginagamit.
-
-## I2P na bahagi sa Windows at pagsusuring panseguridad
-
-Kasama sa Windows package ang opisyal na i2pd 3.0.0, mga bagong hash, at mga sertipiko para sa unang koneksiyon. Sa naitalang pagsusuri, natutukoy pa rin ng Defender ang opisyal na I2P executable at orihinal na ZIP. Hindi patunay ng kaligtasan o tiyak na maling pagtukoy ang pagtugma sa opisyal na hash. Ang lokal na pagbubukod sa isang file ay para lamang sa PC kung saan ito itinakda; hindi ito awtomatikong idinaragdag ng pampublikong package. Maaaring harangin ng ibang PC ang parehong mga file.
+Sa karaniwang P2WPKH na bayad, gumagawa ang wallet ng low-R at low-S na pirmang hindi hihigit sa 71 byte, kasama ang SIGHASH_ALL byte. Patakaran ito sa pagpirma at pagtantiya ng laki, hindi bagong limitasyon ng consensus para sa ibang wastong pirma. Maaaring mas maliit ang aktuwal na virtual na laki kapag mas maikli ang pirma. 
 
 <!-- /payment-policy-20261116 -->

@@ -8,7 +8,6 @@ Valid blocks through 8999 remain usable, including those sent together with an i
 [Current protocol / exact format / limitations](../../../CONNECTION_PROOFS_9000.html)
 <!-- /current-links-9000 -->
 
-
 SUMUWW PC program · 0.57.25 source base · 2026-10-19 random-10% revision
 
 Encrypted wallet creation, opening, seed recovery, backup and restore; balances, fees, signed transfers and transaction history; mining, pause/resume, node discovery, synchronization, RPC/API and on-demand node checks.

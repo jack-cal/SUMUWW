@@ -4,4 +4,3 @@
 
 [Whitepaper](WHITEPAPER.md) · [Protocol](SUMUWW_PROTOCOL_SPEC.md) · [Current reading summary](CURRENT_RULES.html)
 
-The non-English reading editions contain directly authored summaries and updates, not full technical translations.

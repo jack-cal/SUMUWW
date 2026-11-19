@@ -14,5 +14,4 @@ La cronologia delle sostituzioni registrate da questo nodo rimane disponibile do
 
 L’esploratore mostra le condizioni rivelate di firma multipla e blocco degli output. L’attivazione sulla rete pubblica non è ancora programmata.
 
-
 La cronologia di mining distingue nuova emissione, commissioni e ricompensa totale di ogni blocco. L’importo ricevuto dal portafoglio è mostrato separatamente. Una riscossione parziale non determina la ripartizione dei due componenti. Il nodo offre 28 metodi RPC, inclusa la stima delle commissioni, e verifica e inoltra le transazioni firmate.

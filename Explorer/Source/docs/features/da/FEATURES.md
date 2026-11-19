@@ -8,5 +8,4 @@ Udforskeren viser gebyrsatser i yugeon/vB. Hvis den lokale node har registreret 
 
 Explorer viser afslørede betingelser for flere underskrifter og låste output. Aktivering på det offentlige netværk er endnu ikke planlagt.
 
-
 Minehistorikken viser ny udstedelse, gebyrer og samlet belønning for hver blok hver for sig. Det beløb, din wallet modtager, vises separat. Ved delvis udbetaling antages ingen fordeling mellem de to dele. Noden tilbyder 28 RPC-metoder, herunder gebyrestimering, og kontrollerer og videresender signerede transaktioner.

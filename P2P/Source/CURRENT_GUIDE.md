@@ -17,7 +17,7 @@ require the current synchronized SUMUWW node. English remains the initial
 language, with saved choices and all 34 languages retained.
 
 Read [setup](BITCOIN_SETUP.md), [security and connection scope](NETWORK_SECURITY.md),
-[edition differences](EDITIONS.md) and [verification](VERIFICATION.txt).
+[edition differences](EDITIONS.md).
 See [translated feature notes](docs/features/index.html) and the
 [Full release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-full-v0.3.6) /
 [Light release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-light-v0.3.6).

@@ -23,8 +23,8 @@ Post buy/sell advertisements for SMW against Bitcoin (BTC). Choose the SMW
 quantity and BTC price per SMW; the exact BTC total is shown before posting.
 Both coins use eight decimals. Fractional smallest units are rejected rather
 than rounded. Orders fill as a whole; partial fills are not supported.
-English is the default; all 34 offline UI languages remain available.
-No external translation service is used. Traditional Mongolian renders vertically.
+
+ Traditional Mongolian renders vertically.
 
 RUN AND BACK UP
 Extract the complete Windows ZIP and run its Full or Light EXE. Keep the _internal
@@ -137,7 +137,6 @@ requirements-lock.txt records the exact test/build environment. For all tests:
 PYTHONPATH=vendor;tests;. python -m unittest discover -s tests -v
 --market-self-check --data-dir <new-directory> checks the packaged native UI,
 all 34 languages, SMW/BTC wallet addresses and signed BTC-order reservations.
-See VERIFICATION.txt for completed checks and precise limits.
 
 ## 0.3.6
 

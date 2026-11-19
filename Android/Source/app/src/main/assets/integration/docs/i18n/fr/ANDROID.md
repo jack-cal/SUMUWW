@@ -14,7 +14,6 @@ Le réseau public est `sumuww`, avec l’alias interne `dora`. Vérifiez le hash
 
 Pour une entrée de 1 SMW, les frais varient selon qu’il faut vous rendre la monnaie ou non. Avec des entrées et sorties P2WPKH et un taux de 1 yugeon/vB, envoyer 0.99999890 SMW coûte 110 yugeon, sans monnaie à rendre. Envoyer 0.8 SMW à partir de la même entrée ajoute une sortie de change et porte les frais à 141 yugeon. Le portefeuille rend la monnaie si le montant restant après les frais atteint un seuil qui tient compte du coût à payer pour la dépenser plus tard. En dessous de ce seuil, le reste est inclus dans les frais affichés avant confirmation. Pour une entrée du portefeuille en SegWit natif (P2WPKH), l’estimation prévoit jusqu’à 71 octets pour la signature, type de hachage compris.
 
-
 `1 yugeon = 0.00000001 SMW` · `1 SMW = 100000000 yugeon`
 
 | API / wallet | yugeon / SMW |
@@ -44,7 +43,7 @@ Les frais correspondent à la somme des entrées moins celle des sorties. L’es
 
 Le portefeuille choisit les entrées et les sorties une seule fois, puis signe cette même transaction. La confirmation transmet la transaction signée conservée, sans la reconstruire ni recalculer ses frais. Une estimation expirée ou des entrées déjà dépensées imposent une nouvelle vérification. L’acceptation dans la file locale ne signifie pas une confirmation dans un bloc.
 
-Pour un paiement P2WPKH ordinaire, le portefeuille produit des signatures low-R et low-S de 71 octets au maximum, octet SIGHASH_ALL compris. Il s’agit d’une politique de signature et d’estimation, pas d’une nouvelle limite de consensus pour les autres signatures valides. Une signature plus courte peut réduire la taille virtuelle réelle. Les tarifs restent calculés à partir de la file locale : la méthode de dimensionnement ne reprend pas les tarifs du réseau Bitcoin.
+Pour un paiement P2WPKH ordinaire, le portefeuille produit des signatures low-R et low-S de 71 octets au maximum, octet SIGHASH_ALL compris. Il s’agit d’une politique de signature et d’estimation, pas d’une nouvelle limite de consensus pour les autres signatures valides. Une signature plus courte peut réduire la taille virtuelle réelle. 
 
 ## Compatibilité de la signature Android
 
@@ -52,4 +51,4 @@ Le format des fichiers du portefeuille, les adresses et les pièces existantes n
 
 <!-- /payment-policy-20261116 -->
 
-Après une réponse de version valide, le nœud laisse au pair le temps d’envoyer son accusé de réception. Si deux connexions sortantes mènent au même nœud, il conserve un chemin disponible jusqu’à la synchronisation. Le diagnostic intégré accepte un bloc à preuve de travail valide avant l’arrivée de la preuve de connexion. Il vérifie ensuite les signatures des trois témoins, la transmission de cette preuve et sa conservation après redémarrage.
+Après une réponse de version valide, le nœud laisse au pair le temps d’envoyer son accusé de réception. Si deux connexions sortantes mènent au même nœud, il conserve un chemin disponible jusqu’à la synchronisation. 

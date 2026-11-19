@@ -1,6 +1,6 @@
 # SUMUWW node integration — PC 0.57.46
 
-English is the default. The current node contract, API corrections and test guidance are available in all 34 interface languages. 
+ The current node contract, API corrections and test guidance are available in all 34 interface languages. 
 
 ## Node capabilities
 
@@ -77,7 +77,6 @@ The fixture always creates temporary regtest data and uses public test keys. It 
 
 Extract the complete desktop package and retain its `_internal` folder. Preserve encrypted wallets, recovery material, data directories and saved language preferences. Verify genesis, peer connections and synchronization; stop normally before maintenance. For chain recovery use a separate directory and resynchronize, never overwrite a live database.
 
-
 ## Yugeon, fee policy and transaction replacement
 
 1 SMW = 100,000,000 yugeon; one yugeon is 0.00000001 SMW. Existing `_units` integer fields are yugeon. Serialization and balances are unchanged. A vB measures transaction data, not currency: `ceil(weight / 4)`. Fee rates are shown as yugeon/vB; policy API rates use yugeon per 1,000 vB.
@@ -117,15 +116,11 @@ python -m sumuww --network regtest --database isolated.sqlite wallet-send --wall
 # Alternatively choose --fee-rate 2.5 (yugeon/vB). Legacy --fee is a total in SMW.
 ```
 
-The tests use public fixture keys and disposable databases. They cover replacement descendants, rollback, concurrent writers, reorganization, signature thresholds, activation boundaries and output locks. No production wallet or funds are used.
-
-
 ## Replacement history and script inspection
 
 Wallet history retains the selected script's locally observed replacement records across restart, including descendants removed when a parent is replaced. These rows are historical information and never enter balance calculations. A current mempool or active-chain transaction takes precedence over an older replacement record, including after a reorganization. The node stores public script hashes and integer net amounts in the same atomic write as the replacement. It stores no keys or signatures in this history. The history is limited to 1,000 replacement events and 4,000,000 bytes of amount summaries; older records can expire. Records from earlier versions without amount summaries are not reconstructed. This is local history, not a network-wide archive. A descendant is labelled as removed after its parent was replaced, not as a successful payment.
 
 Explorer displays a spending template only when the revealed witness script matches the previous output's P2WSH hash and has the canonical supported form. This is decoding, not signature validation or an assertion of spendability. Unrevealed output conditions are not inferred from a script hash. Public multisig and output-lock activation remains unscheduled.
-
 
 ## Block reward breakdown
 
@@ -145,10 +140,6 @@ The fee is the sum of inputs minus the sum of outputs. A payment quote includes 
 
 The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
 
-For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
-
-## Windows I2P component and security checks
-
-Windows packages include official i2pd 3.0.0 with matching hashes and reseed certificates. Defender still detects the upstream I2P executable and ZIP in the recorded test. A matching upstream hash does not prove safety or establish a false positive. Any local file exception applies only to the computer where it is registered and is not installed by the public package. Other computers may block the same files.
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. 
 
 <!-- /payment-policy-20261116 -->

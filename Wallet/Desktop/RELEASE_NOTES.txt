@@ -28,8 +28,7 @@ other tasks so it does not unnecessarily delay network handling.
 The Windows wallet is rebuilt with the shared current desktop core. Android
 retains its platform adapters and uses the matching Android core changes.
 Wallet formats, addresses, consensus rules and saved language preferences are
-unchanged. All 34 offline UI languages remain available. No external automatic
-translation service was used. No new UI strings are introduced by these fixes.
+unchanged. All 34 offline UI languages remain available.  No new UI strings are introduced by these fixes.
 
 Android retains application ID org.sumuww.wallet.current and versionCode 13,
 with the same Wallet Current signing certificate for in-place updates from
@@ -55,10 +54,6 @@ The fee is the sum of inputs minus the sum of outputs. A payment quote includes 
 
 The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
 
-For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
-
-## Windows I2P component and security checks
-
-Windows packages include official i2pd 3.0.0 with matching hashes and reseed certificates. Defender still detects the upstream I2P executable and ZIP in the recorded test. A matching upstream hash does not prove safety or establish a false positive. Any local file exception applies only to the computer where it is registered and is not installed by the public package. Other computers may block the same files.
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. 
 
 <!-- /payment-policy-20261116 -->

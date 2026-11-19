@@ -8,5 +8,4 @@ Selain näyttää maksutasot yksikössä yugeon/vB. Jos paikallinen solmu on tal
 
 Selain näyttää paljastetut moniallekirjoituksen ja tulosteiden lukituksen ehdot. Aktivointia julkisessa verkossa ei ole vielä ajoitettu.
 
-
 Louhintahistoria erittelee kunkin lohkon uuden liikkeeseenlaskun, siirtomaksut ja kokonaispalkkion. Lompakkosi vastaanottama summa näkyy erikseen. Osittain lunastetun palkkion jakautumista ei oleteta. Solmu tarjoaa 28 RPC-menetelmää, mukaan lukien maksuarvion, sekä tarkistaa ja välittää allekirjoitetut tapahtumat.

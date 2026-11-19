@@ -14,5 +14,4 @@ De door dit knooppunt vastgelegde vervangingsgeschiedenis blijft na het herstart
 
 De verkenner toont onthulde voorwaarden voor meerdere handtekeningen en vergrendelde outputs. Activering op het openbare netwerk is nog niet gepland.
 
-
 De mininggeschiedenis toont nieuwe uitgifte, transactiekosten en totale beloning per blok afzonderlijk. Het bedrag dat uw wallet ontvangt staat apart. Bij een gedeeltelijk opgeëiste beloning wordt de verdeling niet aangenomen. De node biedt 28 RPC-methoden, waaronder kostenschatting, en controleert en verspreidt ondertekende transacties.

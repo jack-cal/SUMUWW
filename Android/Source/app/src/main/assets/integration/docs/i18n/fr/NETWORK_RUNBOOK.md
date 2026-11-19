@@ -22,7 +22,7 @@ Les frais correspondent à la somme des entrées moins celle des sorties. L’es
 
 Le portefeuille choisit les entrées et les sorties une seule fois, puis signe cette même transaction. La confirmation transmet la transaction signée conservée, sans la reconstruire ni recalculer ses frais. Une estimation expirée ou des entrées déjà dépensées imposent une nouvelle vérification. L’acceptation dans la file locale ne signifie pas une confirmation dans un bloc.
 
-Pour un paiement P2WPKH ordinaire, le portefeuille produit des signatures low-R et low-S de 71 octets au maximum, octet SIGHASH_ALL compris. Il s’agit d’une politique de signature et d’estimation, pas d’une nouvelle limite de consensus pour les autres signatures valides. Une signature plus courte peut réduire la taille virtuelle réelle. Les tarifs restent calculés à partir de la file locale : la méthode de dimensionnement ne reprend pas les tarifs du réseau Bitcoin.
+Pour un paiement P2WPKH ordinaire, le portefeuille produit des signatures low-R et low-S de 71 octets au maximum, octet SIGHASH_ALL compris. Il s’agit d’une politique de signature et d’estimation, pas d’une nouvelle limite de consensus pour les autres signatures valides. Une signature plus courte peut réduire la taille virtuelle réelle. 
 
 ## Compatibilité de la signature Android
 
@@ -30,4 +30,4 @@ Le format des fichiers du portefeuille, les adresses et les pièces existantes n
 
 <!-- /payment-policy-20261116 -->
 
-Après une réponse de version valide, le nœud laisse au pair le temps d’envoyer son accusé de réception. Si deux connexions sortantes mènent au même nœud, il conserve un chemin disponible jusqu’à la synchronisation. Le diagnostic intégré accepte un bloc à preuve de travail valide avant l’arrivée de la preuve de connexion. Il vérifie ensuite les signatures des trois témoins, la transmission de cette preuve et sa conservation après redémarrage.
+Après une réponse de version valide, le nœud laisse au pair le temps d’envoyer son accusé de réception. Si deux connexions sortantes mènent au même nœud, il conserve un chemin disponible jusqu’à la synchronisation. 

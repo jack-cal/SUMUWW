@@ -1,6 +1,6 @@
 # SUMUWW connection-proof protocol · heights 9,000 and 9,600
 
-Protocol baseline at 9,000, certified candidate selection from source block 9,600. Locally prepared edition 2.3; publication is separate.
+Protocol baseline at 9,000, certified candidate selection from source block 9,600. 
 
 ## History, money and compatibility
 
@@ -108,10 +108,6 @@ uses protocol 5, with native-only fallback for compatible older peers. The
 preactivation v1 database marker may migrate without rewriting blocks or UTXOs.
 A database already containing incompatible post-activation history is refused
 for explicit review. Do not delete it or reset a wallet to bypass this check.
-
-The shipped implementation and isolated test evidence are not an independent
-security audit or proof of worldwide decentralization. Initial public-network
-activation at height 9000 has not occurred in these laboratory tests.
 
 ## Source map
 

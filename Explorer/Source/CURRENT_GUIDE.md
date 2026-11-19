@@ -28,21 +28,6 @@ unpruned Bitcoin Core with txindex. Light verifies Bitcoin headers and proofs
 and depends on available honest servers for complete histories. An advertisement
 or reservation does not transfer funds.
 
-## Verification and limits
-
-In the earlier 0.4.6 check on 24 October 2026, the Explorer indexed all 9,177 active
-blocks through height 9176, including 9,177 reward transactions and 64 ordinary
-transactions. Reward outputs covered 59 distinct addresses. Genesis, height
-9000 and the current tip were queried through its local HTTP API, and a TXID
-inclusion proof verified. The node database was opened read-only; the test index
-was separate. All 43 JavaScript UI tests passed. Packaged app modules and UI
-files match source. These are point-in-time checks, not continuous operation.
-
-All 34 offline UI languages and saved preferences are retained. Current 0.4.11
-packaging checks compare the compiled application modules with their source.
-The guide was written directly without an external automatic translation service.
-Earlier 0.4.6 execution tests remain historical.
-
 ## 0.4.11
 
 The explorer shows fee rates in yugeon/vB. When the local node has recorded a transaction replacement, the transaction page links to the replacement. Confirmed chain records take precedence; local replacement history is limited.

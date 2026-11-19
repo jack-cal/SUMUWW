@@ -143,18 +143,6 @@ Fixes in 0.4.2:
   existing DORA data locations and active-node marker compatibility.
   The node, mining process, chain database and wallet settings are not changed.
 
-Verification for 0.4.2:
-  83 isolated reader/HTTP/analytics/PDF/path tests and 40 UI-code tests passed.
-  Activated-difficulty regression covers actual heights 8063 and 8064.
-  62 requests against the exact new EXE on the actual local height-8533 chain
-  passed, including raw records, proof verification, 4 PDF languages, CSV,
-  address balances against read-only source UTXOs and loopback request rules.
-  Browser checks covered searches, copy, pagination, filters, analytics,
-  English/Arabic/Korean language changes, address history and actual downloads.
-  Original EXE failed with only the new SUMUWW data path; this EXE succeeded.
-  Bytecode for server, analytics, reports and DGW matched this source.
-  Local mempool was empty; nonempty cases were exercised in isolated tests.
-
 Changes in 0.4.5:
   Display and search witness-v0 32-byte P2WSH output addresses used by HTLCs.
   Repair missing addresses when opening recognized older explorer indexes.

@@ -96,11 +96,7 @@ uses protocol 5, with native-only fallback for compatible older peers. The
 preactivation v1 database marker may migrate without rewriting blocks or UTXOs.
 A database already containing incompatible post-activation history is refused
 for explicit review. Do not delete it or reset a wallet to bypass this check.</p>
-<p>The shipped implementation and isolated test evidence are not an independent
-security audit or proof of worldwide decentralization. The original laboratory tests used isolated networks. On 24 October 2026,
-read-only checks observed a local active chain beyond heights 9000 and 9100.
-That snapshot does not establish network-wide adoption, uninterrupted operation
-or successful completion of repaired connection jobs on the public network.</p>
+
 <h2>Source map</h2>
 <p><code>sumuww/link_crypto.py</code>: format, splitting, sampling and producer outputs.
 <code>sumuww/link_beacon.py</code>: distributed setup and threshold responses.

@@ -24,21 +24,6 @@ Earlier valid proofs remain valid. After the tip reaches 9,600, an unfinished ea
 
 The random beacon uses Feldman DKG and threshold BLS, with its public setup anchored on chain before A. Enough valid shares reconstruct the same output despite some missing replies. Below the threshold, the proof remains incomplete while mining continues. Initial setup needs all listed dealers' contributions and a readiness quorum. Unavailable beacon groups can be replaced by background fresh-key DKG, with each replacement anchored in PoW and bound to its predecessor and an ancestor round. Old proofs keep their original key; new generations apply only to later source blocks. Recovery needs enough responsive participants and eventual delivery, and never gates mining. This is fresh-key recovery, not recovery of a lost old secret; same-key resharing is not implemented. Candidate-set certification at 9,600 adds quorum attestation; its scope and assumptions are stated above.
 
-## Progress and application views
-
-Setup records, lottery jobs and completed proofs count different things. A setup
-can support many jobs; a nonselected lottery finishes without creating a proof.
-Subtracting 9 selected jobs from 11 setup records does not imply 2 successes.
-Valid partial signatures survive retries and restarts within their own round. Certified renewal archives prior rounds. Failed jobs retain their next retry across restart, with backoff capped at 15 minutes. The progress view distinguishes candidate collection, quorum approval, witness replies, target receipt and verification. Completion is not guaranteed.
-
-Full nodes independently validate and synchronize the chain. Ordinary wallets
-also use local full validation but do not expose mining. The Windows full node's
-recent wallet view shows its own wallet, while All history shows all blocks and
-transactions on its synchronized active chain. The separate Explorer reads a
-chosen local database and builds an index; it does not independently synchronize
-or validate the chain. Explorer's TXID Merkle inclusion proof is different from
-the three-witness connection proof and does not establish consensus validity.
-
 ## Chain selection and conflicting evidence
 
 Valid cumulative PoW takes priority. From activation, equal-work branches are compared by the number of valid, nonconflicting proven connections on each branch, then by the smaller tip hash in the protocol's internal byte order. Repeated proofs of the same edge count once.
@@ -88,27 +73,15 @@ One SMW equals 100,000,000 yugeon; one yugeon is 0.00000001 SMW. The ledger reco
 
 <!-- payment-policy-20261116 -->
 
-## Payment fees, reviewed transactions and compatibility
-
 The fee is the sum of inputs minus the sum of outputs. A payment quote includes a change output only when the wallet will actually create viable change. A remainder below the wallet's change threshold is added to the fee, and the resulting fee and total debit are shown for review. Rates are expressed in yugeon/vB; virtual size is transaction weight divided by four, rounded up.
 
 The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
 
-For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. 
 
 <!-- /payment-policy-20261116 -->
 
-
-
-
-
-
-
-
-
 Automatic slow, normal and fast suggestions use the node’s current accepted transaction queue and ancestor packages. They do not use recent-block fee samples. Manual rates use yugeon/vB: vB measures data size, not currency. The final confirmation fixes the exact fee and total. The public default relay floor is 1 yugeon/vB; this is local policy, not a consensus ban on zero-fee blocks. A rejected transaction does not debit confirmed coins, although pending wallet inputs may remain reserved.
-
-Mining history reports new issuance, included transaction fees and claimed total separately from the amount received by your own address. For an underclaimed coinbase the split of the paid reward is unknown, rather than invented. Fees can still be claimed after the block subsidy reaches zero.
 
 Fees equal total inputs minus total outputs. The sender pays the fee in addition to the payment; the recipient receives the full specified amount. Included fees may be claimed by the block miner at the block reward address with the subsidy. There is no developer share, automatic burn or additional issuance. A higher fee can improve the chance of inclusion when blocks are congested, but does not change the target block interval or guarantee faster propagation or confirmation.
 

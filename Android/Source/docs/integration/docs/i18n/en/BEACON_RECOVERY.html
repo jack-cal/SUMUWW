@@ -2,8 +2,7 @@
 <p>Document edition 2.3, 26 October 2026. Source-block 9,600 activation.</p>
 </blockquote>
 <h1>Automatic beacon generation recovery</h1>
-<p>First included in Windows 0.57.34 / Android 0.6.84; retained in Windows 0.57.47 / Android 0.6.96. This document describes a protocol extension;
-it does not certify public-network readiness.</p>
+<p>First included in Windows 0.57.34 / Android 0.6.84; retained in Windows 0.57.47 / Android 0.6.96. </p>
 <h2>What changes</h2>
 <p>The background engine can replace an unavailable distributed-randomness group,
 prepare a fresh threshold key, and commit the complete public setup in an ordinary
@@ -71,19 +70,5 @@ against unlimited malicious identities, or restore an old threshold secret when
 too many old shares are permanently lost. Candidate completeness, resistance to
 producer omission and unbiased DKG under arbitrary malicious participation are
 not established by this change. It adds no central server or human-identity fee.</p>
-<p>The construction uses the existing Feldman/threshold-BLS implementation; it is
-not an independently audited DKG implementation. Background replacement is
-distinct from same-key resharing described in general threshold systems. See the
-<a href="https://docs.drand.love/docs/cryptography/">drand cryptography overview</a> for the
-underlying threshold-sharing concepts, not as certification of this code.</p>
-<h2>Reproducing the checks</h2>
-<p>From the PC source directory with the pinned dependencies installed:</p>
-<pre><code class="language-text">python -m unittest tests.test_beacon_recovery.BeaconRecoveryTests
-python tools/verify_beacon_recovery.py --work &lt;new-empty-laboratory-directory&gt;
-</code></pre>
-<p>The process fixture owns its regtest databases and loopback listeners. It does
-not open production wallets. It uses shortened local timers and activation height
-3; the consensus generation spacing, cryptography and 20% probability are unchanged.
-The separate activation-prefix fixture tests the numeric 8999/9000 boundary using
-an independently mined regtest history. Public Internet endurance and physical
-Android device testing are separate from these checks.</p></body></html>
+
+</body></html>

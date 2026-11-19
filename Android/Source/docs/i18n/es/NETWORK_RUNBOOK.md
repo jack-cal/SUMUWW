@@ -14,7 +14,7 @@ La comisión es la suma de las entradas menos la suma de las salidas. La estimac
 
 El monedero selecciona las entradas y las salidas una sola vez y firma ese mismo plan. Al confirmar, envía la transacción firmada que conserva, sin reconstruirla ni recalcular la comisión. Si la estimación caduca o alguna entrada ya se ha gastado, hay que revisarla de nuevo. La aceptación en la cola local no equivale a una confirmación en un bloque.
 
-En pagos P2WPKH normales, el monedero genera firmas low-R y low-S de hasta 71 bytes, incluido el byte SIGHASH_ALL. Es una política de firma y estimación, no un nuevo límite de consenso para otras firmas válidas. Una firma más corta puede reducir el tamaño virtual real. Las tarifas sugeridas siguen dependiendo de la cola local; adoptar el cálculo de tamaño de Bitcoin no significa aplicar sus tarifas.
+En pagos P2WPKH normales, el monedero genera firmas low-R y low-S de hasta 71 bytes, incluido el byte SIGHASH_ALL. Es una política de firma y estimación, no un nuevo límite de consenso para otras firmas válidas. Una firma más corta puede reducir el tamaño virtual real. 
 
 ## Compatibilidad de firmas en Android
 
@@ -22,4 +22,4 @@ El formato de los archivos del monedero, las direcciones y las monedas existente
 
 <!-- /payment-policy-20261116 -->
 
-Tras recibir una respuesta de versión válida, el nodo da tiempo al otro nodo para enviar la confirmación. Si dos conexiones salientes llegan al mismo nodo, mantiene una vía disponible hasta que una de ellas se sincroniza. El diagnóstico integrado acepta un bloque con una prueba de trabajo válida antes de recibir la prueba de conexión. Después comprueba las firmas de los tres testigos, la propagación de la prueba y que se conserve tras reiniciar.
+Tras recibir una respuesta de versión válida, el nodo da tiempo al otro nodo para enviar la confirmación. Si dos conexiones salientes llegan al mismo nodo, mantiene una vía disponible hasta que una de ellas se sincroniza. 

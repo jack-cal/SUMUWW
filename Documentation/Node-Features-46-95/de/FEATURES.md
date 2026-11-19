@@ -14,5 +14,4 @@ Die von diesem Knoten erfassten Ersetzungen bleiben nach dem Neustart der Wallet
 
 Der Explorer zeigt offengelegte Mehrfachsignatur- und Sperrbedingungen von Ausgängen. Die Aktivierung im öffentlichen Netzwerk ist noch nicht terminiert.
 
-
 Der Mining-Verlauf zeigt neue Ausgabe, Transaktionsgebühren und Gesamtbelohnung jedes Blocks getrennt. Der von Ihrer Wallet empfangene Betrag wird separat angezeigt. Bei einer teilweise beanspruchten Belohnung wird die Aufteilung nicht angenommen. Der Knoten bietet 28 RPC-Methoden einschließlich Gebührenschätzung und prüft und verbreitet signierte Transaktionen.

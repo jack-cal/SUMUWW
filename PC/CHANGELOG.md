@@ -24,12 +24,6 @@ The full node provides compact mining jobs and wallet queries for the Android li
 
 Windows full node, wallet and optional CPU miner. The mining path submits proof-of-work blocks through normal node validation; connection evidence continues asynchronously after block acceptance.
 
-## Verification limits
-
-The generic mining error shown in the earlier desktop screenshot was not reproduced, so its exact cause remains unverified. This release does not claim to fix that specific error. Focused mining tests and disposable-network checks are recorded in the [release verification](../Documentation/RELEASE_VERIFICATION_20261027.md). No live-mainnet block was mined for verification.
-
-English remains the default. All 34 UI languages, saved preferences, existing wallets and valid chain history are retained. The source-block-9,600 upgrade remains required before block 9,600.
-
 ## Downloads and source
 
 [Windows ZIP](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.48/SUMUWW-PC-0.57.48.zip) · [Windows source ZIP](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.48/SUMUWW-Windows-Source-0.57.48.zip) · [Checksums and verification](https://github.com/jack-cal/SUMUWW/releases/tag/pc-v0.57.48)
@@ -47,21 +41,13 @@ Full node, wallet and optional CPU miner. This release includes the recent peer-
 - Recover missing listener hints from fully synchronized inbound peers, then independently verify the candidate before using or sharing it. Identity deduplication and full chain validation still apply.
 - Allow bounded 120-second public outgoing handshake and established response waits. Short partial-frame and write deadlines remain in place.
 - Reuse matching, immutable validated ancestry prefixes and yield between background proof-history jobs to reduce network stalls.
-- Retain all 34 UI languages, existing icons, wallets, balances and valid block history. English remains the default for new profiles and publication documents.
+- Retain all 34 UI languages, existing icons, wallets, balances and valid block history. 
 
 ## Update
 
 Extract the complete ZIP, close the previous application and run SUMUWW.exe with the existing data directory. Python is bundled. Windows executables do not have a publisher code-signing certificate.
 
-Preserve existing wallets and chain data. Check PC-SHA256SUMS.txt before installing. English is the publication language; saved language preferences and all 34 UI languages are retained.
-
-## Verification and remaining issue
-
-80 Windows source tests, 20 physical-Android backend tests, one physical-phone history benchmark and six frozen Windows checks passed. Direct external synchronization and actual phone hashing were observed with the production PC application off.
-
-External-peer availability is not guaranteed. During the physical-phone test with the PC app and temporary diagnostic nodes off, one established external connection ended after about five minutes. The verified peer count briefly became zero and synchronization recovered automatically after 13.39 seconds. No local response expiry or protocol rejection was recorded for that event. The remote/path-side termination remains internally undiagnosed; this release does not claim uninterrupted connectivity.
-
-A new-block synchronization pause lasted 53.28 seconds, then hashing resumed automatically. This was a network synchronization wait, not signature collection. When the only reachable validated peer disappears, zero peers is reported until reconnection or another verified peer is available. Unknown or unvalidated data never receives mining readiness.
+Preserve existing wallets and chain data. Check PC-SHA256SUMS.txt before installing. 
 
 ## Block-height compatibility
 
@@ -71,14 +57,13 @@ Issuance, halvings, 20% connection-proof events and DGW adjustment every 10 bloc
 
 ## Downloads and source
 
-[Program](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.38/SUMUWW-PC-0.57.38-English.zip) · [Source ZIP](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.38/SUMUWW-Windows-Source-0.57.38-English.zip) · [Detailed verification](https://github.com/jack-cal/SUMUWW/blob/main/Documentation/PEER_RECOVERY_VERIFICATION_0.57.38_0.6.88.md)
-
+[Program](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.38/SUMUWW-PC-0.57.38-English.zip) · [Source ZIP](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.38/SUMUWW-Windows-Source-0.57.38-English.zip)
 
 ---
 
 # SUMUWW Windows 0.57.34
 
-Windows AMD64 full node, wallet and CPU miner. English is the default; all 34 UI languages remain available.
+Windows AMD64 full node, wallet and CPU miner. 
 
 ## Added and fixed
 
@@ -91,10 +76,6 @@ Windows AMD64 full node, wallet and CPU miner. English is the default; all 34 UI
 - Show the scheduled height-9000 transition in all 34 languages: per-block DGW before activation, then adjustment every ten blocks.
 - Correct Windows executable file-version metadata to 0.57.34 and reject stale version resources during builds.
 
-## Verification
-
-Eight independent process identities tested withholding, replacement, restart and late verification. Ten new recovery regression cases passed. The PC regression run passed 28 distinct cases across 36 executions, plus two numeric activation-prefix cases. Four UI/catalog tests covered all 34 languages. Six packaged executable checks passed after rebuilding.
-
 ## Download and update
 
 [Windows ZIP](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.34/SUMUWW-PC-0.57.34-English.zip) · [Windows source ZIP](https://github.com/jack-cal/SUMUWW/releases/download/pc-v0.57.34/SUMUWW-Windows-Source-0.57.34-English.zip)
@@ -103,4 +84,4 @@ Extract the complete archive, close the previous program, and run SUMUWW.exe usi
 
 ## Compatibility and scope
 
-Recovery requires at least three usable participants, eventual delivery and a mined commitment. Old incomplete jobs may remain incomplete if their original threshold shares are lost. Validating nodes must upgrade before new recovery records are used. The protocol remains experimental; local checks are not an independent cryptographic audit or a multi-day public-network trial.
+Recovery requires at least three usable participants, eventual delivery and a mined commitment. Old incomplete jobs may remain incomplete if their original threshold shares are lost. Validating nodes must upgrade before new recovery records are used. 

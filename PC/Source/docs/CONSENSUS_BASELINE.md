@@ -8,7 +8,6 @@ Valid blocks through 8999 remain usable, including those sent together with an i
 [Current protocol / exact format / limitations](../CONNECTION_PROOFS_9000.html)
 <!-- /current-links-9000 -->
 
-
 | Basic item | SUMUWW choice and comparison material |
 |---|---|
 | Issuance | First 150,000 blocks: 50 SMW; at height 150,000: 25 SMW; thereafter integer halving every 210,000 blocks. [vectors](../vectors/consensus_vectors.json) |

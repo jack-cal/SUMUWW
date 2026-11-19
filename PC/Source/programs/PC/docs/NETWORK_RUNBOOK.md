@@ -4,12 +4,11 @@ On restart, the node resumes from its last locally verified block and checks new
 
 The node normally opens 10 outbound connections, mostly to relay blocks and transactions. It can use a verified backup for blocks and briefly open an 11th connection to discover peers. The overall limit is 125. Up to 117 inbound connections are possible, or 115 with 10 outbound connections. A temporary outbound probe can check another peer when a slot is free. Manually configured direct peers count toward the total. Use --max-peers and --outgoing-target with the node executable. The desktop node now shows the total number of connected peers.
 
-
 SUMUWW PC program · 0.57.46
 
 ## New wallets and existing data
 
-For the general user ZIP, extract the entire archive and run **SUMUWW.exe**. The default interface is English. The Language menu offers 34 languages. The UI selection is remembered on the next launch. English remains the default document language. The current integration update, API corrections, operations, examples and release introduction are available in all 34 UI languages at [Documentation](../../../docs/index.html). Close existing SUMUWW windows normally before using the new executable. The development commands and start.cmd examples below refer to the complete source distribution.
+For the general user ZIP, extract the entire archive and run **SUMUWW.exe**. The default interface is English. The Language menu offers 34 languages. The UI selection is remembered on the next launch.  The current integration update, API corrections, operations, examples and release introduction are available in all 34 UI languages at [Documentation](../../../docs/index.html). Close existing SUMUWW windows normally before using the new executable. The development commands and start.cmd examples below refer to the complete source distribution.
 
 Extract the archive and run `start.cmd`. The default GUI network is SUMUWW. Keep the native SUMUWW.exe, SUMUWW-node.exe, and shared _internal folder together. Build verification is recorded in the versioned EXCHANGE_VERIFICATION.txt supplied with this release.
 
@@ -49,7 +48,7 @@ This connection restriction does not sanction miner identities or wallet address
 
 Wallet files can be stored on another drive using file dialogs. To put the entire chain on removable storage, specify a location such as `start.cmd --directory "LOCAL_DATA_DIRECTORY"`. First close the program normally and retain the whole data folder. Copying only the executable to USB does not automatically move the default data path.
 
-Windows wallet storage uses overwrite-protected rename without hard links. Physical FAT32/exFAT device tests and power-loss validation have not yet been performed. Both the file and password are required for restoration. A USB backup is not a hardware wallet. The external-signing interchange is available separately; vendor-specific hardware applications and physical-device validation are not supplied by this release.
+Windows wallet storage uses overwrite-protected rename without hard links.  Both the file and password are required for restoration. A USB backup is not a hardware wallet. The external-signing interchange is available separately; vendor-specific hardware applications and physical-device validation are not supplied by this release.
 
 All chain blocks and competing branches remain stored. There is no pruning or total-capacity limit, so maintain free disk space. regtest and retarget-lab are independent test networks; do not mix them with SUMUWW DBs, addresses, or wallets.
 
@@ -101,12 +100,8 @@ The fee is the sum of inputs minus the sum of outputs. A payment quote includes 
 
 The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
 
-For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
-
-## Windows I2P component and security checks
-
-Windows packages include official i2pd 3.0.0 with matching hashes and reseed certificates. Defender still detects the upstream I2P executable and ZIP in the recorded test. A matching upstream hash does not prove safety or establish a false positive. Any local file exception applies only to the computer where it is registered and is not installed by the public package. Other computers may block the same files.
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. 
 
 <!-- /payment-policy-20261116 -->
 
-After a valid version reply, the node gives its peer time to acknowledge it. If two outgoing connections reach the same node, it keeps an available route until one has synchronized. The built-in diagnostic accepts a valid proof-of-work block before a connection proof is available, then checks the proof's three witness signatures, relay and persistence after restart.
+After a valid version reply, the node gives its peer time to acknowledge it. If two outgoing connections reach the same node, it keeps an available route until one has synchronized. 

@@ -34,10 +34,6 @@ Poplatek je součet vstupů minus součet výstupů. Odhad zahrnuje výstup vrá
 
 Peněženka vybere vstupy a výstupy jednou a podepíše stejný plán transakce. Po potvrzení odešle uloženou podepsanou transakci, aniž ji sestavuje znovu nebo přepočítává poplatek. Vypršelý odhad nebo mezitím utracené vstupy vyžadují novou kontrolu. Přijetí do místní fronty není potvrzením v bloku.
 
-Pro běžné platby P2WPKH vytváří peněženka podpisy low-R a low-S dlouhé nejvýše 71 bajtů včetně bajtu SIGHASH_ALL. Jde o pravidlo podepisování a odhadu velikosti, nikoli nový limit konsensu pro jiné platné podpisy. Kratší podpis může snížit skutečnou virtuální velikost. Navrhované sazby stále vycházejí z místní fronty; podobný výpočet velikosti jako u Bitcoin neznamená převzetí sazeb jeho sítě.
-
-## Komponenta I2P pro Windows a bezpečnostní kontrola
-
-Balíčky Windows obsahují oficiální i2pd 3.0.0 s aktuálními kontrolními součty a certifikáty pro počáteční připojení. Při zaznamenané kontrole Defender stále detekuje oficiální spustitelný soubor I2P i původní ZIP. Shoda s oficiálním hashem nedokazuje bezpečnost ani falešný poplach. Místní výjimka pro soubor platí jen na počítači, kde byla nastavena; veřejný balíček ji nepřidává. Jiné počítače mohou stejné soubory blokovat.
+Pro běžné platby P2WPKH vytváří peněženka podpisy low-R a low-S dlouhé nejvýše 71 bajtů včetně bajtu SIGHASH_ALL. Jde o pravidlo podepisování a odhadu velikosti, nikoli nový limit konsensu pro jiné platné podpisy. Kratší podpis může snížit skutečnou virtuální velikost. 
 
 <!-- /payment-policy-20261116 -->

@@ -8,7 +8,6 @@ Valid blocks through 8999 remain usable, including those sent together with an i
 [Current protocol / exact format / limitations](../CONNECTION_PROOFS_9000.html)
 <!-- /current-links-9000 -->
 
-
 ## Frames and resource limits
 
 Each frame consists of a 24-byte header and payload. Integer fields are little-endian; hashes use the internal raw 32-byte order. The length is checked before reading the payload, then the checksum is validated.

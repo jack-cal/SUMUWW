@@ -2,8 +2,7 @@
 
 # Automatic beacon generation recovery
 
-First included in Windows 0.57.34 / Android 0.6.84; retained in Windows 0.57.47 / Android 0.6.96. This document describes a protocol extension;
-it does not certify public-network readiness.
+First included in Windows 0.57.34 / Android 0.6.84; retained in Windows 0.57.47 / Android 0.6.96. 
 
 ## What changes
 
@@ -90,24 +89,3 @@ too many old shares are permanently lost. Candidate completeness, resistance to
 producer omission and unbiased DKG under arbitrary malicious participation are
 not established by this change. It adds no central server or human-identity fee.
 
-The construction uses the existing Feldman/threshold-BLS implementation; it is
-not an independently audited DKG implementation. Background replacement is
-distinct from same-key resharing described in general threshold systems. See the
-[drand cryptography overview](https://docs.drand.love/docs/cryptography/) for the
-underlying threshold-sharing concepts, not as certification of this code.
-
-## Reproducing the checks
-
-From the PC source directory with the pinned dependencies installed:
-
-```text
-python -m unittest tests.test_beacon_recovery.BeaconRecoveryTests
-python tools/verify_beacon_recovery.py --work <new-empty-laboratory-directory>
-```
-
-The process fixture owns its regtest databases and loopback listeners. It does
-not open production wallets. It uses shortened local timers and activation height
-3; the consensus generation spacing, cryptography and 20% probability are unchanged.
-The separate activation-prefix fixture tests the numeric 8999/9000 boundary using
-an independently mined regtest history. Public Internet endurance and physical
-Android device testing are separate from these checks.

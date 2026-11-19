@@ -41,15 +41,11 @@ python -m sumuww --network regtest --database isolated.sqlite wallet-send --wall
 # Alternatively choose --fee-rate 2.5 (yugeon/vB). Legacy --fee is a total in SMW.
 ```
 
-The tests use public fixture keys and disposable databases. They cover replacement descendants, rollback, concurrent writers, reorganization, signature thresholds, activation boundaries and output locks. No production wallet or funds are used.
-
-
 ## Replacement history and script inspection
 
 Wallet history retains the selected script's locally observed replacement records across restart, including descendants removed when a parent is replaced. These rows are historical information and never enter balance calculations. A current mempool or active-chain transaction takes precedence over an older replacement record, including after a reorganization. The node stores public script hashes and integer net amounts in the same atomic write as the replacement. It stores no keys or signatures in this history. The history is limited to 1,000 replacement events and 4,000,000 bytes of amount summaries; older records can expire. Records from earlier versions without amount summaries are not reconstructed. This is local history, not a network-wide archive. A descendant is labelled as removed after its parent was replaced, not as a successful payment.
 
 Explorer displays a spending template only when the revealed witness script matches the previous output's P2WSH hash and has the canonical supported form. This is decoding, not signature validation or an assertion of spendability. Unrevealed output conditions are not inferred from a script hash. Public multisig and output-lock activation remains unscheduled.
-
 
 ## Block reward breakdown
 
@@ -69,7 +65,7 @@ The fee is the sum of inputs minus the sum of outputs. A payment quote includes 
 
 The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
 
-For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. 
 
 ## Android signing compatibility
 
