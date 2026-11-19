@@ -1,6 +1,6 @@
 # Ordinary wallet payment policy
 
-Reviewed on 16 November 2026 for Windows node 0.57.60, Windows wallet 1.0.14, Android node 0.6.102 and Android wallet 1.1.13. These rules describe the ordinary native P2WPKH payment path. They do not redefine HTLC transaction fees, Bitcoin-chain trading fees or consensus signature validity.
+Reviewed on 16 November 2026 for Windows node 0.57.60, Windows wallet 1.0.14, Android node 0.6.102 and Android wallet 1.1.13. These rules describe the ordinary native P2WPKH payment path. They do not redefine HTLC transaction fees or consensus signature validity.
 
 ## Amounts, fees and virtual size
 
@@ -45,11 +45,3 @@ This changes local signing and size estimation only. The verifier's rules for ot
 ## Fee-rate suggestions remain SUMUWW-specific
 
 Slow, normal and fast suggestions use this node's accepted pending transactions and ancestor packages. Their capacity budgets are six, three and one blocks respectively, not confirmation deadlines. The estimator does not sample recent confirmed block fees and does not observe every node's mempool. Manual rate entry remains available.
-
-The change-output and signature-sizing approach follows the same principles used by Bitcoin wallets. SUMUWW does not inherit Bitcoin's network congestion, fee rates, complete coin-selection algorithm or confirmation guarantees merely by using those principles.
-
-## Source and translation scope
-
-The implementation is in `fees.py`, `wallet.py`, `keystore.py` and the quote preparation/submission methods of `app_service.py`. Regression checks cover change boundaries, multiple inputs, signature bounds, exact quote reuse, expiry, conflicts and reorganizations.
-
-The affected explanations and migration notices are directly authored in all 34 supported languages. The existing non-English whitepaper pages remain identified as reading summaries; this revision does not relabel them as full translations of the English technical specification. No external automatic translation service was used. Native-speaker review of every language has not been independently completed.

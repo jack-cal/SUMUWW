@@ -3,9 +3,9 @@
 Current release: **0.3.6**. Both trading participants must update for the new
 encrypted automatic connections. See [current changes](Source/CURRENT_GUIDE.md).
 
-Update every validating full node and ordinary wallet before **block 9,600**. The connection-proof candidate certificate and renewal rules activate at that height. English is the first-launch language on every operating-system language; a saved language choice remains in effect.
+Update every validating full node and ordinary wallet before **block 9,600**. The connection-proof candidate certificate and renewal rules activate at that height.
 
-[All components](../README.md) · [Full/Light comparison](Source/EDITIONS.md) · [User guide](Source/README.txt) · [Verification](Source/VERIFICATION.txt)
+[All components](../README.md) · [Full/Light comparison](Source/EDITIONS.md) · [User guide](Source/README.txt)
 
 ## Activation and Bitcoin requirement
 
@@ -25,13 +25,13 @@ Light's verification limits and funded-trade recovery.
 | Full — your local Bitcoin Core | [Full Windows ZIP](https://github.com/jack-cal/SUMUWW/releases/download/p2p-full-v0.3.6/SUMUWW-P2P-Full-0.3.6-Windows.zip) | [Full release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-full-v0.3.6) | [Source ZIP](https://github.com/jack-cal/SUMUWW/releases/download/p2p-full-v0.3.6/SUMUWW-P2P-0.3.6-Source.zip) |
 | Light — Bitcoin headers and transaction proofs | [Light Windows ZIP](https://github.com/jack-cal/SUMUWW/releases/download/p2p-light-v0.3.6/SUMUWW-P2P-Light-0.3.6-Windows.zip) | [Light release](https://github.com/jack-cal/SUMUWW/releases/tag/p2p-light-v0.3.6) | [Source ZIP](https://github.com/jack-cal/SUMUWW/releases/download/p2p-light-v0.3.6/SUMUWW-P2P-0.3.6-Source.zip) |
 
-Posting requires confirmed paying funds plus fees, with local input allocations and maker/taker rechecks. Orders have native Trade, Open trade and Cancel buttons; title and description fields are removed. Peer discovery and reconnection are automatic, with TLS 1.3 and identity verification. Allocations are local, not on-chain escrow; general wallet withdrawals are not included. See [verification and limits](Source/VERIFICATION.txt).
+Posting requires confirmed paying funds plus fees, with local input allocations and maker/taker rechecks. Orders have native Trade, Open trade and Cancel buttons; title and description fields are removed. Peer discovery and reconnection are automatic, with TLS 1.3 and identity verification. Allocations are local, not on-chain escrow; general wallet withdrawals are not included.
 
 The current builds check signed SUMUWW transactions with the connected node before broadcast. Rejected checks are not broadcast. Agreed swap amounts and funding references stay fixed. The fee review supports current-queue estimates, manual rates and explicit child-transaction fee increases; Bitcoin fees retain their own units. Current documentation is included in all 34 supported languages.
 
 Both editions post signed SMW/BTC buy/sell orders with exact prices and quantities,
 support locally reviewed conditional settlement and deadline refunds, and can trade
-with each other. English is the default; all 34 offline UI languages remain available.
+with each other. All 34 offline UI languages remain available.
 No ETH, BNB or XRP markets and no separately deployed exchange contract.
 
 Full uses a synchronized, unpruned local Bitcoin Core with txindex. Light downloads
@@ -48,8 +48,7 @@ run duplicate copies of the same wallet concurrently. See [migration and limits]
 
 The 0.3.6 board discovers peers automatically and uses TLS identity routes.
 There is no hosted public orderbook, universal NAT traversal, automatic fee
-bumping or unattended refund service. Network fees apply. Tests used disposable assets; public checks
-were read-only and do not establish a mainnet settlement audit.
+bumping or unattended refund service. Network fees apply.
 
 ## Upgrade before block 9,000
 

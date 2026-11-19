@@ -1,6 +1,6 @@
 # SUMUWW component suite — 16 November 2026
 
-Update every validating full node and ordinary wallet before **block 9,600**. The connection-proof candidate certificate and renewal rules activate at that height. English is the first-launch language on every operating-system language; a saved language choice remains in effect.
+Update every validating full node and ordinary wallet before **block 9,600**. The connection-proof candidate certificate and renewal rules activate at that height.
 
 | Component | Version | Download | Source |
 |---|---|---|---|
@@ -18,11 +18,11 @@ Extract each complete Windows ZIP. Keep encrypted wallet backups and existing da
 
 The Windows full node and both ordinary wallets aim for 10 outbound peers. Most connections relay blocks and transactions. A verified backup can relay blocks, and a spare slot can briefly check an 11th peer. Up to 117 inbound connections are possible, or 115 with 10 outbound. The default limit is 125 in total.
 
-Android ordinary wallet 1.1.14 uses org.sumuww.wallet.current and a newly generated signing key. The Android node 0.6.103 also uses this new signing identity. Neither package can update an installation signed with a different key. Keep the installed app and its data until an encrypted wallet backup and a working recovery method are secured. Both release APKs were installed over the previous same-certificate builds and launched on an Android 11 x86-64 emulator. Their packaged Python payment, signing and peer-recovery tests ran on that emulator. Physical phones and cellular carriers were outside this run.
+Android ordinary wallet 1.1.14 uses org.sumuww.wallet.current and a newly generated signing key. The Android node 0.6.103 also uses this new signing identity. Neither package can update an installation signed with a different key. Keep the installed app and its data until an encrypted wallet backup and a working recovery method are secured.
 
 P2P Full requires synchronized unpruned Bitcoin Core with txindex. Light verifies Bitcoin headers and transaction inclusion using TLS servers and is not full Bitcoin validation. Both require a synchronized SUMUWW node and the height-9100 HTLC rule. Read the [setup and recovery guide](../P2P/Source/BITCOIN_SETUP.md).
 
-## Current behavior and verification
+## Current behavior
 
 Android 0.6.103 starts its own validating node and CPU miner. After the first local verification it resumes at the last verified block. It rechecks the stored history if the record is missing or inconsistent. The first check can take several minutes.
 
@@ -32,23 +32,8 @@ Fees use live local pending-queue observations. Block issuance, fees and total r
 
 Multisig/output-lock validation is available only for explicitly activated isolated tests. No public activation is scheduled. Existing valid history, wallet formats, issuance and halvings are preserved. The source-block 9,600 proof rule requires updated validating software. The current height-9000 rules and the separate height-9100 HTLC rule still apply.
 
-English remains the default and all 34 existing UI languages and language preferences are retained. [Current node documentation](../PC/Source/docs) and the [October verification record](RELEASE_VERIFICATION_20261026.md) describe the tested scope. Windows binaries are not publisher-code-signed. No independent security audit or uninterrupted public-network availability is claimed.
-
-Earlier release posts, files and dated verification reports retain their original scope. Whitepaper 2.3 is the current edition; localized summaries identify their translated scope.
-
+All 34 existing UI languages and language preferences are retained. [Current node documentation](../PC/Source/docs).
 
 [Current payment policy](PAYMENT_POLICY.md) · [16 November release notes](RELEASE_NOTES_20261116.md)
 
-
-[Current payment policy](PAYMENT_POLICY.md) · [16 November release notes](RELEASE_NOTES_20261116.md)
-
-
-[Current payment policy](PAYMENT_POLICY.md) · [16 November release notes](RELEASE_NOTES_20261116.md)
-
-
-[Current payment policy](PAYMENT_POLICY.md) · [16 November release notes](RELEASE_NOTES_20261116.md)
-
-
-[Current payment policy](PAYMENT_POLICY.md) · [16 November release notes](RELEASE_NOTES_20261116.md)
-
-After a valid version reply, the node gives its peer time to acknowledge it. If two outgoing connections reach the same node, it keeps an available route until one has synchronized. The built-in diagnostic accepts a valid proof-of-work block before a connection proof is available, then checks the proof's three witness signatures, relay and persistence after restart.
+After a valid version reply, the node gives its peer time to acknowledge it. If two outgoing connections reach the same node, it keeps an available route until one has synchronized.

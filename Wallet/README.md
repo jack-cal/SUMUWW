@@ -1,24 +1,20 @@
 # SUMUWW ordinary wallets
 
-Update every validating full node and ordinary wallet before **block 9,600**. The connection-proof candidate certificate and renewal rules activate at that height. English is the first-launch language on every operating-system language; a saved language choice remains in effect.
+Update every validating full node and ordinary wallet before **block 9,600**. The connection-proof candidate certificate and renewal rules activate at that height.
 
-[All components](../README.md) · [Installation and verification](../Documentation/COMPONENT_SUITE.md)
+[All components](../README.md) · [Installation and compatibility](../Documentation/COMPONENT_SUITE.md)
 
 | Platform | Version | Download | Source |
 |---|---|---|---|
-| Windows | 1.0.10 | [Windows ZIP](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-pc-v1.0.10) | [Desktop source](Desktop) |
-| Android | 1.1.10 | [Signed APK](https://github.com/jack-cal/SUMUWW/releases/tag/wallet-android-v1.1.10) | [Android source](Source) |
+| Windows | 1.0.15 | [Windows ZIP](https://github.com/jack-cal/SUMUWW/releases/download/updates-20261116/SUMUWW-Wallet-PC-1.0.15-Windows.zip) | [Desktop source](Desktop) |
+| Android | 1.1.14 | [Signed APK](https://github.com/jack-cal/SUMUWW/releases/download/updates-20261116/SUMUWW-Wallet-Android-1.1.14.apk) | [Android source](Source) |
 
 Receive, send, review transactions, back up and restore existing encrypted wallets.
-English is the first-launch default; 34 offline UI languages remain available.
+34 offline UI languages remain available.
 These wallets validate and synchronize the blockchain locally and have no mining
 controls. They are separate from the full-node/miner interface, not SPV clients.
 
-Android 1.1.10 installs as **SUMUWW Wallet Current**, `org.sumuww.wallet.current`,
-alongside the old wallet. It updates earlier Wallet Current versions signed with the same key in place. That key cannot update the old org.sumuww.wallet application
-in place. Keep the old app and data; import an encrypted backup or recovery words
-to retain the same address and ownership. Do not clear old app data. Legacy Android org.sumuww.wallet
-versions 1.0.7–1.0.9 remain withdrawn; use the current app for current rules.
+Android wallet 1.1.14 uses `org.sumuww.wallet.current` and a new release signing key. It cannot update an installation signed with a different key. Keep the installed app and its data until an encrypted wallet backup and a working recovery method are secured.
 
 ## Rules from block 9,000
 
@@ -29,8 +25,6 @@ Valid legacy blocks through **8,999 remain usable**, including the valid prefix
 of a mixed synchronization batch. Wallet keys, valid coins, issuance and halvings
 are preserved. Validation follows block rules, not an advertised version string.
 
-Current editions, 8 November 2026: full-node peer policy from 0.57.51, live local-queue fee previews, persistent replacement history, current reward information and documentation in all 34 supported languages. Android 1.1.10 fixes wallet startup and passes the Android network provider to the validating node. The signed APK was upgraded and launched on an Android 15 emulator.
-
 <!-- payment-policy-20261116 -->
 
 ## Payment fees, reviewed transactions and compatibility
@@ -39,10 +33,6 @@ The fee is the sum of inputs minus the sum of outputs. A payment quote includes 
 
 The wallet selects the inputs and outputs once and signs that same payment plan. Confirmation submits the stored signed transaction without rebuilding it or recalculating its fee. An expired quote or inputs spent in the meantime require a new review. Submission to the local queue is not confirmation in a block.
 
-For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate. Rate suggestions still use the local pending queue; matching Bitcoin's sizing approach does not mean using Bitcoin's fee rates.
-
-## Windows I2P component and security checks
-
-Windows packages include official i2pd 3.0.0 with matching hashes and reseed certificates. Defender still detects the upstream I2P executable and ZIP in the recorded test. A matching upstream hash does not prove safety or establish a false positive. Any local file exception applies only to the computer where it is registered and is not installed by the public package. Other computers may block the same files.
+For ordinary P2WPKH payments, the wallet generates low-R, low-S signatures of at most 71 bytes including the SIGHASH_ALL byte. This is a signing and size-estimation policy, not a new consensus limit on other valid signatures. Shorter signatures can make the actual virtual size smaller than the estimate.
 
 <!-- /payment-policy-20261116 -->

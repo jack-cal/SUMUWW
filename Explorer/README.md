@@ -1,6 +1,6 @@
 # SUMUWW Explorer 0.4.11
 
-Update every validating full node and ordinary wallet before **block 9,600**. The connection-proof candidate certificate and renewal rules activate at that height. English is the first-launch language on every operating-system language; a saved language choice remains in effect.
+Update every validating full node and ordinary wallet before **block 9,600**. The connection-proof candidate certificate and renewal rules activate at that height.
 
 Read-only local block explorer for Windows. It reads the selected SUMUWW node's stored active chain and maintains its own query index; it does not synchronize a node itself.
 
@@ -8,7 +8,7 @@ Read-only local block explorer for Windows. It reads the selected SUMUWW node's 
 
 The current build exposes block reward components, fee rates in yugeon/vB, local transaction replacement links when recorded, and revealed spending conditions. Missing historical fee information is reported as unknown. Public activation of multisig and output locks remains unscheduled.
 
-Extract the complete ZIP and run start-explorer.cmd. English is the default, with 34 offline UI languages and saved language preferences. Existing node databases are opened read-only. Historical verification reports apply to their named builds.
+Extract the complete ZIP and run start-explorer.cmd. The app supports 34 offline UI languages and saved language preferences. Existing node databases are opened read-only.
 
 ## Version history
 
