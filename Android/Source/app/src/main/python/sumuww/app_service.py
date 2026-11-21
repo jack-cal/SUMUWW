@@ -494,8 +494,8 @@ class AppService:
     def configure_mining_hardware(self, mode, host="127.0.0.1", port=3333, password=""):
         return self._submit("mining_hardware", mode, host, port, password)
 
-    def mine_one(self):
-        return self._submit('mine')
+    def mine_one(self, *, wait_for_sync=False):
+        return self._submit('mine', bool(wait_for_sync))
 
     def add_peer(self, endpoint_string):
         return self._submit('peer', endpoint_string)
@@ -682,7 +682,7 @@ class AppService:
                             with self._control:
                                 self._mining_reserved = False
                     elif operation == 'mine':
-                        self._mining_task = asyncio.create_task(self._mine(future), name='sumuww-app-mine')
+                        self._mining_task = asyncio.create_task(self._mine(future, *arguments), name='sumuww-app-mine')
                     else:
                         try:
                             _finish(future, await self._execute(operation, arguments))
@@ -721,13 +721,13 @@ class AppService:
                     except Exception:
                         pass
 
-    async def _mine(self, future):
+    async def _mine(self, future, wait_for_sync=False):
         value = None
         error = None
         try:
             if self._script is None:
                 raise AppServiceError('Select a wallet before mining')
-            if self.network.name == 'dora' and not self._node.synchronization_info()['mining_ready']:
+            if not wait_for_sync and self.network.name == 'dora' and not self._node.synchronization_info()['mining_ready']:
                 raise AppServiceError('Connect and synchronize with a peer before SUMUWW mining')
             hardware_mining.require_unlocked(self._hardware_settings['mode'], self._node.chain._row(self._node.chain.tip_hash)[2])
             self._mining_session.hardware_settings = dict(self._hardware_settings)

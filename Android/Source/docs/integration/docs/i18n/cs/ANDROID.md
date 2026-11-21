@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.103 · Dokumentace
+# SUMUWW Android 0.7.8 · Dokumentace
 
-SUMUWW Android 0.6.103 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
+SUMUWW Android 0.7.8 · Uzel ověřuje, ukládá, předává a zpřístupňuje data řetězce.
 
 ## Síť a adresy
 
@@ -51,4 +51,8 @@ Formát souborů peněženky, adresy ani stávající mince se nezměnily. Dosav
 
 <!-- /payment-policy-20261116 -->
 
-Po přijetí platné odpovědi s verzí dá uzel protistraně čas na odeslání potvrzení. Pokud dvě odchozí spojení vedou ke stejnému uzlu, zůstane dostupná cesta otevřená, dokud přes jedno z nich neskončí synchronizace. 
+Po přijetí platné odpovědi s verzí dá uzel protistraně čas na odeslání potvrzení. Pokud dvě odchozí spojení vedou ke stejnému uzlu, zůstane dostupná cesta otevřená, dokud přes jedno z nich neskončí synchronizace.
+
+<!-- poll-recovery-20261119 -->
+
+Po interní chybě se aktualizace synchronizace zkusí znovu. Chyba jednoho protějšku již nezastaví aktualizace ostatních. Těžba stále vyžaduje nedávno ověřený protějšek; samotné otevřené připojení nestačí. Při spuštění těžba v telefonu nyní počká na synchronizaci, místo aby se okamžitě zastavila. Bylo opraveno zastavování síťového zpracování při ověřování důkazů spojení a načítání historie. Těžba na pozadí pokračuje.

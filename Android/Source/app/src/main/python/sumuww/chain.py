@@ -233,7 +233,9 @@ class Chain:
         return saved is not None and saved == self._checkpoint_values()
 
     def _save_checkpoint(self):
+        token = self._path_cache_token()
         self.connection.execute('INSERT OR REPLACE INTO validation_checkpoint VALUES (1,?,?,?,?,?,?)', self._checkpoint_values())
+        self._reuse_index_path_after_write(token, 1)
 
     def _restore_persisted_state(self):
         c = self.connection
@@ -501,23 +503,59 @@ class Chain:
         return (self.connection.execute('PRAGMA data_version').fetchone()[0],
                 self.connection.total_changes)
 
+    def _reuse_index_path_after_write(self, before, expected_changes):
+        """Retain block ancestry across a known non-block-table write only.
+
+        Proofs, local contacts and verification checkpoints do not modify any
+        indexed block. Unexpected trigger writes, external commits, an already
+        stale cache, and reselection's explicit invalidation still discard it.
+        Validation/state caches keep their ordinary revision checks.
+        """
+        cached = self._indexed_path_cache
+        if cached is None or cached[0] != before:
+            return
+        after = self._path_cache_token()
+        if after[0] == before[0] and after[1] - before[1] == expected_changes:
+            self._indexed_path_cache = (after, cached[1])
+
     def _read_index_path(self, block_hash):
         path = []
         seen = set()
         while True:
-            if block_hash in seen:
-                raise StorageError('Cycle in block index')
-            seen.add(block_hash)
-            row = self._row(block_hash)
-            block = Block.deserialize(row[4])
-            if block.block_hash() != row[0] or block.header.previous_hash != row[1]:
-                raise StorageError('Block bytes/index mismatch')
-            path.append((row, block))
+            # sqlite3 releases the GIL at every step. Fetching each ancestor
+            # separately lets a hashing thread delay thousands of round trips.
+            # One bounded aggregate transfers each batch in a single row; all
+            # block bytes, parents, heights and cumulative work are still checked.
+            encoded = self.connection.execute('''
+                WITH RECURSIVE ancestry(hash,parent,height,work,raw,depth,bytes) AS (
+                    SELECT hash,parent,height,work,raw,0,length(raw) FROM blocks WHERE hash=?
+                    UNION ALL
+                    SELECT b.hash,b.parent,b.height,b.work,b.raw,a.depth+1,a.bytes+length(b.raw)
+                    FROM blocks b JOIN ancestry a ON b.hash=a.parent
+                    WHERE a.height!=0 AND a.depth<255 AND a.bytes<2097152
+                )
+                SELECT json_group_array(json_array(hex(hash),hex(parent),height,work,hex(raw)))
+                FROM (SELECT * FROM ancestry ORDER BY depth)
+            ''', (block_hash,)).fetchone()[0]
+            rows = json.loads(encoded)
+            if not rows:
+                raise ValidationError('Unknown parent or block')
+            for digest, parent, height, work, raw in rows:
+                row = (bytes.fromhex(digest), bytes.fromhex(parent), height, work, bytes.fromhex(raw))
+                if row[0] in seen:
+                    raise StorageError('Cycle in block index')
+                seen.add(row[0])
+                block = Block.deserialize(row[4])
+                if block.block_hash() != row[0] or block.header.previous_hash != row[1]:
+                    raise StorageError('Block bytes/index mismatch')
+                path.append((row, block))
+                if row[2] == 0:
+                    if row[0] != self._meta('genesis') or block.serialize() != self.network.genesis.serialize():
+                        raise StorageError('Unexpected genesis in block index')
+                    break
+                block_hash = row[1]
             if row[2] == 0:
-                if row[0] != self._meta('genesis') or block.serialize() != self.network.genesis.serialize():
-                    raise StorageError('Unexpected genesis in block index')
                 break
-            block_hash = row[1]
         path.reverse()
         running_work = 0
         for height, (row, block) in enumerate(path):

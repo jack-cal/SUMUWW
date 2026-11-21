@@ -13,6 +13,7 @@ import errno
 import ipaddress
 import math
 import json
+import logging
 import os
 from pathlib import Path
 import re
@@ -71,6 +72,7 @@ MAX_HINT_BLOCK_BYTES = 8 * 1024 * 1024
 HEADER_REFRESH_INTERVAL = 10
 KEEPALIVE_INTERVAL = 10
 VERIFIED_PEER_FRESHNESS = 25
+POLL_RECOVERY_INTERVAL = 1
 MAX_PENDING_TRANSACTIONS = 1000
 MAX_RECENT_INVENTORY = MAX_PENDING_TRANSACTIONS + MAX_INV
 TRANSACTION_RETRY_INTERVAL = 15
@@ -408,6 +410,11 @@ class PeerNode:
             'quota_wait_seconds', 'quota_rejections', 'transaction_hint_drops',
         )}
         self._last_error = None
+        self._last_internal_error = None
+        self._last_internal_log_at = -math.inf
+        self._poll_last_success = None
+        self._poll_failures = 0
+        self._poll_recoveries = 0
         self._recent_peer_attempts = deque(maxlen=16)
         self._connected_peer_events = deque(maxlen=16)
         self._short_session_grace = {}
@@ -466,8 +473,21 @@ class PeerNode:
         if not task.cancelled():
             error = task.exception()
             if error is not None:
-                self._stats['internal_errors'] += 1
-                self._last_error = f'{type(error).__name__}: {error}'
+                self._record_internal_error(task.get_name(), error)
+
+    def _record_internal_error(self, task, error):
+        """Retain the cause when later failed discovery attempts update last_error."""
+        message = f'{type(error).__name__}: {error}'[:512]
+        previous = self._last_internal_error
+        self._stats['internal_errors'] += 1
+        self._last_error = message
+        self._last_internal_error = {'task': task, 'error': message, 'time': time.time()}
+        now = self._peer_clock()
+        if (previous is None or previous['task'] != task or previous['error'] != message
+                or now - self._last_internal_log_at >= 60):
+            self._last_internal_log_at = now
+            logging.getLogger(__name__).error('Peer background failure in %s', task,
+                exc_info=(type(error), error, error.__traceback__))
 
     async def start(self):
         async with self._start_lock:
@@ -1052,6 +1072,10 @@ class PeerNode:
                             'public_outgoing_handshake_seconds': max(self.timeout, INTERNET_REPLY_TIMEOUT),
                             'transaction_hints': MAX_PENDING_TRANSACTIONS},
             'last_peer_error': self._last_error,
+            'last_internal_error': self._last_internal_error,
+            'polling': {'last_success_age': (None if self._poll_last_success is None else
+                                            max(0, self._peer_clock() - self._poll_last_success)),
+                        'failures': self._poll_failures, 'recoveries': self._poll_recoveries},
             'recent_peer_attempts': [dict(row) for row in self._recent_peer_attempts],
             'recent_connected_peer_events': [dict(row) for row in self._connected_peer_events],
             'peer_enforcement': {
@@ -2224,6 +2248,19 @@ class PeerNode:
             return
         await self._request_headers(session)
 
+    async def _verify_block_setup(self, block):
+        parent=self.chain._row(block.header.previous_hash)
+        if not self.chain.boundary.enabled(parent[2]+1):return
+        from .link_crypto import block_beacon
+        from .link_beacon import verify_setup
+        try:
+            if not check_pow(block.block_hash(),block.header.bits,self.chain.network.pow_limit):
+                raise InvalidBlock('Insufficient proof of work')
+            setup=block_beacon(block)
+            if setup is not None:await asyncio.to_thread(verify_setup,setup)
+        except Exception as error:
+            raise InvalidBlock(str(error)) from error
+
     async def _received_block(self, session, payload):
         if not session.headers and session.hint_requested is None:
             raise ProtocolError('Unsolicited block')
@@ -2239,6 +2276,7 @@ class PeerNode:
         if hint:
             await self._received_hint_block(session, block, len(payload))
             return
+        await self._verify_block_setup(block)
         known = self.chain.has_block(block.block_hash())
         previous_tip = self.chain.tip_hash
         envelope=self.boundary_runtime.proofs.get(block.block_hash()) if self.boundary_runtime is not None else None
@@ -2284,6 +2322,7 @@ class PeerNode:
             for candidate, (pending, pending_size) in tuple(session.hint_blocks.items()):
                 if not self.chain.has_block(pending.header.previous_hash):
                     continue
+                await self._verify_block_setup(pending)
                 known = self.chain.has_block(candidate)
                 envelope=self.boundary_runtime.proofs.get(candidate) if self.boundary_runtime is not None else None
                 self.chain.accept_block(pending,boundary_envelope=envelope)
@@ -2509,32 +2548,65 @@ class PeerNode:
             raise ProtocolError(f'Unexpected command after handshake: {command}')
 
     async def _poll(self):
+        recovering = False
         while self._running:
-            if self._trace_file and self._peer_clock()>=self._trace_next:
-                self._trace_next=self._peer_clock()+10
-                self._trace_event('snapshot',state=self.info(include_state=False),sessions=[{
-                    'nonce':s.nonce,'remote':s.remote_ip,'outgoing':s.outgoing,'ready':s.ready,
-                    'synchronized':s.synchronized,'verified_once':s.verified_once,
-                    'last_verified_age':self._peer_clock()-s.last_verified_at,
-                    'protocol':s.protocol,'boundary_policy':s.boundary_policy,
-                } for s in self._sessions.values() if not s.writer.is_closing()])
-            if self.boundary_runtime is not None:await self.boundary_runtime.refresh()
-            self._retire_duplicate_transports()
-            self._maintain_incoming_probe()
-            if (self.auto_address or (self.allow_lan and self.discover_peers)) and self._self_clock() >= self._self_next_refresh:
-                if self._self_refresh_task is None or self._self_refresh_task.done():
-                    self._self_refresh_task = self._spawn(self._refresh_own_addresses(), 'self-address')
-            with self.chain.read_snapshot():
-                tip = self.chain.tip_hash
-                # Read IDs without repeatedly deserializing an unchanged pool.
-                pool = tuple(row[0] for row in self.chain.connection.execute(
-                    'SELECT txid FROM mempool ORDER BY id LIMIT 1000'))
-            now = asyncio.get_running_loop().time()
-            # A peer's drain/send-lock deadline must not postpone another peer's
-            # inventory or requests.
-            await asyncio.gather(*(self._poll_session(session, tip, pool, now)
-                                   for session in tuple(self._sessions.values()) if session.ready))
+            try:
+                await self._poll_cycle()
+            except asyncio.CancelledError:
+                raise
+            except Exception as error:
+                self._poll_failures += 1
+                self._record_internal_error('poll', error)
+                recovering = True
+                # Do not manufacture fresh validation while retrying. Existing
+                # anchors expire normally, so mining still fails closed.
+                await asyncio.sleep(max(POLL_RECOVERY_INTERVAL, self.poll_interval))
+                continue
+            self._poll_last_success = self._peer_clock()
+            if recovering:
+                self._poll_recoveries += 1
+                recovering = False
             await asyncio.sleep(self.poll_interval)
+
+    async def _poll_cycle(self):
+        if self._trace_file and self._peer_clock()>=self._trace_next:
+            self._trace_next=self._peer_clock()+10
+            self._trace_event('snapshot',state=self.info(include_state=False),sessions=[{
+                'nonce':s.nonce,'remote':s.remote_ip,'outgoing':s.outgoing,'ready':s.ready,
+                'synchronized':s.synchronized,'verified_once':s.verified_once,
+                'last_verified_age':self._peer_clock()-s.last_verified_at,
+                'protocol':s.protocol,'boundary_policy':s.boundary_policy,
+            } for s in self._sessions.values() if not s.writer.is_closing()])
+        if self.boundary_runtime is not None:await self.boundary_runtime.refresh()
+        self._retire_duplicate_transports()
+        self._maintain_incoming_probe()
+        if (self.auto_address or (self.allow_lan and self.discover_peers)) and self._self_clock() >= self._self_next_refresh:
+            if self._self_refresh_task is None or self._self_refresh_task.done():
+                self._self_refresh_task = self._spawn(self._refresh_own_addresses(), 'self-address')
+        with self.chain.read_snapshot():
+            tip = self.chain.tip_hash
+            # Read IDs without repeatedly deserializing an unchanged pool.
+            pool = tuple(row[0] for row in self.chain.connection.execute(
+                'SELECT txid FROM mempool ORDER BY id LIMIT 1000'))
+        now = asyncio.get_running_loop().time()
+        # A peer's drain/send-lock deadline must not postpone another peer's
+        # inventory or requests.
+        await asyncio.gather(*(self._poll_peer(session, tip, pool, now)
+                               for session in tuple(self._sessions.values()) if session.ready))
+
+    async def _poll_peer(self, session, tip, pool, now):
+        try:
+            await self._poll_session(session, tip, pool, now)
+        except asyncio.CancelledError:
+            raise
+        except Exception as error:
+            # A broken peer must not terminate refreshes for every other peer.
+            self._poll_failures += 1
+            self._record_internal_error('poll-peer', error)
+            session.synchronized = False
+            session.live_update_pending = False
+            session.local_close_reason = 'poll_internal_error: ' + type(error).__name__
+            await self._close_writer(session.writer)
 
     async def _poll_session(self, session, tip, pool, now):
         if session.writer.is_closing() is True:

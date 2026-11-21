@@ -1,6 +1,6 @@
 Connection-proof selection rules apply from block 9,600. See UPGRADE_9600.md and the offline upgrade guide.
 
-# SUMUWW Android 0.6.103 (162)
+# SUMUWW Android 0.7.8 (172)
 
 On first upgrade the node verifies the existing local block database and records the verified tip. Later starts reuse the last committed verification record and validate new blocks. A missing or inconsistent record triggers local verification again.
 

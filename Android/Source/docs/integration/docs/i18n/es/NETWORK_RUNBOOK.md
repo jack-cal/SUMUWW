@@ -1,8 +1,8 @@
-# SUMUWW Android 0.6.103 · Operación del nodo
+# SUMUWW Android 0.7.8 · Operación del nodo
 
 Al reiniciarse, el nodo retoma la verificación desde el último bloque que comprobó localmente y verifica los bloques nuevos. Si el registro de verificación guardado falta o es incoherente, vuelve a comprobar el historial almacenado.
 
-SUMUWW Android 0.6.103 · El nodo valida, guarda, retransmite y permite consultar la cadena.
+SUMUWW Android 0.7.8 · El nodo valida, guarda, retransmite y permite consultar la cadena.
 
 ## Red y direcciones
 
@@ -30,4 +30,8 @@ El formato de los archivos del monedero, las direcciones y las monedas existente
 
 <!-- /payment-policy-20261116 -->
 
-Tras recibir una respuesta de versión válida, el nodo da tiempo al otro nodo para enviar la confirmación. Si dos conexiones salientes llegan al mismo nodo, mantiene una vía disponible hasta que una de ellas se sincroniza. 
+Tras recibir una respuesta de versión válida, el nodo da tiempo al otro nodo para enviar la confirmación. Si dos conexiones salientes llegan al mismo nodo, mantiene una vía disponible hasta que una de ellas se sincroniza.
+
+<!-- poll-recovery-20261119 -->
+
+La actualización de la sincronización se vuelve a intentar tras un error interno. Un error en un par ya no detiene las actualizaciones de los demás. La minería sigue requiriendo un par verificado recientemente; mantener una conexión abierta no basta. Al iniciar la minería en el móvil, se espera a que termine la sincronización en lugar de detenerse de inmediato. Se corrigieron los bloqueos de red al verificar pruebas de conexión y consultar el historial. La minería en segundo plano sigue activa.

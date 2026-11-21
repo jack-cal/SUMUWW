@@ -1,3 +1,11 @@
+# SUMUWW 0.7.8
+
+- Mining could stop immediately before synchronization completed. It now waits for a verified connection.
+- A peer refresh error could stop synchronization updates. Refreshes now retry and continue for other peers.
+- Connection-proof verification and history queries could stall network processing and background mining. Verification now runs separately, unchanged history is reused, and mining keeps its wake lock during status queries.
+
+[Release and checksums](https://github.com/jack-cal/SUMUWW/releases/tag/updates-20261122)
+
 # SUMUWW Android 0.6.99
 
 Android 0.6.99 starts its own validating node and CPU miner. After the first local verification it resumes at the last verified block. It rechecks the stored history if the record is missing or inconsistent. The first check can take several minutes. The app can check for updates from three- or four-part version numbers. The restart guidance is available in all 34 interface languages.

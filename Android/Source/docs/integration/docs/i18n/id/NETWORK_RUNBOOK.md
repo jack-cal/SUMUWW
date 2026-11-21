@@ -1,8 +1,8 @@
-# SUMUWW Android 0.6.103 · Operasi node
+# SUMUWW Android 0.7.8 · Operasi node
 
 Saat dimulai ulang, node melanjutkan dari blok terakhir yang sudah diverifikasi secara lokal dan memeriksa blok baru. Jika catatan verifikasi yang tersimpan hilang atau tidak cocok, node memeriksa kembali riwayat yang tersimpan.
 
-SUMUWW Android 0.6.103 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
+SUMUWW Android 0.7.8 · Node memvalidasi, menyimpan, meneruskan, dan menyediakan data rantai.
 
 ## Jaringan dan alamat
 
@@ -30,4 +30,8 @@ Format berkas dompet, alamat, dan koin yang sudah ada tidak berubah. Cadangan do
 
 <!-- /payment-policy-20261116 -->
 
-Setelah menerima respons versi yang sah, simpul memberi simpul lain waktu untuk mengirim konfirmasi. Jika dua koneksi keluar menuju simpul yang sama, jalur yang tersedia tetap terbuka sampai salah satunya selesai disinkronkan. 
+Setelah menerima respons versi yang sah, simpul memberi simpul lain waktu untuk mengirim konfirmasi. Jika dua koneksi keluar menuju simpul yang sama, jalur yang tersedia tetap terbuka sampai salah satunya selesai disinkronkan.
+
+<!-- poll-recovery-20261119 -->
+
+Pembaruan sinkronisasi dicoba kembali setelah terjadi kesalahan internal. Kesalahan pada satu peer tidak lagi menghentikan pembaruan peer lain. Penambangan tetap memerlukan peer yang baru saja diverifikasi; koneksi yang terbuka saja tidak cukup. Saat penambangan dimulai di ponsel, aplikasi kini menunggu sinkronisasi selesai, bukan langsung berhenti. Terhentinya pemrosesan jaringan saat memverifikasi bukti koneksi dan meminta riwayat telah diperbaiki. Penambangan latar belakang tetap aktif.

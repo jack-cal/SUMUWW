@@ -1,8 +1,8 @@
-# SUMUWW Android 0.6.103 · Obsługa węzła
+# SUMUWW Android 0.7.8 · Obsługa węzła
 
 Po ponownym uruchomieniu węzeł wznawia pracę od ostatniego bloku, który sam zweryfikował, i sprawdza nowe bloki. Jeśli zapis weryfikacji zaginął lub jest niespójny, węzeł ponownie sprawdza zapisaną historię.
 
-SUMUWW Android 0.6.103 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
+SUMUWW Android 0.7.8 · Węzeł weryfikuje, przechowuje, przekazuje i udostępnia dane łańcucha.
 
 ## Sieć i adresy
 
@@ -30,4 +30,8 @@ Format plików portfela, adresy i istniejące monety nie zmieniły się. Dotychc
 
 <!-- /payment-policy-20261116 -->
 
-Po otrzymaniu poprawnej odpowiedzi z wersją węzeł daje drugiej stronie czas na przesłanie potwierdzenia. Jeśli dwa połączenia wychodzące prowadzą do tego samego węzła, dostępna ścieżka pozostaje otwarta do zakończenia synchronizacji przez jedno z nich. 
+Po otrzymaniu poprawnej odpowiedzi z wersją węzeł daje drugiej stronie czas na przesłanie potwierdzenia. Jeśli dwa połączenia wychodzące prowadzą do tego samego węzła, dostępna ścieżka pozostaje otwarta do zakończenia synchronizacji przez jedno z nich.
+
+<!-- poll-recovery-20261119 -->
+
+Po błędzie wewnętrznym aktualizacja synchronizacji jest ponawiana. Błąd jednego węzła równorzędnego nie zatrzymuje już aktualizacji pozostałych. Wydobywanie nadal wymaga niedawno zweryfikowanego węzła; samo otwarte połączenie nie wystarcza. Po uruchomieniu kopanie na telefonie czeka teraz na synchronizację, zamiast natychmiast się zatrzymywać. Naprawiono zatrzymywanie obsługi sieci podczas weryfikacji dowodów połączenia i odczytu historii. Kopanie w tle pozostaje aktywne.

@@ -1,8 +1,8 @@
-# SUMUWW Android 0.6.103 · Node-Betrieb
+# SUMUWW Android 0.7.8 · Node-Betrieb
 
 Nach dem Neustart setzt der Knoten beim letzten lokal geprüften Block an und prüft neue Blöcke. Fehlt der gespeicherte Prüfnachweis oder ist er widersprüchlich, prüft der Knoten den gespeicherten Verlauf erneut.
 
-SUMUWW Android 0.6.103 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
+SUMUWW Android 0.7.8 · Der Knoten prüft, speichert, verbreitet und liefert Kettendaten.
 
 ## Netzwerk und Adressen
 
@@ -30,4 +30,8 @@ Wallet-Dateiformate, Adressen und vorhandene Coins bleiben unverändert. Die vor
 
 <!-- /payment-policy-20261116 -->
 
-Nach einer gültigen Versionsantwort gibt der Knoten der Gegenstelle Zeit für die Bestätigung. Führen zwei ausgehende Verbindungen zum selben Knoten, bleibt ein Weg offen, bis die Synchronisierung über eine der Verbindungen abgeschlossen ist. 
+Nach einer gültigen Versionsantwort gibt der Knoten der Gegenstelle Zeit für die Bestätigung. Führen zwei ausgehende Verbindungen zum selben Knoten, bleibt ein Weg offen, bis die Synchronisierung über eine der Verbindungen abgeschlossen ist.
+
+<!-- poll-recovery-20261119 -->
+
+Nach einem internen Fehler wird die Synchronisierungsabfrage erneut versucht. Ein Fehler bei einem Peer unterbricht die Abfragen anderer Peers nicht mehr. Für das Mining ist weiterhin ein kürzlich überprüfter Peer erforderlich; eine offene Verbindung allein reicht nicht aus. Beim Start wartet das Mining auf dem Smartphone jetzt auf die Synchronisierung, statt sofort abzubrechen. Netzwerkstillstände bei der Prüfung von Verbindungsnachweisen und beim Abrufen des Verlaufs wurden behoben. Das Mining im Hintergrund bleibt aktiv.

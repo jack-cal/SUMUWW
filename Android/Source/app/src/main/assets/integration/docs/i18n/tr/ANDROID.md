@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.103 · Belgeler
+# SUMUWW Android 0.7.8 · Belgeler
 
-SUMUWW Android 0.6.103 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
+SUMUWW Android 0.7.8 · Düğüm zincir verilerini doğrular, saklar, iletir ve sorgulamaya açar.
 
 ## Ağ ve adresler
 
@@ -51,4 +51,8 @@ Cüzdan dosya biçimleri, adresler ve mevcut coinler değişmedi. Eski şifrelen
 
 <!-- /payment-policy-20261116 -->
 
-Düğüm, geçerli bir sürüm yanıtı aldıktan sonra karşı düğüme onay göndermesi için süre tanır. İki giden bağlantı aynı düğüme ulaşıyorsa bunlardan biri eşitlemeyi tamamlayana kadar kullanılabilir bir yol açık kalır. 
+Düğüm, geçerli bir sürüm yanıtı aldıktan sonra karşı düğüme onay göndermesi için süre tanır. İki giden bağlantı aynı düğüme ulaşıyorsa bunlardan biri eşitlemeyi tamamlayana kadar kullanılabilir bir yol açık kalır.
+
+<!-- poll-recovery-20261119 -->
+
+Dahili bir hatadan sonra eşitleme güncellemesi yeniden denenir. Bir eşte oluşan hata artık diğer eşlerin güncellemelerini durdurmaz. Madencilik için hâlâ yakın zamanda doğrulanmış bir eş gerekir; bağlantının açık kalması tek başına yeterli değildir. Telefonda madencilik başlatıldığında artık hemen durmak yerine eşitlemenin tamamlanması beklenir. Bağlantı kanıtlarının doğrulanması ve geçmişin sorgulanması sırasında ağ işlemlerinin durması düzeltildi. Arka planda madencilik devam eder.

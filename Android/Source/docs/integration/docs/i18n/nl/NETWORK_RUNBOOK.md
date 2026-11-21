@@ -1,8 +1,8 @@
-# SUMUWW Android 0.6.103 · Nodebeheer
+# SUMUWW Android 0.7.8 · Nodebeheer
 
 Na een herstart gaat het knooppunt verder vanaf het laatste lokaal geverifieerde blok en controleert het nieuwe blokken. Als het opgeslagen verificatierecord ontbreekt of niet klopt, controleert het de opgeslagen geschiedenis opnieuw.
 
-SUMUWW Android 0.6.103 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
+SUMUWW Android 0.7.8 · De node valideert, bewaart, verspreidt en ontsluit ketengegevens.
 
 ## Netwerk en adressen
 
@@ -30,4 +30,8 @@ Wallet-bestandsformaten, adressen en bestaande coins zijn niet gewijzigd. De bes
 
 <!-- /payment-policy-20261116 -->
 
-Na een geldig antwoord met de versiegegevens geeft de node de andere node tijd om een bevestiging te sturen. Als twee uitgaande verbindingen naar dezelfde node leiden, blijft er een route open totdat de synchronisatie via een van beide is voltooid. 
+Na een geldig antwoord met de versiegegevens geeft de node de andere node tijd om een bevestiging te sturen. Als twee uitgaande verbindingen naar dezelfde node leiden, blijft er een route open totdat de synchronisatie via een van beide is voltooid.
+
+<!-- poll-recovery-20261119 -->
+
+Na een interne fout wordt de synchronisatiecontrole opnieuw geprobeerd. Een fout bij één peer stopt de controles van andere peers niet meer. Mining vereist nog steeds een onlangs gecontroleerde peer; alleen een open verbinding is niet voldoende. Bij het starten wacht het minen op de telefoon nu op synchronisatie, in plaats van meteen te stoppen. Vastlopen van het netwerk bij het verifiëren van verbindingsbewijzen en het opvragen van de geschiedenis is verholpen. Minen op de achtergrond blijft actief.

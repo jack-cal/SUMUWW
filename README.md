@@ -8,12 +8,12 @@ SUMUWW is an independent SHA-256d proof-of-work coin with asynchronous connectio
 
 [Support SUMUWW development](Donations/README.md)
 
-## Current downloads — 16 November 2026
+## Current downloads — 22 November 2026
 
 | Component | Version | Download | Source |
 |---|---|---|---|
 | Windows full node, wallet and miner | 0.57.61 | [Download](https://github.com/jack-cal/SUMUWW/releases/download/updates-20261116/SUMUWW-PC-0.57.61.zip) | [Source](PC/Source) |
-| Android full node, wallet and miner — new signing identity | 0.6.103 | [Download](https://github.com/jack-cal/SUMUWW/releases/download/updates-20261116/SUMUWW-Android-0.6.103.apk) | [Source](Android/Source) |
+| Android full node, wallet and miner — new signing identity | 0.7.8 | [Download](https://github.com/jack-cal/SUMUWW/releases/download/updates-20261122/SUMUWW-Android-0.7.8.apk) | [Source](Android/Source) |
 | Windows ordinary wallet | 1.0.15 | [Download](https://github.com/jack-cal/SUMUWW/releases/download/updates-20261116/SUMUWW-Wallet-PC-1.0.15-Windows.zip) | [Source](Wallet/Desktop) |
 | Android ordinary wallet — new signing identity | 1.1.14 | [Download](https://github.com/jack-cal/SUMUWW/releases/download/updates-20261116/SUMUWW-Wallet-Android-1.1.14.apk) | [Source](Wallet/Source) |
 | Local block explorer | 0.4.11 | [Release](https://github.com/jack-cal/SUMUWW/releases/tag/explorer-v0.4.11) | [Source](Explorer/Source) |
@@ -24,6 +24,7 @@ SUMUWW is an independent SHA-256d proof-of-work coin with asynchronous connectio
 
 ## Latest changes
 
+- **Android mining:** starting before synchronization could stop mining immediately. Mining now waits for a verified connection. Connection-proof verification and history queries no longer block network processing or wake-lock renewal.
 - **Fee quotes:** an extra change output was counted even when no change was created. Quotes now count only the outputs the wallet creates.
 - **Payment confirmation:** the reviewed transaction could be rebuilt before submission. Confirmation now submits the same signed inputs, outputs and fee shown for review.
 - **P2WPKH signatures:** the size limit is 71 bytes including the hash-type byte, matching the size used for the fee quote.

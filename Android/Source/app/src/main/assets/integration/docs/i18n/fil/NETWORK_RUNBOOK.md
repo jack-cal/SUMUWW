@@ -1,8 +1,8 @@
-# SUMUWW Android 0.6.103 · Pagpapatakbo ng node
+# SUMUWW Android 0.7.8 · Pagpapatakbo ng node
 
 Kapag muling binuksan, magpapatuloy ang node mula sa huling block na sinuri nito sa device at susuriin ang mga bagong block. Kung wala o hindi tugma ang nakaimbak na tala ng pagsusuri, susuriin nitong muli ang nakaimbak na kasaysayan.
 
-SUMUWW Android 0.6.103 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
+SUMUWW Android 0.7.8 · Sinusuri, iniimbak, ipinapasa at ipinapakita ng node ang datos ng chain.
 
 ## Network at mga address
 
@@ -30,4 +30,8 @@ Hindi nagbago ang format ng wallet file, mga address, at umiiral na mga coin. Ma
 
 <!-- /payment-policy-20261116 -->
 
-Kapag nakatanggap ng wastong tugon tungkol sa bersyon, binibigyan ng node ng oras ang kabilang node na magpadala ng kumpirmasyon. Kung dalawang papalabas na koneksyon ang patungo sa iisang node, mananatiling bukas ang isang magagamit na ruta hanggang sa matapos ang pag-sync sa isa sa mga ito. 
+Kapag nakatanggap ng wastong tugon tungkol sa bersyon, binibigyan ng node ng oras ang kabilang node na magpadala ng kumpirmasyon. Kung dalawang papalabas na koneksyon ang patungo sa iisang node, mananatiling bukas ang isang magagamit na ruta hanggang sa matapos ang pag-sync sa isa sa mga ito.
+
+<!-- poll-recovery-20261119 -->
+
+Muling sinusubukan ang pag-update ng pag-synchronize kapag may panloob na error. Hindi na nahihinto ang pag-update ng ibang peer dahil sa error ng isang peer. Kailangan pa rin sa pagmimina ang isang peer na kamakailan lang napatunayan; hindi sapat na bukas lang ang koneksyon. Kapag sinimulan ang pagmimina sa telepono, hinihintay na nitong matapos ang pag-synchronize sa halip na agad huminto. Naayos ang paghinto ng pagproseso ng network habang sinusuri ang mga patunay ng koneksyon at kinukuha ang kasaysayan. Tuloy ang pagmimina sa background.

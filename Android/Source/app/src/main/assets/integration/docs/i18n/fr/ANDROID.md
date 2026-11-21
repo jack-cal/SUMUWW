@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.103 · Documentation
+# SUMUWW Android 0.7.8 · Documentation
 
-SUMUWW Android 0.6.103 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
+SUMUWW Android 0.7.8 · Le nœud valide, conserve, relaie et expose les données de la chaîne.
 
 ## Réseau et adresses
 
@@ -51,4 +51,8 @@ Le format des fichiers du portefeuille, les adresses et les pièces existantes n
 
 <!-- /payment-policy-20261116 -->
 
-Après une réponse de version valide, le nœud laisse au pair le temps d’envoyer son accusé de réception. Si deux connexions sortantes mènent au même nœud, il conserve un chemin disponible jusqu’à la synchronisation. 
+Après une réponse de version valide, le nœud laisse au pair le temps d’envoyer son accusé de réception. Si deux connexions sortantes mènent au même nœud, il conserve un chemin disponible jusqu’à la synchronisation.
+
+<!-- poll-recovery-20261119 -->
+
+La mise à jour de la synchronisation est relancée après une erreur interne. Une erreur sur un pair ne bloque plus les mises à jour des autres pairs. Le minage nécessite toujours un pair vérifié récemment ; une connexion ouverte ne suffit pas. Au démarrage, le minage sur téléphone attend désormais la synchronisation au lieu de s’arrêter immédiatement. Les blocages réseau pendant la vérification des preuves de connexion et la consultation de l’historique ont été corrigés. Le minage en arrière-plan reste actif.

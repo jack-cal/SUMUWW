@@ -41,6 +41,17 @@ class LinkRuntime:
             try:return method(identity,*args)
             finally:identity.close()
         return await asyncio.to_thread(run)
+    async def add_proof(self,proof):
+        # Freeze the received public data before yielding. Only the pure BLS
+        # calculation runs on a worker; SQLite and final proof acceptance stay
+        # on the owning actor. The normal validator rechecks the entire proof
+        # using the same content-keyed verification cache, never a trusted flag.
+        proof=json.loads(canonical(proof))
+        setup,expected_slot,signature=self.state.proof_beacon_context(proof)
+        setup=json.loads(canonical(setup))
+        await asyncio.to_thread(beacon.verify_beacon,setup,expected_slot,signature)
+        if self.closed:raise asyncio.CancelledError()
+        return self.state.add_proof(proof)
     def sessions(self):
         return [s for s in self.node._sessions.values() if s.ready and s.boundary_id and s.boundary_policy==POLICY and not s.writer.is_closing()]
     def info(self):
@@ -355,7 +366,7 @@ class LinkRuntime:
                 if 'selection' in body:
                     require(self.state.selection_required(self.node.chain._row(self.node.chain.tip_hash)[2]),'Certified selection upgrade is not activated')
                     ar=self.node.chain._row(a.block_hash());found=self.state.anchor(self.node.chain._path(ar[1]))
-                    random=beacon.verify_beacon(found[1],slot(self.network,ar[2],ar[1].hex()),m['beacon'])
+                    random=await asyncio.to_thread(beacon.verify_beacon,found[1],slot(self.network,ar[2],ar[1].hex()),m['beacon'])
                     require(selection.verify_certificate(self.state,body['selection'],random,fresh=True)==m['signers'],'Wrong attachment candidate selection')
                     ctx=body['selection']['proposal']['context']
                     require(ctx['source']==m['source'] and ctx['target']==m['target'] and m.get('selection')==digest(body['selection']),'Attachment selection binding')
@@ -402,7 +413,7 @@ class LinkRuntime:
                 require(len(candidates)>=3,'Fewer than three discovered participants replied; mining continues')
                 saved['candidates']=candidates;persist('beacon')
                 s=slot(self.network,ar[2],ar[1].hex());signature=await self.obtain_beacon(a.hex(),setup,s)
-                random=beacon.verify_beacon(setup,s,signature)
+                random=await asyncio.to_thread(beacon.verify_beacon,setup,s,signature)
                 if not proof_selected(random):
                     saved['done']=True;persist('not_selected');self.metrics['skipped']+=1;return
                 signers=sample(random,candidates)
@@ -422,7 +433,7 @@ class LinkRuntime:
                         saved.update(values);persist(phase)
                     certificate=await self.candidate_certificate(a,b,progress)
                     signature=saved['message']['beacon']
-                    random=beacon.verify_beacon(setup,slot(self.network,ar[2],ar[1].hex()),signature)
+                    random=await asyncio.to_thread(beacon.verify_beacon,setup,slot(self.network,ar[2],ar[1].hex()),signature)
                     signers=selection.verify_certificate(self.state,certificate,random,fresh=True)
                     old=saved['message']
                     self.keys.put('job-round:'+a.hex()+':'+digest(old),
@@ -472,7 +483,7 @@ class LinkRuntime:
             persist('target_receipt')
             proof['target_receipt']=await self.request(producer(self.node.chain.get_block(b)),'attach',proof)
             persist('verification')
-            self.state.add_proof(proof);saved['done']=True;saved['last_error']=None;saved['failures']=0;persist('complete')
+            await self.add_proof(proof);saved['done']=True;saved['last_error']=None;saved['failures']=0;persist('complete')
             self.metrics['completed']+=1;await self.publish('proof',proof)
         except Exception as error:
             saved['last_error']=str(error) or type(error).__name__;saved['failures']=saved.get('failures',0)+1;persist()
@@ -494,7 +505,9 @@ class LinkRuntime:
                 encoded=await self.request(self.providers[key],'block',{'hash':target.hex()})
                 block=Block.deserialize(bytes.fromhex(encoded));require(block.block_hash()==target,'Proof history hash mismatch')
                 pending.append(block);target=block.header.previous_hash
-            for block in reversed(pending):self.node.chain.accept_block(block)
+            for block in reversed(pending):
+                await self.node._verify_block_setup(block)
+                self.node.chain.accept_block(block)
         finally:self.support_tasks.pop(key,None)
     async def background(self):
         self.parts.expire(max(60,self.node.timeout))
@@ -511,7 +524,7 @@ class LinkRuntime:
                     if key in self.providers and key not in self.support_tasks and self.node.chain._row(self.node.chain.tip_hash)[2]>=m['height']-1:
                         self.support_tasks[key]=self.spawn(self.fetch_support(key,proof))
                     continue
-                changed=self.state.add_proof(proof);self.deferred.pop(key,None)
+                changed=await self.add_proof(proof);self.deferred.pop(key,None)
                 # A peer can finish its handshake while this node is still
                 # downloading a proof's side branch. Its initial inventory
                 # then lacks that proof. Announce newly validated attachments

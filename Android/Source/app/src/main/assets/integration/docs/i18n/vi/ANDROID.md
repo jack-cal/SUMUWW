@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.103 · Tài liệu
+# SUMUWW Android 0.7.8 · Tài liệu
 
-SUMUWW Android 0.6.103 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
+SUMUWW Android 0.7.8 · Nút xác thực, lưu trữ, truyền và cung cấp dữ liệu chuỗi.
 
 ## Mạng và địa chỉ
 
@@ -51,4 +51,8 @@ Với thanh toán P2WPKH thông thường, ví tạo chữ ký low-R và low-S d
 
 <!-- /payment-policy-20261116 -->
 
-Sau khi nhận được phản hồi phiên bản hợp lệ, nút dành thời gian cho nút bên kia gửi xác nhận. Nếu hai kết nối đi đến cùng một nút, một đường kết nối khả dụng được giữ cho đến khi một trong hai hoàn tất đồng bộ. 
+Sau khi nhận được phản hồi phiên bản hợp lệ, nút dành thời gian cho nút bên kia gửi xác nhận. Nếu hai kết nối đi đến cùng một nút, một đường kết nối khả dụng được giữ cho đến khi một trong hai hoàn tất đồng bộ.
+
+<!-- poll-recovery-20261119 -->
+
+Việc cập nhật đồng bộ được thử lại sau khi xảy ra lỗi nội bộ. Lỗi ở một nút ngang hàng không còn làm dừng cập nhật của các nút khác. Hoạt động đào vẫn yêu cầu một nút vừa được xác minh; chỉ duy trì kết nối là chưa đủ. Khi bắt đầu đào trên điện thoại, ứng dụng sẽ chờ đồng bộ hoàn tất thay vì dừng ngay lập tức. Đã sửa lỗi xử lý mạng bị dừng khi xác minh bằng chứng liên kết và truy vấn lịch sử. Đào nền vẫn tiếp tục hoạt động.

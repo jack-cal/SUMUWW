@@ -60,7 +60,9 @@ class LinkState:
         row=self.chain.connection.execute('SELECT body FROM link_local WHERE name=?',(name,)).fetchone()
         return json.loads(row[0]) if row else None
     def set_local(self,name,value):
+        token=self.chain._path_cache_token()
         self.chain.connection.execute('INSERT OR REPLACE INTO link_local VALUES (?,?)',(name,canonical(value)))
+        self.chain._reuse_index_path_after_write(token,1)
     def root(self,path):
         if self.activation is None or len(path)<self.activation:return None
         return path[self.activation-1][0][0].hex()
@@ -132,6 +134,15 @@ class LinkState:
         return {'policy':POLICY,'links':[json.loads(r[0]) for r in rows]} if rows else None
     def all_proofs(self):
         return [json.loads(r[0]) for r in self.chain.connection.execute('SELECT body FROM link_proofs ORDER BY id')]
+    def proof_beacon_context(self,proof):
+        fields={'message','left','right','source_receipt','target_receipt'}
+        require(type(proof) is dict and set(proof) in (fields,fields|{'selection'}),'Complete paired link required')
+        m=proof['message'];a=bytes.fromhex(m['source']);ar=self.chain._row(a)
+        br=self.chain._row(bytes.fromhex(m['target']))
+        require(self.enabled(ar[2]) and br[1]==a and br[2]==ar[2]+1,'Link must bind a direct child after activation')
+        found=self.anchor(self.chain._path(ar[1]))
+        require(found is not None,'Prior PoW-anchored beacon required')
+        return found[1],slot(self.network,ar[2],ar[1].hex()),m['beacon']
     def verify_proof(self,proof):
         fields={'message','left','right','source_receipt','target_receipt'}
         require(type(proof) is dict and set(proof) in (fields,fields|{'selection'}),'Complete paired link required')
@@ -139,9 +150,8 @@ class LinkState:
         ar=self.chain._row(a);br=self.chain._row(b)
         require(self.enabled(ar[2]) and br[1]==a and br[2]==ar[2]+1,'Link must bind a direct child after activation')
         source=self.chain.get_block(a);target=self.chain.get_block(b)
-        found=self.anchor(self.chain._path(ar[1]));require(found is not None,'Prior PoW-anchored beacon required')
-        setup=found[1];expected_slot=slot(self.network,ar[2],ar[1].hex())
-        random=beacon.verify_beacon(setup,expected_slot,m['beacon'])
+        setup,expected_slot,signature=self.proof_beacon_context(proof)
+        random=beacon.verify_beacon(setup,expected_slot,signature)
         require(proof_selected(random),'This random event does not request a link')
         signers=m['signers'];require(type(signers) is list and len(signers)==3 and len(set(signers))==3,'Three distinct witnesses required')
         certificate=proof.get('selection');selection_id=None
@@ -169,7 +179,10 @@ class LinkState:
         try:
             checkpoint_valid=self.chain._checkpoint_matches()
             a,b,s=self.verify_proof(proof)
+            token=self.chain._path_cache_token()
+            checkpoint_rows=c.execute('SELECT COUNT(*) FROM validation_checkpoint').fetchone()[0]
             changed=c.execute('INSERT OR IGNORE INTO link_proofs VALUES (?,?,?,?,?)',(key,a,b,s,canonical(proof))).rowcount>0
+            self.chain._reuse_index_path_after_write(token,1+checkpoint_rows if changed else 0)
             if changed:self.reselect(in_transaction=True)
             if changed and checkpoint_valid:self.chain._save_checkpoint()
             c.execute('COMMIT')

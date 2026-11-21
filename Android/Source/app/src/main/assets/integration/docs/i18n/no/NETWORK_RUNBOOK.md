@@ -1,8 +1,8 @@
-# SUMUWW Android 0.6.103 · Nodedrift
+# SUMUWW Android 0.7.8 · Nodedrift
 
 Etter omstart fortsetter noden fra den siste blokken den selv har verifisert, og sjekker nye blokker. Hvis den lagrede verifikasjonen mangler eller ikke stemmer, sjekker noden den lagrede historikken på nytt.
 
-SUMUWW Android 0.6.103 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
+SUMUWW Android 0.7.8 · Noden validerer, lagrer, videresender og gjør kjededata tilgjengelige.
 
 ## Nettverk og adresser
 
@@ -30,4 +30,8 @@ Lommebokens filformat, adresser og eksisterende mynter er uendret. Den eksistere
 
 <!-- /payment-policy-20261116 -->
 
-Når noden har mottatt et gyldig versjonssvar, får motparten tid til å sende en bekreftelse. Hvis to utgående forbindelser går til samme node, holdes en tilgjengelig rute åpen til synkroniseringen er ferdig over en av dem. 
+Når noden har mottatt et gyldig versjonssvar, får motparten tid til å sende en bekreftelse. Hvis to utgående forbindelser går til samme node, holdes en tilgjengelig rute åpen til synkroniseringen er ferdig over en av dem.
+
+<!-- poll-recovery-20261119 -->
+
+Etter en intern feil forsøkes synkroniseringskontrollen på nytt. En feil hos én peer stopper ikke lenger kontrollen av andre peers. Mining krever fortsatt en peer som nylig er verifisert; en åpen forbindelse alene er ikke nok. Når utvinning startes på telefonen, venter den nå på synkronisering i stedet for å stoppe med en gang. Nettverksstans ved kontroll av forbindelsesbevis og henting av historikk er rettet. Utvinning i bakgrunnen fortsetter.

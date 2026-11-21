@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 from sumuww.chain import Chain
 from sumuww.block import Block,mine_header
 from sumuww.wallet import RegtestKey
@@ -85,6 +86,21 @@ class LinkUpgradeTests(unittest.TestCase):
             with self.assertRaises(Exception):self.chain.boundary.add_proof(bad)
         self.chain.close();self.chain=Chain(self.path,boundary_activation=3);self.addCleanup(self.chain.close)
         self.chain.boundary.verify_storage();self.assertEqual(1,len(self.chain.boundary.all_proofs()))
+    def test_proof_and_contact_writes_preserve_verified_block_ancestry(self):
+        parent,sig=self.selected_parent();pair=self.pair(parent,101);proof=self.proof(pair,sig)
+        path=self.chain._path(self.chain.tip_hash)
+        with patch.object(self.chain,'_read_index_path',side_effect=AssertionError('proof reread block history')):
+            self.assertTrue(self.chain.boundary.add_proof(proof))
+            self.chain.boundary.set_local('contacts',[])
+            self.assertFalse(self.chain.boundary.add_proof(proof))
+            self.assertEqual(path,self.chain._path(self.chain.tip_hash))
+            self.chain.boundary.verify_storage()
+        self.assertTrue(self.chain._checkpoint_matches())
+    def test_unexpected_trigger_write_still_invalidates_block_ancestry(self):
+        path=self.chain._path(self.chain.tip_hash)
+        self.chain.connection.execute("CREATE TRIGGER test_local_edit AFTER INSERT ON link_local BEGIN UPDATE blocks SET work='0' WHERE height=1; END")
+        self.chain.boundary.set_local('trigger-check',None)
+        with self.assertRaises(Exception):self.chain._path(path[-1][0][0])
     def test_real_beacon_in_old_fifty_percent_range_is_rejected(self):
         from sumuww.link_crypto import PROOF_SELECTION_THRESHOLD
         for _ in range(256):

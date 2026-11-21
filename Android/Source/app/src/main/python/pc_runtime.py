@@ -27,6 +27,12 @@ _batch={'running':False,'target':0,'completed':0,'last_error':None,'last_result'
 _security={'locked':False,'timeout':300,'activity':time.monotonic(),'key_locked':False}
 _security_guard=threading.RLock()
 
+def mining_activity():
+    # Power and safety monitoring must not wait for chain/history queries.
+    with _batch_guard:
+        running = bool(_batch['running'] and _worker is not None and _worker.is_alive())
+    return _json({'running': running})
+
 def set_foreground(value):
     mining_metrics.foreground=str(value).lower()=='true'
     return '{}'
@@ -90,7 +96,26 @@ def _publish_android(source,destination):
 def _get():
     if _service is None: raise RuntimeError('SUMUWW node has not started')
     return _service
-def _result(future,timeout=120): return future.result(timeout=timeout)
+_last_timeout_trace = 0.0
+_timeout_trace_count = 0
+def _result(future, timeout=120):
+    global _last_timeout_trace, _timeout_trace_count
+    try:
+        return future.result(timeout=timeout)
+    except TimeoutError:
+        now = time.monotonic()
+        if now - _last_timeout_trace >= 60 and _timeout_trace_count < 3:
+            _last_timeout_trace = now
+            _timeout_trace_count += 1
+            import sys
+            for ident, frame in sys._current_frames().items():
+                stack = []
+                while frame is not None and len(stack) < 20:
+                    stack.append(f'{Path(frame.f_code.co_filename).name}:{frame.f_lineno}:{frame.f_code.co_name}')
+                    frame = frame.f_back
+                print('SMW_TIMEOUT_STACK ' + str(ident) + ' ' + ' <- '.join(stack), file=sys.stderr)
+        raise
+
 def _json(value):
     from sumuww.compatibility import public_view
     return json.dumps(public_view(value),ensure_ascii=False)
@@ -211,7 +236,7 @@ def _run_batch(service,count):
     try:
         for _ in range(count):
             if _cancel.is_set(): break
-            value=_result(service.mine_one(),None)
+            value=_result(service.mine_one(wait_for_sync=True),None)
             with _batch_guard:
                 _batch['finished_wait_seconds']+=float(value.get('network_wait_seconds',0))
                 _batch['finished_network_pauses']+=int(value.get('network_pauses',0))

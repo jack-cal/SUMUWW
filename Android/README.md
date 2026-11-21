@@ -1,4 +1,4 @@
-# SUMUWW Android 0.6.103
+# SUMUWW Android 0.7.8
 
 Update every validating full node and ordinary wallet before **block 9,600**. The connection-proof candidate certificate and renewal rules activate at that height.
 
@@ -14,7 +14,7 @@ All 34 UI languages remain available. Preserve encrypted wallets and valid chain
 
 The APK uses package `org.sumuww.miner`. Preserve the installed app and its data when changing signing identities. The app has no RPC configuration screen.
 
-[Release and checksums](https://github.com/jack-cal/SUMUWW/releases/tag/updates-20261116) · [Source](Source) · [Node interface](Source/docs/integration/docs/i18n/en/ANDROID.html)
+[Release and checksums](https://github.com/jack-cal/SUMUWW/releases/tag/updates-20261122) · [Source](Source) · [Node interface](Source/docs/integration/docs/i18n/en/ANDROID.html)
 
 <!-- payment-policy-20261116 -->
 

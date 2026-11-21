@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.103 · Documentation
+# SUMUWW Android 0.7.8 · Documentation
 
-SUMUWW Android 0.6.103 · The node validates, stores, relays and exposes chain data.
+SUMUWW Android 0.7.8 · The node validates, stores, relays and exposes chain data.
 
 ## Network and addresses
 
@@ -51,4 +51,8 @@ Wallet file formats, addresses and existing coins are unchanged. The existing en
 
 <!-- /payment-policy-20261116 -->
 
-After a valid version reply, the node gives its peer time to acknowledge it. If two outgoing connections reach the same node, it keeps an available route until one has synchronized. 
+After a valid version reply, the node gives its peer time to acknowledge it. If two outgoing connections reach the same node, it keeps an available route until one has synchronized.
+
+<!-- poll-recovery-20261119 -->
+
+Synchronization refresh now retries after an internal error. A failed peer no longer stops refreshes for other peers. Mining still requires a recently verified peer; an open connection alone is not enough. Mobile mining now waits for synchronization at startup instead of stopping immediately. Fixed network stalls during connection-proof verification and history queries. Background mining remains active.

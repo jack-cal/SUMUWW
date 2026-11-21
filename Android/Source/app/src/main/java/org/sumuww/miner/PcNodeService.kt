@@ -16,6 +16,7 @@ import org.json.JSONObject
 class PcNodeService:Service() {
  private val worker=Executors.newSingleThreadScheduledExecutor()
  private val safety=Executors.newSingleThreadExecutor()
+ private val powerWorker=Executors.newSingleThreadScheduledExecutor()
  private val checkingSafety=java.util.concurrent.atomic.AtomicBoolean(false)
  private var thermalListener:PowerManager.OnThermalStatusChangedListener?=null
  private var receiverRegistered=false
@@ -29,7 +30,7 @@ class PcNodeService:Service() {
   val reading=MiningProtection.read(this,battery);val reason=reading.reason?:return
   if(!checkingSafety.compareAndSet(false,true))return
   try{safety.execute{try{
-   if(!closing&&JSONObject(PcRuntime.call("status")).optJSONObject("mobile_batch")?.optBoolean("running")==true){
+   if(!closing&&JSONObject(PcRuntime.call("mining_activity")).optBoolean("running")){
     PcRuntime.call("stop_mining_for_safety",reason)
     if(!closing)notificationManager.notify(42,notification(UiLanguage.text(this,reason)))
    }
@@ -59,6 +60,17 @@ class PcNodeService:Service() {
   receiverRegistered=true
   if(Build.VERSION.SDK_INT>=29){thermalListener=PowerManager.OnThermalStatusChangedListener{checkProtection()};getSystemService(PowerManager::class.java).addThermalStatusListener(thermalListener!!)}
   worker.execute{try{PcRuntime.start(this);runtimeGeneration=PcRuntime.generation;if(closing)PcRuntime.stopIfStarted(runtimeGeneration)}catch(e:Exception){android.util.Log.e("SumuwwPc042","Node startup failed",e);if(!closing)notificationManager.notify(42,notification("Node startup failed — open SMW"))}}
+  powerWorker.scheduleWithFixedDelay({
+   if(!closing)try{
+    val mining=JSONObject(PcRuntime.call("mining_activity")).optBoolean("running")
+    synchronized(powerGuard){
+     if(!closing){
+      if(mining)wake?.acquire(120000L)
+      else if(wake?.isHeld==true)wake?.release()
+     }
+    }
+   }catch(e:Exception){android.util.Log.w("SumuwwPc042","Mining power check unavailable",e)}
+  },1,5,TimeUnit.SECONDS)
   worker.scheduleWithFixedDelay({
    if(!closing)try{
     checkProtection()
@@ -82,13 +94,6 @@ class PcNodeService:Service() {
      }
     }
     
-    synchronized(powerGuard){
-     if(!closing){
-      // Renew while mining; a stuck monitor cannot keep the CPU awake forever.
-      if(mining)wake?.acquire(120000L)
-      else if(wake?.isHeld==true)wake?.release()
-     }
-    }
     val text=if(mining)"Mining ${batch?.optInt("completed")}/${batch?.optInt("target")}" else "Node · ${node?.optInt("peers",0)?:0} peers · ${node?.optString("sync_state","stopped")?:"stopped"}"
     if(!closing)notificationManager.notify(42,notification(text))
     val address=status.optJSONObject("wallet")?.optString("address","")?:""
@@ -135,6 +140,7 @@ class PcNodeService:Service() {
   if(receiverRegistered){unregisterReceiver(batteryReceiver);receiverRegistered=false}
   if(Build.VERSION.SDK_INT>=29)thermalListener?.let{getSystemService(PowerManager::class.java).removeThermalStatusListener(it)}
   safety.shutdownNow()
+  powerWorker.shutdownNow()
   multicast?.let{if(it.isHeld)it.release()}
   synchronized(powerGuard){wake?.let{if(it.isHeld)it.release()}}
   worker.shutdownNow()

@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.103 · Dokumentaatio
+# SUMUWW Android 0.7.8 · Dokumentaatio
 
-SUMUWW Android 0.6.103 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
+SUMUWW Android 0.7.8 · Solmu tarkistaa, tallentaa, välittää ja tarjoaa ketjun tiedot.
 
 ## Verkko ja osoitteet
 
@@ -51,4 +51,8 @@ Lompakon tiedostomuodot, osoitteet ja nykyiset kolikot eivät ole muuttuneet. Ai
 
 <!-- /payment-policy-20261116 -->
 
-Saatuaan kelvollisen versiotiedon solmu antaa toiselle osapuolelle aikaa lähettää kuittauksen. Jos kaksi lähtevää yhteyttä johtaa samaan solmuun, käytettävissä oleva reitti pidetään auki, kunnes synkronointi on valmis jommankumman yhteyden kautta. 
+Saatuaan kelvollisen versiotiedon solmu antaa toiselle osapuolelle aikaa lähettää kuittauksen. Jos kaksi lähtevää yhteyttä johtaa samaan solmuun, käytettävissä oleva reitti pidetään auki, kunnes synkronointi on valmis jommankumman yhteyden kautta.
+
+<!-- poll-recovery-20261119 -->
+
+Synkronoinnin päivitystä yritetään uudelleen sisäisen virheen jälkeen. Yhden vertaiskoneen virhe ei enää pysäytä muiden vertaiskoneiden päivityksiä. Louhinta edellyttää edelleen äskettäin varmennettua vertaiskonetta; pelkkä avoin yhteys ei riitä. Puhelimella käynnistetty louhinta odottaa nyt synkronointia sen sijaan, että se pysähtyisi heti. Verkon pysähtyminen yhteystodisteiden tarkistuksen ja historiakyselyjen aikana on korjattu. Taustalouhinta jatkuu.

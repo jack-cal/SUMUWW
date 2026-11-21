@@ -1,8 +1,8 @@
-# SUMUWW Android 0.6.103 · Operação do nó
+# SUMUWW Android 0.7.8 · Operação do nó
 
 Ao reiniciar, o nó retoma a partir do último bloco que verificou localmente e verifica os novos blocos. Se o registro de verificação salvo estiver ausente ou inconsistente, o nó verifica novamente o histórico armazenado.
 
-SUMUWW Android 0.6.103 · O nó valida, guarda, retransmite e permite consultar a cadeia.
+SUMUWW Android 0.7.8 · O nó valida, guarda, retransmite e permite consultar a cadeia.
 
 ## Rede e endereços
 
@@ -30,4 +30,8 @@ O formato dos arquivos da carteira, os endereços e as moedas existentes não mu
 
 <!-- /payment-policy-20261116 -->
 
-Depois de receber uma resposta de versão válida, o nó dá ao par tempo para enviar a confirmação. Se duas ligações de saída chegarem ao mesmo nó, mantém uma via disponível até que uma delas conclua a sincronização. 
+Depois de receber uma resposta de versão válida, o nó dá ao par tempo para enviar a confirmação. Se duas ligações de saída chegarem ao mesmo nó, mantém uma via disponível até que uma delas conclua a sincronização.
+
+<!-- poll-recovery-20261119 -->
+
+A atualização da sincronização é tentada novamente após um erro interno. Uma falha num par já não interrompe as atualizações dos outros pares. A mineração continua a exigir um par verificado recentemente; uma ligação aberta, por si só, não basta. Ao iniciar a mineração no celular, o aplicativo aguarda a sincronização em vez de parar imediatamente. Foram corrigidos os travamentos da rede durante a verificação de provas de conexão e consultas ao histórico. A mineração em segundo plano continua ativa.

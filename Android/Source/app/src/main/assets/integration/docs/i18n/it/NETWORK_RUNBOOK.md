@@ -1,8 +1,8 @@
-# SUMUWW Android 0.6.103 · Gestione del nodo
+# SUMUWW Android 0.7.8 · Gestione del nodo
 
 Al riavvio il nodo riparte dall’ultimo blocco verificato localmente e controlla i nuovi blocchi. Se la verifica salvata manca o i dati non corrispondono, ricontrolla la cronologia archiviata.
 
-SUMUWW Android 0.6.103 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
+SUMUWW Android 0.7.8 · Il nodo verifica, conserva, inoltra e rende consultabili i dati della catena.
 
 ## Rete e indirizzi
 
@@ -30,4 +30,8 @@ Il formato dei file del portafoglio, gli indirizzi e le monete esistenti non son
 
 <!-- /payment-policy-20261116 -->
 
-Dopo una risposta di versione valida, il nodo lascia al suo interlocutore il tempo di inviare la conferma. Se due connessioni in uscita raggiungono lo stesso nodo, un percorso disponibile resta aperto finché una delle due completa la sincronizzazione. 
+Dopo una risposta di versione valida, il nodo lascia al suo interlocutore il tempo di inviare la conferma. Se due connessioni in uscita raggiungono lo stesso nodo, un percorso disponibile resta aperto finché una delle due completa la sincronizzazione.
+
+<!-- poll-recovery-20261119 -->
+
+Dopo un errore interno, l’aggiornamento della sincronizzazione viene ritentato. Un errore su un peer non interrompe più gli aggiornamenti degli altri peer. Il mining richiede ancora un peer verificato di recente: una connessione aperta da sola non basta. All’avvio, il mining sul telefono attende ora la sincronizzazione anziché interrompersi subito. Risolti i blocchi della rete durante la verifica delle prove di connessione e le consultazioni della cronologia. Il mining in background resta attivo.

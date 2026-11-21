@@ -1,6 +1,6 @@
-# SUMUWW Android 0.6.103 · Dokumentation
+# SUMUWW Android 0.7.8 · Dokumentation
 
-SUMUWW Android 0.6.103 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
+SUMUWW Android 0.7.8 · Noden validerar, lagrar, vidarebefordrar och tillhandahåller kedjedata.
 
 ## Nätverk och adresser
 
@@ -51,4 +51,8 @@ Plånbokens filformat, adresser och befintliga mynt har inte ändrats. Den tidig
 
 <!-- /payment-policy-20261116 -->
 
-När noden har fått ett giltigt versionssvar får motparten tid att skicka en bekräftelse. Om två utgående anslutningar leder till samma nod hålls en tillgänglig väg öppen tills synkroniseringen är klar via en av dem. 
+När noden har fått ett giltigt versionssvar får motparten tid att skicka en bekräftelse. Om två utgående anslutningar leder till samma nod hålls en tillgänglig väg öppen tills synkroniseringen är klar via en av dem.
+
+<!-- poll-recovery-20261119 -->
+
+Efter ett internt fel görs ett nytt försök att uppdatera synkroniseringen. Ett fel hos en peer stoppar inte längre uppdateringarna för andra peers. Mining kräver fortfarande en nyligen verifierad peer; en öppen anslutning räcker inte. När utvinning startas på telefonen väntar den nu på synkronisering i stället för att stanna direkt. Nätverksstopp vid verifiering av anslutningsbevis och hämtning av historik har åtgärdats. Utvinning i bakgrunden fortsätter.

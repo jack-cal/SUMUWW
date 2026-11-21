@@ -173,8 +173,8 @@ class ChainQueryTests(unittest.TestCase):
             self.chain.block_locator(b'\x91' * 32)
         self.assertFalse(self.chain.connection.in_transaction)
 
-    def _write_between_tip_and_utxo_reads(self, writer_action):
-        original = self.chain._row
+    def _write_between_tip_and_utxo_reads(self, writer_action, method='_row'):
+        original = getattr(self.chain, method)
         fired = False
 
         def interleave(digest):
@@ -185,7 +185,7 @@ class ChainQueryTests(unittest.TestCase):
                 writer_action()
             return row
 
-        return patch.object(self.chain, '_row', side_effect=interleave)
+        return patch.object(self.chain, method, side_effect=interleave)
 
     def test_info_snapshot_has_consistent_tip_utxo_and_mempool(self):
         writer = self.writer()
@@ -267,8 +267,9 @@ class ChainQueryTests(unittest.TestCase):
     def test_block_template_uses_one_snapshot_during_concurrent_append(self):
         writer = self.writer()
         before_tip = self.chain.tip_hash
-        with self._write_between_tip_and_utxo_reads(lambda: writer.mine(ALICE.script_pubkey)):
+        with self._write_between_tip_and_utxo_reads(lambda: writer.mine(ALICE.script_pubkey), method='_path'):
             template = self.chain.make_block(MINER.script_pubkey)
+        self.assertEqual(101, writer.info()['height'])
         self.assertEqual(before_tip, template.header.previous_hash)
         self.assertFalse(self.chain.connection.in_transaction)
         # A concurrent commit makes this a valid side branch of equal work.

@@ -27,6 +27,7 @@ class MiningActorFairnessTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix='sumuww-fairness-') as folder:
             with Chain(Path(folder)/'node.sqlite', clock=lambda: GENESIS_TIME + 10000) as chain:
                 chain.mine(RegtestKey.from_int(39).script_pubkey, 2048)
+                expected_path = chain._path(chain.tip_hash)
                 stop = threading.Event()
                 errors = []
 
@@ -43,6 +44,7 @@ class MiningActorFairnessTests(unittest.TestCase):
                     started = time.monotonic()
                     self.assertEqual(2048, len(chain.list_utxos()))
                     chain.headers_after(chain.block_locator())
+                    self.assertEqual(expected_path, chain._read_index_path(chain.tip_hash))
                     elapsed = time.monotonic() - started
                     self.assertLess(elapsed, 3, 'Hash worker starved wallet/peer database queries')
                 finally:

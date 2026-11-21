@@ -1,8 +1,8 @@
-# SUMUWW Android 0.6.103 · Nodedrift
+# SUMUWW Android 0.7.8 · Nodedrift
 
 Efter en genstart fortsætter noden fra den sidste blok, den selv har verificeret, og kontrollerer nye blokke. Hvis den gemte verifikation mangler eller ikke stemmer, kontrollerer den den gemte historik igen.
 
-SUMUWW Android 0.6.103 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
+SUMUWW Android 0.7.8 · Noden validerer, gemmer, videresender og stiller kædedata til rådighed.
 
 ## Netværk og adresser
 
@@ -30,4 +30,8 @@ Tegnebogens filformat, adresser og eksisterende mønter er uændrede. Den eksist
 
 <!-- /payment-policy-20261116 -->
 
-Når noden har modtaget et gyldigt versionssvar, får modparten tid til at sende sin bekræftelse. Hvis to udgående forbindelser fører til samme node, holdes en tilgængelig vej åben, indtil synkroniseringen er fuldført via en af dem. 
+Når noden har modtaget et gyldigt versionssvar, får modparten tid til at sende sin bekræftelse. Hvis to udgående forbindelser fører til samme node, holdes en tilgængelig vej åben, indtil synkroniseringen er fuldført via en af dem.
+
+<!-- poll-recovery-20261119 -->
+
+Efter en intern fejl forsøges synkroniseringskontrollen igen. En fejl hos én peer stopper ikke længere kontrollen af andre peers. Mining kræver stadig en peer, der er blevet verificeret for nylig; en åben forbindelse er ikke nok. Ved start venter mining på telefonen nu på synkronisering i stedet for straks at stoppe. Netværksstop under kontrol af forbindelsesbeviser og opslag i historikken er rettet. Mining i baggrunden fortsætter.

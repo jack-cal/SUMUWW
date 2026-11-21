@@ -1,8 +1,8 @@
-# SUMUWW Android 0.6.103 · Uendeshaji wa nodi
+# SUMUWW Android 0.7.8 · Uendeshaji wa nodi
 
 Nodi inapoanzishwa tena, huendelea kutoka kwenye bloku ya mwisho iliyothibitisha kwenye kifaa na hukagua bloku mpya. Ikiwa rekodi ya uthibitishaji haipo au hailingani, nodi hukagua tena historia iliyohifadhiwa.
 
-SUMUWW Android 0.6.103 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
+SUMUWW Android 0.7.8 · Nodi huthibitisha, huhifadhi, husambaza na kuruhusu kusoma data ya mnyororo.
 
 ## Mtandao na anwani
 
@@ -30,4 +30,8 @@ Muundo wa faili za pochi, anwani na sarafu zilizopo havijabadilika. Nakala fiche
 
 <!-- /payment-policy-20261116 -->
 
-Baada ya kupokea jibu halali la toleo, nodi huipa nodi nyingine muda wa kutuma uthibitisho. Ikiwa miunganisho miwili inayotoka inafika kwenye nodi ileile, njia inayopatikana hubaki wazi hadi usawazishaji ukamilike kupitia mojawapo. 
+Baada ya kupokea jibu halali la toleo, nodi huipa nodi nyingine muda wa kutuma uthibitisho. Ikiwa miunganisho miwili inayotoka inafika kwenye nodi ileile, njia inayopatikana hubaki wazi hadi usawazishaji ukamilike kupitia mojawapo.
+
+<!-- poll-recovery-20261119 -->
+
+Usasishaji wa ulandanishi unajaribiwa tena baada ya hitilafu ya ndani. Hitilafu ya nodi moja rika haisimamishi tena masasisho ya nodi nyingine. Uchimbaji bado unahitaji nodi rika iliyothibitishwa hivi karibuni; muunganisho ulio wazi pekee hautoshi. Uchimbaji unapoanzishwa kwenye simu, sasa husubiri ulandanishi ukamilike badala ya kusimama mara moja. Kusimama kwa uchakataji wa mtandao wakati wa kuhakiki uthibitisho wa muunganisho na kuomba historia kumerekebishwa. Uchimbaji wa chinichini unaendelea.
